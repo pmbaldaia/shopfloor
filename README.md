@@ -23,8 +23,5 @@ Na pasta raíz do projeto: "shopfloor"
 1. npm install
 2. npm start
 
-### Contribuição
-Este projeto é aberto para contribuições. Sinta-se à vontade para enviar um pull request com suas alterações.
-
 ### Licença
 Este projeto é licenciado sob a Licença RIOPELE. 
