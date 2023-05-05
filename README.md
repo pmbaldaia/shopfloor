@@ -7,7 +7,7 @@ Shopfloor da confeção é uma aplicação web desenvolvida em React.js e uma AP
 Antes de começar, é preciso ter o Node.js instalado.
 
 ### Clone o repositório
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/pmbaldaia/shopfloor.git
 
 ### Instalando as dependências
 #### PARA INICIAR O FRONTEND:
