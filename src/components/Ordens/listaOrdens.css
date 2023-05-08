@@ -1,5 +1,5 @@
-.ordens {
-  max-width: 100rem;
+/* .ordens {
+  max-width: fit-content;
   font-family: "Montserrat";
 }
 
@@ -38,7 +38,7 @@
 table {
   width: 75rem;
   color: black;
-  margin-left: 18rem;
+  margin-left: 17rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
   border-spacing: 0;
@@ -102,4 +102,24 @@ td span {
   text-decoration: none;
   color: black;
   font-weight: 700;
+}
+ */
+
+ .table-spacing {
+  margin-bottom: 20px;
+}
+
+.table-bordered {
+  border-radius: 10px;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+.imagemOrdem{
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
 }

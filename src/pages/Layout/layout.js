@@ -9,7 +9,7 @@ import {
 import { getTokenDuration } from "../../util/auth";
 import HeaderPage from "../../components/Header/header";
 import SideBar from "../../components/SideBar/sidebar";
-import "./layout";
+import './layout.css';
 
 function RootLayout() {
   //configuracao token
@@ -34,11 +34,20 @@ function RootLayout() {
     }, tokenDuration);
   }, [token, submit]);
 
-  return (
+  /*return  (
     <>
       <div>
         {location.pathname !== "/" && <HeaderPage />}
         {location.pathname !== "/" && <SideBar />}
+        <Outlet />
+      </div>
+    </>
+  ); */
+  return (
+    <>
+      <div className="sidebar">{location.pathname !== "/" && <SideBar />}</div>
+      <div className="main-content">
+        {location.pathname !== "/" && <HeaderPage />}
         <Outlet />
       </div>
     </>

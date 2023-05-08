@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
+import {Table} from "react-bootstrap";
 import { Link, useSubmit /* , useRouteLoaderData */ } from "react-router-dom";
 import AdicionarOrdem from "../Botoes/AdicionarOrdem";
-import classes from "./listaOrdens.module.css";
+import "./listaOrdens.css";
 import {
   ArrowClockwise,
   SortAscending,
@@ -85,7 +86,7 @@ function OrdensList({ ordens }) {
   };
   /* const token = useRouteLoaderData("root"); */
   return (
-    <div className={classes.ordens}>
+    <div>
       <h1>Ordens</h1>
       {/*  {token && <AdicionarOrdem />} */}
       <AdicionarOrdem />
@@ -104,20 +105,20 @@ function OrdensList({ ordens }) {
         onClick={__handleSort}
         cursor="pointer"
       />
-      <table>
-        <thead>
-          <tr>
-            <th key="id">ID</th>
+      <Table bordered striped className="table-spacing">
+      <thead>
+        <tr>
+        <th key="id">ID</th>
             <th key="imagem">IMAGEM</th>
             <th key="produto">PRODUTO</th>
             <th key="prioridade">PRIORIDADE</th>
             <th key="estado">ESTADO</th>
             {/* {token && <th key="acoes">AÇÕES</th>} */}
             <th key="acoes">AÇÕES</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortOrdens.map((ordem) => (
+        </tr>
+      </thead>
+      <tbody>
+      {sortOrdens.map((ordem) => (
             <tr key={ordem.id}>
               <td>
                 <span>{ordem.id}</span>
@@ -126,7 +127,7 @@ function OrdensList({ ordens }) {
                 <span>
                   <img
                     src={ordem.imagem}
-                    className={classes.imagem}
+                    className="imagemOrdem"
                     alt="ImagemProduto"
                   />
                 </span>
@@ -160,7 +161,7 @@ function OrdensList({ ordens }) {
             </tr>
           ))}
         </tbody>
-      </table>
+    </Table>
     </div>
   );
 }
