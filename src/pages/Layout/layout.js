@@ -16,6 +16,7 @@ function RootLayout() {
   const token = useLoaderData();
   const location = useLocation();
   const submit = useSubmit();
+  const isDashboard = window.location.pathname === '/';
 
   useEffect(() => {
     if (!token) {
@@ -33,20 +34,12 @@ function RootLayout() {
       submit(null, { action: "/logout", method: "post" });
     }, tokenDuration);
   }, [token, submit]);
+  
 
-  /*return  (
-    <>
-      <div>
-        {location.pathname !== "/" && <HeaderPage />}
-        {location.pathname !== "/" && <SideBar />}
-        <Outlet />
-      </div>
-    </>
-  ); */
   return (
     <>
-      <div className="sidebar">{location.pathname !== "/" && <SideBar />}</div>
-      <div className="main-content">
+      <div className={isDashboard ? null : 'sidebar'}>{location.pathname !== "/" && <SideBar />}</div>
+      <div className={isDashboard ? 'null' : 'main-content'} >
         {location.pathname !== "/" && <HeaderPage />}
         <Outlet />
       </div>

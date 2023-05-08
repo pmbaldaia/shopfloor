@@ -105,7 +105,7 @@ function OrdensList({ ordens }) {
         onClick={__handleSort}
         cursor="pointer"
       />
-      <Table bordered striped className="table-spacing">
+      <Table bordered striped className="table-spacing"  style={{ marginTop: "0.8em"}}>
       <thead>
         <tr>
         <th key="id">ID</th>
