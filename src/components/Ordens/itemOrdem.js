@@ -1,6 +1,6 @@
 import { Link, /* useRouteLoaderData, */ useSubmit } from "react-router-dom";
 import { Table } from "react-bootstrap";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 function OrdemItem({ ordem }) {
   /* const token = useRouteLoaderData("root"); */
@@ -19,25 +19,24 @@ function OrdemItem({ ordem }) {
       ? "black"
       : "white";
 
-      function startDeleteHandler() {
-        swal({
-          title: "Tem a certeza que quer apagar?",
-          text: "Uma vez apagado, não poderá recuperá-lo.",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-        })
-        .then((Delete) => {
-          if (Delete) {
-            submit({ method: "delete" });
-            swal("Ordem eliminada com sucesso", {
-              icon: "success",
-            });
-          } else {
-            swal("Ordem não apagada");
-          }
+  function startDeleteHandler() {
+    swal({
+      title: "Tem a certeza que quer apagar?",
+      text: "Uma vez apagado, não poderá recuperá-lo.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((Delete) => {
+      if (Delete) {
+        submit({ method: "delete" });
+        swal("Ordem eliminada com sucesso", {
+          icon: "success",
         });
+      } else {
+        swal("Ordem não apagada");
       }
+    });
+  }
 
   return (
     <>
@@ -50,7 +49,7 @@ function OrdemItem({ ordem }) {
         <thead>
           <tr>
             <th>ID</th>
-            <th>IMAGEM</th>
+            <th>QUANTIDADE</th>
             <th>DATA CHEGADA</th>
             <th>DATA PREVISTA ENTREGA</th>
             <th>PRODUTO</th>
@@ -61,13 +60,7 @@ function OrdemItem({ ordem }) {
         <tbody>
           <tr>
             <td>{ordem.ordem_num}</td>
-            <td>
-              <img
-                style={{ width: "20%", height: "20%" }}
-                src={ordem.imagem}
-                alt={ordem.ordem_num}
-              />
-            </td>
+            <td>{ordem.quantidade}</td>
             <td>{ordem.data_chegada}</td>
             <td>{ordem.data_prevista_entrega}</td>
             <td>{ordem.produto}</td>

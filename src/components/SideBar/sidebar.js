@@ -125,10 +125,9 @@ const Sidebar = () => {
 
         <hr
           style={{
-            width: "230px",
-            marginTop: "10em",
-            marginLeft: "30px",
-            marginRight: "30px",
+            width: "180px",
+            marginTop: "7em",
+            marginLeft: "1.5em",
           }}
         ></hr>
         {sidebarNavFooter.map((item, index) => (

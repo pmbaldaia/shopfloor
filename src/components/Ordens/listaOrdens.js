@@ -1,5 +1,6 @@
-import React, {useState, useEffect } from "react";
-import {Table} from "react-bootstrap";
+import React, { useState, useEffect, useRef } from "react";
+import { Table } from "react-bootstrap";
+import Overlay from "react-bootstrap/Overlay";
 import { Link, useSubmit /* , useRouteLoaderData */ } from "react-router-dom";
 import AdicionarOrdem from "../Botoes/AdicionarOrdem";
 import "./listaOrdens.css";
@@ -9,29 +10,28 @@ import {
   ReadCvLogo,
   Pencil,
   Trash,
+  Info,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
 function OrdensList({ ordens }) {
-  function CorPrioridade({ ordem }) {
+  function CorEstado({ ordem }) {
     const backgroundColor =
-      ordem.prioridade === "BAIXA"
-        ? "yellow"
-        : ordem.prioridade === "MÉDIA"
-        ? "orange"
-        : "red";
+      ordem.estado === "EM ATRASO"
+        ? "#F58283"
+        : ordem.estado === "CONCLUÍDO"
+        ? "#70CC7A"
+        : "#FFF";
 
-    const color =
-      ordem.prioridade === "BAIXA"
-        ? "black"
-        : ordem.prioridade === "MÉDIA"
-        ? "black"
-        : "white";
+    const color = ordem.estado === "EM ATRASO" ? "white" : "black";
 
     return { backgroundColor, color };
   }
 
   const submit = useSubmit();
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
+
   /* function startDeleteHandler() {
     swal({
       title: "Tem a certeza que quer apagar?",
@@ -105,40 +105,78 @@ function OrdensList({ ordens }) {
         onClick={__handleSort}
         cursor="pointer"
       />
-      <Table bordered striped className="table-spacing"  style={{ marginTop: "0.8em"}}>
-      <thead>
-        <tr>
-        <th key="id">ID</th>
-            <th key="imagem">IMAGEM</th>
+      <Table bordered className="table-spacing" style={{ color: "#120309" }}>
+        <thead>
+          <tr>
+            <th key="id">ORDEM ID</th>
+            <th key="sap">SAP</th>
+            <th key="sap">ORDEM VENDA</th>
             <th key="produto">PRODUTO</th>
+            <th key="quantidade">QUANTIDADE</th>
+            <th key="liberado">LIBERADO</th>
+            <th key="data_entrega">DATA ENTREGA</th>
             <th key="prioridade">PRIORIDADE</th>
             <th key="estado">ESTADO</th>
             {/* {token && <th key="acoes">AÇÕES</th>} */}
             <th key="acoes">AÇÕES</th>
-        </tr>
-      </thead>
-      <tbody>
-      {sortOrdens.map((ordem) => (
-            <tr key={ordem.id}>
-              <td>
+          </tr>
+        </thead>
+        <tbody>
+          {sortOrdens.map((ordem) => (
+            <tr key={ordem.id} style={CorEstado({ ordem })}>
+              <td className="highlight-text">
                 <span>{ordem.id}</span>
               </td>
-              <td>
+              <td className="highlight-text">
+                <span>{ordem.sap}</span>
+              </td>
+              <td className="highlight-text">
+                <span>{ordem.ordem_producao}</span>
+              </td>
+              <td className="highlight-text-2">
                 <span>
-                  <img
-                    src={ordem.imagem}
-                    className="imagemOrdem"
-                    alt="ImagemProduto"
-                  />
+                  {ordem.produto}{" "}
+                  <Info size={30} ref={target} onClick={() => setShow(!show)} />
+                  <Overlay
+                    target={target.current}
+                    show={show}
+                    placement="right"
+                  >
+                    {({
+                      placement,
+                      arrowProps,
+                      show: _show,
+                      popper,
+                      ...props
+                    }) => (
+                      <div
+                        {...props}
+                        style={{
+                          backgroundColor: "rgba(255, 100, 100, 0.85)",
+                          padding: "2px 10px",
+                          color: "white",
+                          borderRadius: 3,
+                        }}
+                      >
+                        {ordem.descricao}
+                      </div>
+                    )}
+                  </Overlay>
                 </span>
               </td>
-              <td>
-                <span>{ordem.produto}</span>
+              <td className="highlight-text-2">
+                <span>{ordem.quantidade}</span>
               </td>
-              <td style={CorPrioridade({ ordem })}>
-                <span style={CorPrioridade({ ordem })}>{ordem.prioridade}</span>
+              <td className="highlight-text-2">
+                <span>{ordem.liberado}</span>
               </td>
-              <td>
+              <td className="highlight-text-2">
+                <span>{ordem.data_entrega}</span>
+              </td>
+              <td className="highlight-text-2">
+                <span>{ordem.prioridade}</span>
+              </td>
+              <td className="highlight-text">
                 <span>{ordem.estado}</span>
               </td>
               {/* {token && ( */}
@@ -161,7 +199,7 @@ function OrdensList({ ordens }) {
             </tr>
           ))}
         </tbody>
-    </Table>
+      </Table>
     </div>
   );
 }
