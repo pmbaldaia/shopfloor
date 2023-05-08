@@ -1,6 +1,5 @@
 import { Link, /* useRouteLoaderData, */ useSubmit } from "react-router-dom";
 import { Table } from "react-bootstrap";
-import HeaderPage from "../Header/header";
 import swal from 'sweetalert';
 
 function OrdemItem({ ordem }) {
@@ -42,7 +41,6 @@ function OrdemItem({ ordem }) {
 
   return (
     <>
-      <HeaderPage />
       <Table
         striped
         bordered

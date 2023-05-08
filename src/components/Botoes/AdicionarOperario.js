@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 class AdicionarOperario extends React.Component {
   render() {
     const ButtonStyle = {
-      backgroundColor: "#e6e4de",
+      backgroundColor: "#dad7cd",
       color: "#3a5a40",
       fontSize: "14px",
       fontWeight: "600",
