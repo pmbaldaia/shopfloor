@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import "./header.css";
 import { Bell, MagnifyingGlass } from "@phosphor-icons/react";
 import swal from "sweetalert";
+import { ThemeContext } from "../../themeContext";
 
-function HeaderPage({ btnText, onClick }) {
+function HeaderPage() {
   //Barra de pesquisa
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -16,16 +17,10 @@ function HeaderPage({ btnText, onClick }) {
     event.preventDefault();
   };
 
-  
-  //Modo escuro apenas no header, falta corrigir
-  const [isDarkMode, setIsDarkMode] = useState("");
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
-  const handleDarkModeToggle = (checked) => {
-    setIsDarkMode(checked);
-  };
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+  const handleThemeToggle = () => {
+    toggleTheme();
   };
 
   //modal notificação
@@ -34,9 +29,7 @@ function HeaderPage({ btnText, onClick }) {
   };
 
   return (
-    <div
-      className={`header-container ${isDarkMode ? "dark-mode" : " light-mode"}`}
-    >
+    <div className={`header-container ${theme}`}>
       <p>{}</p>
       <div className="header-right">
         <div className="searchBar" onSubmit={handleSearchSubmit}>
@@ -54,9 +47,8 @@ function HeaderPage({ btnText, onClick }) {
         </div>
         <DarkModeSwitch
           className="dark-mode-toggle, toggle-icon"
-          checked={isDarkMode}
-          onChange={handleDarkModeToggle}
-          onClick={toggleDarkMode}
+          checked={theme === "light"}
+          onChange={handleThemeToggle}
           color="#2e5a53"
         />
         <Bell

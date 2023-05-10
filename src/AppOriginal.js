@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./pages/Layout/layout";
 import ErrorPage from "./pages/Errors/Error";
 import Dashboard from "./pages/Dashboard/dashboard";
 import OrdensRootLayout from "./pages/Ordens/rootOrdem";
-import PaginaAutenticacao, {
-  action as authAction,
-} from "./pages/Auth/Autenticacao";
+import PaginaAutenticacao, { action as authAction } from "./pages/Auth/Autenticacao";
 import { action as logoutAction } from "./pages/Auth/Logout";
 import { checkAuthLoader, tokenLoader } from "./util/auth";
 import EditOrdemPage from "./pages/Ordens/editarOrdem.js";
@@ -23,7 +21,6 @@ import Maquinas from "./pages/Maquinas/maquinas";
 import Materiais from "./pages/Materiais/materiais";
 import Sobre from "./pages/Sobre/sobre";
 import Login from "./pages/Login/login";
-import { ThemeProvider } from "./themeContext";
 
 const router = createBrowserRouter([
   {
@@ -103,18 +100,8 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [theme, setTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-  return (
-    <ThemeProvider value={{ theme, toggleTheme }}>
-      <div className={`root ${theme}`}>
-        <RouterProvider router={router} />
-      </div>
-    </ThemeProvider>
-  );
+  return <RouterProvider router={router} />
+    
 }
 
 export default App;

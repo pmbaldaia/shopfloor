@@ -9,14 +9,14 @@ import {
 import { getTokenDuration } from "../../util/auth";
 import HeaderPage from "../../components/Header/header";
 import SideBar from "../../components/SideBar/sidebar";
-import './layout.css';
+import "./layout.css";
 
 function RootLayout() {
   //configuracao token
   const token = useLoaderData();
   const location = useLocation();
   const submit = useSubmit();
-  const isDashboard = window.location.pathname === '/';
+  const isDashboard = window.location.pathname === "/";
 
   useEffect(() => {
     if (!token) {
@@ -34,12 +34,13 @@ function RootLayout() {
       submit(null, { action: "/logout", method: "post" });
     }, tokenDuration);
   }, [token, submit]);
-  
 
   return (
     <>
-      <div className={isDashboard ? null : 'sidebar'}>{location.pathname !== "/" && <SideBar />}</div>
-      <div className={isDashboard ? 'null' : 'main-content'} >
+      <div className={isDashboard ? null : "sidebar"}>
+        {location.pathname !== "/" && <SideBar />}
+      </div>
+      <div className={isDashboard ? "null" : "main-content"}>
         {location.pathname !== "/" && <HeaderPage />}
         <Outlet />
       </div>

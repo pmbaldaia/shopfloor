@@ -80,12 +80,6 @@
   padding-bottom: -2em;
 }
 
-/* light/dark mode */
-.dark-mode {
-  background-color: black;
-  color: #fff;
-}
-
 .icons {
   align-self: center;
   align-content: center;
@@ -100,4 +94,23 @@
 }
 .swal-footer {
   text-align: center;
+}
+
+.dark #root {
+  background-color: white;
+  color: black;
+}
+
+.light #root{
+  background-color: black;
+  color: white;
+}
+.root.light {
+  background-color: white;
+  color: black;
+}
+
+.root.dark{
+  background-color: black;
+  color: white;
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
 .table-spacing {
   margin-bottom: 20px;
@@ -46,17 +46,20 @@
   border: none;
 }
 
-
 .table-bordered th {
   border: none;
   text-align: center;
 }
 
-.highlight-text{
+.highlight-text {
   font-family: "Montserrat";
   font-weight: 800;
 }
-.highlight-text-2{
+.highlight-text-2 {
   font-family: "Montserrat";
   font-weight: 400;
+}
+
+.table {
+  font-size: 13px;
 }

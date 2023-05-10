@@ -150,13 +150,6 @@ return (
       <option value="estado">Ordenar por ESTADO</option>
       <option value="prioridade">Ordenar por PRIORIDADE</option>
     </select>
-      {/* <SortAscending
-        size={28}
-        weight="light"
-        style={{ marginTop: "0.8em", marginLeft: "0.6em" }}
-        onClick={__handleSort}
-        cursor="pointer"
-      /> */}
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
           <tr>

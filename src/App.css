@@ -51,3 +51,24 @@ h1 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+
+.dark #root {
+  background-color: white;
+  color: black;
+}
+
+.light #root{
+  background-color: black;
+  color: white;
+}
+
+.root.light {
+  background-color: white;
+  color: black;
+}
+
+.root.dark{
+  background-color: black;
+  color: white;
+}
