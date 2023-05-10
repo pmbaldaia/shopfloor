@@ -63,3 +63,34 @@
 .table {
   font-size: 13px;
 }
+
+.spacing{
+  margin-left: 1em;
+}
+
+.filterBar{
+  width: 14em;
+  height: 2em;
+  margin-left: 1em;
+  padding-left: 1em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 1.625rem;
+  padding-right: 10px;
+  background-color: #A3B18A;
+  opacity: 0.5;
+}
+
+.searchBarFunc{
+  width: 14em;
+  height: 2em;
+  margin-left: 1em;
+  padding-left: 1em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 1.625rem;
+  padding-right: 10px;
+  background-color: #A3B18A;
+  color: black;
+  opacity: 0.5;
+}

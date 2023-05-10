@@ -3,6 +3,7 @@ import { Table } from "react-bootstrap";
 import Overlay from "react-bootstrap/Overlay";
 import { Link, useSubmit /* , useRouteLoaderData */ } from "react-router-dom";
 import AdicionarOrdem from "../Botoes/AdicionarOrdem";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import "./listaOrdens.css";
 import {
   ArrowClockwise,
@@ -30,25 +31,6 @@ function OrdensList({ ordens }) {
   const submit = useSubmit();
   const [show, setShow] = useState(false);
   const target = useRef(null);
-
-  /* function startDeleteHandler() {
-    swal({
-      title: "Tem a certeza que quer apagar?",
-      text: "Uma vez apagado, não poderá recuperá-lo.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        submit({ method: "delete" });
-        swal("Ordem eliminada com sucesso", {
-          icon: "success",
-        });
-      } else {
-        swal("Ordem não apagada");
-      }
-    });
-  } */
   function startDeleteHandler() {
     swal({
       title: "Tem a certeza que quer apagar?",
@@ -70,86 +52,119 @@ function OrdensList({ ordens }) {
   }
 
   const [sortOrdens, setSortOrdens] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     setSortOrdens([...ordens]);
   }, [ordens]);
 
+  useEffect(() => {
+    const filteredOrdens = ordens.filter(
+      (ordem) =>
+        ordem.id.includes(searchQuery) ||
+        ordem.sap.includes(searchQuery) ||
+        ordem.ordem_producao.includes(searchQuery)
+    );
+    setSortOrdens(filteredOrdens);
+  }, [searchQuery, ordens]);
+
   function __refresh() {
-    window.location.reload(false);
+    const updatedData = setSortOrdens(ordens); // Lógica para buscar os dados atualizados das ordens
+    setSortOrdens(updatedData); // Atualiza o estado das ordens com os dados atualizados
   }
 
-//Código do ordenar por ID da ordem
-const __handleSortID = () => {
-  const sortedOrdens = [...sortOrdens].sort((a, b) => a.id - b.id);
-  setSortOrdens(sortedOrdens);
-};
+  //Código do ordenar por ID da ordem
+  const __handleSortID = () => {
+    const sortedOrdens = [...sortOrdens].sort((a, b) => a.id - b.id);
+    setSortOrdens(sortedOrdens);
+  };
 
-//Código do ordenar por PRIORIDADE
-const __handleSortPrioridade = () => {
-  const sortedOrdens = [...sortOrdens].sort((a, b) => {
-    const prioridadeOrder = {
-      ALTA: 1,
-      MÉDIA: 2,
-      BAIXA: 3,
-    };
+  //Código do ordenar por PRIORIDADE
+  const __handleSortPrioridade = () => {
+    const sortedOrdens = [...sortOrdens].sort((a, b) => {
+      const prioridadeOrder = {
+        ALTA: 1,
+        MÉDIA: 2,
+        BAIXA: 3,
+      };
 
-    if (prioridadeOrder[a.prioridade] < prioridadeOrder[b.prioridade]) return -1;
-    if (prioridadeOrder[a.prioridade] > prioridadeOrder[b.prioridade]) return 1;
-    return 0;
-  });
+      if (prioridadeOrder[a.prioridade] < prioridadeOrder[b.prioridade])
+        return -1;
+      if (prioridadeOrder[a.prioridade] > prioridadeOrder[b.prioridade])
+        return 1;
+      return 0;
+    });
 
-  setSortOrdens(sortedOrdens);
-};
+    setSortOrdens(sortedOrdens);
+  };
 
-//Código para ordenar por EM ATRASO e colocar os concluídos no fim
-const __handleSortEstado = () => {
-  const sortedOrdens = [...sortOrdens].sort((a, b) => {
-    if (a.estado === "EM ATRASO" && b.estado !== "EM ATRASO") return -1;
-    if (a.estado !== "EM ATRASO" && b.estado === "EM ATRASO") return 1;
-    if (a.estado === "CONCLUÍDO" && b.estado !== "CONCLUÍDO") return 1;
-    if (a.estado !== "CONCLUÍDO" && b.estado === "CONCLUÍDO") return -1;
-    if (a.estado < b.estado) return -1;
-    if (a.estado > b.estado) return 1;
-    return 0;
-  });
-  setSortOrdens(sortedOrdens);
-};
+  //Código para ordenar por EM ATRASO e colocar os concluídos no fim
+  const __handleSortEstado = () => {
+    const sortedOrdens = [...sortOrdens].sort((a, b) => {
+      if (a.estado === "EM ATRASO" && b.estado !== "EM ATRASO") return -1;
+      if (a.estado !== "EM ATRASO" && b.estado === "EM ATRASO") return 1;
+      if (a.estado === "CONCLUÍDO" && b.estado !== "CONCLUÍDO") return 1;
+      if (a.estado !== "CONCLUÍDO" && b.estado === "CONCLUÍDO") return -1;
+      if (a.estado < b.estado) return -1;
+      if (a.estado > b.estado) return 1;
+      return 0;
+    });
+    setSortOrdens(sortedOrdens);
+  };
 
-const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState("");
 
-// Capturar a opção selecionada
-const handleSelectChange = (event) => {
-  setSelectedOption(event.target.value);
+  // Capturar a opção selecionada
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
 
-  if (event.target.value === 'id') {
-    __handleSortID();
-  } else if (event.target.value === 'estado') {
-    __handleSortEstado();
-  } else if (event.target.value === 'prioridade') {
-    __handleSortPrioridade();
-  }
-};
+    if (event.target.value === "id") {
+      __handleSortID();
+    } else if (event.target.value === "estado") {
+      __handleSortEstado();
+    } else if (event.target.value === "prioridade") {
+      __handleSortPrioridade();
+    }
+  };
 
-/* const token = useRouteLoaderData("root"); */
-return (
-  <div>
-    <h1>Ordens</h1>
-    {/*  {token && <AdicionarOrdem />} */}
-    <AdicionarOrdem />
-    <ArrowClockwise
-      size={28}
-      weight="light"
-      /* style={{ marginTop: "0.8em", marginLeft: "0.6em" }} */
-      onClick={__refresh}
-      cursor="pointer"
-    />
-    <select value={selectedOption} onChange={handleSelectChange} style={{ marginTop: "1em", marginLeft: "0.8em" }}>
-      <option value="">Selecione uma opção</option>
-      <option value="id">Ordenar por ID ORDEM</option>
-      <option value="estado">Ordenar por ESTADO</option>
-      <option value="prioridade">Ordenar por PRIORIDADE</option>
-    </select>
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+  /* const token = useRouteLoaderData("root"); */
+  return (
+    <div>
+      <h1>Ordens</h1>
+      {/*  {token && <AdicionarOrdem />} */}
+      <AdicionarOrdem />
+      <ArrowClockwise
+        size={28}
+        weight="light"
+        /* style={{ marginTop: "0.8em", marginLeft: "0.6em" }} */
+        onClick={__refresh}
+        cursor="pointer"
+        className="spacing"
+      />
+      <select
+        value={selectedOption}
+        className="spacing, filterBar"
+        onChange={handleSelectChange}
+        style={{ marginTop: "1em", marginLeft: "0.8em" }}
+      >
+        <option value="">Selecione uma opção</option>
+        <option value="id">Ordenar por ID ORDEM</option>
+        <option value="estado">Ordenar por ESTADO</option>
+        <option value="prioridade">Ordenar por PRIORIDADE</option>
+      </select>
+      <input
+        type="text"
+        value={searchQuery}
+        className="spacing, searchBarFunc"
+        onChange={handleSearchChange}
+        placeholder="ID | SAP | VENDA"
+      />
+      <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+            <MagnifyingGlass size={24} color="#2e5a53" />
+          </button>
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
           <tr>
@@ -172,10 +187,10 @@ return (
               <td className="highlight-text">
                 <span>{ordem.id}</span>
               </td>
-              <td className="highlight-text">
+              <td className="highlight-text-2">
                 <span>{ordem.sap}</span>
               </td>
-              <td className="highlight-text">
+              <td className="highlight-text-2">
                 <span>{ordem.ordem_producao}</span>
               </td>
               <td className="highlight-text-2">

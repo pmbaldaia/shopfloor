@@ -96,12 +96,21 @@
   text-align: center;
 }
 
-.header-container.light {
+.dark #root {
   background-color: white;
   color: black;
 }
 
-.header-container.dark{
+.light #root{
+  background-color: black;
+  color: white;
+}
+.root.light {
+  background-color: white;
+  color: black;
+}
+
+.root.dark{
   background-color: black;
   color: white;
 }
