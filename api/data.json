@@ -3,10 +3,10 @@
     {
       "id": "51345",
       "sap": "1000012346",
-      "ordem_producao": "0036010404",
+      "ordem_producao": "003601040",
       "produto": "Calções",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "132",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -14,12 +14,12 @@
       "estado": "EM PROGRESSO"
     },
     {
-      "id": "51346",
-      "sap": "1000012347",
-      "ordem_producao": "0036010405",
-      "produto": "Calções",
+      "id": "15251",
+      "sap": "1000012341",
+      "ordem_producao": "003601090",
+      "produto": "Vestido",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "32",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -27,9 +27,9 @@
       "estado": "EM ATRASO"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
+      "id": "24363",
+      "sap": "1000012342",
+      "ordem_producao": "003603000",
       "produto": "Calções",
       "descricao": "WP001 - Calções XPO ON FIRE ",
       "quantidade": "500",
@@ -40,12 +40,12 @@
       "estado": "CONCLUÍDO"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
-      "produto": "Calções",
+      "id": "64645",
+      "sap": "1000012343",
+      "ordem_producao": "003609041",
+      "produto": "Calças",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "100",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -53,12 +53,12 @@
       "estado": "PENDENTE"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
-      "produto": "Calções",
+      "id": "12345",
+      "sap": "1000012344",
+      "ordem_producao": "003600523",
+      "produto": "Calças",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "33",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -66,12 +66,12 @@
       "estado": "PENDENTE"
     },
     {
-      "id": "51345",
+      "id": "63433",
       "sap": "1000012345",
-      "ordem_producao": "0036010403",
-      "produto": "Calções",
+      "ordem_producao": "003603453",
+      "produto": "Saias",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "50",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -79,12 +79,12 @@
       "estado": "EM PROGRESSO"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
-      "produto": "Calções",
+      "id": "17325",
+      "sap": "1000012395",
+      "ordem_producao": "003605454",
+      "produto": "Casacos",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "43",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -92,12 +92,12 @@
       "estado": "PENDENTE"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
+      "id": "14234",
+      "sap": "1000012445",
+      "ordem_producao": "003645353",
       "produto": "Calções",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "320",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -105,12 +105,12 @@
       "estado": "EM PROGRESSO"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
+      "id": "17324",
+      "sap": "1000019545",
+      "ordem_producao": "003641234",
       "produto": "Calções",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "123",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -118,12 +118,12 @@
       "estado": "EM PROGRESSO"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
+      "id": "63451",
+      "sap": "1000017245",
+      "ordem_producao": "003601245",
       "produto": "Calções",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "76",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -131,12 +131,12 @@
       "estado": "CONCLUÍDO"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
+      "id": "17344",
+      "sap": "1000012435",
+      "ordem_producao": "003651464",
       "produto": "Calções",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "215",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -144,12 +144,12 @@
       "estado": "EM ATRASO"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
-      "produto": "Calções",
+      "id": "62345",
+      "sap": "1000098845",
+      "ordem_producao": "003656575",
+      "produto": "Calças",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "40",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -157,9 +157,9 @@
       "estado": "EM ATRASO"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
+      "id": "82453",
+      "sap": "1000018885",
+      "ordem_producao": "003601052",
       "produto": "Calções",
       "descricao": "WP001 - Calções XPO ON FIRE ",
       "quantidade": "500",
@@ -170,12 +170,12 @@
       "estado": "PENDENTE"
     },
     {
-      "id": "51345",
-      "sap": "1000012345",
-      "ordem_producao": "0036010403",
-      "produto": "Calções",
+      "id": "82433",
+      "sap": "1000010945",
+      "ordem_producao": "003601040",
+      "produto": "Chapéus",
       "descricao": "WP001 - Calções XPO ON FIRE ",
-      "quantidade": "500",
+      "quantidade": "20",
       "liberado": "2023-04-15",
       "data_emissao": "2023-04-10",
       "data_entrega": "2023-05-05",
@@ -186,26 +186,15 @@
 
   "operarios": [
     {
-      "operario_num": "Ordem 1",
-      "imagem": "https://cdn.pixabay.com/photo/2017/05/28/18/38/t-shirt-2351761_1280.jpg",
-      "data_emissao": "2023-04-10",
-      "data_entrega": "2023-05-05",
-      "descricao": "WP001 - Calções XPO ON FIRE",
-      "produto": "Calções",
-      "prioridade": "BAIXA",
-      "estado": "EM PROGRESSO",
-      "id": "1"
+      "id": "123",
+      "nome_func": "Ana Justina Pinto",
+      "tarefas": {}
+      
     },
     {
-      "id": "Ordem 5",
-      "imagem": "https://cdn.pixabay.com/photo/2019/10/20/16/57/loom-4564223_1280.jpg",
-      "data_emissao": "2023-04-10",
-      "data_entrega": "2023-05-05",
-      "descricao": "WP001 - Calças",
-      "produto": "Casacos",
-      "prioridade": "ALTA",
-      "estado": "PENDENTE",
-      "id": "5"
+      "id": "512",
+      "nome_fun": "Sofia Maria Sousa",
+      "tarefas": {}
     }
   ],
   "users": [

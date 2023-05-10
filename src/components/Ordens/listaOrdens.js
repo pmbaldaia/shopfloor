@@ -6,7 +6,6 @@ import AdicionarOrdem from "../Botoes/AdicionarOrdem";
 import "./listaOrdens.css";
 import {
   ArrowClockwise,
-  SortAscending,
   ReadCvLogo,
   Pencil,
   Trash,
@@ -80,31 +79,84 @@ function OrdensList({ ordens }) {
     window.location.reload(false);
   }
 
-  const __handleSort = () => {
-    const sortedOrdens = [...sortOrdens].sort((a, b) => a.id - b.id);
-    setSortOrdens(sortedOrdens);
-  };
-  /* const token = useRouteLoaderData("root"); */
-  return (
-    <div>
-      <h1>Ordens</h1>
-      {/*  {token && <AdicionarOrdem />} */}
-      <AdicionarOrdem />
-      <ArrowClockwise
-        size={28}
-        weight="light"
-        style={{ marginTop: "0.8em", marginLeft: "0.6em" }}
-        onClick={__refresh}
-        cursor="pointer"
-      />
-      &nbsp;
-      <SortAscending
+//Código do ordenar por ID da ordem
+const __handleSortID = () => {
+  const sortedOrdens = [...sortOrdens].sort((a, b) => a.id - b.id);
+  setSortOrdens(sortedOrdens);
+};
+
+//Código do ordenar por PRIORIDADE
+const __handleSortPrioridade = () => {
+  const sortedOrdens = [...sortOrdens].sort((a, b) => {
+    const prioridadeOrder = {
+      ALTA: 1,
+      MÉDIA: 2,
+      BAIXA: 3,
+    };
+
+    if (prioridadeOrder[a.prioridade] < prioridadeOrder[b.prioridade]) return -1;
+    if (prioridadeOrder[a.prioridade] > prioridadeOrder[b.prioridade]) return 1;
+    return 0;
+  });
+
+  setSortOrdens(sortedOrdens);
+};
+
+//Código para ordenar por EM ATRASO e colocar os concluídos no fim
+const __handleSortEstado = () => {
+  const sortedOrdens = [...sortOrdens].sort((a, b) => {
+    if (a.estado === "EM ATRASO" && b.estado !== "EM ATRASO") return -1;
+    if (a.estado !== "EM ATRASO" && b.estado === "EM ATRASO") return 1;
+    if (a.estado === "CONCLUÍDO" && b.estado !== "CONCLUÍDO") return 1;
+    if (a.estado !== "CONCLUÍDO" && b.estado === "CONCLUÍDO") return -1;
+    if (a.estado < b.estado) return -1;
+    if (a.estado > b.estado) return 1;
+    return 0;
+  });
+  setSortOrdens(sortedOrdens);
+};
+
+const [selectedOption, setSelectedOption] = useState('');
+
+// Capturar a opção selecionada
+const handleSelectChange = (event) => {
+  setSelectedOption(event.target.value);
+
+  if (event.target.value === 'id') {
+    __handleSortID();
+  } else if (event.target.value === 'estado') {
+    __handleSortEstado();
+  } else if (event.target.value === 'prioridade') {
+    __handleSortPrioridade();
+  }
+};
+
+/* const token = useRouteLoaderData("root"); */
+return (
+  <div>
+    <h1>Ordens</h1>
+    {/*  {token && <AdicionarOrdem />} */}
+    <AdicionarOrdem />
+    <ArrowClockwise
+      size={28}
+      weight="light"
+      /* style={{ marginTop: "0.8em", marginLeft: "0.6em" }} */
+      onClick={__refresh}
+      cursor="pointer"
+    />
+    <select value={selectedOption} onChange={handleSelectChange} style={{ marginTop: "1em", marginLeft: "0.8em" }}>
+      <option value="">Selecione uma opção</option>
+      <option value="id">Ordenar por ID ORDEM</option>
+      <option value="estado">Ordenar por ESTADO</option>
+      <option value="prioridade">Ordenar por PRIORIDADE</option>
+    </select>
+      {/* <SortAscending
         size={28}
         weight="light"
         style={{ marginTop: "0.8em", marginLeft: "0.6em" }}
         onClick={__handleSort}
         cursor="pointer"
-      />
+      /> */}
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
           <tr>
