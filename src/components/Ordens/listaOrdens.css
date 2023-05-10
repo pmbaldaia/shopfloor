@@ -64,33 +64,64 @@
   font-size: 13px;
 }
 
+.head{
+  margin-bottom: 2.5em;
+}
+
+.iconRefresh{
+  margin-top: 0.8em;
+  margin-left: 1em;
+}
+
 .spacing{
   margin-left: 1em;
 }
+.filterBarOrdem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 3em;
+}
 
-.filterBar{
-  width: 14em;
+.filterBarOrdem-item {
+  margin-right: 10px;
+  padding: 0;
+}
+
+.dataEntregaFunc{
+  width: 13em;
   height: 2em;
   margin-left: 1em;
-  padding-left: 1em;
+  padding-left: 0.6em;
   flex-direction: row;
   align-items: center;
-  border-radius: 1.625rem;
-  padding-right: 10px;
-  background-color: #A3B18A;
-  opacity: 0.5;
+  border-radius: 0.3rem;
+  background-color: #ECF0ED;
+  border: 2px solid #A3B18A;
+  color: black;
+}
+.filterBar{
+  width: 13em;
+  height: 2em;
+  margin-left: 1em;
+  padding-left: 0.3em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0.3rem;
+  background-color: #ECF0ED;
+  border: 2px solid #A3B18A;
 }
 
 .searchBarFunc{
-  width: 14em;
+  width: 50em;
   height: 2em;
   margin-left: 1em;
-  padding-left: 1em;
+  padding-left: 0.6em;
   flex-direction: row;
   align-items: center;
   border-radius: 1.625rem;
-  padding-right: 10px;
-  background-color: #A3B18A;
+  background-color: #ECF0ED;
+  border: 2px solid #A3B18A;
   color: black;
-  opacity: 0.5;
 }
+

@@ -3,7 +3,10 @@ import { Table } from "react-bootstrap";
 import Overlay from "react-bootstrap/Overlay";
 import { Link, useSubmit /* , useRouteLoaderData */ } from "react-router-dom";
 import AdicionarOrdem from "../Botoes/AdicionarOrdem";
-import { MagnifyingGlass } from "@phosphor-icons/react";
+import { MagnifyingGlass, Calendar } from "@phosphor-icons/react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import "./listaOrdens.css";
 import {
   ArrowClockwise,
@@ -53,20 +56,32 @@ function OrdensList({ ordens }) {
 
   const [sortOrdens, setSortOrdens] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
     setSortOrdens([...ordens]);
   }, [ordens]);
 
   useEffect(() => {
-    const filteredOrdens = ordens.filter(
-      (ordem) =>
-        ordem.id.includes(searchQuery) ||
-        ordem.sap.includes(searchQuery) ||
-        ordem.ordem_producao.includes(searchQuery)
-    );
+    const filteredOrdens = ordens.filter((ordem) => {
+      const searchData = searchQuery.toLowerCase();
+      const dataEntrega = ordem.data_entrega.toLowerCase();
+
+      // Filter by id, sap, ordem_producao, and data_entrega
+      return (
+        (ordem.id.includes(searchData) ||
+          ordem.sap.includes(searchData) ||
+          ordem.ordem_producao.includes(searchData) ||
+          dataEntrega.includes(searchData)) &&
+        (selectedDate
+          ? new Date(ordem.data_entrega).toDateString() ===
+            selectedDate.toDateString()
+          : true)
+      );
+    });
+
     setSortOrdens(filteredOrdens);
-  }, [searchQuery, ordens]);
+  }, [searchQuery, ordens, selectedDate]);
 
   function __refresh() {
     const updatedData = setSortOrdens(ordens); // Lógica para buscar os dados atualizados das ordens
@@ -132,39 +147,71 @@ function OrdensList({ ordens }) {
   };
   /* const token = useRouteLoaderData("root"); */
   return (
-    <div>
-      <h1>Ordens</h1>
-      {/*  {token && <AdicionarOrdem />} */}
-      <AdicionarOrdem />
-      <ArrowClockwise
-        size={28}
-        weight="light"
-        /* style={{ marginTop: "0.8em", marginLeft: "0.6em" }} */
-        onClick={__refresh}
-        cursor="pointer"
-        className="spacing"
-      />
-      <select
-        value={selectedOption}
-        className="spacing, filterBar"
-        onChange={handleSelectChange}
-        style={{ marginTop: "1em", marginLeft: "0.8em" }}
-      >
-        <option value="">Selecione uma opção</option>
-        <option value="id">Ordenar por ID ORDEM</option>
-        <option value="estado">Ordenar por ESTADO</option>
-        <option value="prioridade">Ordenar por PRIORIDADE</option>
-      </select>
-      <input
-        type="text"
-        value={searchQuery}
-        className="spacing, searchBarFunc"
-        onChange={handleSearchChange}
-        placeholder="ID | SAP | VENDA"
-      />
-      <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
-            <MagnifyingGlass size={24} color="#2e5a53" />
-          </button>
+    <>
+      <div className="head">
+        <h1>Ordens</h1>
+        <ArrowClockwise
+          size={28}
+          weight="light"
+          onClick={__refresh}
+          cursor="pointer"
+          className="iconRefresh"
+        />
+        {/*  {token && <AdicionarOrdem />} */}
+        <AdicionarOrdem />
+      </div>
+      <div className="filterBarOrdem">
+        <DatePicker
+          selected={selectedDate}
+          className="filterBarOrdem-item dataEntregaFunc"
+          onChange={(date) => setSelectedDate(date)}
+          dateFormat="dd/MM/yyyy"
+          placeholderText="DATA DA ENTREGA"
+          customInput={
+            <div style={{ justifyContent: "center" }}>
+              {selectedDate && (
+                <span style={{
+                  fontFamily: "Montserrat",
+                  fontSize: "15px"
+                }}>
+                  {selectedDate.toLocaleDateString()}
+                </span>
+              )}
+              <Calendar
+                size={27}
+                color="#2e5a53"
+                style={{ float: "right", paddingRight: "10px" }}
+              />
+            </div>
+          }
+        />
+
+        <select
+          value={selectedOption}
+          className="filterBarOrdem-item, filterBar"
+          onChange={handleSelectChange}
+          style={{
+            fontFamily: "Montserrat",
+            fontSize: "15px"
+          }}
+        >
+          <option value="">Selecione uma opção</option>
+          <option value="id">Ordenar por ID ORDEM</option>
+          <option value="estado">Ordenar por ESTADO</option>
+          <option value="prioridade">Ordenar por PRIORIDADE</option>
+        </select>
+        <input
+          type="text"
+          value={searchQuery}
+          className="filterBarOrdem-item, searchBarFunc"
+          onChange={handleSearchChange}
+          placeholder="ID | SAP | VENDA"
+        />
+        <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+          <MagnifyingGlass size={24} color="#2e5a53" />
+        </button>
+      </div>
+
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
           <tr>
@@ -260,7 +307,7 @@ function OrdensList({ ordens }) {
           ))}
         </tbody>
       </Table>
-    </div>
+    </>
   );
 }
 export default OrdensList;
