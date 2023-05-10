@@ -188,13 +188,20 @@
     {
       "id": "123",
       "nome_func": "Ana Justina Pinto",
-      "tarefas": {}
+      "tarefas": "Tarefa 1"
       
     },
     {
-      "id": "512",
-      "nome_fun": "Sofia Maria Sousa",
-      "tarefas": {}
+      "id": "412",
+      "nome_func": "Sofia Maria Sousa",
+      "tarefas": "Tarefa 3"
+      
+    },
+    {
+      "id": "141",
+      "nome_func": "Ana Sofia Sardinha",
+      "tarefas": "Tarefa 2"
+      
     }
   ],
   "users": [

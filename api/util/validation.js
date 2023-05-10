@@ -31,8 +31,15 @@ function isValidText(value, minLength = 1) {
 function isValidEmail(value) {
   return value && value.includes("@");
 }
-
+function isValidNome(value) {
+  return value && value.includes(" ");
+}
+function isValidTarefa(value){
+  return value && value.includes(" ");
+}
 exports.isValidOperarioNum = isValidOperarioNum;
+exports.isValidTarefa = isValidTarefa; 
+exports.isValidNome = isValidNome;
 exports.isValidAvatarUrl = isValidAvatarUrl;
 exports.isValidOrdemNum = isValidOrdemNum;
 exports.isValidImagemUrl = isValidImagemUrl;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Outlet,
   useLoaderData,
@@ -10,6 +10,7 @@ import { getTokenDuration } from "../../util/auth";
 import HeaderPage from "../../components/Header/header";
 import SideBar from "../../components/SideBar/sidebar";
 import "./layout.css";
+import { ThemeProvider } from "../../themeContext";
 
 function RootLayout() {
   //configuracao token
@@ -35,15 +36,27 @@ function RootLayout() {
     }, tokenDuration);
   }, [token, submit]);
 
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
   return (
     <>
-      <div className={isDashboard ? null : "sidebar"}>
-        {location.pathname !== "/" && <SideBar />}
-      </div>
-      <div className={isDashboard ? "null" : "main-content"}>
-        {location.pathname !== "/" && <HeaderPage />}
-        <Outlet />
-      </div>
+      <ThemeProvider value={{ theme, toggleTheme }}>
+        <div className={`root ${theme}`}>
+          {" "}
+          */
+          <div className={isDashboard ? null : "sidebar"}>
+            {location.pathname !== "/" && <SideBar />}
+          </div>
+          <div className={isDashboard ? "null" : "main-content"}>
+            {location.pathname !== "/" && <HeaderPage />}
+            <Outlet />
+          </div>
+        </div>
+      </ThemeProvider>
     </>
   );
 }
