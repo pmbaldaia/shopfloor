@@ -1,6 +1,7 @@
 import { Link, /* useRouteLoaderData, */ useSubmit } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import swal from "sweetalert";
+import { Pencil, Trash } from "@phosphor-icons/react";
 
 function OrdemItem({ ordem }) {
   /* const token = useRouteLoaderData("root"); */
@@ -40,40 +41,43 @@ function OrdemItem({ ordem }) {
 
   return (
     <>
-      <Table
-        striped
-        bordered
-        hover
-        style={{ width: "75rem", marginLeft: "18rem" }}
-      >
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>ID</th>
             <th>QUANTIDADE</th>
-            <th>DATA CHEGADA</th>
-            <th>DATA PREVISTA ENTREGA</th>
+            <th>LIBERADO</th>
+            <th>DATA ENTREGA</th>
             <th>PRODUTO</th>
             <th>PRIORIDADE</th>
             <th>ESTADO</th>
+            <th>AÇÕES</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{ordem.ordem_num}</td>
+            <td>{ordem.id}</td>
             <td>{ordem.quantidade}</td>
-            <td>{ordem.data_chegada}</td>
-            <td>{ordem.data_prevista_entrega}</td>
+            <td>{ordem.liberado}</td>
+            <td>{ordem.data_entrega}</td>
             <td>{ordem.produto}</td>
             <td style={{ backgroundColor, color }}>{ordem.prioridade}</td>
             <td>{ordem.estado}</td>
+            {/* {token && ( */}
+            <td>
+              <span>
+                <Link to="editar">
+                  <Pencil size={28} weight="light" />
+                </Link>
+                &nbsp; &nbsp;
+                <Link onClick={startDeleteHandler}>
+                  <Trash size={28} weight="light" />
+                </Link>
+              </span>
+            </td>
+            {/* )} */}
           </tr>
         </tbody>
-        {/* {token && ( */}
-        <menu>
-          <Link to="editar">Editar</Link>
-          <button onClick={startDeleteHandler}>Apagar</button>
-        </menu>
-        {/* )} */}
       </Table>
     </>
   );

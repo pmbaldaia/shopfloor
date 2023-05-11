@@ -15,7 +15,7 @@ export async function action({ request }) {
     pass_func: data.get("pass_func"),
   };
 
-  const response = await fetch("http://your-backend-endpoint.com/login", {
+  const response = await fetch('http://localhost:8080/login', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

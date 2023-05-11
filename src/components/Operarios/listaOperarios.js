@@ -53,9 +53,9 @@ function OperariosList({ operarios }) {
       <ArrowClockwise
         size={28}
         weight="light"
-        /* style={{ marginTop: "0.8em", marginLeft: "0.6em" }} */
         onClick={__refresh}
         cursor="pointer"
+        className="iconRefresh"
       />
 
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>

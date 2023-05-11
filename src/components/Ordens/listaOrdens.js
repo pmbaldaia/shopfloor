@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
-import Overlay from "react-bootstrap/Overlay";
 import { Link, useSubmit /* , useRouteLoaderData */ } from "react-router-dom";
 import AdicionarOrdem from "../Botoes/AdicionarOrdem";
-import { MagnifyingGlass, Calendar } from "@phosphor-icons/react";
+import { MagnifyingGlass, Calendar, Info } from "@phosphor-icons/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import OrdensComponent from "../Overlays/overlay";
 
 import "./listaOrdens.css";
 import {
@@ -13,7 +13,6 @@ import {
   ReadCvLogo,
   Pencil,
   Trash,
-  Info,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
@@ -32,8 +31,6 @@ function OrdensList({ ordens }) {
   }
 
   const submit = useSubmit();
-  const [show, setShow] = useState(false);
-  const target = useRef(null);
   function startDeleteHandler() {
     swal({
       title: "Tem a certeza que quer apagar?",
@@ -84,8 +81,7 @@ function OrdensList({ ordens }) {
   }, [searchQuery, ordens, selectedDate]);
 
   function __refresh() {
-    const updatedData = setSortOrdens(ordens); // Lógica para buscar os dados atualizados das ordens
-    setSortOrdens(updatedData); // Atualiza o estado das ordens com os dados atualizados
+    window.location.reload(false);
   }
 
   //Código do ordenar por ID da ordem
@@ -145,6 +141,7 @@ function OrdensList({ ordens }) {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
+
   /* const token = useRouteLoaderData("root"); */
   return (
     <>
@@ -170,10 +167,12 @@ function OrdensList({ ordens }) {
           customInput={
             <div style={{ justifyContent: "center" }}>
               {selectedDate && (
-                <span style={{
-                  fontFamily: "Montserrat",
-                  fontSize: "15px"
-                }}>
+                <span
+                  style={{
+                    fontFamily: "Montserrat",
+                    fontSize: "15px",
+                  }}
+                >
                   {selectedDate.toLocaleDateString()}
                 </span>
               )}
@@ -192,7 +191,7 @@ function OrdensList({ ordens }) {
           onChange={handleSelectChange}
           style={{
             fontFamily: "Montserrat",
-            fontSize: "15px"
+            fontSize: "15px",
           }}
         >
           <option value="">Selecione uma opção</option>
@@ -241,35 +240,12 @@ function OrdensList({ ordens }) {
                 <span>{ordem.ordem_producao}</span>
               </td>
               <td className="highlight-text-2">
-                <span>
-                  {ordem.produto}{" "}
-                  <Info size={30} ref={target} onClick={() => setShow(!show)} />
-                  <Overlay
-                    target={target.current}
-                    show={show}
-                    placement="right"
-                  >
-                    {({
-                      placement,
-                      arrowProps,
-                      show: _show,
-                      popper,
-                      ...props
-                    }) => (
-                      <div
-                        {...props}
-                        style={{
-                          backgroundColor: "rgba(255, 100, 100, 0.85)",
-                          padding: "2px 10px",
-                          color: "white",
-                          borderRadius: 3,
-                        }}
-                      >
-                        {ordem.descricao}
-                      </div>
-                    )}
-                  </Overlay>
-                </span>
+                <OrdensComponent descricao={ordem.descricao}>
+                  <span>
+                    {ordem.produto}
+                    <Info size={20} className="mx-1" />
+                  </span>
+                </OrdensComponent>
               </td>
               <td className="highlight-text-2">
                 <span>{ordem.quantidade}</span>
