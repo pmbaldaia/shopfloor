@@ -1,0 +1,203 @@
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { Navigate, Route, Routes } from "react-router-dom";
+import AppLayout from "./pages/Layout/layout";
+import Dashboard from "./pages/Dashboard/dashboard";
+
+//ordens
+import OrdensRootLayout from "./pages/Ordens/rootOrdem";
+import EditOrdemPage from "./pages/Ordens/editarOrdem.js";
+import OrdemDetailPage from "./pages/Ordens/detalheOrdem";
+import NewOrdemPage from "./pages/Ordens/novaOrdem";
+import { action as manipulateOrdemAction } from "./components/Ordens/formOrdem";
+
+//operarios
+import OperariosRootLayout from "./pages/Operarios/rootOperario";
+import EditOperarioPage from "./pages/Operarios/editarOperario";
+import OperarioDetailPage, {
+  loader as operarioDetailLoader,
+  action as deleteOperarioAction,
+} from "./pages/Operarios/detalheOperario";
+import OperariosPage, {
+  loader as operariosLoader,
+} from "./pages/Operarios/operarios";
+import NewOperarioPage from "./pages/Ordens/novaOrdem";
+import { action as manipulateOperarioAction } from "./components/Operarios/formOperario";
+
+import Maquinas from "./pages/Maquinas/maquinas";
+import Materiais from "./pages/Materiais/materiais";
+import Sobre from "./pages/Sobre/sobre";
+import ErrorPage from "./pages/Errors/Error";
+
+import Login from "./pages/Login/login";
+
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "./store/user";
+import RootLayout from "./pages/Layout/layout";
+
+//para testar apenas
+import Loading from "./components/Loading/loading";
+
+const OrdensPage = React.lazy(() => import("./pages/Ordens/ordens"));
+
+function App() {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(userActions.login({ access_token: token }));
+    } else {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (user.access_token) {
+      setIsLoading(false);
+    }
+  }, [user.access_token]);
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <AppLayout />,
+  //     errorElement: <ErrorPage />,
+  //     id: "root",
+  //     loader: tokenLoader,
+  //     children: [
+  //       { index: true, element: <Login /> },
+  //       {
+  //         path: "ordens",
+  //         element: <OrdensRootLayout />,
+  //         children: [
+  //           {
+  //             index: true,
+  //             element: <OrdensPage />,
+  //             loader: ordensLoader,
+  //           },
+  //           {
+  //             path: ":ordemId",
+  //             id: "ordem-detail",
+  //             loader: ordemDetailLoader,
+  //             children: [
+  //               {
+  //                 index: true,
+  //                 element: <OrdemDetailPage />,
+  //                 action: deleteOrdemAction,
+  //               },
+  //               {
+  //                 path: "editar",
+  //                 element: <EditOrdemPage />,
+  //                 action: manipulateOrdemAction,
+  //                 loader: checkAuthLoader,
+  //               },
+  //             ],
+  //           },
+  //           {
+  //             path: "nova",
+  //             element: <NewOrdemPage />,
+  //             action: manipulateOrdemAction,
+  //             loader: checkAuthLoader,
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         path: "operarios",
+  //         element: <OperariosRootLayout />,
+  //         children: [
+  //           {
+  //             index: true,
+  //             element: <OperariosPage />,
+  //             loader: operariosLoader,
+  //           },
+  //           {
+  //             path: ":operarioId",
+  //             id: "operario-detail",
+  //             loader: operarioDetailLoader,
+  //             children: [
+  //               {
+  //                 index: true,
+  //                 element: <OperarioDetailPage />,
+  //                 action: deleteOperarioAction,
+  //               },
+  //               {
+  //                 path: "editar",
+  //                 element: <EditOperarioPage />,
+  //                 action: manipulateOperarioAction,
+  //                 loader: checkAuthLoader,
+  //               },
+  //             ],
+  //           },
+  //           {
+  //             path: "nova",
+  //             element: <NewOperarioPage />,
+  //             action: manipulateOperarioAction,
+  //             loader: checkAuthLoader,
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         path: "auth",
+  //         element: <Login />,
+  //       },
+  //       {
+  //         path: "maquinas",
+  //         element: <Maquinas />,
+  //       },
+  //       {
+  //         path: "materiais",
+  //         element: <Materiais />,
+  //       },
+  //       {
+  //         path: "sobre",
+  //         element: <Sobre />,
+  //       },
+  //       {
+  //         path: "dashboard",
+  //         element: <Dashboard />,
+  //       },
+  //       {
+  //         path: "logout",
+  //         action: logoutAction,
+  //       },
+  //     ],
+  //   },
+  // ]);
+  return (
+    <>
+      {!isLoading ? (
+        <Routes>
+          {!user.access_token ? (
+            <>
+              <Route path="/auth" element={<Login />} />
+              <Route path="*" element={<Navigate to="/auth" />} />
+            </>
+          ) : (
+            <Route element={<RootLayout />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route element={<OrdensRootLayout />}>
+                <Route path="/ordens" element={<OrdensPage />} />
+                <Route path="/ordens/:ordemId" element={<OrdemDetailPage />} />
+                <Route
+                  path="/ordens/:ordemId/editar"
+                  element={<EditOrdemPage />}
+                />
+                <Route path="/ordens/nova" element={<NewOrdemPage />} />
+              </Route>
+              <Route element={<OperariosRootLayout />}>
+                <Route path="/operarios" element={<OperariosPage />} />
+              </Route>
+              <Route path="*" element={<Navigate to="/dashboard" />} />
+            </Route>
+          )}
+        </Routes>
+      ) : (
+        <Loading />
+      )}
+    </>
+  );
+}
+
+export default App;
