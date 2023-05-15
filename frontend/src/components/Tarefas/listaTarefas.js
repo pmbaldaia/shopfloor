@@ -8,6 +8,7 @@ import {
   ReadCvLogo,
   Pencil,
   Trash,
+  CaretUpDown,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
@@ -46,7 +47,7 @@ function TarefasList({ tarefas }) {
 
   return (
     <div>
-      <h1>TAREFAS</h1>
+      <h1>Tarefas</h1>
       <AdicionarTarefa />
       <ArrowClockwise
         size={28}
@@ -59,12 +60,26 @@ function TarefasList({ tarefas }) {
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
           <tr>
-            <th key="id">TAREFA ID</th>
-            <th key="operario">OPERÁRIO</th>
-            <th key="tarefa">TAREFA</th>
-            <th key="produto">PRODUTO</th>
-            <th key="operacao">OPERACAO</th>
-            <th key="estado">ESTADO</th>
+            <th key="id">
+              TAREFA ID
+              <CaretUpDown />
+            </th>
+            <th key="tarefa">
+              TAREFA
+              <CaretUpDown />
+            </th>
+            <th key="produto">
+              PRODUTO
+              <CaretUpDown />
+            </th>
+            <th key="operacao">
+              OPERACAO
+              <CaretUpDown />
+            </th>
+            <th key="estado">
+              ESTADO
+              <CaretUpDown />
+            </th>
             <th key="acoes">AÇÕES</th>
           </tr>
         </thead>
@@ -73,9 +88,6 @@ function TarefasList({ tarefas }) {
             <tr key={tarefa.id}>
               <td className="highlight-text">
                 <span>{tarefa.id}</span>
-              </td>
-              <td className="highlight-text">
-                <span>{tarefa.operario}</span>
               </td>
               <td className="highlight-text">
                 <span>{tarefa.tarefa}</span>

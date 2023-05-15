@@ -4,7 +4,7 @@ function OrdensComponent({ descricao, children }) {
   return (
     <OverlayTrigger
       trigger="hover"
-      placement="right"
+      placement="bottom"
       overlay={
         <div
           style={{

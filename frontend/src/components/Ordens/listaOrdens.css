@@ -64,16 +64,16 @@
   font-size: 13px;
 }
 
-.head{
+.head {
   margin-bottom: 2.5em;
 }
 
-.iconRefresh{
+.iconRefresh {
   margin-top: 0.8em;
   margin-left: 1em;
 }
 
-.spacing{
+.spacing {
   margin-left: 1em;
 }
 .filterBarOrdem {
@@ -88,7 +88,7 @@
   padding: 0;
 }
 
-.dataEntregaFunc{
+.dataEntregaFunc {
   width: 13em;
   height: 2em;
   margin-left: 1em;
@@ -96,11 +96,11 @@
   flex-direction: row;
   align-items: center;
   border-radius: 0.3rem;
-  background-color: #ECF0ED;
-  border: 2px solid #A3B18A;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
   color: black;
 }
-.filterBar{
+.filterBar {
   width: 13em;
   height: 2em;
   margin-left: 1em;
@@ -108,20 +108,19 @@
   flex-direction: row;
   align-items: center;
   border-radius: 0.3rem;
-  background-color: #ECF0ED;
-  border: 2px solid #A3B18A;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
 }
 
-.searchBarFunc{
-  width: 50em;
+.searchBarFunc {
+  width: 20em;
   height: 2em;
   margin-left: 1em;
   padding-left: 0.6em;
   flex-direction: row;
   align-items: center;
-  border-radius: 1.625rem;
-  background-color: #ECF0ED;
-  border: 2px solid #A3B18A;
+  border-radius: 0.5rem;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
   color: black;
 }
-

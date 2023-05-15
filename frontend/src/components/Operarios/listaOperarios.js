@@ -8,6 +8,7 @@ import {
   ReadCvLogo,
   Pencil,
   Trash,
+  CaretUpDown,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
@@ -59,9 +60,18 @@ function OperariosList({ operarios }) {
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
           <tr>
-            <th key="id">OPERARIO ID</th>
-            <th key="sap">NOME</th>
-            <th key="sap">TAREFA</th>
+            <th key="id">
+              OPERARIO ID
+              <CaretUpDown />
+            </th>
+            <th key="sap">
+              NOME
+              <CaretUpDown />
+            </th>
+            <th key="sap">
+              TAREFA
+              <CaretUpDown />
+            </th>
             <th key="acoes">AÇÕES</th>
           </tr>
         </thead>

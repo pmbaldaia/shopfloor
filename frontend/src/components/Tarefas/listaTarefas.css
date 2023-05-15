@@ -48,13 +48,11 @@
 
 .table-bordered th {
   border: none;
-  text-align: center;
 }
 
 .highlight-text {
   font-family: "Montserrat";
   font-weight: 800;
-  text-align: left;
 }
 .highlight-text-2 {
   font-family: "Montserrat";

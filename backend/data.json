@@ -186,7 +186,6 @@
   "tarefas": [
     {
       "id": "1",
-      "operario": "Rute Bastos",
       "produto": "1923",
       "operacao": "Bolsos",
       "estado": "Em Progresso",
@@ -194,7 +193,6 @@
     },
     {
       "id": "2",
-      "operario": "João Silva",
       "produto": "512",
       "operacao": "Costura",
       "estado": "Concluído",
@@ -202,7 +200,6 @@
     },
     {
       "id": "3",
-      "operario": "Ana Oliveira",
       "produto": "786",
       "operacao": "Acabamento",
       "estado": "Em Andamento",
@@ -210,15 +207,13 @@
     },
     {
       "id": "4",
-      "operario": "Pedro Santos",
       "produto": "251",
       "operacao": "Etiquetagem",
-      "estado": "Aguardando",
+      "estado": "Em Andamento",
       "tarefa": "Efetuar cortes e costuras nas etiquetas"
     },
     {
       "id": "5",
-      "operario": "Mariana Costa",
       "produto": "973",
       "operacao": "Inspeção",
       "estado": "Em Progresso",
@@ -226,7 +221,6 @@
     },
     {
       "id": "6",
-      "operario": "Carlos Pereira",
       "produto": "642",
       "operacao": "Embalagem",
       "estado": "Concluído",
@@ -234,7 +228,6 @@
     },
     {
       "id": "7",
-      "operario": "Luisa Rodrigues",
       "produto": "415",
       "operacao": "Revisão",
       "estado": "Em Andamento",
@@ -242,7 +235,6 @@
     },
     {
       "id": "8",
-      "operario": "Fernando Almeida",
       "produto": "879",
       "operacao": "Montagem",
       "estado": "Aguardando",
@@ -250,7 +242,6 @@
     },
     {
       "id": "9",
-      "operario": "Sofia Mendes",
       "produto": "320",
       "operacao": "Teste",
       "estado": "Em Progresso",
@@ -258,10 +249,9 @@
     },
     {
       "id": "10",
-      "operario": "Tiago Nunes",
       "produto": "591",
       "operacao": "Embalagem",
-      "estado": "Concluído",
+      "estado": "CONCLUÍDO",
       "tarefa": "Efetuar corte e costura para embalagem de produtos acabados"
     }
   ],
@@ -347,77 +337,77 @@
   ],
   "materiais": [
     {
-      "id": "1",
+      "id": "1771",
       "material": "Algodão",
       "estado": "",
       "stock": "50",
       "quantidade": "100"
     },
     {
-      "id": "2",
+      "id": "1770",
       "material": "Lã",
       "estado": "",
       "stock": "30",
       "quantidade": "80"
     },
     {
-      "id": "3",
+      "id": "1769",
       "material": "Seda",
       "estado": "",
       "stock": "70",
       "quantidade": "200"
     },
     {
-      "id": "4",
+      "id": "1768",
       "material": "Veludo",
       "estado": "",
       "stock": "20",
       "quantidade": "50"
     },
     {
-      "id": "5",
+      "id": "1767",
       "material": "Cetim",
       "estado": "",
       "stock": "60",
       "quantidade": "150"
     },
     {
-      "id": "6",
+      "id": "1766",
       "material": "Linho",
       "estado": "",
       "stock": "40",
       "quantidade": "120"
     },
     {
-      "id": "7",
+      "id": "1765",
       "material": "Nylon",
       "estado": "",
       "stock": "80",
       "quantidade": "180"
     },
     {
-      "id": "8",
+      "id": "1764",
       "material": "Poliéster",
       "estado": "",
       "stock": "90",
       "quantidade": "220"
     },
     {
-      "id": "9",
+      "id": "1763",
       "material": "Couro",
       "estado": "",
       "stock": "10",
       "quantidade": "30"
     },
     {
-      "id": "10",
+      "id": "1762",
       "material": "Tweed",
       "estado": "",
       "stock": "25",
       "quantidade": "70"
     },
     {
-      "id": "11",
+      "id": "1761",
       "material": "SEDA",
       "estado": "",
       "stock": "123",

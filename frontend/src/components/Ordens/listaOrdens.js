@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AdicionarOrdem from "../Botoes/AdicionarOrdem";
-import { MagnifyingGlass, Calendar, Info } from "@phosphor-icons/react";
-import DatePicker from "react-datepicker";
+import { MagnifyingGlass, Info } from "@phosphor-icons/react";
 import "react-datepicker/dist/react-datepicker.css";
 import OrdensComponent from "../Overlays/ordemOverlay";
 
@@ -13,6 +12,7 @@ import {
   ReadCvLogo,
   Pencil,
   Trash,
+  CaretUpDown,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
@@ -64,11 +64,16 @@ function OrdensList({ ordens }) {
       const searchData = searchQuery.toLowerCase();
       const dataEntrega = ordem.data_entrega.toLowerCase();
 
-      // Filter by id, sap, ordem_producao, and data_entrega
       return (
-        (ordem.id.includes(searchData) ||
-          ordem.sap.includes(searchData) ||
-          ordem.ordem_producao.includes(searchData) ||
+        (ordem.id.toLowerCase().includes(searchData) ||
+          ordem.sap.toLowerCase().includes(searchData) ||
+          ordem.ordem_producao.toLowerCase().includes(searchData) ||
+          ordem.produto.toLowerCase().includes(searchData) ||
+          ordem.produto.includes(searchQuery.toLowerCase()) ||
+          ordem.prioridade.toLowerCase().includes(searchData) ||
+          ordem.prioridade.includes(searchQuery.toLowerCase()) ||
+          ordem.estado.toLowerCase().includes(searchData) ||
+          ordem.estado.includes(searchQuery.toLowerCase()) ||
           dataEntrega.includes(searchData)) &&
         (selectedDate
           ? new Date(ordem.data_entrega).toDateString() ===
@@ -90,59 +95,10 @@ function OrdensList({ ordens }) {
     setSortOrdens(sortedOrdens);
   };
 
-  //Código do ordenar por PRIORIDADE
-  const __handleSortPrioridade = () => {
-    const sortedOrdens = [...sortOrdens].sort((a, b) => {
-      const prioridadeOrder = {
-        ALTA: 1,
-        MÉDIA: 2,
-        BAIXA: 3,
-      };
-
-      if (prioridadeOrder[a.prioridade] < prioridadeOrder[b.prioridade])
-        return -1;
-      if (prioridadeOrder[a.prioridade] > prioridadeOrder[b.prioridade])
-        return 1;
-      return 0;
-    });
-
-    setSortOrdens(sortedOrdens);
-  };
-
-  //Código para ordenar por EM ATRASO e colocar os concluídos no fim
-  const __handleSortEstado = () => {
-    const sortedOrdens = [...sortOrdens].sort((a, b) => {
-      if (a.estado === "EM ATRASO" && b.estado !== "EM ATRASO") return -1;
-      if (a.estado !== "EM ATRASO" && b.estado === "EM ATRASO") return 1;
-      if (a.estado === "CONCLUÍDO" && b.estado !== "CONCLUÍDO") return 1;
-      if (a.estado !== "CONCLUÍDO" && b.estado === "CONCLUÍDO") return -1;
-      if (a.estado < b.estado) return -1;
-      if (a.estado > b.estado) return 1;
-      return 0;
-    });
-    setSortOrdens(sortedOrdens);
-  };
-
-  const [selectedOption, setSelectedOption] = useState("");
-
-  // Capturar a opção selecionada
-  const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
-
-    if (event.target.value === "id") {
-      __handleSortID();
-    } else if (event.target.value === "estado") {
-      __handleSortEstado();
-    } else if (event.target.value === "prioridade") {
-      __handleSortPrioridade();
-    }
-  };
-
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  /* const token = useRouteLoaderData("root"); */
   return (
     <>
       <div className="head">
@@ -154,57 +110,16 @@ function OrdensList({ ordens }) {
           cursor="pointer"
           className="iconRefresh"
         />
-        {/*  {token && <AdicionarOrdem />} */}
         <AdicionarOrdem />
       </div>
       <div className="filterBarOrdem">
-        <DatePicker
-          selected={selectedDate}
-          className="filterBarOrdem-item dataEntregaFunc"
-          onChange={(date) => setSelectedDate(date)}
-          dateFormat="dd/MM/yyyy"
-          placeholderText="DATA DA ENTREGA"
-          customInput={
-            <div style={{ justifyContent: "center" }}>
-              {selectedDate && (
-                <span
-                  style={{
-                    fontFamily: "Montserrat",
-                    fontSize: "15px",
-                  }}
-                >
-                  {selectedDate.toLocaleDateString()}
-                </span>
-              )}
-              <Calendar
-                size={27}
-                color="#2e5a53"
-                style={{ float: "right", paddingRight: "10px" }}
-              />
-            </div>
-          }
-        />
-
-        <select
-          value={selectedOption}
-          className="filterBarOrdem-item, filterBar"
-          onChange={handleSelectChange}
-          style={{
-            fontFamily: "Montserrat",
-            fontSize: "15px",
-          }}
-        >
-          <option value="">Selecione uma opção</option>
-          <option value="id">Ordenar por ID ORDEM</option>
-          <option value="estado">Ordenar por ESTADO</option>
-          <option value="prioridade">Ordenar por PRIORIDADE</option>
-        </select>
+        Procurar:
         <input
           type="text"
           value={searchQuery}
           className="filterBarOrdem-item, searchBarFunc"
           onChange={handleSearchChange}
-          placeholder="ID | SAP | VENDA"
+          placeholder=""
         />
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
           <MagnifyingGlass size={24} color="#2e5a53" />
@@ -214,16 +129,34 @@ function OrdensList({ ordens }) {
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
           <tr>
-            <th key="id">ORDEM ID</th>
-            <th key="sap">SAP</th>
-            <th key="ordem_venda">ORDEM VENDA</th>
-            <th key="produto">PRODUTO</th>
-            <th key="quantidade">QUANTIDADE</th>
-            <th key="liberado">LIBERADO</th>
-            <th key="data_entrega">DATA ENTREGA</th>
-            <th key="prioridade">PRIORIDADE</th>
-            <th key="estado">ESTADO</th>
-            {/* {token && <th key="acoes">AÇÕES</th>} */}
+            <th key="id">
+              ORDEM ID
+              <CaretUpDown />
+            </th>
+            <th key="sap">
+              SAP <CaretUpDown />
+            </th>
+            <th key="ordem_venda">
+              ORDEM VENDA <CaretUpDown />
+            </th>
+            <th key="produto">
+              PRODUTO <CaretUpDown />
+            </th>
+            <th key="quantidasde">
+              QUANTIDADE <CaretUpDown />
+            </th>
+            <th key="liberado">
+              LIBERADO <CaretUpDown />
+            </th>
+            <th key="data_entrega">
+              DATA ENTREGA <CaretUpDown />
+            </th>
+            <th key="prioridade">
+              PRIORIDADE <CaretUpDown />
+            </th>
+            <th key="estado">
+              ESTADO <CaretUpDown />
+            </th>
             <th key="acoes">AÇÕES</th>
           </tr>
         </thead>
@@ -262,7 +195,6 @@ function OrdensList({ ordens }) {
               <td className="highlight-text">
                 <span>{ordem.estado}</span>
               </td>
-              {/* {token && ( */}
               <td>
                 <span>
                   <Link style={{ color: "black" }} to={`/ordens/${ordem.id}`}>
@@ -278,7 +210,6 @@ function OrdensList({ ordens }) {
                   </Link>
                 </span>
               </td>
-              {/* )} */}
             </tr>
           ))}
         </tbody>

@@ -8,6 +8,8 @@ import {
   ReadCvLogo,
   Pencil,
   Trash,
+  MagnifyingGlass,
+  CaretUpDown,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
@@ -35,10 +37,16 @@ function MateriaisList({ materiais }) {
   }
 
   const [sortMateriais, setSortMateriais] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    setSortMateriais([...materiais]);
-  }, [materiais]);
+    const filteredMateriais = materiais.filter(
+      (material) =>
+        material.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        material.material.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSortMateriais(filteredMateriais);
+  }, [materiais, searchQuery]);
 
   function __refresh() {
     window.location.reload(false);
@@ -55,15 +63,42 @@ function MateriaisList({ materiais }) {
         cursor="pointer"
         className="iconRefresh"
       />
+      <div className="filterBarMateriais">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="filterBarMaterial-item searchBarMateriais"
+          placeholder="Materiais"
+        />
+        <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+          <MagnifyingGlass size={24} color="#2e5a53" />
+        </button>
+      </div>
 
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
           <tr>
-            <th key="id">MATERIAL ID</th>
-            <th key="material">MATERIAL</th>
-            <th key="estado">ESTADO</th>
-            <th key="stock">STOCK</th>
-            <th key="quantidade">QUANTIDADE</th>
+            <th key="id">
+              MATERIAL ID
+              <CaretUpDown />
+            </th>
+            <th key="material">
+              MATERIAL
+              <CaretUpDown />
+            </th>
+            <th key="estado">
+              ESTADO
+              <CaretUpDown />
+            </th>
+            <th key="stock">
+              STOCK
+              <CaretUpDown />
+            </th>
+            <th key="quantidade">
+              QUANTIDADE
+              <CaretUpDown />
+            </th>
             <th key="acoes">AÇÕES</th>
           </tr>
         </thead>
@@ -77,7 +112,17 @@ function MateriaisList({ materiais }) {
                 <span>{material.material}</span>
               </td>
               <td className="highlight-text">
-                <span>{material.estado}</span>
+                <span
+                  className={`highlight-text ${
+                    material.stock > 50
+                      ? "verde"
+                      : material.stock <= 50 && material.stock > 25
+                      ? "amarelo"
+                      : "vermelho"
+                  }`}
+                >
+                  {}
+                </span>
               </td>
               <td className="highlight-text">
                 <span>{material.stock}</span>
