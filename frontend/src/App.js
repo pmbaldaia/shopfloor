@@ -36,8 +36,7 @@ import MateriaisPage from "./pages/Materiais/materiais";
 import TarefasRootLayout from "./pages/Tarefas/rootTarefa";
 import TarefasPage from "./pages/Tarefas/tarefas";
 
-import Sobre from "./pages/Sobre/sobre";
-import ErrorPage from "./pages/Errors/Error";
+/* import ErrorPage from "./pages/Errors/Error"; */
 
 import Login from "./pages/Login/login";
 

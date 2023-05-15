@@ -1,8 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import {
-  Link,
-  useLocation /* , useRouteLoaderData  */,
-} from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./sidebar.scss";
 import logo from "../../assets/images/logoverde.png";
 import {
@@ -18,6 +15,13 @@ import {
 } from "@phosphor-icons/react";
 import { useDispatch } from "react-redux";
 import { userActions } from "../../store/user";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "react-bootstrap";
 
 const sidebarNavItems = [
   {
@@ -58,22 +62,6 @@ const sidebarNavItems = [
   },
 ];
 
-const sidebarNavFooter = [
-  {
-    display: "Sobre",
-    icon: <Info size={25} />,
-    to: "/sobre",
-    section: "sobre",
-  },
-  /* {
-    display: "Terminar Sessão",
-    icon: <SignOut size={25} />,
-    action: "/logout",
-    method: "post",
-    section: "",
-  }, */
-];
-
 const Sidebar = () => {
   const [activeIndex, setActiveIndex] = useState(1);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -101,9 +89,15 @@ const Sidebar = () => {
     };
   }, [sidebarRef]);
 
-  /* const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  }; */
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   return (
     <div className="sidebar">
       <div className="sidebar__logo">
@@ -140,24 +134,29 @@ const Sidebar = () => {
             marginLeft: "1.5em",
           }}
         ></hr>
-        {sidebarNavFooter.map((item, index) => (
-          <Link to={item.to} key={index} style={{ textDecoration: "none" }}>
-            {/* Código para rever */}
-            <div
-              className={`sidebar__menu__item ${
-                activeIndex === "sobre" ? "active" : ""
-              }`}
-            >
-              <div className="sidebar__menu__item__icon">{item.icon}</div>
-              <div className="sidebar__menu__item__text">{item.display}</div>
-            </div>
-          </Link>
-        ))}
       </div>
       <div
-        /* className={`sidebar__menu__item ${
-          activeIndex === "sobre" ? "active" : ""
-        }`} */
+        className="sidebar__menu__item"
+        style={{ cursor: "pointer" }}
+        onClick={openModal}
+      >
+        <div className="sidebar__menu__item__icon">
+          <Info size={25} />
+        </div>
+        <div className="sidebar__menu__item__text">Sobre</div>
+      </div>
+      <Modal isOpen={modalOpen} toggle={closeModal}>
+        <ModalHeader toggle={closeModal}>Informações</ModalHeader>
+        <ModalBody>
+          <p>Conteúdo do modal...</p>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="secondary" onClick={closeModal}>
+            Fechar
+          </Button>
+        </ModalFooter>
+      </Modal>
+      <div
         className="sidebar__menu__item"
         onClick={() => {
           localStorage.removeItem("token");
