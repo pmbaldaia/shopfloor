@@ -16,7 +16,17 @@ function isValidImagemUrl(value) {
 
 function isValidDataChegada(value) {
   const date = new Date(value);
-  return value && date !== "Invalid Date"; 
+  return value && date !== "Invalid Date";
+}
+
+function isValidDataAquisicao(value) {
+  const date = new Date(value);
+  return value && date !== "Invalid Date";
+}
+
+function isValidDataManutencao(value) {
+  const date = new Date(value);
+  return value && date !== "Invalid Date";
 }
 
 function isValidDataPrevistaEntrega(value) {
@@ -34,16 +44,18 @@ function isValidEmail(value) {
 function isValidNome(value) {
   return value && value.includes(" ");
 }
-function isValidTarefa(value){
+function isValidTarefa(value) {
   return value && value.includes(" ");
 }
 exports.isValidOperarioNum = isValidOperarioNum;
-exports.isValidTarefa = isValidTarefa; 
+exports.isValidTarefa = isValidTarefa;
 exports.isValidNome = isValidNome;
 exports.isValidAvatarUrl = isValidAvatarUrl;
 exports.isValidOrdemNum = isValidOrdemNum;
 exports.isValidImagemUrl = isValidImagemUrl;
 exports.isValidDataChegada = isValidDataChegada;
+exports.isValidDataAquisicao = isValidDataAquisicao;
+exports.isValidDataManutencao = isValidDataManutencao;
 exports.isValidDataPrevistaEntrega = isValidDataPrevistaEntrega;
 exports.isValidText = isValidText;
 exports.isValidEmail = isValidEmail;

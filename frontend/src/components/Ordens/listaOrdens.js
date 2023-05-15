@@ -5,7 +5,7 @@ import AdicionarOrdem from "../Botoes/AdicionarOrdem";
 import { MagnifyingGlass, Calendar, Info } from "@phosphor-icons/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import OrdensComponent from "../Overlays/overlay";
+import OrdensComponent from "../Overlays/ordemOverlay";
 
 import "./listaOrdens.css";
 import {

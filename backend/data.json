@@ -183,22 +183,245 @@
       "estado": "PENDENTE"
     }
   ],
-
+  "tarefas": [
+    {
+      "id": "1",
+      "operario": "Rute Bastos",
+      "produto": "1923",
+      "operacao": "Bolsos",
+      "estado": "Em Progresso",
+      "tarefa": "Cortar e costurar bolsos"
+    },
+    {
+      "id": "2",
+      "operario": "João Silva",
+      "produto": "512",
+      "operacao": "Costura",
+      "estado": "Concluído",
+      "tarefa": "Realizar corte e costura em peças"
+    },
+    {
+      "id": "3",
+      "operario": "Ana Oliveira",
+      "produto": "786",
+      "operacao": "Acabamento",
+      "estado": "Em Andamento",
+      "tarefa": "Realizar corte e costura para acabamento final"
+    },
+    {
+      "id": "4",
+      "operario": "Pedro Santos",
+      "produto": "251",
+      "operacao": "Etiquetagem",
+      "estado": "Aguardando",
+      "tarefa": "Efetuar cortes e costuras nas etiquetas"
+    },
+    {
+      "id": "5",
+      "operario": "Mariana Costa",
+      "produto": "973",
+      "operacao": "Inspeção",
+      "estado": "Em Progresso",
+      "tarefa": "Realizar corte e costura nas peças a serem inspecionadas"
+    },
+    {
+      "id": "6",
+      "operario": "Carlos Pereira",
+      "produto": "642",
+      "operacao": "Embalagem",
+      "estado": "Concluído",
+      "tarefa": "Efetuar corte e costura para embalagem final"
+    },
+    {
+      "id": "7",
+      "operario": "Luisa Rodrigues",
+      "produto": "415",
+      "operacao": "Revisão",
+      "estado": "Em Andamento",
+      "tarefa": "Realizar corte e costura para revisão de qualidade"
+    },
+    {
+      "id": "8",
+      "operario": "Fernando Almeida",
+      "produto": "879",
+      "operacao": "Montagem",
+      "estado": "Aguardando",
+      "tarefa": "Efetuar cortes e costuras na montagem das peças"
+    },
+    {
+      "id": "9",
+      "operario": "Sofia Mendes",
+      "produto": "320",
+      "operacao": "Teste",
+      "estado": "Em Progresso",
+      "tarefa": "Realizar corte e costura para testes de funcionamento"
+    },
+    {
+      "id": "10",
+      "operario": "Tiago Nunes",
+      "produto": "591",
+      "operacao": "Embalagem",
+      "estado": "Concluído",
+      "tarefa": "Efetuar corte e costura para embalagem de produtos acabados"
+    }
+  ],
   "operarios": [
     {
-      "id": "123",
-      "nome_func": "Ana Justina Pinto",
-      "tarefas": "Tarefa 1"
+      "id": "1",
+      "nome": "Tiago Nunes",
+      "tarefa": "Efetuar corte e costura para embalagem de produtos acabados"
     },
     {
-      "id": "412",
-      "nome_func": "Sofia Maria Sousa",
-      "tarefas": "Tarefa 3"
+      "id": "2",
+      "nome": "Mariana Costa",
+      "tarefa": "Realizar corte e costura para inspeção final"
     },
     {
-      "id": "141",
-      "nome_func": "Ana Sofia Sardinha",
-      "tarefas": "Tarefa 2"
+      "id": "3",
+      "nome": "Pedro Santos",
+      "tarefa": "Efetuar cortes e costuras nas etiquetas dos produtos"
+    },
+    {
+      "id": "4",
+      "nome": "Luisa Rodrigues",
+      "tarefa": "Realizar corte e costura para revisão de qualidade"
+    },
+    {
+      "id": "5",
+      "nome": "Rute Bastos",
+      "tarefa": "Efetuar corte e costura para acabamento final"
+    },
+    {
+      "id": "6",
+      "nome": "Ana Oliveira",
+      "tarefa": "Realizar corte e costura em peças para montagem"
+    },
+    {
+      "id": "7",
+      "nome": "João Silva",
+      "tarefa": "Efetuar cortes e costuras nas amostras de produtos"
+    },
+    {
+      "id": "8",
+      "nome": "Sofia Mendes",
+      "tarefa": "Realizar corte e costura para testes de funcionalidade"
+    }
+  ],
+  "maquinas": [
+    {
+      "id": "19429",
+      "nome": "PONTO CORRIDO",
+      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "fabricante": "RIOPELE",
+      "data_aquisicao": "05/02/2016",
+      "ultima_manutencao": "07/05/2022",
+      "proxima_manutencao": "07/05/2023",
+      "tipo": "COSTURA",
+      "modelo": "PFAFF 1246",
+      "estado": "OCUPADA"
+    },
+    {
+      "id": "12312",
+      "nome": "CORTA E COSE",
+      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "fabricante": "RIOPELE",
+      "data_aquisicao": "10/02/2016",
+      "ultima_manutencao": "07/05/2022",
+      "proxima_manutencao": "07/05/2023",
+      "tipo": "COSTURA",
+      "modelo": "PFAFF 1246",
+      "estado": "OCUPADA"
+    },
+    {
+      "id": "11390",
+      "nome": "CASEAR",
+      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "fabricante": "RIOPELE",
+      "data_aquisicao": "22/02/2016",
+      "ultima_manutencao": "07/05/2022",
+      "proxima_manutencao": "07/05/2023",
+      "tipo": "COSTURA",
+      "modelo": "PFAFF 1246",
+      "estado": "OCUPADA"
+    }
+  ],
+  "materiais": [
+    {
+      "id": "1",
+      "material": "Algodão",
+      "estado": "",
+      "stock": "50",
+      "quantidade": "100"
+    },
+    {
+      "id": "2",
+      "material": "Lã",
+      "estado": "",
+      "stock": "30",
+      "quantidade": "80"
+    },
+    {
+      "id": "3",
+      "material": "Seda",
+      "estado": "",
+      "stock": "70",
+      "quantidade": "200"
+    },
+    {
+      "id": "4",
+      "material": "Veludo",
+      "estado": "",
+      "stock": "20",
+      "quantidade": "50"
+    },
+    {
+      "id": "5",
+      "material": "Cetim",
+      "estado": "",
+      "stock": "60",
+      "quantidade": "150"
+    },
+    {
+      "id": "6",
+      "material": "Linho",
+      "estado": "",
+      "stock": "40",
+      "quantidade": "120"
+    },
+    {
+      "id": "7",
+      "material": "Nylon",
+      "estado": "",
+      "stock": "80",
+      "quantidade": "180"
+    },
+    {
+      "id": "8",
+      "material": "Poliéster",
+      "estado": "",
+      "stock": "90",
+      "quantidade": "220"
+    },
+    {
+      "id": "9",
+      "material": "Couro",
+      "estado": "",
+      "stock": "10",
+      "quantidade": "30"
+    },
+    {
+      "id": "10",
+      "material": "Tweed",
+      "estado": "",
+      "stock": "25",
+      "quantidade": "70"
+    },
+    {
+      "id": "11",
+      "material": "SEDA",
+      "estado": "",
+      "stock": "123",
+      "quantidade": "300"
     }
   ],
   "users": [

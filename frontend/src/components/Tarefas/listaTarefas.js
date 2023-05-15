@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import AdicionarOperario from "../Botoes/AdicionarOperario";
-import "./listaOperarios.css";
+import AdicionarTarefa from "../Botoes/AdicionarTarefas";
+import "./listaTarefas.css";
 import {
   ArrowClockwise,
   ReadCvLogo,
@@ -11,7 +11,7 @@ import {
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
-function OperariosList({ operarios }) {
+function TarefasList({ tarefas }) {
   const submit = () => {};
 
   function startDeleteHandler() {
@@ -24,21 +24,21 @@ function OperariosList({ operarios }) {
     }).then((willDelete) => {
       if (willDelete) {
         submit({ method: "delete" });
-        swal("Operario não apagada", {
+        swal("Tarefa não apagado", {
           message: "Precisa de estar autenticado",
           icon: "error",
         });
       } else {
-        swal("Operario não apagada");
+        swal("Tarefa não apagado");
       }
     });
   }
 
-  const [sortOperarios, setSortOperarios] = useState([]);
+  const [sortTarefas, setSortTarefas] = useState([]);
 
   useEffect(() => {
-    setSortOperarios([...operarios]);
-  }, [operarios]);
+    setSortTarefas([...tarefas]);
+  }, [tarefas]);
 
   function __refresh() {
     window.location.reload(false);
@@ -46,8 +46,8 @@ function OperariosList({ operarios }) {
 
   return (
     <div>
-      <h1>Operários</h1>
-      <AdicionarOperario />
+      <h1>TAREFAS</h1>
+      <AdicionarTarefa />
       <ArrowClockwise
         size={28}
         weight="light"
@@ -59,34 +59,43 @@ function OperariosList({ operarios }) {
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
           <tr>
-            <th key="id">OPERARIO ID</th>
-            <th key="sap">NOME</th>
-            <th key="sap">TAREFA</th>
+            <th key="id">TAREFA ID</th>
+            <th key="operario">OPERÁRIO</th>
+            <th key="tarefa">TAREFA</th>
+            <th key="produto">PRODUTO</th>
+            <th key="operacao">OPERACAO</th>
+            <th key="estado">ESTADO</th>
             <th key="acoes">AÇÕES</th>
           </tr>
         </thead>
         <tbody>
-          {sortOperarios.map((operario) => (
-            <tr key={operario.id}>
+          {sortTarefas.map((tarefa) => (
+            <tr key={tarefa.id}>
               <td className="highlight-text">
-                <span>{operario.id}</span>
+                <span>{tarefa.id}</span>
               </td>
               <td className="highlight-text">
-                <span>{operario.nome}</span>
+                <span>{tarefa.operario}</span>
               </td>
               <td className="highlight-text">
-                <span>{operario.tarefa}</span>
+                <span>{tarefa.tarefa}</span>
+              </td>
+              <td className="highlight-text">
+                <span>{tarefa.produto}</span>
+              </td>
+              <td className="highlight-text">
+                <span>{tarefa.operacao}</span>
+              </td>
+              <td className="highlight-text">
+                <span>{tarefa.estado}</span>
               </td>
               <td>
                 <span>
-                  <Link
-                    style={{ color: "black" }}
-                    to={`/operarios/${operario.id}`}
-                  >
+                  <Link style={{ color: "black" }} to={`/tarefas/${tarefa.id}`}>
                     <ReadCvLogo size={28} weight="light" />
                   </Link>
                   &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} to={`/operarios/editar`}>
+                  <Link style={{ color: "black" }} to={`/tarefas/editar`}>
                     <Pencil size={28} weight="light" />
                   </Link>
                   &nbsp; &nbsp;
@@ -102,4 +111,4 @@ function OperariosList({ operarios }) {
     </div>
   );
 }
-export default OperariosList;
+export default TarefasList;

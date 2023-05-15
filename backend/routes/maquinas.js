@@ -1,21 +1,20 @@
 const express = require("express");
 
-const { getAll, get, add, replace, remove } = require("../controller/operario");
+const { getAll, get, add, replace, remove } = require("../controller/maquina");
 const { checkAuth } = require("../util/auth");
 const {
-  isValidOperarioNum,
-  isValidNome,
-  isValidTarefa,
+  isValidDataAquisicao,
+  isValidDataManutencao,
 } = require("../util/validation");
 
 const router = express.Router();
-
 router.use(checkAuth);
+
 router.get("/", async (req, res, next) => {
   console.log(req.token);
   try {
-    const operarios = await getAll();
-    res.json({ operarios: operarios });
+    const maquinas = await getAll();
+    res.json({ maquinas: maquinas });
   } catch (error) {
     next(error);
   }
@@ -23,8 +22,8 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    const operario = await get(req.params.id);
-    res.json({ operario: operario });
+    const maquina = await get(req.params.id);
+    res.json({ maquina: maquina });
   } catch (error) {
     next(error);
   }
@@ -35,28 +34,24 @@ router.post("/", async (req, res, next) => {
   const data = req.body;
   let errors = {};
 
-  if (!isValidOperarioNum(data.id)) {
+  if (!isValidDataAquisicao(data.data_aquisicao)) {
     errors.id = "ID Inválido.";
   }
 
-  if (!isValidNome(data.nome_func)) {
+  if (!isValidDataManutencao(data.ultima_manutencao)) {
     errors.nome = "nome_func inválida.";
-  }
-
-  if (!isValidTarefa(data.tarefas)) {
-    errors.tarefa = "Tarefa inválida.";
   }
 
   if (Object.keys(errors).length > 0) {
     return res.status(422).json({
-      message: "Adding the operario failed due to validation errors.",
+      message: "Adding the maquina failed due to validation errors.",
       errors,
     });
   }
 
   try {
     await add(data);
-    res.status(201).json({ message: "operarios guardada.", operario: data });
+    res.status(201).json({ message: "maquinas guardada.", maquina: data });
   } catch (error) {
     next(error);
   }
@@ -66,28 +61,24 @@ router.patch("/:id", async (req, res, next) => {
   const data = req.body;
 
   let errors = {};
-  if (!isValidOperarioNum(data.id)) {
+  if (!isValidDataAquisicao(data.data_aquisicao)) {
     errors.id = "ID Inválido.";
   }
 
-  if (!isValidNome(data.nome_func)) {
+  if (!isValidDataManutencao(data.ultima_manutencao)) {
     errors.nome = "nome_func inválida.";
-  }
-
-  if (!isValidTarefa(data.tarefas)) {
-    errors.tarefa = "Tarefa inválida.";
   }
 
   if (Object.keys(errors).length > 0) {
     return res.status(422).json({
-      message: "Updating the operario failed due to validation errors.",
+      message: "Updating the maquina failed due to validation errors.",
       errors,
     });
   }
 
   try {
     await replace(req.params.id, data);
-    res.json({ message: "operario atualizado.", operario: data });
+    res.json({ message: "maquina atualizado.", maquina: data });
   } catch (error) {
     next(error);
   }
@@ -96,7 +87,7 @@ router.patch("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   try {
     await remove(req.params.id);
-    res.json({ message: "Operario apagado." });
+    res.json({ message: "Máquina apagado." });
   } catch (error) {
     next(error);
   }

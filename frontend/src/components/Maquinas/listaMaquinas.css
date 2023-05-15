@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
+
+.table-spacing {
+  margin-bottom: 20px;
+}
+
+.table-bordered {
+  border-radius: 10px;
+}
+
+.table-bordered th,
+.table-bordered td {
+  text-align: center;
+}
+
+.table-spacing {
+  margin-bottom: 20px;
+}
+
+.table-bordered {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  border-radius: 10px;
+}
+
+.table-bordered th,
+.table-bordered td {
+  padding: 10px;
+}
+
+.table-bordered th:first-child,
+.table-bordered td:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  height: 2vh;
+}
+
+.table-bordered th:last-child,
+.table-bordered td:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 2vh;
+}
+
+.table thead tr:first-child {
+  border: none;
+}
+
+.table-bordered th {
+  border: none;
+  text-align: center;
+}
+
+.highlight-text {
+  font-family: "Montserrat";
+  font-weight: 800;
+}
+.highlight-text-2 {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+.table {
+  font-size: 13px;
+}
+
+.head {
+  margin-bottom: 2.5em;
+}
+
+.iconRefresh {
+  margin-top: 0.8em;
+  margin-left: 1em;
+}
+
+.spacing {
+  margin-left: 1em;
+}
+.filterBarOrdem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 3em;
+}
+
+.filterBarOrdem-item {
+  margin-right: 10px;
+  padding: 0;
+}
+
+.dataEntregaFunc {
+  width: 13em;
+  height: 2em;
+  margin-left: 1em;
+  padding-left: 0.6em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0.3rem;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+  color: black;
+}
+.filterBar {
+  width: 13em;
+  height: 2em;
+  margin-left: 1em;
+  padding-left: 0.3em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0.3rem;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+}
+
+.searchBarFunc {
+  width: 50em;
+  height: 2em;
+  margin-left: 1em;
+  padding-left: 0.6em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 1.625rem;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+  color: black;
+}

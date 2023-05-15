@@ -24,8 +24,18 @@ import OperariosPage, {
 import NewOperarioPage from "./pages/Ordens/novaOrdem";
 import { action as manipulateOperarioAction } from "./components/Operarios/formOperario";
 
-import Maquinas from "./pages/Maquinas/maquinas";
-import Materiais from "./pages/Materiais/materiais";
+//Maquinas
+import MaquinasRootLayout from "./pages/Maquinas/rootMaquina";
+import MaquinasPage from "./pages/Maquinas/maquinas";
+
+//Materiais
+import MateriaisRootLayout from "./pages/Materiais/rootMaterial";
+import MateriaisPage from "./pages/Materiais/materiais";
+
+//Tarefas
+import TarefasRootLayout from "./pages/Tarefas/rootTarefa";
+import TarefasPage from "./pages/Tarefas/tarefas";
+
 import Sobre from "./pages/Sobre/sobre";
 import ErrorPage from "./pages/Errors/Error";
 
@@ -35,7 +45,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "./store/user";
 import RootLayout from "./pages/Layout/layout";
 
-//para testar apenas
+//Loading
 import Loading from "./components/Loading/loading";
 
 const OrdensPage = React.lazy(() => import("./pages/Ordens/ordens"));
@@ -186,8 +196,17 @@ function App() {
                 />
                 <Route path="/ordens/nova" element={<NewOrdemPage />} />
               </Route>
+              <Route element={<TarefasRootLayout />}>
+                <Route path="/tarefas" element={<TarefasPage />} />
+              </Route>
               <Route element={<OperariosRootLayout />}>
                 <Route path="/operarios" element={<OperariosPage />} />
+              </Route>
+              <Route element={<MaquinasRootLayout />}>
+                <Route path="/maquinas" element={<MaquinasPage />} />
+              </Route>
+              <Route element={<MateriaisRootLayout />}>
+                <Route path="/materiais" element={<MateriaisPage />} />
               </Route>
               <Route path="*" element={<Navigate to="/dashboard" />} />
             </Route>

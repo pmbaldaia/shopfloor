@@ -14,6 +14,7 @@ import {
   SignOut,
   User,
   Needle,
+  ListDashes,
 } from "@phosphor-icons/react";
 import { useDispatch } from "react-redux";
 import { userActions } from "../../store/user";
@@ -30,6 +31,12 @@ const sidebarNavItems = [
     icon: <List size={25} />,
     to: "/ordens",
     section: "ordens",
+  },
+  {
+    display: "Tarefas",
+    icon: <ListDashes size={25} />,
+    to: "/tarefas",
+    section: "tarefas",
   },
   {
     display: "Operários",
@@ -97,7 +104,6 @@ const Sidebar = () => {
   /* const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   }; */
-  /* const token = useRouteLoaderData("root"); */
   return (
     <div className="sidebar">
       <div className="sidebar__logo">
