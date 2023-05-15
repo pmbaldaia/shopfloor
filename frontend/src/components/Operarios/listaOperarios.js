@@ -68,10 +68,10 @@ function OperariosList({ operarios }) {
               NOME
               <CaretUpDown />
             </th>
-            <th key="sap">
+            {/* <th key="sap">
               TAREFA
               <CaretUpDown />
-            </th>
+            </th> */}
             <th key="acoes">AÇÕES</th>
           </tr>
         </thead>
@@ -84,9 +84,9 @@ function OperariosList({ operarios }) {
               <td className="highlight-text">
                 <span>{operario.nome}</span>
               </td>
-              <td className="highlight-text">
+              {/* <td className="highlight-text">
                 <span>{operario.tarefa}</span>
-              </td>
+              </td> */}
               <td>
                 <span>
                   <Link

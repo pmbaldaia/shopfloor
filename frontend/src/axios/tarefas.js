@@ -7,3 +7,11 @@ export const getTarefas = (access_token) => {
     },
   });
 };
+
+export const getTarefaById = (access_token, tarefaId) => {
+  return axios.get(`/tarefas/${tarefaId}`, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+};

@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import OrderItem from "../../components/Ordens/itemOrdem";
-import { getOrdens } from "../../axios/ordens";
+import { getOrdemById } from "../../axios/ordens";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-function OrdemDetailPage(params) {
+function OrdemDetailPage() {
   const user = useSelector((state) => state.user);
   const [ordem, setOrdem] = useState(null);
   const { ordemId } = useParams();
   useEffect(() => {
-    getOrdens(user.access_token, ordemId).then((res) => {
-      setOrdem(res.data + ordemId);
-      console.log(ordemId);
-    });
+    const getOrdemByIdFunc = async () => {
+      let ordemById = await getOrdemById(user.access_token, ordemId);
+      setOrdem(ordemById.data.ordem);
+    };
+    getOrdemByIdFunc();
   }, [user.access_token, ordemId]);
 
   return <div>{ordem && <OrderItem ordem={ordem} />}</div>;

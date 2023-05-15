@@ -27,6 +27,7 @@ import { action as manipulateOperarioAction } from "./components/Operarios/formO
 //Maquinas
 import MaquinasRootLayout from "./pages/Maquinas/rootMaquina";
 import MaquinasPage from "./pages/Maquinas/maquinas";
+import MaquinaDetailPage from "./pages/Maquinas/detalheMaquina";
 
 //Materiais
 import MateriaisRootLayout from "./pages/Materiais/rootMaterial";
@@ -35,6 +36,7 @@ import MateriaisPage from "./pages/Materiais/materiais";
 //Tarefas
 import TarefasRootLayout from "./pages/Tarefas/rootTarefa";
 import TarefasPage from "./pages/Tarefas/tarefas";
+import TarefaDetailPage from "./pages/Tarefas/detalheTarefa";
 
 /* import ErrorPage from "./pages/Errors/Error"; */
 
@@ -197,12 +199,24 @@ function App() {
               </Route>
               <Route element={<TarefasRootLayout />}>
                 <Route path="/tarefas" element={<TarefasPage />} />
+                <Route
+                  path="/tarefas/:tarefaId"
+                  element={<TarefaDetailPage />}
+                />
               </Route>
               <Route element={<OperariosRootLayout />}>
                 <Route path="/operarios" element={<OperariosPage />} />
+                <Route
+                  path="/operarios/:operarioId"
+                  element={<OperarioDetailPage />}
+                />
               </Route>
               <Route element={<MaquinasRootLayout />}>
                 <Route path="/maquinas" element={<MaquinasPage />} />
+                <Route
+                  path="/maquinas/:maquinasId"
+                  element={<MaquinaDetailPage />}
+                />
               </Route>
               <Route element={<MateriaisRootLayout />}>
                 <Route path="/materiais" element={<MateriaisPage />} />

@@ -2,8 +2,15 @@ import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import swal from "sweetalert";
 import { Pencil, Trash } from "@phosphor-icons/react";
+import { useNavigate } from "react-router-dom";
+import BotaoVoltar from "../Botoes/Voltar";
 
 function OrdemItem({ ordem }) {
+  const navigate = useNavigate();
+
+  const GoBack = () => {
+    navigate(-1);
+  };
   const submit = () => {};
   const backgroundColor =
     ordem.prioridade === "BAIXA"
@@ -40,6 +47,7 @@ function OrdemItem({ ordem }) {
 
   return (
     <>
+      <BotaoVoltar onClick={() => GoBack} />
       <Table striped bordered hover>
         <thead>
           <tr>

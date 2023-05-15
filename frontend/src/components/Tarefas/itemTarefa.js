@@ -1,38 +1,51 @@
-import { Link /* useRouteLoaderData, */ } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { Pencil, Trash } from "@phosphor-icons/react";
+import BotaoVoltar from "../Botoes/Voltar";
 
-function MaterialItem({ material }) {
+function TarefaItem({ tarefa }) {
+  const navigate = useNavigate();
+
+  const GoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <>
-      <Table
-        striped
-        bordered
-        hover
-        style={{ width: "75rem", marginLeft: "18rem" }}
-      >
+      <BotaoVoltar onClick={() => GoBack} />
+      <Table striped bordered hover>
         <thead>
           <tr>
-            <th>MATERIAL ID</th>
-            <th>MATERIAL</th>
-            <th>STOCK</th>
-            <th>QUANTIDADE</th>
+            <th>TAREFA ID</th>
+            <th>PRODUTO</th>
+            <th>OPERAÇÃO</th>
+            <th>ESTADO</th>
+            <th>AÇÕES</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{material.id}</td>
-            <td>{material.material}</td>
-            <td>{material.stock}</td>
-            <td>{material.quantidade}</td>
+            <td>{tarefa.id}</td>
+            <td>{tarefa.produto}</td>
+            <td>{tarefa.operacao}</td>
+            <td>{tarefa.estado}</td>
+            <td>
+              <span>
+                <Link to="editar">
+                  <Pencil size={28} weight="light" />
+                </Link>
+                &nbsp; &nbsp;
+                <Link>
+                  <Trash size={28} weight="light" />
+                </Link>
+              </span>
+            </td>
           </tr>
         </tbody>
-        <menu>
-          <Link to="editar">Editar</Link>
-          <button>Apagar</button>
-        </menu>
       </Table>
     </>
   );
 }
 
-export default MaterialItem;
+export default TarefaItem;
