@@ -9,6 +9,7 @@ import {
   Pencil,
   Trash,
   CaretUpDown,
+  MagnifyingGlass,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
@@ -36,10 +37,16 @@ function TarefasList({ tarefas }) {
   }
 
   const [sortTarefas, setSortTarefas] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    setSortTarefas([...tarefas]);
-  }, [tarefas]);
+    const filteredTarefas = tarefas.filter(
+      (tarefa) =>
+        tarefa.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        tarefa.tarefa.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSortTarefas(filteredTarefas);
+  }, [tarefas, searchQuery]);
 
   function __refresh() {
     window.location.reload(false);
@@ -56,6 +63,18 @@ function TarefasList({ tarefas }) {
         cursor="pointer"
         className="iconRefresh"
       />
+      <div className="filterBarTarefas">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="filterBarTarefa-item searchBarTarefas"
+          placeholder="Tarefas"
+        />
+        <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+          <MagnifyingGlass size={24} color="#2e5a53" />
+        </button>
+      </div>
 
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
