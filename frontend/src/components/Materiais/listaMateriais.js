@@ -64,12 +64,13 @@ function MateriaisList({ materiais }) {
         className="iconRefresh"
       />
       <div className="filterBarMateriais">
+        Procurar:{" "}
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="filterBarMaterial-item searchBarMateriais"
-          placeholder="Materiais"
+          placeholder=""
         />
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
           <MagnifyingGlass size={24} color="#2e5a53" />

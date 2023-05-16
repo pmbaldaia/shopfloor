@@ -8,6 +8,7 @@ import {
   ReadCvLogo,
   Pencil,
   Trash,
+  MagnifyingGlass,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 import Button from "react-bootstrap/Button";
@@ -37,15 +38,20 @@ function MaquinasList({ maquinas }) {
   }
 
   const [sortMaquinas, setSortMaquinas] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    setSortMaquinas([...maquinas]);
-  }, [maquinas]);
+    const filteredMaquinas = maquinas.filter(
+      (maquina) =>
+        maquina.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        maquina.material.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSortMaquinas(filteredMaquinas);
+  }, [maquinas, searchQuery]);
 
   function __refresh() {
     window.location.reload(false);
   }
-
   return (
     <div>
       <h1>Máquinas</h1>
@@ -57,7 +63,20 @@ function MaquinasList({ maquinas }) {
         cursor="pointer"
         className="iconRefresh"
       />
-      <div>
+      <div className="filterBarMaquinas">
+        Procurar:
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="filterBarMquina-item searchBarMaquinas"
+          placeholder=""
+        />
+        <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+          <MagnifyingGlass size={24} color="#2e5a53" />
+        </button>
+      </div>
+      {/* <div>
         {sortMaquinas.map((maquina) => (
           <Card style={{ width: "20rem" }}>
             <Card.Img variant="top" src={maquina.imagem} />
@@ -74,7 +93,7 @@ function MaquinasList({ maquinas }) {
             </Card.Body>
           </Card>
         ))}
-      </div>
+      </div> */}
 
       {/* <Table bordered className="table-spacing" style={{ color: "#120309" }}> */}
       {/*  <thead>

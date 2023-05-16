@@ -64,12 +64,13 @@ function TarefasList({ tarefas }) {
         className="iconRefresh"
       />
       <div className="filterBarTarefas">
+        Procurar:{" "}
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="filterBarTarefa-item searchBarTarefas"
-          placeholder="Tarefas"
+          placeholder=""
         />
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
           <MagnifyingGlass size={24} color="#2e5a53" />

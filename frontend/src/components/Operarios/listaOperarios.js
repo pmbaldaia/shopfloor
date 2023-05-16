@@ -9,6 +9,7 @@ import {
   Pencil,
   Trash,
   CaretUpDown,
+  MagnifyingGlass,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
@@ -36,15 +37,20 @@ function OperariosList({ operarios }) {
   }
 
   const [sortOperarios, setSortOperarios] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    setSortOperarios([...operarios]);
-  }, [operarios]);
+    const filteredOperarios = operarios.filter(
+      (operario) =>
+        operario.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        operario.nome.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSortOperarios(filteredOperarios);
+  }, [operarios, searchQuery]);
 
   function __refresh() {
     window.location.reload(false);
   }
-
   return (
     <div>
       <h1>Operários</h1>
@@ -56,7 +62,19 @@ function OperariosList({ operarios }) {
         cursor="pointer"
         className="iconRefresh"
       />
-
+      <div className="filterBarOperarios">
+        Procurar:{" "}
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="filterBarOperario-item searchBarOperarios"
+          placeholder=""
+        />
+        <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+          <MagnifyingGlass size={24} color="#2e5a53" />
+        </button>
+      </div>
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
         <thead>
           <tr>

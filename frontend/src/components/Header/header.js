@@ -1,7 +1,7 @@
 import React, { useState /* useContext */ } from "react";
 /* import { DarkModeSwitch } from "react-toggle-dark-mode"; */
 import "./header.css";
-import { Bell, MagnifyingGlass } from "@phosphor-icons/react";
+import { Bell, MagnifyingGlass, CaretLeft } from "@phosphor-icons/react";
 import swal from "sweetalert";
 /* import { ThemeContext } from "../../themeContext"; */
 
@@ -44,7 +44,7 @@ function HeaderPage() {
             onChange={handleInputChange}
           />
           <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
-            <MagnifyingGlass size={24} color="#2e5a53" />
+            <MagnifyingGlass size={25} color="#2e5a53" />
           </button>
         </div>
         {/*  <DarkModeSwitch
@@ -56,7 +56,7 @@ function HeaderPage() {
         <Bell
           onClick={warning}
           style={{ cursor: "pointer" }}
-          size={28}
+          size={25}
           weight="light"
           className="icons"
           color="#2e5a53"

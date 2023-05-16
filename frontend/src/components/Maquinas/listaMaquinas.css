@@ -124,3 +124,39 @@
   border: 2px solid #a3b18a;
   color: black;
 }
+
+.filterBarMaquinas {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 3em;
+  margin-top: 2em;
+}
+
+.filterBarMaquinas-item {
+  margin-right: 10px;
+  padding: 0;
+}
+
+.filterBarMaquina {
+  width: 13em;
+  height: 2em;
+  margin-left: 1em;
+  padding-left: 0.3em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0.3rem;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+}
+.searchBarMaquinas {
+  width: 25em;
+  height: 2em;
+  margin-left: 0.4em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0.5rem;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+  color: black;
+}

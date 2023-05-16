@@ -1,0 +1,23 @@
+.barPrioridadeEstado {
+  width: 10em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.4rem;
+  font-family: "Montserrat";
+  font-size: 0.9rem;
+}
+
+.barEstado {
+  margin-right: 2em;
+}
+
+.headerItemOrdem {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerItemOrdem h2 {
+  margin-right: auto;
+}

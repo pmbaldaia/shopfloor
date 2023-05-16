@@ -101,7 +101,7 @@
   color: black;
 }
 
-.light #root{
+.light #root {
   background-color: black;
   color: white;
 }
@@ -110,7 +110,7 @@
   color: black;
 }
 
-.root.dark{
+.root.dark {
   background-color: black;
   color: white;
 }

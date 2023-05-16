@@ -11,8 +11,6 @@ function RootLayout() {
 
   return (
     <>
-      {/* <ThemeProvider value={{ theme, toggleTheme }}>
-        <div className={`root ${theme}`}> */}
       <div className={isDashboard ? null : "sidebar"}>
         {location.pathname !== "/" && <SideBar />}
       </div>
@@ -20,9 +18,6 @@ function RootLayout() {
         {location.pathname !== "/" && <HeaderPage />}
         <Outlet />
       </div>
-      {/* 
-        </div>
-      </ThemeProvider> */}
     </>
   );
 }

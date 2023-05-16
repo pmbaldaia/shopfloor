@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { Pencil, Trash } from "@phosphor-icons/react";
-import BotaoVoltar from "../Botoes/Voltar";
+import { Pencil, Trash, CaretLeft } from "@phosphor-icons/react";
 
 function TarefaItem({ tarefa }) {
   const navigate = useNavigate();
@@ -13,7 +12,7 @@ function TarefaItem({ tarefa }) {
 
   return (
     <>
-      <BotaoVoltar onClick={() => GoBack} />
+      <CaretLeft style={{ cursor: "pointer" }} size={25} onClick={GoBack} />
       <Table striped bordered hover>
         <thead>
           <tr>

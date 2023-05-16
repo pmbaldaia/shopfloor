@@ -1,30 +1,19 @@
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import swal from "sweetalert";
-import { Pencil, Trash } from "@phosphor-icons/react";
+import { Pencil, Trash, CaretLeft } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
-import BotaoVoltar from "../Botoes/Voltar";
+import "./itemOrdem.css";
 
 function OrdemItem({ ordem }) {
-  const navigate = useNavigate();
-
-  const GoBack = () => {
-    navigate(-1);
-  };
-  const submit = () => {};
   const backgroundColor =
-    ordem.prioridade === "BAIXA"
-      ? "yellow"
-      : ordem.prioridade === "MÉDIA"
-      ? "orange"
-      : "red";
+    ordem.estado === "EM ATRASO"
+      ? "#F58283"
+      : ordem.estado === "CONCLUÍDO"
+      ? "#70CC7A"
+      : "#FFF";
 
-  const color =
-    ordem.prioridade === "BAIXA"
-      ? "black"
-      : ordem.prioridade === "MÉDIA"
-      ? "black"
-      : "white";
+  const color = ordem.estado === "EM ATRASO" ? "white" : "black";
 
   function startDeleteHandler() {
     swal({
@@ -44,43 +33,57 @@ function OrdemItem({ ordem }) {
       }
     });
   }
+  const navigate = useNavigate();
 
+  const GoBack = () => {
+    navigate(-1);
+  };
+
+  const submit = () => {};
   return (
     <>
-      <BotaoVoltar onClick={() => GoBack} />
+      <CaretLeft style={{ cursor: "pointer" }} size={25} onClick={GoBack} />
+      <p>{}</p>
+      <div className="headerItemOrdem">
+        <h2>
+          Ordem de Produção: {ordem.id}{" "}
+          <Link /* to="editar" */>
+            <Pencil size={25} weight="light" />
+          </Link>
+          &nbsp;
+          <Link /* onClick={startDeleteHandler} */>
+            <Trash size={25} weight="light" />
+          </Link>
+        </h2>
+        <h5 className="barPrioridadeEstado">Prioridade: {ordem.prioridade}</h5>
+        <h5
+          style={{ backgroundColor, color }}
+          className="barPrioridadeEstado barEstado"
+        >
+          {ordem.estado}
+        </h5>
+      </div>
+      <p>{}</p>
+
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>ID</th>
             <th>QUANTIDADE</th>
             <th>LIBERADO</th>
             <th>DATA ENTREGA</th>
             <th>PRODUTO</th>
             <th>PRIORIDADE</th>
             <th>ESTADO</th>
-            <th>AÇÕES</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{ordem.id}</td>
             <td>{ordem.quantidade}</td>
             <td>{ordem.liberado}</td>
             <td>{ordem.data_entrega}</td>
             <td>{ordem.produto}</td>
-            <td style={{ backgroundColor, color }}>{ordem.prioridade}</td>
+            <td>{ordem.prioridade}</td>
             <td>{ordem.estado}</td>
-            <td>
-              <span>
-                <Link to="editar">
-                  <Pencil size={28} weight="light" />
-                </Link>
-                &nbsp; &nbsp;
-                <Link onClick={startDeleteHandler}>
-                  <Trash size={28} weight="light" />
-                </Link>
-              </span>
-            </td>
           </tr>
         </tbody>
       </Table>

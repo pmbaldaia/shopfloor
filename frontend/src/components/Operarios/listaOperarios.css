@@ -63,3 +63,39 @@
 .table {
   font-size: 13px;
 }
+
+.filterBarOperarios {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 3em;
+  margin-top: 2em;
+}
+
+.filterBarOperarios-item {
+  margin-right: 10px;
+  padding: 0;
+}
+
+.filterBarOperario {
+  width: 13em;
+  height: 2em;
+  margin-left: 1em;
+  padding-left: 0.3em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0.3rem;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+}
+.searchBarOperarios {
+  width: 25em;
+  height: 2em;
+  margin-left: 0.4em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0.5rem;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+  color: black;
+}
