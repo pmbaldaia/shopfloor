@@ -67,7 +67,7 @@ function OrdensList({ ordens }) {
       return (
         (ordem.id.toLowerCase().includes(searchData) ||
           ordem.sap.toLowerCase().includes(searchData) ||
-          ordem.ordem_producao.toLowerCase().includes(searchData) ||
+          ordem.ordem_venda.toLowerCase().includes(searchData) ||
           ordem.produto.toLowerCase().includes(searchData) ||
           ordem.produto.includes(searchQuery.toLowerCase()) ||
           ordem.prioridade.toLowerCase().includes(searchData) ||
@@ -170,7 +170,7 @@ function OrdensList({ ordens }) {
                 <span>{ordem.sap}</span>
               </td>
               <td className="highlight-text-2">
-                <span>{ordem.ordem_producao}</span>
+                <span>{ordem.ordem_venda}</span>
               </td>
               <td className="highlight-text-2">
                 <OrdensComponent descricao={ordem.descricao}>

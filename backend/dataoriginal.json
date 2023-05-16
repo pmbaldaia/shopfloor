@@ -1,0 +1,433 @@
+{
+  "ordens": [
+    {
+      "id": "51345",
+      "sap": "1000012346",
+      "ordem_producao": "003601040",
+      "produto": "Calções",
+      "descricao": "Peças curtas que proporcionam frescor e liberdade de movimento, perfeitas para os dias quentes",
+      "quantidade": "132",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "03/05/2023",
+      "prioridade": "BAIXA",
+      "estado": "EM PROGRESSO"
+    },
+    {
+      "id": "15251",
+      "sap": "1000012341",
+      "ordem_producao": "003601090",
+      "produto": "Vestido",
+      "descricao": "Peças curtas que proporcionam frescor e liberdade de movimento, perfeitas para os dias quentes",
+      "quantidade": "32",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "01/05/2023",
+      "prioridade": "ALTA",
+      "estado": "EM ATRASO"
+    },
+    {
+      "id": "24363",
+      "sap": "1000012342",
+      "ordem_producao": "003603000",
+      "produto": "Calções",
+      "descricao": "Peças curtas que proporcionam frescor e liberdade de movimento, perfeitas para os dias quentes",
+      "quantidade": "500",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "10/05/2023",
+      "prioridade": "BAIXA",
+      "estado": "CONCLUÍDO"
+    },
+    {
+      "id": "64645",
+      "sap": "1000012343",
+      "ordem_producao": "003609041",
+      "produto": "Calças",
+      "descricao": "Peças de roupa que cobrem as pernas e oferecem conforto e estilo",
+      "quantidade": "100",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "BAIXA",
+      "estado": "PENDENTE"
+    },
+    {
+      "id": "12345",
+      "sap": "1000012344",
+      "ordem_producao": "003600523",
+      "produto": "Calças",
+      "descricao": "Peças de roupa que cobrem as pernas e oferecem conforto e estilo",
+      "quantidade": "33",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "ALTA",
+      "estado": "PENDENTE"
+    },
+    {
+      "id": "63433",
+      "sap": "1000012345",
+      "ordem_producao": "003603453",
+      "produto": "Saias",
+      "descricao": "WP001 - Calções XPO ON FIRE ",
+      "quantidade": "50",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "BAIXA",
+      "estado": "EM PROGRESSO"
+    },
+    {
+      "id": "17325",
+      "sap": "1000012395",
+      "ordem_producao": "003605454",
+      "produto": "Casacos",
+      "descricao": "WP001 - Calções XPO ON FIRE ",
+      "quantidade": "43",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "ALTA",
+      "estado": "PENDENTE"
+    },
+    {
+      "id": "14234",
+      "sap": "1000012445",
+      "ordem_producao": "003645353",
+      "produto": "Calções",
+      "descricao": "Peças curtas que proporcionam frescor e liberdade de movimento, perfeitas para os dias quentes",
+      "quantidade": "320",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "MÉDIA",
+      "estado": "EM PROGRESSO"
+    },
+    {
+      "id": "17324",
+      "sap": "1000019545",
+      "ordem_producao": "003641234",
+      "produto": "Calções",
+      "descricao": "Peças curtas que proporcionam frescor e liberdade de movimento, perfeitas para os dias quentes",
+      "quantidade": "123",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "BAIXA",
+      "estado": "EM PROGRESSO"
+    },
+    {
+      "id": "63451",
+      "sap": "1000017245",
+      "ordem_producao": "003601245",
+      "produto": "Calções",
+      "descricao": "Peças curtas que proporcionam frescor e liberdade de movimento, perfeitas para os dias quentes",
+      "quantidade": "76",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "BAIXA",
+      "estado": "CONCLUÍDO"
+    },
+    {
+      "id": "17344",
+      "sap": "1000012435",
+      "ordem_producao": "003651464",
+      "produto": "Calções",
+      "descricao": "Peças curtas que proporcionam frescor e liberdade de movimento, perfeitas para os dias quentes",
+      "quantidade": "215",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "ALTA",
+      "estado": "EM ATRASO"
+    },
+    {
+      "id": "62345",
+      "sap": "1000098845",
+      "ordem_producao": "003656575",
+      "produto": "Calças",
+      "descricao": "Peças de roupa que cobrem as pernas e oferecem conforto e estilo",
+      "quantidade": "40",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "BAIXA",
+      "estado": "EM ATRASO"
+    },
+    {
+      "id": "82453",
+      "sap": "1000018885",
+      "ordem_producao": "003601052",
+      "produto": "Calções",
+      "descricao": "WP001 - Calções XPO ON FIRE ",
+      "quantidade": "500",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "BAIXA",
+      "estado": "PENDENTE"
+    },
+    {
+      "id": "82433",
+      "sap": "1000010945",
+      "ordem_producao": "003601040",
+      "produto": "Chapéus",
+      "descricao": "WP001 - Calções XPO ON FIRE ",
+      "quantidade": "20",
+      "liberado": "15/04/2023",
+      "data_emissao": "10/04/2023",
+      "data_entrega": "05/05/2023",
+      "prioridade": "MÉDIA",
+      "estado": "PENDENTE"
+    }
+  ],
+  "tarefas": [
+    {
+      "id": "1",
+      "produto": "1923",
+      "operacao": "Bolsos",
+      "estado": "Em Progresso",
+      "tarefa": "Cortar e costurar bolsos"
+    },
+    {
+      "id": "2",
+      "produto": "512",
+      "operacao": "Costura",
+      "estado": "Concluído",
+      "tarefa": "Realizar corte e costura em peças"
+    },
+    {
+      "id": "3",
+      "produto": "786",
+      "operacao": "Acabamento",
+      "estado": "Em Andamento",
+      "tarefa": "Realizar corte e costura para acabamento final"
+    },
+    {
+      "id": "4",
+      "produto": "251",
+      "operacao": "Etiquetagem",
+      "estado": "Em Andamento",
+      "tarefa": "Efetuar cortes e costuras nas etiquetas"
+    },
+    {
+      "id": "5",
+      "produto": "973",
+      "operacao": "Inspeção",
+      "estado": "Em Progresso",
+      "tarefa": "Realizar corte e costura nas peças a serem inspecionadas"
+    },
+    {
+      "id": "6",
+      "produto": "642",
+      "operacao": "Embalagem",
+      "estado": "Concluído",
+      "tarefa": "Efetuar corte e costura para embalagem final"
+    },
+    {
+      "id": "7",
+      "produto": "415",
+      "operacao": "Revisão",
+      "estado": "Em Andamento",
+      "tarefa": "Realizar corte e costura para revisão de qualidade"
+    },
+    {
+      "id": "8",
+      "produto": "879",
+      "operacao": "Montagem",
+      "estado": "Aguardando",
+      "tarefa": "Efetuar cortes e costuras na montagem das peças"
+    },
+    {
+      "id": "9",
+      "produto": "320",
+      "operacao": "Teste",
+      "estado": "Em Progresso",
+      "tarefa": "Realizar corte e costura para testes de funcionamento"
+    },
+    {
+      "id": "10",
+      "produto": "591",
+      "operacao": "Embalagem",
+      "estado": "CONCLUÍDO",
+      "tarefa": "Efetuar corte e costura para embalagem de produtos acabados"
+    }
+  ],
+  "operarios": [
+    {
+      "id": "1",
+      "nome": "Tiago Nunes",
+      "tarefa": "Efetuar corte e costura para embalagem de produtos acabados"
+    },
+    {
+      "id": "2",
+      "nome": "Mariana Costa",
+      "tarefa": "Realizar corte e costura para inspeção final"
+    },
+    {
+      "id": "3",
+      "nome": "Pedro Santos",
+      "tarefa": "Efetuar cortes e costuras nas etiquetas dos produtos"
+    },
+    {
+      "id": "4",
+      "nome": "Luisa Rodrigues",
+      "tarefa": "Realizar corte e costura para revisão de qualidade"
+    },
+    {
+      "id": "5",
+      "nome": "Rute Bastos",
+      "tarefa": "Efetuar corte e costura para acabamento final"
+    },
+    {
+      "id": "6",
+      "nome": "Ana Oliveira",
+      "tarefa": "Realizar corte e costura em peças para montagem"
+    },
+    {
+      "id": "7",
+      "nome": "João Silva",
+      "tarefa": "Efetuar cortes e costuras nas amostras de produtos"
+    },
+    {
+      "id": "8",
+      "nome": "Sofia Mendes",
+      "tarefa": "Realizar corte e costura para testes de funcionalidade"
+    }
+  ],
+  "maquinas": [
+    {
+      "id": "19429",
+      "nome": "PONTO CORRIDO",
+      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "fabricante": "RIOPELE",
+      "data_aquisicao": "05/02/2016",
+      "ultima_manutencao": "07/05/2022",
+      "proxima_manutencao": "07/05/2023",
+      "tipo": "COSTURA",
+      "modelo": "PFAFF 1246",
+      "estado": "OCUPADA"
+    },
+    {
+      "id": "12312",
+      "nome": "CORTA E COSE",
+      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "fabricante": "RIOPELE",
+      "data_aquisicao": "10/02/2016",
+      "ultima_manutencao": "07/05/2022",
+      "proxima_manutencao": "07/05/2023",
+      "tipo": "COSTURA",
+      "modelo": "PFAFF 1246",
+      "estado": "OCUPADA"
+    },
+    {
+      "id": "11390",
+      "nome": "CASEAR",
+      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "fabricante": "RIOPELE",
+      "data_aquisicao": "22/02/2016",
+      "ultima_manutencao": "07/05/2022",
+      "proxima_manutencao": "07/05/2023",
+      "tipo": "COSTURA",
+      "modelo": "PFAFF 1246",
+      "estado": "OCUPADA"
+    }
+  ],
+  "materiais": [
+    {
+      "id": "1771",
+      "material": "Algodão",
+      "estado": "",
+      "stock": "50",
+      "quantidade": "100"
+    },
+    {
+      "id": "1770",
+      "material": "Lã",
+      "estado": "",
+      "stock": "30",
+      "quantidade": "80"
+    },
+    {
+      "id": "1769",
+      "material": "Seda",
+      "estado": "",
+      "stock": "70",
+      "quantidade": "200"
+    },
+    {
+      "id": "1768",
+      "material": "Veludo",
+      "estado": "",
+      "stock": "20",
+      "quantidade": "50"
+    },
+    {
+      "id": "1767",
+      "material": "Cetim",
+      "estado": "",
+      "stock": "60",
+      "quantidade": "150"
+    },
+    {
+      "id": "1766",
+      "material": "Linho",
+      "estado": "",
+      "stock": "40",
+      "quantidade": "120"
+    },
+    {
+      "id": "1765",
+      "material": "Nylon",
+      "estado": "",
+      "stock": "80",
+      "quantidade": "180"
+    },
+    {
+      "id": "1764",
+      "material": "Poliéster",
+      "estado": "",
+      "stock": "90",
+      "quantidade": "220"
+    },
+    {
+      "id": "1763",
+      "material": "Couro",
+      "estado": "",
+      "stock": "10",
+      "quantidade": "30"
+    },
+    {
+      "id": "1762",
+      "material": "Tweed",
+      "estado": "",
+      "stock": "25",
+      "quantidade": "70"
+    },
+    {
+      "id": "1761",
+      "material": "SEDA",
+      "estado": "",
+      "stock": "123",
+      "quantidade": "300"
+    }
+  ],
+  "users": [
+    {
+      "num_func": "123",
+      "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
+      "name": "Pedro Sousa",
+      "id": "d18687ad-65c9-4aeb-8ffc-5de7cd491bb3",
+      "type": "gestor"
+    },
+    {
+      "num_func": "1234",
+      "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
+      "name": "Inês Sousa",
+      "id": "d18687ad-65c9-4aeb-8ffc-5de7cd491bb4",
+      "type": "user"
+    }
+  ]
+}
