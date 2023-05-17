@@ -61,8 +61,48 @@ function OrdemItem({ ordem }) {
         </h5>
       </div>
       <p>{}</p>
+      <ul className="timeline">
+        <li className="timeline-item">
+          <div className="timeline-content">
+            <h5>Data De Emissão</h5>
+            <p>{ordem.primeiro_consumo}</p>
+          </div>
+          <div className="timeline-circle"></div>
+        </li>
+        <li className="timeline-item">
+          <div className="timeline-content">
+            <h5>Liberado</h5>
+            <p>{ordem.liberado}</p>
+          </div>
+          <div className="timeline-circle"></div>
+          <hr className="timeline-line"></hr>
+        </li>
+        <li className="timeline-item">
+          <div className="timeline-content">
+            <h5>1º Consumo</h5>
+            <p>{ordem.primeiro_consumo}</p>
+          </div>
+          <div className="timeline-circleDisabled"></div>
+          <div className="timeline-line"></div>
+        </li>
+        <li className="timeline-item">
+          <div className="timeline-content">
+            <h5>Últ. Consumo</h5>
+            <p>{ordem.ultimo_consumo}</p>
+          </div>
+          <div className="timeline-circleDisabled"></div>
+          <div className="timeline-line"></div>
+        </li>
+        <li className="timeline-item">
+          <div className="timeline-content">
+            <h5>Data desejada da Remessa</h5>
+            <p>{ordem.data_desejada_remessa}</p>
+          </div>
+          <div className="timeline-circleDisabled"></div>
+        </li>
+      </ul>
 
-      <Container className="containerData">
+      <Container>
         <Row>
           <Col md={4}>
             <Row className="spacing">

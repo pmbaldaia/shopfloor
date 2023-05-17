@@ -214,7 +214,7 @@ function App() {
               <Route element={<MaquinasRootLayout />}>
                 <Route path="/maquinas" element={<MaquinasPage />} />
                 <Route
-                  path="/maquinas/:maquinasId"
+                  path="/maquinas/:maquinaId"
                   element={<MaquinaDetailPage />}
                 />
               </Route>

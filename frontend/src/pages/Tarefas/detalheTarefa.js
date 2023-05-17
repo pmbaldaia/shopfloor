@@ -6,12 +6,12 @@ import { useParams } from "react-router-dom";
 
 function OrdemDetailPage() {
   const user = useSelector((state) => state.user);
-  const [tarefa, setOrdem] = useState(null);
+  const [tarefa, setTarefa] = useState(null);
   const { tarefaId } = useParams();
   useEffect(() => {
     const getTarefaByIdFunc = async () => {
       let tarefaById = await getTarefaById(user.access_token, tarefaId);
-      setOrdem(tarefaById.data.tarefa);
+      setTarefa(tarefaById.data.tarefa);
     };
     getTarefaByIdFunc();
   }, [user.access_token, tarefaId]);

@@ -175,7 +175,7 @@
       "estado": "Em Progresso"
     },
     {
-      "id": "67895",
+      "id": "31232",
       "tipo": "JP02",
       "ordem_venda": "003601046",
       "sap": "1000012352",
@@ -234,7 +234,7 @@
       "estado": "Concluído"
     },
     {
-      "id": "67895",
+      "id": "63123",
       "tipo": "JP02",
       "ordem_venda": "003601046",
       "sap": "1000012352",
@@ -263,7 +263,7 @@
       "estado": "Concluído"
     },
     {
-      "id": "67895",
+      "id": "67100",
       "tipo": "JP02",
       "ordem_venda": "003601046",
       "sap": "1000012352",
@@ -292,7 +292,7 @@
       "estado": "Pendente"
     },
     {
-      "id": "67895",
+      "id": "67231",
       "tipo": "JP02",
       "ordem_venda": "003601046",
       "sap": "1000012352",
@@ -438,6 +438,42 @@
   "maquinas": [
     {
       "id": "19429",
+      "nome": "PONTO CORRIDO",
+      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "fabricante": "RIOPELE",
+      "data_aquisicao": "05/02/2016",
+      "ultima_manutencao": "07/05/2022",
+      "proxima_manutencao": "07/05/2023",
+      "tipo": "COSTURA",
+      "modelo": "PFAFF 1246",
+      "estado": "OCUPADA"
+    },
+    {
+      "id": "11219",
+      "nome": "PONTO CORRIDO",
+      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "fabricante": "RIOPELE",
+      "data_aquisicao": "05/02/2016",
+      "ultima_manutencao": "07/05/2022",
+      "proxima_manutencao": "07/05/2023",
+      "tipo": "COSTURA",
+      "modelo": "PFAFF 1246",
+      "estado": "OCUPADA"
+    },
+    {
+      "id": "19329",
+      "nome": "PONTO CORRIDO",
+      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "fabricante": "RIOPELE",
+      "data_aquisicao": "05/02/2016",
+      "ultima_manutencao": "07/05/2022",
+      "proxima_manutencao": "07/05/2023",
+      "tipo": "COSTURA",
+      "modelo": "PFAFF 1246",
+      "estado": "OCUPADA"
+    },
+    {
+      "id": "19119",
       "nome": "PONTO CORRIDO",
       "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
       "fabricante": "RIOPELE",

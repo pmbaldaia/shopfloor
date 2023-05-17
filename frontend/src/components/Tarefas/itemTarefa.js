@@ -1,18 +1,12 @@
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { Pencil, Trash, CaretLeft } from "@phosphor-icons/react";
+import { Pencil, Trash } from "@phosphor-icons/react";
+import HeaderPage from "../Header/header";
 
 function TarefaItem({ tarefa }) {
-  const navigate = useNavigate();
-
-  const GoBack = () => {
-    navigate(-1);
-  };
-
   return (
     <>
-      <CaretLeft style={{ cursor: "pointer" }} size={25} onClick={GoBack} />
+      <HeaderPage showCaretLeft={true} showSearchBar={false} />
       <Table striped bordered hover>
         <thead>
           <tr>

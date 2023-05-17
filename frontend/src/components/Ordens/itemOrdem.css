@@ -76,3 +76,52 @@
   border-radius: 0.25rem;
   height: auto;
 }
+
+/*Timeline item ordem*/
+.timeline h5 {
+  font-size: 15px;
+  color: #120309;
+}
+.timeline p {
+  font-size: 12px;
+  color: #120309;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-right: 2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.timeline-line {
+  width: 2px;
+  background-color: black;
+  margin: 0 auto;
+}
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-content {
+  text-align: center;
+}
+
+.timeline-circle {
+  width: 20px;
+  height: 20px;
+  background-color: #a3b18a;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.timeline-circleDisabled {
+  width: 20px;
+  height: 20px;
+  background-color: #dde5df;
+  border-radius: 50%;
+}

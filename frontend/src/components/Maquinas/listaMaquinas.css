@@ -160,3 +160,25 @@
   border: 2px solid #a3b18a;
   color: black;
 }
+
+.spacingMaquinas {
+  padding-right: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+
+.card {
+  border: 1px solid red;
+}
+
+Button {
+  background-color: red;
+  color: #3a5a40;
+  font-size: 14px;
+  font-weight: 600;
+  width: 5em;
+  height: 2.5em;
+  border: none;
+  outline-style: none;
+  outline-color: none;
+}
