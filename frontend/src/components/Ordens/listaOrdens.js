@@ -5,6 +5,7 @@ import AdicionarOrdem from "../Botoes/AdicionarOrdem";
 import { MagnifyingGlass, Info } from "@phosphor-icons/react";
 import "react-datepicker/dist/react-datepicker.css";
 import OrdensComponent from "../Overlays/ordemOverlay";
+import HeaderPage from "../Header/header";
 
 import "./listaOrdens.css";
 import {
@@ -101,6 +102,7 @@ function OrdensList({ ordens }) {
 
   return (
     <>
+      <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <div className="head">
         <h1>Ordens</h1>
         <ArrowClockwise

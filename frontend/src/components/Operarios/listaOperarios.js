@@ -12,6 +12,7 @@ import {
   MagnifyingGlass,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
+import HeaderPage from "../Header/header";
 
 function OperariosList({ operarios }) {
   const submit = () => {};
@@ -53,6 +54,7 @@ function OperariosList({ operarios }) {
   }
   return (
     <div>
+      <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Operários</h1>
       <AdicionarOperario />
       <ArrowClockwise

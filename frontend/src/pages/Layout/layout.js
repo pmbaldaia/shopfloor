@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import HeaderPage from "../../components/Header/header";
+/* import HeaderPage from "../../components/Header/header"; */
 import SideBar from "../../components/SideBar/sidebar";
 import "./layout.css";
 
@@ -15,7 +15,7 @@ function RootLayout() {
         {location.pathname !== "/" && <SideBar />}
       </div>
       <div className={isDashboard ? "null" : "main-content"}>
-        {location.pathname !== "/" && <HeaderPage />}
+        {/* {location.pathname !== "/" && <HeaderPage />} */}
         <Outlet />
       </div>
     </>

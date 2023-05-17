@@ -12,6 +12,7 @@ import {
   CaretUpDown,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
+import HeaderPage from "../Header/header";
 
 function MateriaisList({ materiais }) {
   const submit = () => {};
@@ -54,6 +55,7 @@ function MateriaisList({ materiais }) {
 
   return (
     <div>
+      <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Materiais</h1>
       <AdicionarMaterial />
       <ArrowClockwise

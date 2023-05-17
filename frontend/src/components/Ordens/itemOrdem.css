@@ -8,8 +8,11 @@
   font-family: "Montserrat";
   font-size: 0.9rem;
   margin-bottom: 1em;
-  margin-right: 1em;
-  margin-left: 1em;
+}
+
+.barEstado {
+  margin-right: 2em;
+  font-weight: bold;
 }
 
 .spacing {
@@ -22,12 +25,6 @@
   padding-left: 2em;
   text-align: center;
 }
-
-.barEstado {
-  margin-right: 2em;
-  font-weight: bold;
-}
-
 .headerItemOrdem {
   display: flex;
   justify-content: flex-end;

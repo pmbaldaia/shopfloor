@@ -13,6 +13,7 @@ import {
 import swal from "sweetalert";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import HeaderPage from "../Header/header";
 
 function MaquinasList({ maquinas }) {
   const submit = () => {};
@@ -54,6 +55,7 @@ function MaquinasList({ maquinas }) {
   }
   return (
     <div>
+      <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Máquinas</h1>
       <AdicionarMaquina />
       <ArrowClockwise

@@ -1,9 +1,10 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
-import { Pencil, Trash, CaretLeft } from "@phosphor-icons/react";
-import { useNavigate } from "react-router-dom";
+import { Pencil, Trash } from "@phosphor-icons/react";
 import "./itemOrdem.css";
 import { Container, Row, Col } from "react-bootstrap";
+import HeaderPage from "../Header/header";
 
 function OrdemItem({ ordem }) {
   const backgroundColor =
@@ -33,16 +34,12 @@ function OrdemItem({ ordem }) {
       }
     });
   }
-  const navigate = useNavigate();
-
-  const GoBack = () => {
-    navigate(-1);
-  };
 
   const submit = () => {};
+
   return (
     <>
-      <CaretLeft style={{ cursor: "pointer" }} size={25} onClick={GoBack} />
+      <HeaderPage showCaretLeft={true} showSearchBar={false} />
       <p>{}</p>
       <div className="headerItemOrdem">
         <h2>
@@ -64,7 +61,8 @@ function OrdemItem({ ordem }) {
         </h5>
       </div>
       <p>{}</p>
-      <Container>
+
+      <Container className="containerData">
         <Row>
           <Col md={4}>
             <Row className="spacing">

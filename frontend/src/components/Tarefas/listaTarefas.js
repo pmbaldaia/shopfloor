@@ -12,6 +12,7 @@ import {
   MagnifyingGlass,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
+import HeaderPage from "../Header/header";
 
 function TarefasList({ tarefas }) {
   const submit = () => {};
@@ -54,6 +55,7 @@ function TarefasList({ tarefas }) {
 
   return (
     <div>
+      <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Tarefas</h1>
       <AdicionarTarefa />
       <ArrowClockwise
