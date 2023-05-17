@@ -26,8 +26,8 @@
       "data_prevista_producao": "03/05/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "BAIXA",
-      "estado": "EM PROGRESSO"
+      "prioridade": "Baixa",
+      "estado": "Em Progresso"
     },
     {
       "id": "67890",
@@ -55,8 +55,8 @@
       "data_prevista_producao": "10/06/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "ALTA",
-      "estado": "EM ATRASO"
+      "prioridade": "Alta",
+      "estado": "Em Atraso"
     },
     {
       "id": "67891",
@@ -84,8 +84,8 @@
       "data_prevista_producao": "10/06/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "ALTA",
-      "estado": "CONCLUÍDO"
+      "prioridade": "Alta",
+      "estado": "Concluído"
     },
     {
       "id": "67892",
@@ -113,8 +113,8 @@
       "data_prevista_producao": "10/06/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "ALTA",
-      "estado": "PENDENTE"
+      "prioridade": "Alta",
+      "estado": "Pendente"
     },
     {
       "id": "67893",
@@ -142,8 +142,8 @@
       "data_prevista_producao": "10/06/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "ALTA",
-      "estado": "PENDENTE"
+      "prioridade": "Alta",
+      "estado": "Pendente"
     },
     {
       "id": "67894",
@@ -171,8 +171,8 @@
       "data_prevista_producao": "10/06/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "ALTA",
-      "estado": "EM PROGRESSO"
+      "prioridade": "Alta",
+      "estado": "Em Progresso"
     },
     {
       "id": "67895",
@@ -200,8 +200,8 @@
       "data_prevista_producao": "10/06/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "ALTA",
-      "estado": "PENDENTE"
+      "prioridade": "Alta",
+      "estado": "Pendente"
     },
 
     {
@@ -230,8 +230,8 @@
       "data_prevista_producao": "10/06/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "ALTA",
-      "estado": "CONCLUÍDO"
+      "prioridade": "Alta",
+      "estado": "Concluído"
     },
     {
       "id": "67895",
@@ -259,8 +259,8 @@
       "data_prevista_producao": "10/06/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "BAIXA",
-      "estado": "CONCLUÍDO"
+      "prioridade": "Baixa",
+      "estado": "Concluído"
     },
     {
       "id": "67895",
@@ -288,8 +288,8 @@
       "data_prevista_producao": "10/06/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "MÉDIA",
-      "estado": "PENDENTE"
+      "prioridade": "Média",
+      "estado": "Pendente"
     },
     {
       "id": "67895",
@@ -317,8 +317,8 @@
       "data_prevista_producao": "10/06/2023",
       "data_entrega": "15/05/2023",
       "observacao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta, diam at vehicula lacinia, justo elit posuere felis, a faucibus est eros eu purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis cursus iaculis interdum. Cras vehicula in odio vel maximus. Aliquam lacinia ex at magna ultricies, quis porta dui tincidunt. Quisque non fermentum diam. Proin sodales diam porta nisl efficitur rutrum. Proin dui justo, feugiat sed ipsum vitae, facilisis cursus dolor. Nunc interdum felis nunc, vel viverra orci eleifend eu. Duis molestie sodales dolor, hendrerit tempus magna dapibus eu. Cras et vulputate lectus, at finibus massa. Aliquam erat volutpat. Cras id orci tortor. Donec risus magna, venenatis vel malesuada eget, interdum vel nisi. Curabitur eget ornare quam.",
-      "prioridade": "ALTA",
-      "estado": "EM ATRASO"
+      "prioridade": "Alta",
+      "estado": "Em atraso"
     }
   ],
   "tarefas": [
@@ -389,7 +389,7 @@
       "id": "10",
       "produto": "591",
       "operacao": "Embalagem",
-      "estado": "CONCLUÍDO",
+      "estado": "Concluído",
       "tarefa": "Efetuar corte e costura para embalagem de produtos acabados"
     }
   ],

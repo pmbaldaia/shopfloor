@@ -7,13 +7,13 @@ import { Container, Row, Col } from "react-bootstrap";
 
 function OrdemItem({ ordem }) {
   const backgroundColor =
-    ordem.estado === "EM ATRASO"
+    ordem.estado === "Em Atraso"
       ? "#F58283"
-      : ordem.estado === "CONCLUÍDO"
+      : ordem.estado === "Concluído"
       ? "#70CC7A"
       : "#FFF";
 
-  const color = ordem.estado === "EM ATRASO" ? "white" : "black";
+  const color = ordem.estado === "Em Atraso" ? "white" : "black";
 
   function startDeleteHandler() {
     swal({
@@ -67,141 +67,152 @@ function OrdemItem({ ordem }) {
       <Container>
         <Row>
           <Col md={4}>
-            <Row>
-              <Col>TIPO</Col>
-              <Col>{ordem.tipo}</Col>
+            <Row className="spacing">
+              <Col className="columnName">TIPO</Col>
+              <Col className="columnInfo">{ordem.tipo}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>SAP</Col>
-              <Col>{ordem.sap}</Col>
+            <Row className="spacing">
+              <Col className="columnName">SAP</Col>
+              <Col className="columnInfo">{ordem.sap}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Txt Breve Material</Col>
-              <Col>{ordem.txt_breve_material}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Txt Breve Material</Col>
+              <Col className="columnInfo">{ordem.txt_breve_material}</Col>
             </Row>
           </Col>
         </Row>
         <Row>
           <Col md={4}>
-            <Row>
-              <Col>Ordem de venda</Col>
-              <Col>{ordem.ordem_venda}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Ordem de venda</Col>
+              <Col className="columnInfo">{ordem.ordem_venda}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Estação</Col>
-              <Col>{ordem.estacao}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Estação</Col>
+              <Col className="columnInfo">{ordem.estacao}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Nome Cliente</Col>
-              <Col>{ordem.nome_cliente}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Nome Cliente</Col>
+              <Col className="columnInfo">{ordem.nome_cliente}</Col>
             </Row>
           </Col>
         </Row>
         <Row>
           <Col md={4}>
-            <Row>
-              <Col>Quantidade</Col>
-              <Col>{ordem.quantidade}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Quantidade</Col>
+              <Col className="columnInfo">{ordem.quantidade}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Quantidade Fornecida</Col>
-              <Col>{ordem.quantidade_fornecida}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Quantidade Fornecida</Col>
+              <Col className="columnInfo">{ordem.quantidade_fornecida}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Quantidade Expedida </Col>
-              <Col>{ordem.quantidade_experidida}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Quantidade Expedida </Col>
+              <Col className="columnInfo">{ordem.quantidade_expedida}</Col>
             </Row>
           </Col>
         </Row>
         <Row>
           <Col md={4}>
-            <Row>
-              <Col>Nome Confeção </Col>
-              <Col>{ordem.nome_confecao}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Nome Confeção </Col>
+              <Col className="columnInfo">{ordem.nome_confecao}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Liberado </Col>
-              <Col>{ordem.liberado}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Liberado </Col>
+              <Col className="columnInfo">{ordem.liberado}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Nome Tecido </Col>
-              <Col>{ordem.nome_tecido}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Nome Tecido </Col>
+              <Col className="columnInfo">{ordem.nome_tecido}</Col>
             </Row>
           </Col>
         </Row>
         <Row>
           <Col md={4}>
-            <Row>
-              <Col>1º Consumo </Col>
-              <Col>{ordem.primeiro_consumo}</Col>
+            <Row className="spacing">
+              <Col className="columnName">1º Consumo </Col>
+              <Col className="columnInfo">{ordem.primeiro_consumo}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Último Consumo </Col>
-              <Col>{ordem.ultimo_consumo}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Último Consumo </Col>
+              <Col className="columnInfo">{ordem.ultimo_consumo}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Data Prevista Entrada Tecido </Col>
-              <Col>{ordem.data_prevista_entrada_tecido}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Dt Prevista Ent Tecido </Col>
+              <Col className="columnInfo">
+                {ordem.data_prevista_entrada_tecido}
+              </Col>
             </Row>
           </Col>
         </Row>
         <Row>
           <Col md={4}>
-            <Row>
-              <Col>Última Entrada Pedido Compra </Col>
-              <Col>{ordem.ultima_entrada_pedido_compra}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Ult Ent Pedido Compra </Col>
+              <Col className="columnInfo">
+                {ordem.ultima_entrada_pedido_compra}
+              </Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Data Prevista Acessórios </Col>
-              <Col>{ordem.data_prevista_acessorios}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Data Prevista Acessórios </Col>
+              <Col className="columnInfo">{ordem.data_prevista_acessorios}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Data Aprovação Modelo </Col>
-              <Col>{ordem.data_aprovacao_modelo}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Data Aprovação Modelo </Col>
+              <Col className="columnInfo">{ordem.data_aprovacao_modelo}</Col>
             </Row>
           </Col>
         </Row>
         <Row>
           <Col md={4}>
-            <Row>
-              <Col>Data Desejada Remessa </Col>
-              <Col>{ordem.data_desejada_remessa}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Data Desejada Remessa </Col>
+              <Col className="columnInfo">{ordem.data_desejada_remessa}</Col>
             </Row>
           </Col>
           <Col md={4}>
-            <Row>
-              <Col>Data Prevista Produção </Col>
-              <Col>{ordem.data_prevista_producao}</Col>
+            <Row className="spacing">
+              <Col className="columnName">Data Prevista Produção </Col>
+              <Col className="columnInfo">{ordem.data_prevista_producao}</Col>
             </Row>
           </Col>
         </Row>
         <Row>
-          <Col md={12} style={{ textAlign: "justify" }}>
-            Observações {ordem.observacao}
+          <Col md={12}>
+            <Row className="spacingBottom">
+              <Col md={2} className="columnNameObs">
+                Observações
+              </Col>
+              <Col md={10} className="columnInfoObs">
+                {ordem.observacao}
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>

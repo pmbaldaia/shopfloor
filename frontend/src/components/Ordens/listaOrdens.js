@@ -19,13 +19,13 @@ import swal from "sweetalert";
 function OrdensList({ ordens }) {
   function CorEstado({ ordem }) {
     const backgroundColor =
-      ordem.estado === "EM ATRASO"
+      ordem.estado === "Em Atraso"
         ? "#F58283"
-        : ordem.estado === "CONCLUÍDO"
+        : ordem.estado === "Concluído"
         ? "#70CC7A"
         : "#FFF";
 
-    const color = ordem.estado === "EM ATRASO" ? "white" : "black";
+    const color = ordem.estado === "Em Atraso" ? "white" : "black";
 
     return { backgroundColor, color };
   }

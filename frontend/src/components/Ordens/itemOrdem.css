@@ -7,10 +7,25 @@
   border-radius: 0.4rem;
   font-family: "Montserrat";
   font-size: 0.9rem;
+  margin-bottom: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+.spacing {
+  padding-right: 2em;
+  padding-left: 2em;
+  text-align: center;
+}
+.spacingBottom {
+  padding-right: 2em;
+  padding-left: 2em;
+  text-align: center;
 }
 
 .barEstado {
   margin-right: 2em;
+  font-weight: bold;
 }
 
 .headerItemOrdem {
@@ -20,4 +35,47 @@
 
 .headerItemOrdem h2 {
   margin-right: auto;
+}
+
+.columnName {
+  border: 1px solid #a3b18a;
+  margin-bottom: 1em;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  background-color: #dde5df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+}
+
+.columnInfo {
+  border: 1px solid #a3b18a;
+  margin-bottom: 1em;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+  height: auto;
+}
+.columnNameObs {
+  border: 1px solid #a3b18a;
+  margin-bottom: 1em;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  background-color: #dde5df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.columnInfoObs {
+  border: 1px solid #a3b18a;
+  margin-bottom: 1em;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+  height: auto;
 }
