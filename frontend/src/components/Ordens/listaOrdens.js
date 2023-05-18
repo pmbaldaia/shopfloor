@@ -14,21 +14,20 @@ import {
   Pencil,
   Trash,
   CaretUpDown,
-  CaretUp,
-  CaretDown,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
 function OrdensList({ ordens }) {
   function CorEstado({ ordem }) {
+    const estadoLowerCase = ordem.estado.toLowerCase();
     const backgroundColor =
-      ordem.estado === "Em Atraso"
+      estadoLowerCase === "em atraso"
         ? "#F58283"
-        : ordem.estado === "Concluído"
+        : estadoLowerCase === "concluído"
         ? "#70CC7A"
         : "#FFF";
 
-    const color = ordem.estado === "Em Atraso" ? "white" : "black";
+    const color = estadoLowerCase === "em atraso" ? "white" : "black";
 
     return { backgroundColor, color };
   }
@@ -226,17 +225,6 @@ function OrdensList({ ordens }) {
     setSortOrdens(orderedESTADO);
     setSortESTADO(nextESTADO);
   };
-
-  /* const __handleSortESTADO = () => {
-    const nextESTADO = sortESTADO === "asc" ? "desc" : "asc";
-    const sortedESTADO = [...sortOrdens].sort((a, b) =>
-      a.estado.localeCompare(b.estado)
-    );
-    const orderedESTADO =
-      nextESTADO === "asc" ? sortedESTADO : sortedESTADO.reverse();
-    setSortOrdens(orderedESTADO);
-    setSortESTADO(nextESTADO);
-  }; */
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
