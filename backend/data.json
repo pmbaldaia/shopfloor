@@ -327,186 +327,186 @@
       "produto": "1923",
       "operacao": "Bolsos",
       "estado": "Em Progresso",
-      "tarefa": "Cortar e costurar bolsos"
+      "tarefa": "Cortar e Costurar bolsos"
     },
     {
       "id": "2",
       "produto": "512",
       "operacao": "Costura",
       "estado": "Concluído",
-      "tarefa": "Realizar corte e costura em peças"
+      "tarefa": "Realizar corte e Costura em peças"
     },
     {
       "id": "3",
       "produto": "786",
       "operacao": "Acabamento",
       "estado": "Em Andamento",
-      "tarefa": "Realizar corte e costura para acabamento final"
+      "tarefa": "Realizar corte e Costura para acabamento final"
     },
     {
       "id": "4",
       "produto": "251",
       "operacao": "Etiquetagem",
       "estado": "Em Andamento",
-      "tarefa": "Efetuar cortes e costuras nas etiquetas"
+      "tarefa": "Efetuar cortes e Costuras nas etiquetas"
     },
     {
       "id": "5",
       "produto": "973",
       "operacao": "Inspeção",
       "estado": "Em Progresso",
-      "tarefa": "Realizar corte e costura nas peças a serem inspecionadas"
+      "tarefa": "Realizar corte e Costura nas peças a serem inspecionadas"
     },
     {
       "id": "6",
       "produto": "642",
       "operacao": "Embalagem",
       "estado": "Concluído",
-      "tarefa": "Efetuar corte e costura para embalagem final"
+      "tarefa": "Efetuar corte e Costura para embalagem final"
     },
     {
       "id": "7",
       "produto": "415",
       "operacao": "Revisão",
       "estado": "Em Andamento",
-      "tarefa": "Realizar corte e costura para revisão de qualidade"
+      "tarefa": "Realizar corte e Costura para revisão de qualidade"
     },
     {
       "id": "8",
       "produto": "879",
       "operacao": "Montagem",
       "estado": "Aguardando",
-      "tarefa": "Efetuar cortes e costuras na montagem das peças"
+      "tarefa": "Efetuar cortes e Costuras na montagem das peças"
     },
     {
       "id": "9",
       "produto": "320",
       "operacao": "Teste",
       "estado": "Em Progresso",
-      "tarefa": "Realizar corte e costura para testes de funcionamento"
+      "tarefa": "Realizar corte e Costura para testes de funcionamento"
     },
     {
       "id": "10",
       "produto": "591",
       "operacao": "Embalagem",
       "estado": "Concluído",
-      "tarefa": "Efetuar corte e costura para embalagem de produtos acabados"
+      "tarefa": "Efetuar corte e Costura para embalagem de produtos acabados"
     }
   ],
   "operarios": [
     {
       "id": "1",
       "nome": "Tiago Nunes",
-      "tarefa": "Efetuar corte e costura para embalagem de produtos acabados"
+      "tarefa": "Efetuar corte e Costura para embalagem de produtos acabados"
     },
     {
       "id": "2",
       "nome": "Mariana Costa",
-      "tarefa": "Realizar corte e costura para inspeção final"
+      "tarefa": "Realizar corte e Costura para inspeção final"
     },
     {
       "id": "3",
       "nome": "Pedro Santos",
-      "tarefa": "Efetuar cortes e costuras nas etiquetas dos produtos"
+      "tarefa": "Efetuar cortes e Costuras nas etiquetas dos produtos"
     },
     {
       "id": "4",
       "nome": "Luisa Rodrigues",
-      "tarefa": "Realizar corte e costura para revisão de qualidade"
+      "tarefa": "Realizar corte e Costura para revisão de qualidade"
     },
     {
       "id": "5",
       "nome": "Rute Bastos",
-      "tarefa": "Efetuar corte e costura para acabamento final"
+      "tarefa": "Efetuar corte e Costura para acabamento final"
     },
     {
       "id": "6",
       "nome": "Ana Oliveira",
-      "tarefa": "Realizar corte e costura em peças para montagem"
+      "tarefa": "Realizar corte e Costura em peças para montagem"
     },
     {
       "id": "7",
       "nome": "João Silva",
-      "tarefa": "Efetuar cortes e costuras nas amostras de produtos"
+      "tarefa": "Efetuar cortes e Costuras nas amostras de produtos"
     },
     {
       "id": "8",
       "nome": "Sofia Mendes",
-      "tarefa": "Realizar corte e costura para testes de funcionalidade"
+      "tarefa": "Realizar corte e Costura para testes de funcionalidade"
     }
   ],
   "maquinas": [
     {
       "id": "19429",
-      "nome": "PONTO CORRIDO",
+      "nome": "Costura Singer",
       "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
       "fabricante": "RIOPELE",
       "data_aquisicao": "05/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "tipo": "COSTURA",
+      "tipo": "Costura",
       "modelo": "PFAFF 1246",
-      "estado": "OCUPADA"
+      "estado": "Ocupada"
     },
     {
       "id": "11219",
-      "nome": "PONTO CORRIDO",
-      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "nome": "Acabamentos",
+      "imagem": "https://images.unsplash.com/photo-1526290766257-c015850e4629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1hcXVpbmElMjB0ZXh0aWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
       "fabricante": "RIOPELE",
       "data_aquisicao": "05/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "tipo": "COSTURA",
+      "tipo": "Acabamentos",
       "modelo": "PFAFF 1246",
-      "estado": "OCUPADA"
+      "estado": "Ocupada"
     },
     {
       "id": "19329",
-      "nome": "PONTO CORRIDO",
-      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "nome": "Costura Sibura",
+      "imagem": "https://images.unsplash.com/photo-1564848534648-558dc1ef55c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1hcXVpbmFzJTIwY29zdHVyYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
       "fabricante": "RIOPELE",
       "data_aquisicao": "05/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "tipo": "COSTURA",
+      "tipo": "Costura",
       "modelo": "PFAFF 1246",
-      "estado": "OCUPADA"
+      "estado": "Ocupada"
     },
     {
       "id": "19119",
-      "nome": "PONTO CORRIDO",
-      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "nome": "Costura VM",
+      "imagem": "https://images.unsplash.com/photo-1630930678172-63343537a00a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvc3R1cmF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
       "fabricante": "RIOPELE",
       "data_aquisicao": "05/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "tipo": "COSTURA",
+      "tipo": "Costura",
       "modelo": "PFAFF 1246",
-      "estado": "OCUPADA"
+      "estado": "Ocupada"
     },
     {
       "id": "12312",
-      "nome": "CORTA E COSE",
-      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "nome": "Bordado",
+      "imagem": "https://images.unsplash.com/photo-1533648699240-2dcef160a7e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvc3R1cmElMjB0ZXh0aWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
       "fabricante": "RIOPELE",
       "data_aquisicao": "10/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "tipo": "COSTURA",
+      "tipo": "Bordado",
       "modelo": "PFAFF 1246",
-      "estado": "OCUPADA"
+      "estado": "Ocupada"
     },
     {
       "id": "11390",
-      "nome": "CASEAR",
-      "imagem": "https://ireland.apollo.olxcdn.com/v1/files/o2ouhr6znbrr3-PT/image;s=1000x733",
+      "nome": "Costura Pfaff",
+      "imagem": "https://images.unsplash.com/photo-1583611684159-2762f5e5642d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFxdWluYXMlMjBjb3N0dXJhfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
       "fabricante": "RIOPELE",
       "data_aquisicao": "22/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "tipo": "COSTURA",
+      "tipo": "Costura",
       "modelo": "PFAFF 1246",
-      "estado": "OCUPADA"
+      "estado": "Ocupada"
     }
   ],
   "materiais": [

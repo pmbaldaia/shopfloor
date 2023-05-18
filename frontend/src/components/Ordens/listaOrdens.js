@@ -54,7 +54,7 @@ function OrdensList({ ordens }) {
 
   const [sortOrdens, setSortOrdens] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate /* setSelectedDate */] = useState(null);
 
   useEffect(() => {
     setSortOrdens([...ordens]);
@@ -90,11 +90,11 @@ function OrdensList({ ordens }) {
     window.location.reload(false);
   }
 
-  //Código do ordenar por ID da ordem
+  /* //Código do ordenar por ID da ordem
   const __handleSortID = () => {
     const sortedOrdens = [...sortOrdens].sort((a, b) => a.id - b.id);
     setSortOrdens(sortedOrdens);
-  };
+  }; */
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -115,13 +115,12 @@ function OrdensList({ ordens }) {
         <AdicionarOrdem />
       </div>
       <div className="filterBarOrdem">
-        Procurar:
         <input
           type="text"
           value={searchQuery}
           className="filterBarOrdem-item, searchBarFunc"
           onChange={handleSearchChange}
-          placeholder=""
+          placeholder="Procurar"
         />
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
           <MagnifyingGlass size={24} color="#2e5a53" />

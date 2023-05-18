@@ -3,10 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import "./sidebar.scss";
 import logo from "../../assets/images/logoverde.png";
 import {
-  Gauge,
-  List,
+  ChartLine,
+  Files,
   Users,
-  Wrench,
+  GearFine,
   Info,
   SignOut,
   User,
@@ -26,13 +26,13 @@ import {
 const sidebarNavItems = [
   {
     display: "Dashboard",
-    icon: <Gauge size={25} />,
+    icon: <ChartLine size={25} />,
     to: "/dashboard",
     section: "dashboard",
   },
   {
     display: "Ordens",
-    icon: <List size={25} />,
+    icon: <Files size={25} />,
     to: "/ordens",
     section: "ordens",
   },
@@ -50,7 +50,7 @@ const sidebarNavItems = [
   },
   {
     display: "Maquinas",
-    icon: <Wrench size={25} />,
+    icon: <GearFine size={25} />,
     to: "/maquinas",
     section: "maquinas",
   },

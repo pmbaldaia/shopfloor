@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 .table-spacing {
   margin-bottom: 20px;
@@ -150,12 +153,12 @@
   border: 2px solid #a3b18a;
 }
 .searchBarMaquinas {
-  width: 25em;
+  width: 20em;
   height: 2em;
   margin-left: 0.4em;
   flex-direction: row;
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: 14px;
   background-color: #ecf0ed;
   border: 2px solid #a3b18a;
   color: black;
@@ -167,18 +170,49 @@
   padding-bottom: 1em;
 }
 
-.card {
-  border: 1px solid red;
+.imagemMaquina {
+  width: 10em;
+  height: 10em;
+  border-radius: 9px;
 }
 
-Button {
-  background-color: red;
-  color: #3a5a40;
-  font-size: 14px;
+.card {
+  border: 1px solid #3a5a40 !important;
+}
+
+.titleCard {
+  font-size: 30px;
+  font-family: Dosis;
   font-weight: 600;
-  width: 5em;
+}
+
+.textCard {
+  font-size: 16px;
+  font-family: Dosis;
+  font-weight: 600;
+}
+.textCardInfo {
+  font-size: 15px;
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+.botaoVerMais {
+  background-color: #dad7cd;
+  color: #3a5a40;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 500;
+  width: 11em;
   height: 2.5em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
   border: none;
+  border-radius: 6px;
   outline-style: none;
   outline-color: none;
+  text-decoration: none;
 }

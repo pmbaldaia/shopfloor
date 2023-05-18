@@ -38,7 +38,7 @@
   border: 1px solid #a3b18a;
   margin-bottom: 1em;
   font-weight: 600;
-  border-radius: 0.25rem;
+  border-radius: 0.25rem 0rem 0rem 0.25rem;
   background-color: #dde5df;
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@
   justify-content: center;
   display: flex;
   align-items: center;
-  border-radius: 0.25rem;
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
   height: auto;
 }
 .columnNameObs {
@@ -97,9 +97,13 @@
 }
 
 .timeline-line {
-  width: 2px;
-  background-color: black;
-  margin: 0 auto;
+  width: 66em;
+  height: 0em;
+  left: 20em;
+  top: 13.4em;
+  position: absolute;
+  border: 1px solid #3a5a40;
+  z-index: 1;
 }
 .timeline-item {
   display: flex;
@@ -117,6 +121,7 @@
   background-color: #a3b18a;
   border-radius: 50%;
   margin-right: 10px;
+  z-index: 2;
 }
 
 .timeline-circleDisabled {
@@ -124,4 +129,5 @@
   height: 20px;
   background-color: #dde5df;
   border-radius: 50%;
+  z-index: 2;
 }

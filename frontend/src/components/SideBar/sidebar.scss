@@ -1,61 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap");
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #DDE5DF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #dde5df;
+  text-decoration: none;
+
+  &__logo {
+    display: grid;
+    place-items: center;
+    height: 20%;
+    margin-top: -30px;
+  }
+
+  &__menu {
+    position: relative;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: lighter;
 
-    &__logo {
-        display: grid;
-        place-items: center;
-        height: 20%;
-        margin-top: -30px;
-    }
+    &__item {
+      display: flex;
+      align-items: center;
+      place-content: flex-start;
+      padding: 0.8rem 2rem;
+      /* font-size: 0.9rem; */
+      color: #3a5a40;
+      transition: color 0.3s ease-in-out;
+      text-decoration: none;
+      text-transform: inherit;
+      font-family: Dosis;
+      font-weight: 400;
+      font-size: 18px;
 
-    &__menu {
-        position: relative;
+      &.active {
+        color: #3a5a40;
         text-decoration: none;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      &.text {
+        text-decoration: none;
+      }
 
-        &__item {
-            display: flex;
-            align-items: center;
-            place-content: flex-start;
-            padding: 0.8rem 2rem;
-            font-size: 0.90rem;
-            color: #3a5a40 ;
-            transition: color 0.3s ease-in-out;
-            text-decoration: none;
-            text-transform:inherit;
+      &__icon {
+        margin-right: 0.8rem;
 
-            &.active {
-                color: #3a5a40;
-                text-decoration: none;
-                font-weight: bold;
-                text-decoration: none;
-            }
-            &.text{
-                text-decoration: none;
-            }
-
-            &__icon {
-                margin-right: 0.8rem;
-
-                i {
-                    font-size: 1.75rem;
-                }
-            }
+        i {
+          font-size: 1.75rem;
         }
-
+      }
     }
+  }
 }
 
-.avatar{
-    margin-top: -2em;
-    margin-bottom: -1em;
-    text-align: center;
-    justify-content: center;
+.avatar {
+  margin-top: -2em;
+  margin-bottom: -1em;
+  text-align: center;
+  justify-content: center;
 }

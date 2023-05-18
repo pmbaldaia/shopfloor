@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
-import { Pencil, Trash } from "@phosphor-icons/react";
+import { Pencil, Trash, DownloadSimple } from "@phosphor-icons/react";
 import "./itemOrdem.css";
 import { Container, Row, Col } from "react-bootstrap";
 import HeaderPage from "../Header/header";
@@ -14,7 +14,19 @@ function OrdemItem({ ordem }) {
       ? "#70CC7A"
       : "#FFF";
 
+  const borderStyle =
+    ordem.estado === "Em Atraso" || ordem.estado === "Concluído"
+      ? ""
+      : "2px solid #a3b18a";
+
   const color = ordem.estado === "Em Atraso" ? "white" : "black";
+
+  useEffect(() => {
+    const elemento = document.getElementById("styleOrdemEstado");
+    elemento.style.backgroundColor = backgroundColor;
+    elemento.style.border = borderStyle;
+    elemento.style.color = color;
+  }, []);
 
   function startDeleteHandler() {
     swal({
@@ -51,12 +63,13 @@ function OrdemItem({ ordem }) {
           <Link onClick={startDeleteHandler}>
             <Trash size={25} weight="light" />
           </Link>
+          &nbsp;
+          <Link>
+            <DownloadSimple size={25} weight="light" />
+          </Link>
         </h2>
         <h5 className="barPrioridadeEstado">Prioridade: {ordem.prioridade}</h5>
-        <h5
-          style={{ backgroundColor, color }}
-          className="barPrioridadeEstado barEstado"
-        >
+        <h5 id="styleOrdemEstado" className="barPrioridadeEstado barEstado">
           {ordem.estado}
         </h5>
       </div>
@@ -67,6 +80,7 @@ function OrdemItem({ ordem }) {
             <h5>Data De Emissão</h5>
             <p>{ordem.primeiro_consumo}</p>
           </div>
+          <hr className="timeline-line"></hr>
           <div className="timeline-circle"></div>
         </li>
         <li className="timeline-item">
@@ -75,7 +89,6 @@ function OrdemItem({ ordem }) {
             <p>{ordem.liberado}</p>
           </div>
           <div className="timeline-circle"></div>
-          <hr className="timeline-line"></hr>
         </li>
         <li className="timeline-item">
           <div className="timeline-content">
@@ -83,7 +96,6 @@ function OrdemItem({ ordem }) {
             <p>{ordem.primeiro_consumo}</p>
           </div>
           <div className="timeline-circleDisabled"></div>
-          <div className="timeline-line"></div>
         </li>
         <li className="timeline-item">
           <div className="timeline-content">
@@ -91,7 +103,6 @@ function OrdemItem({ ordem }) {
             <p>{ordem.ultimo_consumo}</p>
           </div>
           <div className="timeline-circleDisabled"></div>
-          <div className="timeline-line"></div>
         </li>
         <li className="timeline-item">
           <div className="timeline-content">
