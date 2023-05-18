@@ -60,3 +60,47 @@
   text-align: center;
   justify-content: center;
 }
+
+.custom-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-left: 6em;
+  padding-right: 6em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+  z-index: 3;
+}
+.custom-modal-overlay {
+  background-color: red;
+}
+
+.modalRiopele {
+  color: #204d46;
+  font-family: Dosis;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.footerUp {
+  font-size: 18px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  margin-top: 2em;
+}
+
+.footerDown {
+  font-size: 15px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}

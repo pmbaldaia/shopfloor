@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Navigate, Route, Routes } from "react-router-dom";
-import AppLayout from "./pages/Layout/layout";
+/* import AppLayout from "./pages/Layout/layout"; */
 import Dashboard from "./pages/Dashboard/dashboard";
 
 //ordens
@@ -9,11 +9,11 @@ import OrdensRootLayout from "./pages/Ordens/rootOrdem";
 import EditOrdemPage from "./pages/Ordens/editarOrdem.js";
 import OrdemDetailPage from "./pages/Ordens/detalheOrdem";
 import NewOrdemPage from "./pages/Ordens/novaOrdem";
-import { action as manipulateOrdemAction } from "./components/Ordens/formOrdem";
+/* import { action as manipulateOrdemAction } from "./components/Ordens/formOrdem"; */
 
 //operarios
 import OperariosRootLayout from "./pages/Operarios/rootOperario";
-import EditOperarioPage from "./pages/Operarios/editarOperario";
+/* import EditOperarioPage from "./pages/Operarios/editarOperario"; */
 import OperarioDetailPage, {
   loader as operarioDetailLoader,
   action as deleteOperarioAction,
@@ -21,9 +21,9 @@ import OperarioDetailPage, {
 import OperariosPage, {
   loader as operariosLoader,
 } from "./pages/Operarios/operarios";
-import NewOperarioPage from "./pages/Ordens/novaOrdem";
+/* import NewOperarioPage from "./pages/Ordens/novaOrdem";
 import { action as manipulateOperarioAction } from "./components/Operarios/formOperario";
-
+ */
 //Maquinas
 import MaquinasRootLayout from "./pages/Maquinas/rootMaquina";
 import MaquinasPage from "./pages/Maquinas/maquinas";
@@ -221,6 +221,7 @@ function App() {
               <Route element={<MateriaisRootLayout />}>
                 <Route path="/materiais" element={<MateriaisPage />} />
               </Route>
+
               <Route path="*" element={<Navigate to="/dashboard" />} />
             </Route>
           )}
