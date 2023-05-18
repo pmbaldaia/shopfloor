@@ -52,6 +52,10 @@ function TarefasList({ tarefas }) {
   function __refresh() {
     window.location.reload(false);
   }
+  const arrowSort = {
+    color: "#120309",
+    opacity: "40%",
+  };
 
   return (
     <div>
@@ -84,23 +88,23 @@ function TarefasList({ tarefas }) {
           <tr>
             <th key="id">
               TAREFA ID
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="tarefa">
               TAREFA
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="produto">
               PRODUTO
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="operacao">
               OPERACAO
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="estado">
               ESTADO
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="acoes">AÇÕES</th>
           </tr>

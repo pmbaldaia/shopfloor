@@ -14,6 +14,8 @@ import {
   Pencil,
   Trash,
   CaretUpDown,
+  CaretUp,
+  CaretDown,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
@@ -55,6 +57,15 @@ function OrdensList({ ordens }) {
   const [sortOrdens, setSortOrdens] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDate /* setSelectedDate */] = useState(null);
+  const [sortOrder, setSortOrder] = useState("desc");
+  const [sortSAP, setSortSAP] = useState("desc");
+  const [sortORDEM_VENDA, setSortORDEM_VENDA] = useState("desc");
+  const [sortPRODUTO, setSortPRODUTO] = useState("desc");
+  const [sortQUANTIDADE, setSortQUANTIDADE] = useState("desc");
+  const [sortLIBERADO, setSortLIBERADO] = useState("desc");
+  const [sortDATA_ENTREGA, setSortDATA_ENTREGA] = useState("desc");
+  const [sortPRIORIDADE, setSortPRIORIDADE] = useState("desc");
+  const [sortESTADO, setSortESTADO] = useState("desc");
 
   useEffect(() => {
     setSortOrdens([...ordens]);
@@ -90,10 +101,141 @@ function OrdensList({ ordens }) {
     window.location.reload(false);
   }
 
-  /* //Código do ordenar por ID da ordem
+  const arrowSort = {
+    color: "#120309",
+    opacity: "40%",
+  };
+
+  // Código do ordenar por ID da ordem ASC:DESC
   const __handleSortID = () => {
-    const sortedOrdens = [...sortOrdens].sort((a, b) => a.id - b.id);
+    const nextOrder = sortOrder === "asc" ? "desc" : "asc";
+    const sortedOrdens = [...sortOrdens].sort((a, b) =>
+      nextOrder === "desc" ? a.id - b.id : b.id - a.id
+    );
     setSortOrdens(sortedOrdens);
+    setSortOrder(nextOrder);
+  };
+
+  // Código do ordenar por código SAP ASC:DESC
+  const __handleSortSAP = () => {
+    const nextSAP = sortSAP === "asc" ? "desc" : "asc";
+    const sortedSAP = [...sortOrdens].sort((a, b) =>
+      a.sap.localeCompare(b.sap)
+    );
+    const orderedSAP = nextSAP === "asc" ? sortedSAP : sortedSAP.reverse();
+    setSortOrdens(orderedSAP);
+    setSortSAP(nextSAP);
+  };
+
+  // Código do ordenar por ORDEM_VENDA ASC:DESC
+  const __handleSortORDEM_VENDA = () => {
+    const nextORDEM_VENDA = sortORDEM_VENDA === "asc" ? "desc" : "asc";
+    const sortedORDEM_VENDA = [...sortOrdens].sort((a, b) =>
+      a.ordem_venda.localeCompare(b.ordem_venda)
+    );
+    const orderedORDEM_VENDA =
+      nextORDEM_VENDA === "asc"
+        ? sortedORDEM_VENDA
+        : sortedORDEM_VENDA.reverse();
+    setSortOrdens(orderedORDEM_VENDA);
+    setSortORDEM_VENDA(nextORDEM_VENDA);
+  };
+
+  // Código de ordenar por PRODUTO ASC:DESC
+  const __handleSortPRODUTO = () => {
+    const nextPRODUTO = sortPRODUTO === "asc" ? "desc" : "asc";
+    const sortedPRODUTO = [...sortOrdens].sort((a, b) =>
+      a.produto.localeCompare(b.produto)
+    );
+    const orderedPRODUTO =
+      nextPRODUTO === "asc" ? sortedPRODUTO : sortedPRODUTO.reverse();
+    setSortOrdens(orderedPRODUTO);
+    setSortPRODUTO(nextPRODUTO);
+  };
+
+  // Código de ordenar pela quantidade ASC:DESC
+  const __handleSortQUANTIDADE = () => {
+    const nextQUANTIDADE = sortQUANTIDADE === "asc" ? "desc" : "asc";
+    const sortedQUANTIDADE = [...sortOrdens].sort(
+      (a, b) => a.quantidade - b.quantidade
+    );
+    const orderedQUANTIDADE =
+      nextQUANTIDADE === "asc" ? sortedQUANTIDADE : sortedQUANTIDADE.reverse();
+    setSortOrdens(orderedQUANTIDADE);
+    setSortQUANTIDADE(nextQUANTIDADE);
+  };
+
+  // Código de ordenar pela data Liberado ASC:DESC
+  const __handleSortLIBERADO = () => {
+    const nextLIBERADO = sortLIBERADO === "asc" ? "desc" : "asc";
+    const sortedLIBERADO = [...sortOrdens].sort(
+      (a, b) => a.liberado - b.liberado
+    );
+    const orderedLIBERADO =
+      nextLIBERADO === "asc" ? sortedLIBERADO : sortedLIBERADO.reverse();
+    setSortOrdens(orderedLIBERADO);
+    setSortLIBERADO(nextLIBERADO);
+  };
+
+  // Código de ordenar pela data entrega ASC:DESC
+  const __handleSortDATA_ENTREGA = () => {
+    const nextDATA_ENTREGA = sortDATA_ENTREGA === "asc" ? "desc" : "asc";
+    const sortedDATA_ENTREGA = [...sortOrdens].sort(
+      (a, b) => new Date(a.data_entrega) - new Date(b.data_entrega)
+    );
+    const orderedDATA_ENTREGA =
+      nextDATA_ENTREGA === "asc"
+        ? sortedDATA_ENTREGA
+        : sortedDATA_ENTREGA.reverse();
+    setSortOrdens(orderedDATA_ENTREGA);
+    setSortDATA_ENTREGA(nextDATA_ENTREGA);
+  };
+
+  // Código de ordenar pela prioridade ASC:DESC
+  const __handleSortPRIORIDADE = () => {
+    const nextPRIORIDADE = sortPRIORIDADE === "asc" ? "desc" : "asc";
+    const sortedPRIORIDADE = [...sortOrdens].sort((a, b) =>
+      a.prioridade.localeCompare(b.prioridade, undefined, { numeric: true })
+    );
+    const orderedPRIORIDADE =
+      nextPRIORIDADE === "asc" ? sortedPRIORIDADE : sortedPRIORIDADE.reverse();
+    setSortOrdens(orderedPRIORIDADE);
+    setSortPRIORIDADE(nextPRIORIDADE);
+  };
+
+  // Código de ordenar pelo esstado ASC:DESC
+  const __handleSortESTADO = () => {
+    const nextESTADO = sortESTADO === "asc" ? "desc" : "asc";
+    const sortedESTADO = [...sortOrdens].sort((a, b) => {
+      if (a.estado === "Em atraso" && b.estado !== "Em atraso") {
+        return -1;
+      }
+      if (a.estado !== "Em atraso" && b.estado === "Em atraso") {
+        return 1;
+      }
+      if (a.estado === "Concluído" && b.estado !== "Concluído") {
+        return 1;
+      }
+      if (a.estado !== "Concluído" && b.estado === "Concluído") {
+        return -1;
+      }
+      return a.estado.localeCompare(b.estado);
+    });
+    const orderedESTADO =
+      nextESTADO === "asc" ? sortedESTADO : sortedESTADO.reverse();
+    setSortOrdens(orderedESTADO);
+    setSortESTADO(nextESTADO);
+  };
+
+  /* const __handleSortESTADO = () => {
+    const nextESTADO = sortESTADO === "asc" ? "desc" : "asc";
+    const sortedESTADO = [...sortOrdens].sort((a, b) =>
+      a.estado.localeCompare(b.estado)
+    );
+    const orderedESTADO =
+      nextESTADO === "asc" ? sortedESTADO : sortedESTADO.reverse();
+    setSortOrdens(orderedESTADO);
+    setSortESTADO(nextESTADO);
   }; */
 
   const handleSearchChange = (event) => {
@@ -132,31 +274,84 @@ function OrdensList({ ordens }) {
           <tr>
             <th key="id">
               ORDEM ID
-              <CaretUpDown />
+              <CaretUpDown
+                size={16}
+                onClick={__handleSortID}
+                weight="fill"
+                style={arrowSort}
+              />
             </th>
             <th key="sap">
-              SAP <CaretUpDown />
+              SAP
+              <CaretUpDown
+                size={16}
+                weight="fill"
+                style={arrowSort}
+                onClick={__handleSortSAP}
+              />
             </th>
             <th key="ordem_venda">
-              ORDEM VENDA <CaretUpDown />
+              ORDEM VENDA
+              <CaretUpDown
+                size={16}
+                weight="fill"
+                style={arrowSort}
+                onClick={__handleSortORDEM_VENDA}
+              />
             </th>
             <th key="produto">
-              PRODUTO <CaretUpDown />
+              PRODUTO{" "}
+              <CaretUpDown
+                size={16}
+                weight="fill"
+                style={arrowSort}
+                onClick={__handleSortPRODUTO}
+              />
             </th>
-            <th key="quantidasde">
-              QUANTIDADE <CaretUpDown />
+            <th key="quantidade">
+              QUANTIDADE
+              <CaretUpDown
+                size={16}
+                weight="fill"
+                style={arrowSort}
+                onClick={__handleSortQUANTIDADE}
+              />
             </th>
             <th key="liberado">
-              LIBERADO <CaretUpDown />
+              LIBERADO{" "}
+              <CaretUpDown
+                size={16}
+                weight="fill"
+                style={arrowSort}
+                onClick={__handleSortLIBERADO}
+              />
             </th>
             <th key="data_entrega">
-              DATA ENTREGA <CaretUpDown />
+              DATA ENTREGA{" "}
+              <CaretUpDown
+                size={16}
+                weight="fill"
+                style={arrowSort}
+                onClick={__handleSortDATA_ENTREGA}
+              />
             </th>
             <th key="prioridade">
-              PRIORIDADE <CaretUpDown />
+              PRIORIDADE{" "}
+              <CaretUpDown
+                size={16}
+                weight="fill"
+                style={arrowSort}
+                onClick={__handleSortPRIORIDADE}
+              />
             </th>
             <th key="estado">
-              ESTADO <CaretUpDown />
+              ESTADO{" "}
+              <CaretUpDown
+                size={16}
+                weight="fill"
+                style={arrowSort}
+                onClick={__handleSortESTADO}
+              />
             </th>
             <th key="acoes">AÇÕES</th>
           </tr>

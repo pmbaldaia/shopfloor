@@ -52,6 +52,10 @@ function OperariosList({ operarios }) {
   function __refresh() {
     window.location.reload(false);
   }
+  const arrowSort = {
+    color: "#120309",
+    opacity: "40%",
+  };
   return (
     <div>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
@@ -82,15 +86,19 @@ function OperariosList({ operarios }) {
           <tr>
             <th key="id">
               OPERARIO ID
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="sap">
               NOME
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             {/* <th key="sap">
               TAREFA
-              <CaretUpDown />
+              <CaretUpDown
+                size={16}
+                weight="fill"
+                style={arrowSort}
+              />
             </th> */}
             <th key="acoes">AÇÕES</th>
           </tr>

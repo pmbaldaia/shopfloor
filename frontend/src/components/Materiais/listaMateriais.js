@@ -52,6 +52,10 @@ function MateriaisList({ materiais }) {
   function __refresh() {
     window.location.reload(false);
   }
+  const arrowSort = {
+    color: "#120309",
+    opacity: "40%",
+  };
 
   return (
     <div>
@@ -84,23 +88,23 @@ function MateriaisList({ materiais }) {
           <tr>
             <th key="id">
               MATERIAL ID
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="material">
               MATERIAL
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="estado">
               ESTADO
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="stock">
               STOCK
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="quantidade">
               QUANTIDADE
-              <CaretUpDown />
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="acoes">AÇÕES</th>
           </tr>
