@@ -113,11 +113,11 @@ function OrdemItem({ ordem }) {
         </li>
       </ul>
 
-      <Container>
+      <Container style={{ paddingTop: "1em" }}>
         <Row>
           <Col md={4}>
             <Row className="spacing">
-              <Col className="columnName">TIPO</Col>
+              <Col className="columnName">Tipo</Col>
               <Col className="columnInfo">{ordem.tipo}</Col>
             </Row>
           </Col>
