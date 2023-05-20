@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
-import Modal from "react-modal";
+import { useNavigate, Link } from "react-router-dom";
+import NewOrdem from "../Ordens/formOrdem";
 
 const AdicionarOrdem = () => {
   const ButtonStyle = {
@@ -24,29 +24,31 @@ const AdicionarOrdem = () => {
     setIsModalOpen(true);
   };
 
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   const navigate = useNavigate();
 
   return (
     <>
-      <Button
-        style={ButtonStyle}
-        onClick={() => {
-          handleOpenModal();
-          navigate(`/ordens/nova`);
-        }}
-      >
-        Adicionar Ordem
-      </Button>
-      <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
-        <h1>Teste</h1>
-        <p>Não quero saber se funciona ou não</p>
-      </Modal>
-
-      {/* <Button style={ButtonStyle} onClick={() => navigate(`/ordens/nova`)}>
-        Adicionar Ordem
-      </Button> */}
-
-      {/*  <Button style={ButtonStyle} to="/ordens/nova">Adicionar Ordem</Button> */}
+      <Link>
+        <Button
+          style={ButtonStyle}
+          onClick={() => {
+            handleOpenModal();
+            navigate(`/ordens/nova`);
+          }}
+        >
+          Adicionar Ordem
+        </Button>
+        {isModalOpen && (
+          <NewOrdem
+            isModalOpen={isModalOpen}
+            handleOpenModal={handleCloseModal}
+          />
+        )}
+      </Link>
     </>
   );
 };

@@ -78,7 +78,7 @@
   padding-bottom: 2em;
   border-radius: 9px;
   text-align: center;
-  z-index: 3;
+  z-index: 9999;
 }
 
 .modalRiopele {
@@ -86,6 +86,7 @@
   font-family: Dosis;
   font-size: 18px;
   font-weight: 600;
+  z-index: 9999;
 }
 
 .footerUp {

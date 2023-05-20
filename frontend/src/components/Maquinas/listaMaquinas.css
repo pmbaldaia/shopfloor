@@ -167,17 +167,19 @@
 .spacingMaquinas {
   padding-right: 1em;
   padding-left: 1em;
-  padding-bottom: 1em;
+  padding-bottom: 2em;
 }
 
 .imagemMaquina {
   width: 10em;
   height: 10em;
   border-radius: 9px;
+  z-index: 0;
 }
 
 .card {
   border: 1px solid #3a5a40 !important;
+  z-index: 0;
 }
 
 .titleCard {

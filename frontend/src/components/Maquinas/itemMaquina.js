@@ -34,29 +34,22 @@ function MaquinaItem({ maquina }) {
         <Row>
           <Col>
             <Row>
-              <div className="card shadow-lg p-3 mb-5">
-                <div className="card-body">
-                  <h5 className="card-title">ID da máquina: {maquina.id}</h5>
-                  <p className="card-text">Nome: {maquina.nome}</p>
+              <div>
+                <div>
+                  <h5>ID da máquina: {maquina.id}</h5>
+                  <p>Nome: {maquina.nome}</p>
                   <img
-                    className="card-text"
                     src={maquina.imagem}
                     alt={maquina.nome}
                     style={{ width: "20em" }}
                   />
-                  <p className="card-text">Nome: {maquina.fabricante}</p>
-                  <p className="card-text">
-                    Data de Aquisição: {maquina.data_aquisicao}
-                  </p>
-                  <p className="card-text">
-                    Última Manutenção: {maquina.ultima_manutencao}
-                  </p>
-                  <p className="card-text">
-                    Próxima Manutenção: {maquina.proxima_manutencao}
-                  </p>
-                  <p className="card-text">Tipo: {maquina.tipo}</p>
-                  <p className="card-text">Modelo: {maquina.modelo}</p>
-                  <p className="card-text">Estado: {maquina.estado}</p>
+                  <p>Nome: {maquina.fabricante}</p>
+                  <p>Data de Aquisição: {maquina.data_aquisicao}</p>
+                  <p>Última Manutenção: {maquina.ultima_manutencao}</p>
+                  <p>Próxima Manutenção: {maquina.proxima_manutencao}</p>
+                  <p>Tipo: {maquina.tipo}</p>
+                  <p>Modelo: {maquina.modelo}</p>
+                  <p>Estado: {maquina.estado}</p>
                 </div>
                 <span>
                   <Link to="editar">

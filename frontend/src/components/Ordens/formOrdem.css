@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap");
+
+.titulosForm {
+  font-family: Dosis;
+  font-weight: 600;
+  font-size: 40px;
+  color: #3a5a40;
+  padding-top: 0.5em;
+}
+.primeiraLinha {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.segundaLinha {
+  padding-bottom: 2em;
+}
+.terceiraLinha {
+  padding-bottom: 2em;
+}
+
+.subtitulosForm {
+  font-family: Dosis;
+  font-weight: 500;
+  font-size: 22px;
+  color: #120309;
+}
+.inputObs {
+  width: 100%;
+  height: 8em;
+}
+
+input {
+  border: 2px solid #a3b18a;
+  border-radius: 7px;
+  padding-left: 8px;
+  width: 100%;
+
+  height: 2em;
+}
