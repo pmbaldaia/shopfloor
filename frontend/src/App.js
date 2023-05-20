@@ -13,14 +13,10 @@ import NewOrdemPage from "./pages/Ordens/novaOrdem";
 
 //operarios
 import OperariosRootLayout from "./pages/Operarios/rootOperario";
+import OperarioDetailPage from "./pages/Operarios/detalheOperario"; /* 
+import NewOperarioPage from "./pages/Operarios/novoOperario"; */
 /* import EditOperarioPage from "./pages/Operarios/editarOperario"; */
-import OperarioDetailPage, {
-  loader as operarioDetailLoader,
-  action as deleteOperarioAction,
-} from "./pages/Operarios/detalheOperario";
-import OperariosPage, {
-  loader as operariosLoader,
-} from "./pages/Operarios/operarios";
+
 /* import NewOperarioPage from "./pages/Ordens/novaOrdem";
 import { action as manipulateOperarioAction } from "./components/Operarios/formOperario";
  */
@@ -50,6 +46,7 @@ import RootLayout from "./pages/Layout/layout";
 import Loading from "./components/Loading/loading";
 
 const OrdensPage = React.lazy(() => import("./pages/Ordens/ordens"));
+const OperariosPage = React.lazy(() => import("./pages/Operarios/operarios"));
 
 function App() {
   const user = useSelector((state) => state.user);

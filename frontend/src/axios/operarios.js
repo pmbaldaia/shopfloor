@@ -7,3 +7,11 @@ export const getOperarios = (access_token) => {
     },
   });
 };
+
+export const getOperarioById = (access_token, operarioId) => {
+  return axios.get(`/operarios/${operarioId}`, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+};

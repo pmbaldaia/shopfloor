@@ -11,7 +11,6 @@ function MaterialDetailPage(params) {
   useEffect(() => {
     gerMateriais(user.access_token, materialId).then((res) => {
       setMaterial(res.data + materialId);
-      console.log(materialId);
     });
   }, [user.access_token, materialId]);
 
