@@ -52,7 +52,7 @@ function MaquinasList({ maquinas }) {
 
       <p>{}</p>
 
-      <Container>
+      <Container fluid>
         <Row>
           {sortMaquinas.map((maquina) => (
             <Col md={6} key={maquina.id}>

@@ -1,6 +1,6 @@
 const { sign, verify } = require("jsonwebtoken");
 const { compare } = require("bcryptjs");
-const { NotAuthError } = require("./errors");
+/* const { NotAuthError } = require("./errors"); */
 const KEY = "process.env.JWT_SECRET";
 
 function createJSONToken(num_func) {
@@ -20,7 +20,6 @@ function checkAuthMiddleware(req, res, next) {
     console.log("NOT AUTH. AUTH HEADER MISSING.");
     return res.status(401).json({ error: "Not authenticated." });
   }
-  // ...
   try {
     let token = req.headers.authorization.split(" ")[1];
     const validatedToken = validateJSONToken(token);

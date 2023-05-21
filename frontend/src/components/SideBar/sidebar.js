@@ -17,6 +17,7 @@ import {
 import { useDispatch } from "react-redux";
 import { userActions } from "../../store/user";
 import Modal from "react-modal";
+import HiUser from "./hiUser";
 
 const sidebarNavItems = [
   {
@@ -121,8 +122,10 @@ const Sidebar = () => {
         className={`sidebar__menu ${isSidebarOpen ? "open" : ""}`}
       >
         <div className="avatar">
+          {/* <User size={50} />
+          <p style={{ fontFamily: "Montserrat", color: "#3a5a40" }}>Olá</p> */}
           <User size={50} />
-          <p style={{ fontFamily: "Montserrat", color: "#3a5a40" }}>Olá</p>
+          <HiUser />
         </div>
         <br></br>
         {sidebarNavItems.map((item, index) => (

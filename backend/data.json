@@ -385,6 +385,7 @@
       "produto": "1923",
       "operacao": "Bolsos",
       "estado": "Em Progresso",
+      "operario": "Maria Conceição",
       "tarefa": "Cortar e Costurar bolsos"
     },
     {
@@ -392,6 +393,7 @@
       "produto": "512",
       "operacao": "Costura",
       "estado": "Concluído",
+      "operario": "Maria Conceição",
       "tarefa": "Realizar corte e Costura em peças"
     },
     {
@@ -399,6 +401,7 @@
       "produto": "786",
       "operacao": "Acabamento",
       "estado": "Em Andamento",
+      "operario": "Maria Conceição",
       "tarefa": "Realizar corte e Costura para acabamento final"
     },
     {
@@ -406,6 +409,7 @@
       "produto": "251",
       "operacao": "Etiquetagem",
       "estado": "Em Andamento",
+      "operario": "Maria Conceição",
       "tarefa": "Efetuar cortes e Costuras nas etiquetas"
     },
     {
@@ -413,6 +417,7 @@
       "produto": "973",
       "operacao": "Inspeção",
       "estado": "Em Progresso",
+      "operario": "Maria Conceição",
       "tarefa": "Realizar corte e Costura nas peças a serem inspecionadas"
     },
     {
@@ -420,6 +425,7 @@
       "produto": "642",
       "operacao": "Embalagem",
       "estado": "Concluído",
+      "operario": "Maria Conceição",
       "tarefa": "Efetuar corte e Costura para embalagem final"
     },
     {
@@ -427,13 +433,15 @@
       "produto": "415",
       "operacao": "Revisão",
       "estado": "Em Andamento",
+      "operario": "Maria Conceição",
       "tarefa": "Realizar corte e Costura para revisão de qualidade"
     },
     {
       "id": "8",
       "produto": "879",
       "operacao": "Montagem",
-      "estado": "Aguardando",
+      "estado": "A aguardar",
+      "operario": "Maria Conceição",
       "tarefa": "Efetuar cortes e Costuras na montagem das peças"
     },
     {
@@ -441,6 +449,7 @@
       "produto": "320",
       "operacao": "Teste",
       "estado": "Em Progresso",
+      "operario": "Maria Conceição",
       "tarefa": "Realizar corte e Costura para testes de funcionamento"
     },
     {
@@ -448,6 +457,7 @@
       "produto": "591",
       "operacao": "Embalagem",
       "estado": "Concluído",
+      "operario": "Maria Conceição",
       "tarefa": "Efetuar corte e Costura para embalagem de produtos acabados"
     }
   ],
@@ -650,14 +660,21 @@
     {
       "num_func": "123",
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
-      "name": "Pedro Sousa",
+      "nome": "Pedro Sousa",
       "id": "d18687ad-65c9-4aeb-8ffc-5de7cd491bb3",
       "type": "gestor"
     },
     {
       "num_func": "1234",
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
-      "name": "Inês Sousa",
+      "nome": "Leonor Rodrigues",
+      "id": "d18687ad-65c9-4aeb-8ffc-5de7cd491bb4",
+      "type": "gestor"
+    },
+    {
+      "num_func": "12345",
+      "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
+      "nome": "Francisco Rodrigues",
       "id": "d18687ad-65c9-4aeb-8ffc-5de7cd491bb4",
       "type": "user"
     }

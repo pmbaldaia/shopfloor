@@ -9,7 +9,6 @@ const {
 } = require("../util/validation");
 
 const router = express.Router();
-
 router.use(checkAuth);
 router.get("/", async (req, res, next) => {
   console.log(req.token);
