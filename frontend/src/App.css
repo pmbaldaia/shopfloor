@@ -14,7 +14,8 @@ img {
 
 h1 {
   float: left;
-  font-family: "Montserrat";
+  font-family: "Dosis";
+  font-size: "30px";
 }
 
 @media only screen and (min-width: 480px) {
