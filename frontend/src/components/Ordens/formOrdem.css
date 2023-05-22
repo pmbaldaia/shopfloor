@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap");
 
+.Container {
+  padding-right: 5em;
+}
 .titulosForm {
   font-family: Dosis;
   font-weight: 600;
@@ -15,7 +18,7 @@
   padding-bottom: 2em;
 }
 .terceiraLinha {
-  padding-bottom: 2em;
+  padding-bottom: 1em;
 }
 
 .subtitulosForm {
@@ -26,7 +29,7 @@
 }
 .inputObs {
   width: 100%;
-  height: 8em;
+  height: 7em;
 }
 
 input {

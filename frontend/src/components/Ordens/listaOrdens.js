@@ -63,7 +63,16 @@ function OrdensList({ ordens }) {
   const [sortQUANTIDADE, setSortQUANTIDADE] = useState("desc");
   const [sortLIBERADO, setSortLIBERADO] = useState("desc");
   const [sortDATA_ENTREGA, setSortDATA_ENTREGA] = useState("desc");
-  const [sortPRIORIDADE, setSortPRIORIDADE] = useState("desc");
+  const [selectedFilterEstado, setSelectedFilterEstado] = useState("");
+  const [selectedFilterPrioridade, setSelectedFilterPrioridade] = useState("");
+
+  const handleFilterEstadoChange = (event) => {
+    setSelectedFilterEstado(event.target.value);
+  };
+
+  const handleFilterPrioridadeChange = (event) => {
+    setSelectedFilterPrioridade(event.target.value);
+  };
 
   useEffect(() => {
     setSortOrdens([...ordens]);
@@ -80,11 +89,17 @@ function OrdensList({ ordens }) {
           ordem.ordem_venda.toLowerCase().includes(searchData) ||
           ordem.produto.toLowerCase().includes(searchData) ||
           ordem.produto.includes(searchQuery.toLowerCase()) ||
-          ordem.prioridade.toLowerCase().includes(searchData) ||
+          //codigo para pesquisa por prioridade e estado
+
+          /* ordem.prioridade.toLowerCase().includes(searchData) ||
           ordem.prioridade.includes(searchQuery.toLowerCase()) ||
           ordem.estado.toLowerCase().includes(searchData) ||
-          ordem.estado.includes(searchQuery.toLowerCase()) ||
+          ordem.estado.includes(searchQuery.toLowerCase()) || */
           dataEntrega.includes(searchData)) &&
+        (selectedFilterEstado ? ordem.estado === selectedFilterEstado : true) &&
+        (selectedFilterPrioridade
+          ? ordem.prioridade === selectedFilterPrioridade
+          : true) &&
         (selectedDate
           ? new Date(ordem.data_entrega).toDateString() ===
             selectedDate.toDateString()
@@ -93,8 +108,13 @@ function OrdensList({ ordens }) {
     });
 
     setSortOrdens(filteredOrdens);
-  }, [searchQuery, ordens, selectedDate]);
-
+  }, [
+    searchQuery,
+    ordens,
+    selectedDate,
+    selectedFilterEstado,
+    selectedFilterPrioridade,
+  ]);
   function __refresh() {
     window.location.reload(false);
   }
@@ -189,31 +209,9 @@ function OrdensList({ ordens }) {
     setSortDATA_ENTREGA(nextDATA_ENTREGA);
   };
 
-  // Código de ordenar pela prioridade ASC:DESC
-  const __handleSortPRIORIDADE = () => {
-    const nextPRIORIDADE = sortPRIORIDADE === "asc" ? "desc" : "asc";
-    const sortedPRIORIDADE = [...sortOrdens].sort((a, b) =>
-      a.prioridade.localeCompare(b.prioridade, undefined, { numeric: true })
-    );
-    const orderedPRIORIDADE =
-      nextPRIORIDADE === "asc" ? sortedPRIORIDADE : sortedPRIORIDADE.reverse();
-    setSortOrdens(orderedPRIORIDADE);
-    setSortPRIORIDADE(nextPRIORIDADE);
-  };
-
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
-
-  const [selectedFilter, setSelectedFilter] = useState("");
-
-  const handleFilterChange = (event) => {
-    setSelectedFilter(event.target.value);
-  };
-
-  const filteredOrdens = ordens.filter((ordem) =>
-    selectedFilter ? ordem.estado === selectedFilter : true
-  );
 
   return (
     <>
@@ -243,10 +241,16 @@ function OrdensList({ ordens }) {
         <select
           id="filterEstado"
           className="filterBarOrdem-item filterEstado"
-          value={selectedFilter}
-          onChange={handleFilterChange}
+          value={selectedFilterEstado}
+          onChange={handleFilterEstadoChange}
         >
-          <option value="" selected disabled hidden>
+          <option
+            value=""
+            selected
+            disabled
+            hidden
+            style={{ color: "rgba(255, 0, 0, 0.5)" }}
+          >
             Estado
           </option>
           <option value="">Todas</option>
@@ -254,6 +258,26 @@ function OrdensList({ ordens }) {
           <option value="Pendente">Pendente</option>
           <option value="Concluído">Concluído</option>
           <option value="Em Progresso">Em progresso</option>
+        </select>
+        <select
+          id="filterEstado"
+          className="filterBarOrdem-item filterPrioridade"
+          value={selectedFilterPrioridade}
+          onChange={handleFilterPrioridadeChange}
+        >
+          <option
+            value=""
+            selected
+            disabled
+            hidden
+            style={{ color: "rgba(255, 0, 0, 0.5)" }}
+          >
+            Prioridade
+          </option>
+          <option value="">Todas</option>
+          <option value="Baixa">Baixa</option>
+          <option value="Média">Média</option>
+          <option value="Alta">Alta</option>
         </select>
       </div>
 
@@ -267,6 +291,7 @@ function OrdensList({ ordens }) {
                 onClick={__handleSortID}
                 weight="fill"
                 style={arrowSort}
+                className={sortOrder === "ASC" ? "arrow-up" : "arrow-down"}
               />
             </th>
             <th key="sap">
@@ -323,21 +348,14 @@ function OrdensList({ ordens }) {
                 onClick={__handleSortDATA_ENTREGA}
               />
             </th>
-            <th key="prioridade">
-              PRIORIDADE{" "}
-              <CaretUpDown
-                size={16}
-                weight="fill"
-                style={arrowSort}
-                onClick={__handleSortPRIORIDADE}
-              />
-            </th>
+            <th key="prioridade">PRIORIDADE </th>
             <th key="estado">ESTADO </th>
             <th key="acoes">AÇÕES</th>
           </tr>
         </thead>
         <tbody>
-          {filteredOrdens.map((ordem) => (
+          {/* {filteredOrdens.map((ordem) => ( */}
+          {sortOrdens.map((ordem) => (
             <tr key={ordem.id} style={CorEstado({ ordem })}>
               <td className="highlight-text">
                 <span>{ordem.id}</span>

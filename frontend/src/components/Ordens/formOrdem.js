@@ -1,8 +1,10 @@
 import React from "react";
 import Modal from "react-modal";
+import { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { X } from "@phosphor-icons/react";
 import "./formOrdem.css";
+import DatePicker from "react-datepicker";
 
 const NewOrdem = (props) => {
   const ButtonStyle = {
@@ -19,13 +21,49 @@ const NewOrdem = (props) => {
     outlineStyle: "none",
     outlineColor: "none",
   };
+  const [liberadoDate, setLiberadoDate] = useState(null);
+  const [primeiroConsumoDate, setPrimeiroConsumoDate] = useState(null);
+  const [ultimoConsumoDate, setUltimoConsumoDate] = useState(null);
+  const [entradaTecidoDate, setEntradaTecidoDate] = useState(null);
+  const [previstaAcessoriosDate, setPrevistaAcessoriosDate] = useState(null);
+  const [aprovacaoModeloDate, setAprovacaoModeloDate] = useState(null);
+  const [desejadaRemessaDate, setDesejadaRemessaDate] = useState(null);
+  const [previstaProducaoDate, setPrevistaProducaoDate] = useState(null);
+
+  const handleLiberadoDateChange = (date) => {
+    setLiberadoDate(date);
+  };
+
+  const handlePrimeiroConsumoDateChange = (date) => {
+    setPrimeiroConsumoDate(date);
+  };
+
+  const handleUltimoConsumoDateChange = (date) => {
+    setUltimoConsumoDate(date);
+  };
+
+  const handleEntradaTecidoDateChange = (date) => {
+    setEntradaTecidoDate(date);
+  };
+  const handlePrevistaAcessoriosDateChange = (date) => {
+    setPrevistaAcessoriosDate(date);
+  };
+  const handleAprovacaoModeloDateChange = (date) => {
+    setAprovacaoModeloDate(date);
+  };
+  const handleDesejadaRemessaDateChange = (date) => {
+    setDesejadaRemessaDate(date);
+  };
+  const handlePrevistaProducaoDateChange = (date) => {
+    setPrevistaProducaoDate(date);
+  };
 
   return (
     <Modal
       isOpen={props.isModalOpen}
       onRequestClose={() => props.handleOpenModal(false)}
     >
-      <Container /* fluid */>
+      <Container fluid className="Container">
         <Row>
           <Col className="d-flex align-items-center justify-content-between">
             <h1 className="titulosForm">Nova Ordem</h1>
@@ -44,7 +82,7 @@ const NewOrdem = (props) => {
             </Col>
             <Col>
               <select>
-                <option disabled selected hidden>
+                <option disabled selected value="">
                   Tipo
                 </option>
                 <option value="JP01">JP01</option>
@@ -104,39 +142,75 @@ const NewOrdem = (props) => {
               <span className="subtitulosForm">Prazos</span>
             </Col>
             <Col>
-              <input placeholder="Liberado"></input>
+              <DatePicker
+                placeholderText="Liberado"
+                selected={liberadoDate}
+                onChange={handleLiberadoDateChange}
+              />
             </Col>
             <Col>
-              <input placeholder="1º Consumo"></input>
+              <DatePicker
+                placeholderText="1º Consumo"
+                selected={primeiroConsumoDate}
+                onChange={handlePrimeiroConsumoDateChange}
+              />
             </Col>
             <Col>
-              <input placeholder="Data de Últ. consumo"></input>
+              <DatePicker
+                placeholderText="Data de Últ. consumo"
+                selected={ultimoConsumoDate}
+                onChange={handleUltimoConsumoDateChange}
+              />
             </Col>
             <Col>
-              <input placeholder="Data Prevista Entrada Tecido"></input>
+              <DatePicker
+                placeholderText="Dt Prevista Entrada Tecido"
+                selected={entradaTecidoDate}
+                onChange={handleEntradaTecidoDateChange}
+              />
             </Col>
             <p></p>
             <Col>
               <span></span>
             </Col>
             <Col>
-              <input placeholder="Últ. Entrada Pedido Compra"></input>
+              <DatePicker
+                placeholderText="Últ. Entrada Pedido Compra"
+                selected={entradaTecidoDate}
+                onChange={handleEntradaTecidoDateChange}
+              />
             </Col>
             <Col>
-              <input placeholder="Data Prevista Acessórios"></input>
+              <DatePicker
+                placeholderText="Data Prevista Acessórios"
+                selected={previstaAcessoriosDate}
+                onChange={handlePrevistaAcessoriosDateChange}
+              />
             </Col>
             <Col>
-              <input placeholder="Data Aprovação Modelo"></input>
+              <DatePicker
+                placeholderText="Data Aprovação Modelo"
+                selected={aprovacaoModeloDate}
+                onChange={handleAprovacaoModeloDateChange}
+              />
             </Col>
             <Col>
-              <input placeholder="Data Desejada Remessa"></input>
+              <DatePicker
+                placeholderText="Data Desejada Remessa"
+                selected={desejadaRemessaDate}
+                onChange={handleDesejadaRemessaDateChange}
+              />
             </Col>
             <p></p>
             <Col>
               <span></span>
             </Col>
             <Col>
-              <input placeholder="Data Prevista Produção"></input>
+              <DatePicker
+                placeholderText="Data Prevista Produção"
+                selected={previstaProducaoDate}
+                onChange={handlePrevistaProducaoDateChange}
+              />
             </Col>
             <Col>
               <span></span>
