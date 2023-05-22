@@ -1,6 +1,5 @@
-import { Line } from "react-chartjs-2";
+import { Line } from "recharts";
 import Loading from "./loading";
-import { Col } from "react-bootstrap";
 
 function LineChart(props) {
   const { ordensData } = props;

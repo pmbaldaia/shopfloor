@@ -64,7 +64,7 @@
   font-size: 13px;
 }
 
-.filterBarOperarios {
+.filterBarUsers {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -72,12 +72,12 @@
   margin-top: 2em;
 }
 
-.filterBarOperarios-item {
+.filterBarUsers-item {
   margin-right: 10px;
   padding: 0;
 }
 
-.filterBarOperario {
+.filterBarUser {
   width: 13em;
   height: 2em;
   margin-left: 1em;
@@ -88,7 +88,7 @@
   background-color: #ecf0ed;
   border: 2px solid #a3b18a;
 }
-.searchBarOperarios {
+.searchBarUsers {
   width: 25em;
   height: 2em;
   margin-left: 0.4em;

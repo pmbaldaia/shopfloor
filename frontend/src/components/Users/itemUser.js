@@ -3,24 +3,24 @@ import { Table } from "react-bootstrap";
 import { Pencil, Trash } from "@phosphor-icons/react";
 import HeaderPage from "../Header/header";
 
-function OperarioItem({ operario }) {
+function UserItem({ user }) {
   return (
     <>
       <HeaderPage showCaretLeft={true} showSearchBar={false} />
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>OPERÁRIO ID</th>
+            <th>USER ID</th>
             <th>NOME</th>
-            <th>TAREFA</th>
+            <th>TIPO</th>
             <th>AÇÕES</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{operario.id}</td>
-            <td>{operario.nome}</td>
-            <td>{operario.tarefa}</td>
+            <td>{user.id}</td>
+            <td>{user.nome}</td>
+            <td>{user.tarefa}</td>
             <td>
               <span>
                 <Link to="editar">
@@ -39,4 +39,4 @@ function OperarioItem({ operario }) {
   );
 }
 
-export default OperarioItem;
+export default UserItem;

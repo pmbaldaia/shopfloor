@@ -11,9 +11,9 @@ import OrdemDetailPage from "./pages/Ordens/detalheOrdem";
 import NewOrdemPage from "./pages/Ordens/novaOrdem";
 /* import { action as manipulateOrdemAction } from "./components/Ordens/formOrdem"; */
 
-//operarios
-import OperariosRootLayout from "./pages/Operarios/rootOperario";
-import OperarioDetailPage from "./pages/Operarios/detalheOperario"; /* 
+//utilizadores
+import UsersRootLayout from "./pages/Users/rootUser";
+import UserDetailPage from "./pages/Users/detalheUser"; /* 
 import NewOperarioPage from "./pages/Operarios/novoOperario"; */
 /* import EditOperarioPage from "./pages/Operarios/editarOperario"; */
 
@@ -46,7 +46,7 @@ import RootLayout from "./pages/Layout/layout";
 import Loading from "./components/Loading/loading";
 
 const OrdensPage = React.lazy(() => import("./pages/Ordens/ordens"));
-const OperariosPage = React.lazy(() => import("./pages/Operarios/operarios"));
+const UsersPage = React.lazy(() => import("./pages/Users/users"));
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -67,112 +67,6 @@ function App() {
       setIsLoading(false);
     }
   }, [user.access_token]);
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <AppLayout />,
-  //     errorElement: <ErrorPage />,
-  //     id: "root",
-  //     loader: tokenLoader,
-  //     children: [
-  //       { index: true, element: <Login /> },
-  //       {
-  //         path: "ordens",
-  //         element: <OrdensRootLayout />,
-  //         children: [
-  //           {
-  //             index: true,
-  //             element: <OrdensPage />,
-  //             loader: ordensLoader,
-  //           },
-  //           {
-  //             path: ":ordemId",
-  //             id: "ordem-detail",
-  //             loader: ordemDetailLoader,
-  //             children: [
-  //               {
-  //                 index: true,
-  //                 element: <OrdemDetailPage />,
-  //                 action: deleteOrdemAction,
-  //               },
-  //               {
-  //                 path: "editar",
-  //                 element: <EditOrdemPage />,
-  //                 action: manipulateOrdemAction,
-  //                 loader: checkAuthLoader,
-  //               },
-  //             ],
-  //           },
-  //           {
-  //             path: "nova",
-  //             element: <NewOrdemPage />,
-  //             action: manipulateOrdemAction,
-  //             loader: checkAuthLoader,
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         path: "operarios",
-  //         element: <OperariosRootLayout />,
-  //         children: [
-  //           {
-  //             index: true,
-  //             element: <OperariosPage />,
-  //             loader: operariosLoader,
-  //           },
-  //           {
-  //             path: ":operarioId",
-  //             id: "operario-detail",
-  //             loader: operarioDetailLoader,
-  //             children: [
-  //               {
-  //                 index: true,
-  //                 element: <OperarioDetailPage />,
-  //                 action: deleteOperarioAction,
-  //               },
-  //               {
-  //                 path: "editar",
-  //                 element: <EditOperarioPage />,
-  //                 action: manipulateOperarioAction,
-  //                 loader: checkAuthLoader,
-  //               },
-  //             ],
-  //           },
-  //           {
-  //             path: "nova",
-  //             element: <NewOperarioPage />,
-  //             action: manipulateOperarioAction,
-  //             loader: checkAuthLoader,
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         path: "auth",
-  //         element: <Login />,
-  //       },
-  //       {
-  //         path: "maquinas",
-  //         element: <Maquinas />,
-  //       },
-  //       {
-  //         path: "materiais",
-  //         element: <Materiais />,
-  //       },
-  //       {
-  //         path: "sobre",
-  //         element: <Sobre />,
-  //       },
-  //       {
-  //         path: "dashboard",
-  //         element: <Dashboard />,
-  //       },
-  //       {
-  //         path: "logout",
-  //         action: logoutAction,
-  //       },
-  //     ],
-  //   },
-  // ]);
   return (
     <>
       {!isLoading ? (
@@ -201,12 +95,9 @@ function App() {
                   element={<TarefaDetailPage />}
                 />
               </Route>
-              <Route element={<OperariosRootLayout />}>
-                <Route path="/operarios" element={<OperariosPage />} />
-                <Route
-                  path="/operarios/:operarioId"
-                  element={<OperarioDetailPage />}
-                />
+              <Route element={<UsersRootLayout />}>
+                <Route path="/users" element={<UsersPage />} />
+                <Route path="/users/:userId" element={<UserDetailPage />} />
               </Route>
               <Route element={<MaquinasRootLayout />}>
                 <Route path="/maquinas" element={<MaquinasPage />} />

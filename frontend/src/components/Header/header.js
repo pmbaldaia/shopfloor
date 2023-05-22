@@ -3,6 +3,7 @@ import "./header.css";
 import { Bell, MagnifyingGlass, CaretLeft } from "@phosphor-icons/react";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import Breadcrumbs from "../BreadCrumbs/breadcrumbs";
 
 function HeaderPage({ showCaretLeft, showSearchBar }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -28,7 +29,15 @@ function HeaderPage({ showCaretLeft, showSearchBar }) {
   return (
     <div className="header-container">
       {showCaretLeft && (
-        <CaretLeft style={{ cursor: "pointer" }} size={25} onClick={GoBack} />
+        <span
+          style={{
+            display: "flex",
+          }}
+        >
+          <CaretLeft style={{ cursor: "pointer" }} size={25} onClick={GoBack} />
+          &nbsp;&nbsp;
+          <Breadcrumbs />
+        </span>
       )}
       <p>{}</p>
       <div className="header-right">

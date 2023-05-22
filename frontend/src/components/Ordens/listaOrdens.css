@@ -121,3 +121,16 @@
   border: 2px solid #a3b18a;
   color: black;
 }
+
+.filterEstado {
+  width: 10em;
+  height: 2em;
+  margin-left: 0.5em;
+  padding-left: 0.6em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 9px;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+  color: black;
+}

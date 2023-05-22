@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import AdicionarOperario from "../Botoes/AdicionarOperario";
-import "./listaOperarios.css";
+import AdicionarUtilizador from "../Botoes/AdicionarUtilizador";
+import "./listaUsers.css";
 import {
   ArrowClockwise,
   ReadCvLogo,
@@ -10,11 +10,12 @@ import {
   Trash,
   CaretUpDown,
   MagnifyingGlass,
+  User,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 import HeaderPage from "../Header/header";
 
-function OperariosList({ operarios }) {
+function UsersList({ users }) {
   const submit = () => {};
 
   function startDeleteHandler() {
@@ -27,27 +28,28 @@ function OperariosList({ operarios }) {
     }).then((willDelete) => {
       if (willDelete) {
         submit({ method: "delete" });
-        swal("Operario não apagada", {
+        swal("User não apagada", {
           message: "Precisa de estar autenticado",
           icon: "error",
         });
       } else {
-        swal("Operario não apagada");
+        swal("Utilizador não apagado");
       }
     });
   }
 
-  const [sortOperarios, setSortOperarios] = useState([]);
+  const [sortUsers, setSortUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  console.log(sortUsers);
 
   useEffect(() => {
-    const filteredOperarios = operarios.filter(
-      (operario) =>
-        operario.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        operario.nome.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredUsers = users.filter(
+      (user) =>
+        user.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        user.nome.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    setSortOperarios(filteredOperarios);
-  }, [operarios, searchQuery]);
+    setSortUsers(filteredUsers);
+  }, [users, searchQuery]);
 
   function __refresh() {
     window.location.reload(false);
@@ -60,7 +62,7 @@ function OperariosList({ operarios }) {
     <div>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Operários</h1>
-      <AdicionarOperario />
+      <AdicionarUtilizador />
       <ArrowClockwise
         size={28}
         weight="light"
@@ -68,13 +70,13 @@ function OperariosList({ operarios }) {
         cursor="pointer"
         className="iconRefresh"
       />
-      <div className="filterBarOperarios">
+      <div className="filterBarUsers">
         Procurar:{" "}
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="filterBarOperario-item searchBarOperarios"
+          className="filterBarUser-item searchBarUsers"
           placeholder=""
         />
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
@@ -85,46 +87,39 @@ function OperariosList({ operarios }) {
         <thead>
           <tr>
             <th key="id">
-              OPERARIO ID
+              Utilizador ID
               <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
             <th key="sap">
               NOME
               <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
-            {/* <th key="sap">
-              TAREFA
-              <CaretUpDown
-                size={16}
-                weight="fill"
-                style={arrowSort}
-              />
-            </th> */}
+            <th key="sap">
+              TIPO
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
+            </th>
             <th key="acoes">AÇÕES</th>
           </tr>
         </thead>
         <tbody>
-          {sortOperarios.map((operario) => (
-            <tr key={operario.id}>
+          {sortUsers.map((user) => (
+            <tr key={user.id}>
               <td className="highlight-text">
-                <span>{operario.id}</span>
+                <span>{user.id}</span>
               </td>
               <td className="highlight-text">
-                <span>{operario.nome}</span>
+                <span>{user.nome}</span>
               </td>
-              {/* <td className="highlight-text">
-                <span>{operario.tarefa}</span>
-              </td> */}
+              <td className="highlight-text">
+                <span>{user.tipo}</span>
+              </td>
               <td>
                 <span>
-                  <Link
-                    style={{ color: "black" }}
-                    to={`/operarios/${operario.id}`}
-                  >
+                  <Link style={{ color: "black" }} to={`/users/${user.id}`}>
                     <ReadCvLogo size={28} weight="light" />
                   </Link>
                   &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} to={`/operarios/editar`}>
+                  <Link style={{ color: "black" }} to={`/users/editar`}>
                     <Pencil size={28} weight="light" />
                   </Link>
                   &nbsp; &nbsp;
@@ -140,4 +135,4 @@ function OperariosList({ operarios }) {
     </div>
   );
 }
-export default OperariosList;
+export default UsersList;

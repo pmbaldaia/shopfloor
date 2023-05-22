@@ -97,7 +97,10 @@ function Dashboard() {
             <Col lg={6}>
               <div className="d-flex align-items-center justify-content-between">
                 <h1 style={{ fontSize: "30px" }}>Ordens em atraso</h1>
-                <Plus size={32} style={{ marginRight: "1.2em" }} />
+                <Plus
+                  size={32}
+                  style={{ marginRight: "1.2em", cursor: "pointer" }}
+                />
               </div>
               <Table bordered className="table-spacing justify">
                 <thead>
@@ -139,7 +142,10 @@ function Dashboard() {
             <Col lg={6}>
               <div className="d-flex align-items-center justify-content-between">
                 <h1 style={{ fontSize: "30px" }}>Tarefas</h1>
-                <Plus size={32} style={{ marginRight: "1.2em" }} />
+                <Plus
+                  size={32}
+                  style={{ marginRight: "1.2em", cursor: "pointer" }}
+                />
               </div>
               <Table bordered className="table-spacing justify">
                 <thead>

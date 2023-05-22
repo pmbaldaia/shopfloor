@@ -3,7 +3,6 @@ import Modal from "react-modal";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { X } from "@phosphor-icons/react";
 import "./formOrdem.css";
-import Select from "react-select";
 
 const NewOrdem = (props) => {
   const ButtonStyle = {
@@ -19,17 +18,6 @@ const NewOrdem = (props) => {
     border: "none",
     outlineStyle: "none",
     outlineColor: "none",
-  };
-  const tiposOrdem = [
-    { value: "JP01", label: "JP01" },
-    { value: "JP02", label: "JP02" },
-  ];
-  const customStyles = {
-    control: (provided) => ({
-      ...provided,
-      border: "2px solid #a3b18a",
-      borderRadius: "7px",
-    }),
   };
 
   return (
@@ -55,7 +43,13 @@ const NewOrdem = (props) => {
               <input placeholder="Ordem de Produção"></input>
             </Col>
             <Col>
-              <Select styles={customStyles} options={tiposOrdem} />
+              <select>
+                <option disabled selected hidden>
+                  Tipo
+                </option>
+                <option value="JP01">JP01</option>
+                <option value="JP02">JP02</option>
+              </select>
             </Col>
             <Col>
               <input placeholder="SAP"></input>
@@ -107,7 +101,7 @@ const NewOrdem = (props) => {
 
           <Row className="segundaLinha">
             <Col>
-              <span className="subtitulosForm">Produto</span>
+              <span className="subtitulosForm">Prazos</span>
             </Col>
             <Col>
               <input placeholder="Liberado"></input>

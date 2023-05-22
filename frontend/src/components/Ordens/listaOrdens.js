@@ -64,7 +64,6 @@ function OrdensList({ ordens }) {
   const [sortLIBERADO, setSortLIBERADO] = useState("desc");
   const [sortDATA_ENTREGA, setSortDATA_ENTREGA] = useState("desc");
   const [sortPRIORIDADE, setSortPRIORIDADE] = useState("desc");
-  const [sortESTADO, setSortESTADO] = useState("desc");
 
   useEffect(() => {
     setSortOrdens([...ordens]);
@@ -202,33 +201,27 @@ function OrdensList({ ordens }) {
     setSortPRIORIDADE(nextPRIORIDADE);
   };
 
-  // Código de ordenar pelo esstado ASC:DESC
-  const __handleSortESTADO = () => {
-    const nextESTADO = sortESTADO === "asc" ? "desc" : "asc";
-    const sortedESTADO = [...sortOrdens].sort((a, b) => {
-      if (a.estado === "Em atraso" && b.estado !== "Em atraso") {
-        return -1;
-      }
-      if (a.estado !== "Em atraso" && b.estado === "Em atraso") {
-        return 1;
-      }
-      if (a.estado === "Concluído" && b.estado !== "Concluído") {
-        return 1;
-      }
-      if (a.estado !== "Concluído" && b.estado === "Concluído") {
-        return -1;
-      }
-      return a.estado.localeCompare(b.estado);
-    });
-    const orderedESTADO =
-      nextESTADO === "asc" ? sortedESTADO : sortedESTADO.reverse();
-    setSortOrdens(orderedESTADO);
-    setSortESTADO(nextESTADO);
-  };
-
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
+
+  const estadoOrdem = [
+    { value: "Todos", label: "Todos" },
+    { value: "Concluído", label: "Concluído" },
+    { value: "Pendente", label: "Pendente" },
+    { value: "Em Progresso", label: "Em Progresso" },
+    { value: "Em Atraso", label: "Em Atraso" },
+  ];
+
+  const [selectedFilter, setSelectedFilter] = useState("");
+
+  const handleFilterChange = (event) => {
+    setSelectedFilter(event.target.value);
+  };
+
+  const filteredOrdens = ordens.filter((ordem) =>
+    selectedFilter ? ordem.estado === selectedFilter : true
+  );
 
   return (
     <>
@@ -255,6 +248,21 @@ function OrdensList({ ordens }) {
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
           <MagnifyingGlass size={24} color="#2e5a53" />
         </button>
+        <select
+          id="filterEstado"
+          className="filterBarOrdem-item filterEstado"
+          value={selectedFilter}
+          onChange={handleFilterChange}
+        >
+          <option disabled selected hidden>
+            Estado
+          </option>
+          <option value="">Todas</option>
+          <option value="Em Atraso">Em atraso</option>
+          <option value="Pendente">Pendente</option>
+          <option value="Concluído">Concluído</option>
+          <option value="Em Progresso">Em progresso</option>
+        </select>
       </div>
 
       <Table bordered className="table-spacing" style={{ color: "#120309" }}>
@@ -332,20 +340,12 @@ function OrdensList({ ordens }) {
                 onClick={__handleSortPRIORIDADE}
               />
             </th>
-            <th key="estado">
-              ESTADO{" "}
-              <CaretUpDown
-                size={16}
-                weight="fill"
-                style={arrowSort}
-                onClick={__handleSortESTADO}
-              />
-            </th>
+            <th key="estado">ESTADO </th>
             <th key="acoes">AÇÕES</th>
           </tr>
         </thead>
         <tbody>
-          {sortOrdens.map((ordem) => (
+          {filteredOrdens.map((ordem) => (
             <tr key={ordem.id} style={CorEstado({ ordem })}>
               <td className="highlight-text">
                 <span>{ordem.id}</span>

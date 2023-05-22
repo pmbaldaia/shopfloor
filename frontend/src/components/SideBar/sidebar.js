@@ -38,11 +38,17 @@ const sidebarNavItems = [
     to: "/tarefas",
     section: "tarefas",
   },
-  {
+  /* {
     display: "Operários",
     icon: <Users size={25} />,
     to: "/operarios",
     section: "operarios",
+  }, */
+  {
+    display: "Operários",
+    icon: <Users size={25} />,
+    to: "/users",
+    section: "users",
   },
   {
     display: "Maquinas",

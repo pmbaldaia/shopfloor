@@ -15,7 +15,7 @@ router.post("/login", async (req, res) => {
     return res.status(401).json({ message: "Authentication failed." });
   }
 
-  const token = createJSONToken(num_func);
+  const token = createJSONToken(user);
   res.json({ token });
 });
 

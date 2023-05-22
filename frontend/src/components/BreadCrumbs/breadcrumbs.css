@@ -1,0 +1,10 @@
+.breadcrumb.active,
+.breadcrumb.active:hover,
+.breadcrumb.active:focus {
+  color: red !important;
+}
+
+.breadcrumb:hover,
+.breadcrumb:focus {
+  color: red !important;
+}

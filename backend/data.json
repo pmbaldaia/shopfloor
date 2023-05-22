@@ -465,42 +465,50 @@
     {
       "id": "1",
       "nome": "Tiago Nunes",
-      "tarefa": "Efetuar corte e Costura para embalagem de produtos acabados"
+      "tarefa": "Efetuar corte e Costura para embalagem de produtos acabados",
+      "tipo": "user"
     },
     {
       "id": "2",
       "nome": "Mariana Costa",
-      "tarefa": "Realizar corte e Costura para inspeção final"
+      "tarefa": "Realizar corte e Costura para inspeção final",
+      "tipo": "user"
     },
     {
       "id": "3",
       "nome": "Pedro Santos",
-      "tarefa": "Efetuar cortes e Costuras nas etiquetas dos produtos"
+      "tarefa": "Efetuar cortes e Costuras nas etiquetas dos produtos",
+      "tipo": "user"
     },
     {
       "id": "4",
       "nome": "Luisa Rodrigues",
-      "tarefa": "Realizar corte e Costura para revisão de qualidade"
+      "tarefa": "Realizar corte e Costura para revisão de qualidade",
+      "tipo": "user"
     },
     {
       "id": "5",
       "nome": "Rute Bastos",
-      "tarefa": "Efetuar corte e Costura para acabamento final"
+      "tarefa": "Efetuar corte e Costura para acabamento final",
+      "tipo": "user"
     },
     {
       "id": "6",
       "nome": "Ana Oliveira",
-      "tarefa": "Realizar corte e Costura em peças para montagem"
+      "tarefa": "Realizar corte e Costura em peças para montagem",
+      "tipo": "user"
     },
     {
       "id": "7",
       "nome": "João Silva",
-      "tarefa": "Efetuar cortes e Costuras nas amostras de produtos"
+      "tarefa": "Efetuar cortes e Costuras nas amostras de produtos",
+      "tipo": "user"
     },
     {
       "id": "8",
       "nome": "Sofia Mendes",
-      "tarefa": "Realizar corte e Costura para testes de funcionalidade"
+      "tarefa": "Realizar corte e Costura para testes de funcionalidade",
+      "tipo": "user"
     }
   ],
   "maquinas": [
@@ -658,25 +666,36 @@
   ],
   "users": [
     {
+      "id": "412343",
+      "nome": "Pedro Sousa",
+      "tarefas": [],
       "num_func": "123",
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
-      "nome": "Pedro Sousa",
-      "id": "d18687ad-65c9-4aeb-8ffc-5de7cd491bb3",
-      "type": "gestor"
+      "tipo": "gestor"
     },
     {
+      "id": "523421",
+      "nome": "Leonor Rodrigues",
+      "tarefas": [],
       "num_func": "1234",
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
-      "nome": "Leonor Rodrigues",
-      "id": "d18687ad-65c9-4aeb-8ffc-5de7cd491bb4",
-      "type": "gestor"
+      "tipo": "gestor"
     },
     {
+      "id": "123422",
+      "nome": "João Ferreira",
+      "tarefas": [],
       "num_func": "12345",
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
-      "nome": "Francisco Rodrigues",
-      "id": "d18687ad-65c9-4aeb-8ffc-5de7cd491bb4",
-      "type": "user"
+      "tipo": "user"
+    },
+    {
+      "id": "418934",
+      "nome": "Gonçalo Gama",
+      "tarefas": [],
+      "num_func": "123456",
+      "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
+      "tipo": "user"
     }
   ]
 }

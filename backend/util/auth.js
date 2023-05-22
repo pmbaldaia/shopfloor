@@ -3,8 +3,8 @@ const { compare } = require("bcryptjs");
 /* const { NotAuthError } = require("./errors"); */
 const KEY = "process.env.JWT_SECRET";
 
-function createJSONToken(num_func) {
-  return sign({ num_func }, KEY, { expiresIn: "1h" });
+function createJSONToken(user) {
+  return sign({ user }, KEY, { expiresIn: "1h" });
 }
 
 function validateJSONToken(token) {

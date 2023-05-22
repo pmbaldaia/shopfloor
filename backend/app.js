@@ -5,9 +5,9 @@ const cors = require("cors");
 
 const ordemRoutes = require("./routes/ordens.js");
 const tarefaRoutes = require("./routes/tarefas.js");
-const operarioRoutes = require("./routes/operarios.js");
 const maquinaRoutes = require("./routes/maquinas.js");
 const materialRoutes = require("./routes/materiais.js");
+const userRoutes = require("./routes/users.js");
 const authRoutes = require("./routes/auth");
 
 const app = express();
@@ -26,9 +26,9 @@ app.use(authRoutes);
 
 app.use("/ordens", ordemRoutes);
 app.use("/tarefas", tarefaRoutes);
-app.use("/operarios", operarioRoutes);
 app.use("/maquinas", maquinaRoutes);
 app.use("/materiais", materialRoutes);
+app.use("/users", userRoutes);
 
 app.use((error, req, res, next) => {
   const status = error.status || 500;
