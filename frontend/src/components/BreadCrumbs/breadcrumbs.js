@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import "./breadcrumbs.css";
 
 const Breadcrumbs = () => {
   const location = useLocation();
@@ -11,7 +12,9 @@ const Breadcrumbs = () => {
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
-          <Link to="/dasboard">Dashboard</Link>
+          <Link to="/dasboard" className="customLink">
+            Dashboard
+          </Link>
         </li>
         {pathnames.map((pathname, index) => {
           const routePath = `/${pathnames.slice(0, index + 1).join("/")}`;
@@ -23,7 +26,13 @@ const Breadcrumbs = () => {
               key={routePath}
               className={`breadcrumb-item ${isLast ? "active" : ""}`}
             >
-              {isLast ? linkText : <Link to={routePath}>{linkText}</Link>}
+              {isLast ? (
+                linkText
+              ) : (
+                <Link to={routePath} className="customLink">
+                  {linkText}
+                </Link>
+              )}
             </li>
           );
         })}

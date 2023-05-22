@@ -254,7 +254,7 @@ function OrdensList({ ordens }) {
           value={selectedFilter}
           onChange={handleFilterChange}
         >
-          <option disabled selected hidden>
+          <option value="" selected disabled hidden>
             Estado
           </option>
           <option value="">Todas</option>

@@ -116,7 +116,7 @@ function OrdemItem({ ordem }) {
         </li>
       </ul>
       <Tabs defaultActiveKey="home" className="tabMargin fill">
-        <Tab eventKey="home" title="Produto">
+        <Tab eventKey="home" title={<span className="tabColor">Produto</span>}>
           <Container style={{ paddingTop: "1.5em" }}>
             <Row>
               <Col md={4}>
@@ -194,7 +194,7 @@ function OrdemItem({ ordem }) {
             </Row>
           </Container>
         </Tab>
-        <Tab eventKey="prazos" title="Prazos">
+        <Tab eventKey="prazos" title={<span className="tabColor">Prazos</span>}>
           <Container style={{ paddingTop: "1.5em" }}>
             <Row>
               <Col md={4}>
@@ -264,7 +264,10 @@ function OrdemItem({ ordem }) {
             </Row>
           </Container>
         </Tab>
-        <Tab eventKey="observacoes" title="Observações">
+        <Tab
+          eventKey="observacoes"
+          title={<span className="tabColor">Observações</span>}
+        >
           <Container style={{ paddingTop: "1.5em" }}>
             <Row>
               <Col md={12}>

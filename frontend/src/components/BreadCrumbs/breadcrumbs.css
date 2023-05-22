@@ -1,10 +1,8 @@
-.breadcrumb.active,
-.breadcrumb.active:hover,
-.breadcrumb.active:focus {
-  color: red !important;
+.customLink {
+  color: #3a5a40;
 }
 
-.breadcrumb:hover,
-.breadcrumb:focus {
-  color: red !important;
+.customLink:hover {
+  color: #3a5a40;
+  font-weight: 500;
 }

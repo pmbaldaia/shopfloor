@@ -103,7 +103,7 @@
   width: 66em;
   height: 0em;
   left: 20em;
-  top: 13.4em;
+  top: 14.4em;
   position: absolute;
   border: 1px solid #3a5a40;
   z-index: 1;
@@ -138,4 +138,12 @@
 .tabMargin {
   margin-left: 2em;
   margin-right: 2em;
+}
+
+.tabColor {
+  color: #3a5a40;
+}
+.tabColor:hover {
+  color: #3a5a40;
+  font-weight: 500;
 }
