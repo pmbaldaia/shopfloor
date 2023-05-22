@@ -6,7 +6,6 @@ import { MagnifyingGlass, Info } from "@phosphor-icons/react";
 import "react-datepicker/dist/react-datepicker.css";
 import OrdensComponent from "../Overlays/ordemOverlay";
 import HeaderPage from "../Header/header";
-
 import "./listaOrdens.css";
 import {
   ArrowClockwise,
@@ -14,6 +13,8 @@ import {
   Pencil,
   Trash,
   CaretUpDown,
+  CaretUp,
+  CaretDown,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 
@@ -285,14 +286,35 @@ function OrdensList({ ordens }) {
         <thead>
           <tr>
             <th key="id">
-              ORDEM ID
-              <CaretUpDown
-                size={16}
-                onClick={__handleSortID}
-                weight="fill"
-                style={arrowSort}
-                className={sortOrder === "ASC" ? "arrow-up" : "arrow-down"}
-              />
+              <div onClick={__handleSortID} style={{ position: "relative" }}>
+                <span> ORDEM ID</span>
+                {sortOrder === "asc" ? (
+                  <CaretUp
+                    size={16}
+                    weight=""
+                    style={{ position: "absolute" }}
+                  />
+                ) : (
+                  <CaretUp
+                    size={16}
+                    weight="fill"
+                    style={{ position: "absolute" }}
+                  />
+                )}
+                {sortOrder === "desc" ? (
+                  <CaretDown
+                    size={16}
+                    weight=""
+                    style={{ position: "absolute" }}
+                  />
+                ) : (
+                  <CaretDown
+                    size={16}
+                    weight="fill"
+                    style={{ position: "absolute" }}
+                  />
+                )}
+              </div>
             </th>
             <th key="sap">
               SAP
@@ -301,6 +323,9 @@ function OrdensList({ ordens }) {
                 weight="fill"
                 style={arrowSort}
                 onClick={__handleSortSAP}
+                className={`arrow-up ${
+                  sortSAP === "asc" ? "arrow-up" : "arrow-down"
+                }`}
               />
             </th>
             <th key="ordem_venda">
@@ -310,6 +335,9 @@ function OrdensList({ ordens }) {
                 weight="fill"
                 style={arrowSort}
                 onClick={__handleSortORDEM_VENDA}
+                className={`arrow-up ${
+                  sortORDEM_VENDA === "asc" ? "arrow-up" : "arrow-down"
+                }`}
               />
             </th>
             <th key="produto">
@@ -319,6 +347,9 @@ function OrdensList({ ordens }) {
                 weight="fill"
                 style={arrowSort}
                 onClick={__handleSortPRODUTO}
+                className={`arrow-up ${
+                  sortPRODUTO === "asc" ? "arrow-up" : "arrow-down"
+                }`}
               />
             </th>
             <th key="quantidade">
@@ -328,15 +359,21 @@ function OrdensList({ ordens }) {
                 weight="fill"
                 style={arrowSort}
                 onClick={__handleSortQUANTIDADE}
+                className={`arrow-up ${
+                  sortQUANTIDADE === "asc" ? "arrow-up" : "arrow-down"
+                }`}
               />
             </th>
             <th key="liberado">
               LIBERADO{" "}
               <CaretUpDown
                 size={16}
+                onClick={__handleSortLIBERADO}
                 weight="fill"
                 style={arrowSort}
-                onClick={__handleSortLIBERADO}
+                className={`arrow ${
+                  sortLIBERADO === "asc" ? "arrow-up" : "arrow-down"
+                }`}
               />
             </th>
             <th key="data_entrega">
@@ -346,6 +383,9 @@ function OrdensList({ ordens }) {
                 weight="fill"
                 style={arrowSort}
                 onClick={__handleSortDATA_ENTREGA}
+                className={`arrow-up ${
+                  sortDATA_ENTREGA === "asc" ? "arrow-up" : "arrow-down"
+                }`}
               />
             </th>
             <th key="prioridade">PRIORIDADE </th>
