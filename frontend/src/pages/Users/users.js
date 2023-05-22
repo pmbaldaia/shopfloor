@@ -11,7 +11,7 @@ function UsersPage() {
     getUsers(user.access_token).then((res) => {
       setUsers(res.data.users);
     });
-  }, []);
+  }, [user.access_token]);
 
   return <div>{users ? <UsersList users={users} /> : null}</div>;
 }

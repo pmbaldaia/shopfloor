@@ -7,7 +7,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import HeaderPage from "../Header/header";
 //para teste de abas
 import { Tabs, Tab } from "react-bootstrap";
-import { Nav } from "react-bootstrap";
 
 function OrdemItem({ ordem }) {
   const backgroundColor =
@@ -29,7 +28,7 @@ function OrdemItem({ ordem }) {
     elemento.style.backgroundColor = backgroundColor;
     elemento.style.border = borderStyle;
     elemento.style.color = color;
-  }, []);
+  }, [backgroundColor, borderStyle, color]);
 
   function startDeleteHandler() {
     swal({

@@ -1,28 +1,36 @@
-import { Line } from "recharts";
-import Loading from "./loading";
+import React from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 
-function LineChart(props) {
-  const { ordensData } = props;
+const data = [
+  { name: "Jan", quantidade: 10 },
+  { name: "Feb", quantidade: 20 },
+  { name: "Mar", quantidade: 15 },
+];
 
-  if (!ordensData || !ordensData.labels || !ordensData.datasets) {
-    return <Loading />;
-  }
+const LineChartDashboard = () => {
+  return (
+    <LineChart width={500} height={300} data={data}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Line
+        type="monotone"
+        dataKey="quantidade"
+        stroke="#8884d8"
+        activeDot={{ r: 8 }}
+      />
+    </LineChart>
+  );
+};
 
-  const options = {
-    scales: {
-      x: {
-        type: "time",
-        time: {
-          unit: "day",
-          displayFormats: {
-            day: "MMM DD",
-          },
-        },
-      },
-    },
-  };
-
-  return <Line data={ordensData} options={options} />;
-}
-
-export default LineChart;
+export default LineChartDashboard;

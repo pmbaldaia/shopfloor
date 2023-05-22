@@ -11,7 +11,7 @@ function TarefasPage() {
     getTarefas(user.access_token).then((res) => {
       setTarefas(res.data.tarefas);
     });
-  }, []);
+  }, [user.access_token]);
 
   return <div>{tarefas ? <TarefasList tarefas={tarefas} /> : null}</div>;
 }

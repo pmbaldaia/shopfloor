@@ -10,7 +10,6 @@ import {
   Trash,
   CaretUpDown,
   MagnifyingGlass,
-  User,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 import HeaderPage from "../Header/header";

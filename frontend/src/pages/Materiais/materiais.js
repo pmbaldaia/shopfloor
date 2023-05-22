@@ -11,7 +11,7 @@ function MateriaisPage() {
     getMateriais(user.access_token).then((res) => {
       setMateriais(res.data.materiais);
     });
-  }, []);
+  }, [user.access_token]);
 
   return (
     <div>{materiais ? <MateriaisList materiais={materiais} /> : null}</div>

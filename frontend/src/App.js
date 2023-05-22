@@ -60,7 +60,7 @@ function App() {
     } else {
       setIsLoading(false);
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (user.access_token) {

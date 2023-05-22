@@ -205,14 +205,6 @@ function OrdensList({ ordens }) {
     setSearchQuery(event.target.value);
   };
 
-  const estadoOrdem = [
-    { value: "Todos", label: "Todos" },
-    { value: "Concluído", label: "Concluído" },
-    { value: "Pendente", label: "Pendente" },
-    { value: "Em Progresso", label: "Em Progresso" },
-    { value: "Em Atraso", label: "Em Atraso" },
-  ];
-
   const [selectedFilter, setSelectedFilter] = useState("");
 
   const handleFilterChange = (event) => {

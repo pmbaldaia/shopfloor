@@ -11,7 +11,7 @@ function OrdensPage() {
     getOrdens(user.access_token).then((res) => {
       setOrders(res.data.ordens);
     });
-  }, []);
+  }, [user.access_token]);
 
   return <div>{ordens ? <OrdensList ordens={ordens} /> : null}</div>;
 }

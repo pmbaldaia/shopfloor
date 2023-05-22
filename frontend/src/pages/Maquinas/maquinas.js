@@ -11,7 +11,7 @@ function MaquinasPage() {
     getMaquinas(user.access_token).then((res) => {
       setMaquinas(res.data.maquinas);
     });
-  }, []);
+  }, [user.access_token]);
 
   return <div>{maquinas ? <MaquinasList maquinas={maquinas} /> : null}</div>;
 }

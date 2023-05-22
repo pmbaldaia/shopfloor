@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import HeaderPage from "../../components/Header/header";
 import { Table, Container, Row, Col } from "react-bootstrap";
 import DashboardCalendar from "../../components/Dashboard/calendar";
-import LineChart from "../../components/Dashboard/lineChart";
+import LineChartDashboard from "../../components/Dashboard/lineChart";
 
 function Dashboard() {
   function CorEstado({ ordem }) {
@@ -29,6 +29,7 @@ function Dashboard() {
   useEffect(() => {
     fetchOrdensEmAtraso();
     fetchTarefasAaguardar();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.access_token]);
 
   async function fetchOrdensEmAtraso() {
@@ -59,32 +60,19 @@ function Dashboard() {
     }
   }
 
-  //filtrar as ordens por estado "Em Atraso" e "Pendente"
-  /* const ordensFiltradas = ordens
-    .filter(
-      (ordem) => ordem.estado === "Em Atraso" || ordem.estado === "Pendente"
-    )
-    .sort((a, b) =>
-      a.estado === "Em Atraso" && b.estado !== "Em Atraso"
-        ? -1
-        : b.estado === "Em Atraso" && a.estado !== "Em Atraso"
-        ? 1
-        : 0
-    ); */
-
   return (
     <div>
       <Container fluid>
         <Row>
           <Col lg={12}>
             <HeaderPage showCaretLeft={false} showSearchBar={true} />
-            <h1>Dashboard</h1>
+            <h1 style={{ paddingBottom: "1em" }}>Dashboard</h1>
           </Col>
         </Row>
         <Row>
           <Row style={{ paddingBottom: "3em" }}>
             <Col lg={6}>
-              <LineChart />
+              <LineChartDashboard />
             </Col>
             <Col lg={6}>
               <DashboardCalendar />
