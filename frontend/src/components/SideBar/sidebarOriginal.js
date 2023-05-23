@@ -73,10 +73,6 @@ const Sidebar = () => {
     setActiveIndex(curPath.length === 0 ? 0 : activeItem);
   }, [location]);
 
-  const handleToggleSidebar = () => {
-    setIsSidebarOpen((prevState) => !prevState);
-  };
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -115,14 +111,19 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+    <div className="sidebar">
       <div className="sidebar__logo">
         <Link to="/dashboard">
           <img src={logo} alt="Logo" />
         </Link>
       </div>
-      <div ref={sidebarRef} className="sidebar__menu">
+      <div
+        ref={sidebarRef}
+        className={`sidebar__menu ${isSidebarOpen ? "open" : ""}`}
+      >
         <div className="avatar">
+          {/* <User size={50} />
+          <p style={{ fontFamily: "Montserrat", color: "#3a5a40" }}>Olá</p> */}
           <User size={50} />
           <HiUser />
         </div>
@@ -149,7 +150,8 @@ const Sidebar = () => {
         ></hr>
       </div>
       {/* Modal Sobre */}
-      <div
+      <Link
+        to="#sobre"
         onClick={handleOpenModal}
         className="sidebar__menu__item"
         style={{ cursor: "pointer" }}
@@ -158,7 +160,7 @@ const Sidebar = () => {
           <Info size={25} />
         </div>
         <div className="sidebar__menu__item__text">Sobre</div>
-      </div>
+      </Link>
       <Modal
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
@@ -183,24 +185,19 @@ const Sidebar = () => {
         </button>
       </Modal>
 
-      {/* Terminar Sessão */}
+      {/*Terminar Sessão */}
       <div
+        className="sidebar__menu__item"
         onClick={() => {
           localStorage.removeItem("token");
           dispatch(userActions.logout());
         }}
-        className="sidebar__menu__item"
         style={{ cursor: "pointer" }}
       >
         <div className="sidebar__menu__item__icon">
           <SignOut size={25} />
         </div>
         <div className="sidebar__menu__item__text">Terminar Sessão</div>
-      </div>
-
-      {/* Sidebar Collapse Button */}
-      <div className="sidebar__collapse-button" onClick={handleToggleSidebar}>
-        <div className="collapse-icon"></div>
       </div>
     </div>
   );

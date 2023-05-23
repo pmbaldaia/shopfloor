@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap");
-
 .sidebar {
   position: fixed;
   top: 0;
@@ -25,23 +24,29 @@
       align-items: center;
       place-content: flex-start;
       padding: 0.8rem 2rem;
+      /* font-size: 0.9rem; */
       color: #3a5a40;
       transition: color 0.3s ease-in-out;
       text-decoration: none;
       text-transform: inherit;
-      font-family: "Dosis", sans-serif;
+      font-family: Dosis;
       font-weight: 400;
       font-size: 18px;
 
       &.active {
         color: #3a5a40;
+        text-decoration: none;
         font-weight: 700;
+        text-decoration: none;
+      }
+      &.text {
+        text-decoration: none;
       }
 
       &__icon {
         margin-right: 0.8rem;
 
-        svg {
+        i {
           font-size: 1.75rem;
         }
       }
@@ -78,7 +83,7 @@
 
 .modalRiopele {
   color: #204d46;
-  font-family: "Dosis", sans-serif;
+  font-family: Dosis;
   font-size: 18px;
   font-weight: 600;
   z-index: 9999;
@@ -86,14 +91,14 @@
 
 .footerUp {
   font-size: 18px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat";
   font-weight: 500;
   margin-top: 2em;
 }
 
 .footerDown {
   font-size: 15px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat";
   font-weight: 500;
   margin-top: 2em;
   margin-bottom: 0.5em;

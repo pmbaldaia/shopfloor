@@ -147,3 +147,18 @@
   color: #3a5a40;
   font-weight: 500;
 }
+
+.custom-accordion-item .accordion-button {
+  background-color: transparent;
+  color: #3a5a40;
+  text-decoration: none;
+  box-shadow: none;
+  outline: none;
+  opacity: 0.8;
+}
+
+.custom-accordion-item .accordion-button:not(.collapsed) {
+  background-color: transparent;
+  color: #3a5a40;
+  font-weight: bold;
+}

@@ -174,12 +174,12 @@
   width: 10em;
   height: 10em;
   border-radius: 9px;
-  z-index: 0;
 }
 
 .card {
   border: 1px solid #3a5a40 !important;
-  z-index: 0;
+  position: relative; /* Adicione esta linha */
+  z-index: 1; /* Adicione esta linha */
 }
 
 .titleCard {
