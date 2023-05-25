@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./breadcrumbs.css";
+import classes from "./breadcrumbs.css";
 
 const Breadcrumbs = () => {
   const location = useLocation();
@@ -12,7 +12,7 @@ const Breadcrumbs = () => {
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
-          <Link to="/dasboard" className="customLink">
+          <Link to="/dasboard" className={classes.customLink}>
             Dashboard
           </Link>
         </li>
@@ -29,7 +29,7 @@ const Breadcrumbs = () => {
               {isLast ? (
                 linkText
               ) : (
-                <Link to={routePath} className="customLink">
+                <Link to={routePath} className={classes.customLink}>
                   {linkText}
                 </Link>
               )}

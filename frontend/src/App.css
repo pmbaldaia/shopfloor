@@ -18,6 +18,64 @@ h1 {
   font-size: "30px";
 }
 
+.iconRefresh {
+  margin-top: 0.8em;
+  margin-left: 1em;
+}
+
+.table-spacing {
+  margin-bottom: 20px;
+}
+
+.table-bordered th,
+.table-bordered td {
+  text-align: center;
+}
+
+.table-spacing {
+  margin-bottom: 20px;
+}
+
+.table-bordered {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  border-radius: 10em;
+}
+
+.table-bordered th,
+.table-bordered td {
+  padding: 10px;
+}
+
+.table-bordered th:first-child,
+.table-bordered td:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  height: 2vh;
+}
+
+.table thead tr:first-child {
+  border: none;
+}
+
+.table-bordered th {
+  border: none;
+  text-align: center;
+}
+
+.highlight-text {
+  font-family: "Montserrat";
+  font-weight: 800;
+}
+.highlight-text-2 {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
+.table {
+  font-size: 13px;
+}
+
 @media only screen and (min-width: 480px) {
   /* styles for devices with a minimum screen width of 480px */
 }

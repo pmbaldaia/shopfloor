@@ -6,7 +6,7 @@ import { MagnifyingGlass, Info } from "@phosphor-icons/react";
 import "react-datepicker/dist/react-datepicker.css";
 import OrdensComponent from "../Overlays/ordemOverlay";
 import HeaderPage from "../Header/header";
-import "./listaOrdens.css";
+import classes from "./listaOrdens.module.css";
 import {
   ArrowClockwise,
   ReadCvLogo,
@@ -217,22 +217,22 @@ function OrdensList({ ordens }) {
   return (
     <>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
-      <div className="head">
+      <div className={classes.head}>
         <h1>Ordens</h1>
         <ArrowClockwise
           size={28}
           weight="light"
           onClick={__refresh}
           cursor="pointer"
-          className="iconRefresh"
+          className={classes.iconRefresh}
         />
         <AdicionarOrdem />
       </div>
-      <div className="filterBarOrdem">
+      <div className={classes.filterBarOrdem}>
         <input
           type="text"
           value={searchQuery}
-          className="filterBarOrdem-item, searchBarFunc"
+          className={`${classes.filterBarOrdemItem} ${classes.searchBarFunc}`}
           onChange={handleSearchChange}
           placeholder="Procurar"
         />
@@ -241,7 +241,7 @@ function OrdensList({ ordens }) {
         </button>
         <select
           id="filterEstado"
-          className="filterBarOrdem-item filterEstado"
+          className={`${classes.filterBarOrdemItem} ${classes.filterEstado}`}
           value={selectedFilterEstado}
           onChange={handleFilterEstadoChange}
         >
@@ -262,7 +262,7 @@ function OrdensList({ ordens }) {
         </select>
         <select
           id="filterEstado"
-          className="filterBarOrdem-item filterPrioridade"
+          className={`${classes.filterBarOrdemItem} ${classes.filterPrioridade}`}
           value={selectedFilterPrioridade}
           onChange={handleFilterPrioridadeChange}
         >
@@ -282,7 +282,11 @@ function OrdensList({ ordens }) {
         </select>
       </div>
 
-      <Table bordered className="table-spacing" style={{ color: "#120309" }}>
+      <Table
+        bordered
+        className={classes.tableSpacing}
+        style={{ color: "#120309" }}
+      >
         <thead>
           <tr>
             <th key="id">
@@ -323,8 +327,8 @@ function OrdensList({ ordens }) {
                 weight="fill"
                 style={arrowSort}
                 onClick={__handleSortSAP}
-                className={`arrow-up ${
-                  sortSAP === "asc" ? "arrow-up" : "arrow-down"
+                className={`${classes.arrowUp} ${
+                  sortSAP === "asc" ? classes.arrowUp : classes.arrowDown
                 }`}
               />
             </th>
@@ -335,8 +339,10 @@ function OrdensList({ ordens }) {
                 weight="fill"
                 style={arrowSort}
                 onClick={__handleSortORDEM_VENDA}
-                className={`arrow-up ${
-                  sortORDEM_VENDA === "asc" ? "arrow-up" : "arrow-down"
+                className={`${classes.arrowUp} ${
+                  sortORDEM_VENDA === "asc"
+                    ? classes.arrowUp
+                    : classes.arrowDown
                 }`}
               />
             </th>
@@ -347,8 +353,8 @@ function OrdensList({ ordens }) {
                 weight="fill"
                 style={arrowSort}
                 onClick={__handleSortPRODUTO}
-                className={`arrow-up ${
-                  sortPRODUTO === "asc" ? "arrow-up" : "arrow-down"
+                className={`${classes.arrowUp} ${
+                  sortPRODUTO === "asc" ? classes.arrowUp : classes.arrowDown
                 }`}
               />
             </th>
@@ -359,8 +365,8 @@ function OrdensList({ ordens }) {
                 weight="fill"
                 style={arrowSort}
                 onClick={__handleSortQUANTIDADE}
-                className={`arrow-up ${
-                  sortQUANTIDADE === "asc" ? "arrow-up" : "arrow-down"
+                className={`${classes.arrowUp} ${
+                  sortQUANTIDADE === "asc" ? classes.arrowUp : classes.arrowDown
                 }`}
               />
             </th>
@@ -371,8 +377,8 @@ function OrdensList({ ordens }) {
                 onClick={__handleSortLIBERADO}
                 weight="fill"
                 style={arrowSort}
-                className={`arrow ${
-                  sortLIBERADO === "asc" ? "arrow-up" : "arrow-down"
+                className={`${classes.arrowUp} ${
+                  sortLIBERADO === "asc" ? classes.arrowUp : classes.arrowDown
                 }`}
               />
             </th>
@@ -383,8 +389,10 @@ function OrdensList({ ordens }) {
                 weight="fill"
                 style={arrowSort}
                 onClick={__handleSortDATA_ENTREGA}
-                className={`arrow-up ${
-                  sortDATA_ENTREGA === "asc" ? "arrow-up" : "arrow-down"
+                className={`${classes.arrowUp} ${
+                  sortDATA_ENTREGA === "asc"
+                    ? classes.arrowUp
+                    : classes.arrowDown
                 }`}
               />
             </th>
@@ -397,16 +405,16 @@ function OrdensList({ ordens }) {
           {/* {filteredOrdens.map((ordem) => ( */}
           {sortOrdens.map((ordem) => (
             <tr key={ordem.id} style={CorEstado({ ordem })}>
-              <td className="highlight-text">
+              <td className={classes.highlightText}>
                 <span>{ordem.id}</span>
               </td>
-              <td className="highlight-text-2">
+              <td className={classes.highlightText2}>
                 <span>{ordem.sap}</span>
               </td>
-              <td className="highlight-text-2">
+              <td className={classes.highlightText2}>
                 <span>{ordem.ordem_venda}</span>
               </td>
-              <td className="highlight-text-2">
+              <td className={classes.highlightText2}>
                 <OrdensComponent descricao={ordem.descricao}>
                   <span>
                     {ordem.produto}
@@ -414,19 +422,19 @@ function OrdensList({ ordens }) {
                   </span>
                 </OrdensComponent>
               </td>
-              <td className="highlight-text-2">
+              <td className={classes.highlightText2}>
                 <span>{ordem.quantidade}</span>
               </td>
-              <td className="highlight-text-2">
+              <td className={classes.highlightText2}>
                 <span>{ordem.liberado}</span>
               </td>
-              <td className="highlight-text-2">
+              <td className={classes.highlightText2}>
                 <span>{ordem.data_entrega}</span>
               </td>
-              <td className="highlight-text-2">
+              <td className={classes.highlightText2}>
                 <span>{ordem.prioridade}</span>
               </td>
-              <td className="highlight-text">
+              <td className={classes.highlightText}>
                 <span>{ordem.estado}</span>
               </td>
               <td>

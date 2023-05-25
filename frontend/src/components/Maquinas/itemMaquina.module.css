@@ -1,0 +1,179 @@
+.imagemDetalheMaquina {
+  width: 10em;
+  height: auto;
+}
+
+.headerItemMaquina {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerItemMaquina h2 {
+  margin-right: auto;
+  padding-left: 2%;
+}
+
+.barPrioridadeEstado {
+  width: 10em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.4rem;
+  font-family: "Montserrat";
+  font-size: 0.9rem;
+  margin-bottom: 1em;
+}
+
+.barEstado {
+  margin-right: 2em;
+  font-weight: bold;
+}
+
+.spacing {
+  padding-right: 2em;
+  padding-left: 2em;
+  padding-bottom: 1.5em;
+  text-align: center;
+}
+.spacingBottom {
+  padding-right: 2em;
+  padding-left: 2em;
+  text-align: center;
+}
+.headerItemOrdem {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerItemOrdem h2 {
+  margin-right: auto;
+  padding-left: 2%;
+}
+
+.columnName {
+  border: 1px solid #a3b18a;
+  margin-bottom: 1em;
+  font-weight: 600;
+  border-radius: 0.25rem 0rem 0rem 0.25rem;
+  background-color: #dde5df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+}
+
+.columnInfo {
+  border: 1px solid #a3b18a;
+  margin-bottom: 1em;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+  height: auto;
+}
+
+.columnNameObservacao {
+  border: 1px solid #a3b18a;
+  margin-bottom: 1em;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  background-color: #dde5df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.columnInfoObservacao {
+  border: 1px solid #a3b18a;
+  margin-bottom: 1em;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 0.25rem;
+  height: auto;
+}
+
+/*Timeline item ordem*/
+.timeline h5 {
+  font-size: 15px;
+  color: #120309;
+}
+.timeline p {
+  font-size: 12px;
+  color: #120309;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-right: 2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.timelineLine {
+  width: 66em;
+  height: 0em;
+  left: 20em;
+  top: 14.7em;
+  position: absolute;
+  border: 1px solid #3a5a40;
+  z-index: 1;
+}
+.timelineItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timelineContent {
+  text-align: center;
+}
+
+.timelineCircle {
+  width: 20px;
+  height: 20px;
+  background-color: #a3b18a;
+  border-radius: 50%;
+  margin-right: 10px;
+  z-index: 2;
+}
+
+.timelineCircleDisabled {
+  width: 20px;
+  height: 20px;
+  background-color: #dde5df;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.tabMargin {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.tabColor {
+  color: #3a5a40;
+}
+.tabColor:hover {
+  color: #3a5a40;
+  font-weight: 500;
+}
+
+.custom-accordion-item .accordion-button {
+  background-color: transparent;
+  color: #3a5a40;
+  text-decoration: none;
+  box-shadow: none;
+  outline: none;
+  opacity: 0.8;
+}
+
+.custom-accordion-item .accordion-button:not(.collapsed) {
+  background-color: transparent;
+  color: #3a5a40;
+  font-weight: bold;
+}

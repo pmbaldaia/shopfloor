@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import AdicionarMaquina from "../Botoes/AdicionarMaquinas";
-import "./listaMaquinas.css";
+import classes from "./listaMaquinas.module.css";
 import { ArrowClockwise, MagnifyingGlass } from "@phosphor-icons/react";
 import HeaderPage from "../Header/header";
 import { useNavigate } from "react-router-dom";
@@ -35,15 +35,15 @@ function MaquinasList({ maquinas }) {
         weight="light"
         onClick={__refresh}
         cursor="pointer"
-        className="iconRefresh"
+        className={classes.iconRefresh}
       />
-      <div className="filterBarMaquinas">
+      <div className={classes.filterBarMaquinas}>
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="filterBarMquina-item searchBarMaquinas"
-          placeholder="  Máquina"
+          className={`${classes.filterBarMquinaItem} ${classes.searchBarMaquinas}`}
+          placeholder="Procurar"
         />
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
           <MagnifyingGlass size={24} color="#2e5a53" />
@@ -56,39 +56,41 @@ function MaquinasList({ maquinas }) {
         <Row>
           {sortMaquinas.map((maquina) => (
             <Col md={6} key={maquina.id}>
-              <Row className="spacingMaquinas">
-                <div className="card flex-row">
+              <Row className={classes.spacingMaquinas}>
+                <div className={`card ${classes.card} flex-row`}>
                   <img
-                    className="card-img-left imagemMaquina"
+                    className={`${classes.imagemMaquina} card-img-left`}
                     src={maquina.imagem}
                     alt={maquina.nome}
                   />
                   <div className="card-body">
                     <div style={{ display: "flex" }}>
-                      <h4 className="titleCard">{maquina.nome}</h4>
+                      <h4 className={classes.titleCard}>{maquina.nome}</h4>
                       <p
-                        className="textCard"
+                        className={classes.textCard}
                         style={{ marginLeft: "auto", marginTop: "auto" }}
                       >
                         Tipo:{" "}
-                        <span className="textCardInfo">{maquina.tipo}</span>
+                        <span className={classes.textCardInfo}>
+                          {maquina.tipo}
+                        </span>
                       </p>
                     </div>
-                    <span className="textCard">
+                    <span className={classes.textCard}>
                       Última Manutenção:{" "}
-                      <span className="textCardInfo">
+                      <span className={classes.textCardInfo}>
                         {maquina.ultima_manutencao}
                       </span>
                     </span>
                     <br></br>
-                    <p className="textCard">
+                    <p className={classes.textCard}>
                       Próxima Manutenção:{" "}
-                      <span className="textCardInfo">
+                      <span className={classes.textCardInfo}>
                         {maquina.proxima_manutencao}
                       </span>
                     </p>
                     <button
-                      className="botaoVerMais"
+                      className={classes.botaoVerMais}
                       onClick={() => navigate(`/maquinas/${maquina.id}`)}
                     >
                       Ver Mais

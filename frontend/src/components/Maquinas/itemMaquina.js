@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { Pencil, Trash } from "@phosphor-icons/react";
+import { Pencil, Trash, DownloadSimple } from "@phosphor-icons/react";
 import HeaderPage from "../Header/header";
 import { Container, Row, Col } from "react-bootstrap";
-import "./itemMaquina.css";
+import classes from "./itemMaquina.module.css";
 import swal from "sweetalert";
+import { Tabs, Tab } from "react-bootstrap";
 
 function MaquinaItem({ maquina }) {
   const submit = () => {};
@@ -30,45 +31,122 @@ function MaquinaItem({ maquina }) {
   return (
     <>
       <HeaderPage showCaretLeft={true} showSearchBar={false} />
-      <Container>
-        <Row>
-          <Col>
+      <div className={classes.headerItemMaquina}>
+        <h2>
+          Detalhe da Máquina: {maquina.id}{" "}
+          <Link /* to="editar" */>
+            <Pencil size={25} weight="light" />
+          </Link>
+          &nbsp;
+          <Link onClick={startDeleteHandler}>
+            <Trash size={25} weight="light" />
+          </Link>
+          &nbsp;
+          <Link>
+            <DownloadSimple size={25} weight="light" />
+          </Link>
+        </h2>
+      </div>
+
+      <Tabs defaultActiveKey="home" className={`${classes.tabMargin} fill`}>
+        <Tab
+          eventKey="home"
+          title={<span className={classes.tabColor}>Dados</span>}
+        >
+          <Container style={{ paddingTop: "1.5em" }}>
+            {/*  <img
+              className="imagemDetalheMaquina"
+              src={maquina.imagem}
+              alt={maquina.nome}
+            /> */}
             <Row>
-              <div>
-                <div>
-                  <h5>ID da máquina: {maquina.id}</h5>
-                  <p>Nome: {maquina.nome}</p>
-                  <img
-                    src={maquina.imagem}
-                    alt={maquina.nome}
-                    style={{ width: "20em" }}
-                  />
-                  <p>Nome: {maquina.fabricante}</p>
-                  <p>Data de Aquisição: {maquina.data_aquisicao}</p>
-                  <p>Última Manutenção: {maquina.ultima_manutencao}</p>
-                  <p>Próxima Manutenção: {maquina.proxima_manutencao}</p>
-                  <p>Tipo: {maquina.tipo}</p>
-                  <p>Modelo: {maquina.modelo}</p>
-                  <p>Estado: {maquina.estado}</p>
-                </div>
-                <span>
-                  <Link to="editar">
-                    <Pencil size={28} weight="light" />
-                  </Link>
-                  &nbsp; &nbsp;
-                  <Link>
-                    <Trash
-                      size={28}
-                      weight="light"
-                      onClick={startDeleteHandler}
-                    />
-                  </Link>
-                </span>
-              </div>
+              <Col md={4}>
+                <Row className={classes.spacing}>
+                  <Col className={classes.columnName}>ID MÁQUINA</Col>
+                  <Col className={classes.columnInfo}>{maquina.id}</Col>
+                </Row>
+              </Col>
+              <Col md={4}>
+                <Row className={classes.spacing}>
+                  <Col className={classes.columnName}>NOME</Col>
+                  <Col className={classes.columnInfo}>{maquina.nome}</Col>
+                </Row>
+              </Col>
+              <Col md={4}>
+                <Row className={classes.spacing}>
+                  <Col className={classes.columnName}>FABRICANTE</Col>
+                  <Col className={classes.columnInfo}>{maquina.fabricante}</Col>
+                </Row>
+              </Col>
             </Row>
-          </Col>
-        </Row>
-      </Container>
+            <Row>
+              <Col md={4}>
+                <Row className={classes.spacing}>
+                  <Col className={classes.columnName}>DATA AQUISIÇÃO</Col>
+                  <Col className={classes.columnInfo}>
+                    {maquina.data_aquisicao}
+                  </Col>
+                </Row>
+              </Col>
+              <Col md={4}>
+                <Row className={classes.spacing}>
+                  <Col className={classes.columnName}>TIPO</Col>
+                  <Col className={classes.columnInfo}>{maquina.tipo}</Col>
+                </Row>
+              </Col>
+              <Col md={4}>
+                <Row className={classes.spacing}>
+                  <Col className={classes.columnName}>MODELO</Col>
+                  <Col className={classes.columnInfo}>{maquina.modelo}</Col>
+                </Row>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={4}>
+                <Row className={classes.spacing}>
+                  <Col className={classes.columnName}>ESTADO</Col>
+                  <Col className={classes.columnInfo}>{maquina.estado}</Col>
+                </Row>
+              </Col>
+            </Row>
+          </Container>
+        </Tab>
+        <Tab
+          eventKey="manutencao"
+          title={<span className={classes.tabColor}>Manutenção</span>}
+        >
+          <Container style={{ paddingTop: "1.5em" }}>
+            <Row>
+              <Col md={4}>
+                <Row className={classes.spacing}>
+                  <Col className={classes.columnName}>ÚLTIMA MANUTENÇÃO</Col>
+                  <Col className={classes.columnInfo}>
+                    {maquina.ultima_manutencao}
+                  </Col>
+                </Row>
+              </Col>
+              <Col md={4}>
+                <Row className={classes.spacing}>
+                  <Col className={classes.columnName}>PRÓXIMA MANUTENÇÃO </Col>
+                  <Col className={classes.columnInfo}>
+                    {maquina.proxima_manutencao}
+                  </Col>
+                </Row>
+              </Col>
+              <Col md={4}>
+                <Row className={classes.spacing}>
+                  <Col className={classes.columnName}>
+                    PROBLEMAS REGISTADOS{" "}
+                  </Col>
+                  <Col className={classes.columnInfo}>
+                    {maquina.problemas_manutencao}
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Container>
+        </Tab>
+      </Tabs>
     </>
   );
 }

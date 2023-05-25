@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AdicionarTarefa from "../Botoes/AdicionarTarefas";
-import "./listaTarefas.css";
+import classes from "./listaTarefas.module.css";
 import {
   ArrowClockwise,
   ReadCvLogo,
   Pencil,
   Trash,
-  CaretUpDown,
   MagnifyingGlass,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 import HeaderPage from "../Header/header";
+import { Container, Col, Row, Tabs, Tab, Table } from "react-bootstrap";
 
 function TarefasList({ tarefas }) {
   const submit = () => {};
@@ -52,10 +51,6 @@ function TarefasList({ tarefas }) {
   function __refresh() {
     window.location.reload(false);
   }
-  const arrowSort = {
-    color: "#120309",
-    opacity: "40%",
-  };
 
   return (
     <div>
@@ -67,84 +62,59 @@ function TarefasList({ tarefas }) {
         weight="light"
         onClick={__refresh}
         cursor="pointer"
-        className="iconRefresh"
+        className={classes.iconRefresh}
       />
-      <div className="filterBarTarefas">
-        Procurar:{" "}
+      <div className={classes.filterBarTarefas}>
+        &nbsp;
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="filterBarTarefa-item searchBarTarefas"
-          placeholder=""
+          className={`${classes.filterBarTarefaItem} ${classes.searchBarTarefas}`}
+          placeholder="Procurar"
         />
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
           <MagnifyingGlass size={24} color="#2e5a53" />
         </button>
       </div>
 
-      <Table bordered className="table-spacing" style={{ color: "#120309" }}>
+      <Table
+        bordered
+        className={classes.tableSpacing}
+        style={{ color: "#120309" }}
+      >
         <thead>
           <tr>
-            <th key="id">
-              TAREFA ID
-              <CaretUpDown size={16} weight="fill" style={arrowSort} />
-            </th>
-            <th key="tarefa">
-              TAREFA
-              <CaretUpDown size={16} weight="fill" style={arrowSort} />
-            </th>
-            <th key="produto">
-              PRODUTO
-              <CaretUpDown size={16} weight="fill" style={arrowSort} />
-            </th>
-            <th key="operacao">
-              OPERACAO
-              <CaretUpDown size={16} weight="fill" style={arrowSort} />
-            </th>
-            <th key="estado">
-              ESTADO
-              <CaretUpDown size={16} weight="fill" style={arrowSort} />
-            </th>
-            <th key="acoes">AÇÕES</th>
+            <th>ORDEM ASSOCIADA</th>
+            <th>PRODUTO</th>
+            <th>OPERÁRIO ASSOCIADO</th>
+            <th>AÇÕES</th>
           </tr>
         </thead>
-        <tbody>
-          {sortTarefas.map((tarefa) => (
+        {sortTarefas.map((tarefa) => (
+          <tbody>
             <tr key={tarefa.id}>
-              <td className="highlight-text">
-                <span>{tarefa.id}</span>
-              </td>
-              <td className="highlight-text">
-                <span>{tarefa.tarefa}</span>
-              </td>
-              <td className="highlight-text">
-                <span>{tarefa.produto}</span>
-              </td>
-              <td className="highlight-text">
-                <span>{tarefa.operacao}</span>
-              </td>
-              <td className="highlight-text">
-                <span>{tarefa.estado}</span>
-              </td>
+              <td>{tarefa.ordem_associada}</td>
+              <td>{tarefa.produto}</td>
+              <td>{tarefa.operario_associado}</td>
               <td>
                 <span>
                   <Link style={{ color: "black" }} to={`/tarefas/${tarefa.id}`}>
-                    <ReadCvLogo size={28} weight="light" />
+                    <ReadCvLogo size={25} weight="light" />
                   </Link>
                   &nbsp; &nbsp;
                   <Link style={{ color: "black" }} to={`/tarefas/editar`}>
-                    <Pencil size={28} weight="light" />
+                    <Pencil size={25} weight="light" />
                   </Link>
                   &nbsp; &nbsp;
                   <Link style={{ color: "black" }} onClick={startDeleteHandler}>
-                    <Trash size={28} weight="light" />
+                    <Trash size={25} weight="light" />
                   </Link>
                 </span>
               </td>
             </tr>
-          ))}
-        </tbody>
+          </tbody>
+        ))}
       </Table>
     </div>
   );

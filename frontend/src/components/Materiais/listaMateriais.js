@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AdicionarMaterial from "../Botoes/AdicionarMateriais";
-import "./listaMateriais.css";
+import classes from "./listaMateriais.module.css";
 import {
   ArrowClockwise,
   ReadCvLogo,
@@ -67,23 +67,26 @@ function MateriaisList({ materiais }) {
         weight="light"
         onClick={__refresh}
         cursor="pointer"
-        className="iconRefresh"
+        className={classes.iconRefresh}
       />
-      <div className="filterBarMateriais">
-        Procurar:{" "}
+      <div className={classes.filterBarMateriais}>
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="filterBarMaterial-item searchBarMateriais"
-          placeholder=""
+          className={`${classes.filterBarMaterialItem} ${classes.searchBarMateriais}`}
+          placeholder="Procurar"
         />
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
           <MagnifyingGlass size={24} color="#2e5a53" />
         </button>
       </div>
 
-      <Table bordered className="table-spacing" style={{ color: "#120309" }}>
+      <Table
+        bordered
+        className={classes.tableSpacing}
+        style={{ color: "#120309" }}
+      >
         <thead>
           <tr>
             <th key="id">
@@ -112,29 +115,29 @@ function MateriaisList({ materiais }) {
         <tbody>
           {sortMateriais.map((material) => (
             <tr key={material.id}>
-              <td className="highlight-text">
+              <td className={classes.highlightText}>
                 <span>{material.id}</span>
               </td>
-              <td className="highlight-text">
+              <td className={classes.highlightText}>
                 <span>{material.material}</span>
               </td>
-              <td className="highlight-text">
+              <td className={classes.highlightText}>
                 <span
-                  className={`highlight-text ${
+                  className={`${classes.filterBarMaterialItem} ${
                     material.stock > 50
-                      ? "verde"
+                      ? classes.verde
                       : material.stock <= 50 && material.stock > 25
-                      ? "amarelo"
-                      : "vermelho"
+                      ? classes.amarelo
+                      : classes.vermelho
                   }`}
                 >
                   {}
                 </span>
               </td>
-              <td className="highlight-text">
+              <td className={classes.highlightText}>
                 <span>{material.stock}</span>
               </td>
-              <td className="highlight-text">
+              <td className={classes.highlightText}>
                 <span>{material.quantidade}</span>
               </td>
               <td>

@@ -3,8 +3,9 @@ import Modal from "react-modal";
 import { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { X } from "@phosphor-icons/react";
-import "./formOrdem.css";
+import classes from "./formOrdem.module.css";
 import DatePicker from "react-datepicker";
+import pt from "date-fns/locale/pt";
 
 const NewOrdem = (props) => {
   const ButtonStyle = {
@@ -63,19 +64,19 @@ const NewOrdem = (props) => {
       isOpen={props.isModalOpen}
       onRequestClose={() => props.handleOpenModal(false)}
     >
-      <Container fluid className="Container">
+      <Container fluid className={classes.Container}>
         <Row>
           <Col className="d-flex align-items-center justify-content-between">
-            <h1 className="titulosForm">Nova Ordem</h1>
+            <h1 className={classes.titulosForm}>Nova Ordem</h1>
             <X
               size={32}
               onClick={() => props.handleOpenModal(false)}
               style={{ cursor: "pointer" }}
             />
           </Col>
-          <Row className="primeiraLinha">
+          <Row className={classes.primeiraLinha}>
             <Col>
-              <span className="subtitulosForm">Produto</span>
+              <span className={classes.subtitulosForm}>Produto</span>
             </Col>
             <Col>
               <input placeholder="Ordem de Produção"></input>
@@ -137,15 +138,17 @@ const NewOrdem = (props) => {
             }}
           />
 
-          <Row className="segundaLinha">
+          <Row className={classes.segundaLinha}>
             <Col>
-              <span className="subtitulosForm">Prazos</span>
+              <span className={classes.subtitulosForm}>Prazos</span>
             </Col>
             <Col>
               <DatePicker
                 placeholderText="Liberado"
                 selected={liberadoDate}
                 onChange={handleLiberadoDateChange}
+                locale={pt}
+                dateFormat="dd/MM/yyyy"
               />
             </Col>
             <Col>
@@ -153,6 +156,8 @@ const NewOrdem = (props) => {
                 placeholderText="1º Consumo"
                 selected={primeiroConsumoDate}
                 onChange={handlePrimeiroConsumoDateChange}
+                locale={pt}
+                dateFormat="dd/MM/yyyy"
               />
             </Col>
             <Col>
@@ -160,6 +165,8 @@ const NewOrdem = (props) => {
                 placeholderText="Data de Últ. consumo"
                 selected={ultimoConsumoDate}
                 onChange={handleUltimoConsumoDateChange}
+                locale={pt}
+                dateFormat="dd/MM/yyyy"
               />
             </Col>
             <Col>
@@ -167,6 +174,8 @@ const NewOrdem = (props) => {
                 placeholderText="Dt Prevista Entrada Tecido"
                 selected={entradaTecidoDate}
                 onChange={handleEntradaTecidoDateChange}
+                locale={pt}
+                dateFormat="dd/MM/yyyy"
               />
             </Col>
             <p></p>
@@ -178,6 +187,8 @@ const NewOrdem = (props) => {
                 placeholderText="Últ. Entrada Pedido Compra"
                 selected={entradaTecidoDate}
                 onChange={handleEntradaTecidoDateChange}
+                locale={pt}
+                dateFormat="dd/MM/yyyy"
               />
             </Col>
             <Col>
@@ -185,6 +196,8 @@ const NewOrdem = (props) => {
                 placeholderText="Data Prevista Acessórios"
                 selected={previstaAcessoriosDate}
                 onChange={handlePrevistaAcessoriosDateChange}
+                locale={pt}
+                dateFormat="dd/MM/yyyy"
               />
             </Col>
             <Col>
@@ -192,6 +205,8 @@ const NewOrdem = (props) => {
                 placeholderText="Data Aprovação Modelo"
                 selected={aprovacaoModeloDate}
                 onChange={handleAprovacaoModeloDateChange}
+                locale={pt}
+                dateFormat="dd/MM/yyyy"
               />
             </Col>
             <Col>
@@ -199,6 +214,8 @@ const NewOrdem = (props) => {
                 placeholderText="Data Desejada Remessa"
                 selected={desejadaRemessaDate}
                 onChange={handleDesejadaRemessaDateChange}
+                locale={pt}
+                dateFormat="dd/MM/yyyy"
               />
             </Col>
             <p></p>
@@ -210,6 +227,8 @@ const NewOrdem = (props) => {
                 placeholderText="Data Prevista Produção"
                 selected={previstaProducaoDate}
                 onChange={handlePrevistaProducaoDateChange}
+                locale={pt}
+                dateFormat="dd/MM/yyyy"
               />
             </Col>
             <Col>
@@ -230,12 +249,12 @@ const NewOrdem = (props) => {
               borderTop: "1px solid #3a5a40",
             }}
           />
-          <Row className="terceiraLinha">
+          <Row className={classes.terceiraLinha}>
             <Col lg={2}>
-              <span className="subtitulosForm">Observações</span>
+              <span className={classes.subtitulosForm}>Observações</span>
             </Col>
             <Col lg={10}>
-              <input className="inputObs"></input>
+              <input className={classes.inputObs}></input>
             </Col>
           </Row>
         </Row>

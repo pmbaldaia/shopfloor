@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
-.table-spacing {
+.tableSpacing {
   margin-bottom: 20px;
 }
 
@@ -50,11 +50,11 @@
   border: none;
 }
 
-.highlight-text {
+.highlightText {
   font-family: "Montserrat";
   font-weight: 800;
 }
-.highlight-text-2 {
+.highlightText2 {
   font-family: "Montserrat";
   font-weight: 400;
 }
@@ -71,7 +71,7 @@
   margin-top: 2em;
 }
 
-.filterBarTarefas-item {
+.filterBarTarefasItem {
   margin-right: 10px;
   padding: 0;
 }
@@ -93,8 +93,26 @@
   margin-left: 0.4em;
   flex-direction: row;
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: 9px;
   background-color: #ecf0ed;
   border: 2px solid #a3b18a;
   color: black;
+}
+
+.filterTarefa {
+  width: 10em;
+  height: 2em;
+  margin-left: 1em;
+  padding-left: 0.6em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 9px;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+  color: rgb(98, 98, 98);
+}
+
+.iconRefresh {
+  margin-top: 0.8em;
+  margin-left: 1em;
 }

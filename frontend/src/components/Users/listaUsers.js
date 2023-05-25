@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AdicionarUtilizador from "../Botoes/AdicionarUtilizador";
-import "./listaUsers.css";
+import classes from "./listaUsers.module.css";
 import {
   ArrowClockwise,
   ReadCvLogo,
@@ -67,22 +67,25 @@ function UsersList({ users }) {
         weight="light"
         onClick={__refresh}
         cursor="pointer"
-        className="iconRefresh"
+        className={classes.iconRefresh}
       />
-      <div className="filterBarUsers">
-        Procurar:{" "}
+      <div className={classes.filterBarUsers}>
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="filterBarUser-item searchBarUsers"
-          placeholder=""
+          className={`${classes.filterBarUserItem} ${classes.searchBarUsers}`}
+          placeholder="Procurar"
         />
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
           <MagnifyingGlass size={24} color="#2e5a53" />
         </button>
       </div>
-      <Table bordered className="table-spacing" style={{ color: "#120309" }}>
+      <Table
+        bordered
+        className={classes.tableSpacing}
+        style={{ color: "#120309" }}
+      >
         <thead>
           <tr>
             <th key="id">
@@ -103,13 +106,13 @@ function UsersList({ users }) {
         <tbody>
           {sortUsers.map((user) => (
             <tr key={user.id}>
-              <td className="highlight-text">
+              <td className={classes.highlightHext}>
                 <span>{user.id}</span>
               </td>
-              <td className="highlight-text">
+              <td className={classes.highlightHext}>
                 <span>{user.nome}</span>
               </td>
-              <td className="highlight-text">
+              <td className={classes.highlightHext}>
                 <span>{user.tipo}</span>
               </td>
               <td>

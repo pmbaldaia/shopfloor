@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
+.iconRefresh {
+  margin-top: 0.8em;
+  margin-left: 1em;
+}
+
 .table-spacing {
   margin-bottom: 20px;
 }
@@ -83,7 +88,7 @@
   margin-left: 0.4em;
   flex-direction: row;
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: 9px;
   background-color: #ecf0ed;
   border: 2px solid #a3b18a;
   color: black;
