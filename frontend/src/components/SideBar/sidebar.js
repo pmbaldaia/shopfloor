@@ -45,7 +45,7 @@ const sidebarNavItems = [
     section: "users",
   },
   {
-    display: "Maquinas",
+    display: "Máquinas",
     icon: <GearFine size={25} />,
     to: "/maquinas",
     section: "maquinas",

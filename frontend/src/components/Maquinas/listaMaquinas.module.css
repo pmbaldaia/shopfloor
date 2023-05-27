@@ -172,7 +172,7 @@
 }
 
 .card {
-  border: 1px solid #3a5a40 !important;
+  border: 1px solid #3a5a4020 !important;
   position: relative; /* Adicione esta linha */
   z-index: 1; /* Adicione esta linha */
 }

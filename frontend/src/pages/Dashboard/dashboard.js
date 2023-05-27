@@ -5,9 +5,9 @@ import { getTarefas } from "../../axios/tarefas";
 import { useSelector } from "react-redux";
 import HeaderPage from "../../components/Header/header";
 import DashboardCalendar from "../../components/Dashboard/calendar";
-import LineChartDashboard from "../../components/Dashboard/lineChart";
 import { useNavigate } from "react-router-dom";
 import NewOrdem from "../../components/Ordens/formOrdem";
+import Chart from "../../components/Dashboard/chart";
 
 function Dashboard() {
   function CorEstado({ ordem }) {
@@ -82,9 +82,7 @@ function Dashboard() {
       </div>
       <div class="row">
         <div class="row" style={{ paddingBottom: "3em" }}>
-          <div class="col-lg-6">
-            <LineChartDashboard />
-          </div>
+          <div class="col-lg-6">{/* <Chart /> */}</div>
           <div class="col-lg-6">
             <DashboardCalendar />
           </div>

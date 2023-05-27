@@ -26,6 +26,7 @@ const NewOrdem = (props) => {
   const [primeiroConsumoDate, setPrimeiroConsumoDate] = useState(null);
   const [ultimoConsumoDate, setUltimoConsumoDate] = useState(null);
   const [entradaTecidoDate, setEntradaTecidoDate] = useState(null);
+  const [entradaPedidoCompraDate, setEntradaPedidoCompraDate] = useState(null);
   const [previstaAcessoriosDate, setPrevistaAcessoriosDate] = useState(null);
   const [aprovacaoModeloDate, setAprovacaoModeloDate] = useState(null);
   const [desejadaRemessaDate, setDesejadaRemessaDate] = useState(null);
@@ -45,6 +46,9 @@ const NewOrdem = (props) => {
 
   const handleEntradaTecidoDateChange = (date) => {
     setEntradaTecidoDate(date);
+  };
+  const handleEntradaPedidoCompraDateChange = (date) => {
+    setEntradaPedidoCompraDate(date);
   };
   const handlePrevistaAcessoriosDateChange = (date) => {
     setPrevistaAcessoriosDate(date);
@@ -185,8 +189,8 @@ const NewOrdem = (props) => {
             <Col>
               <DatePicker
                 placeholderText="Últ. Entrada Pedido Compra"
-                selected={entradaTecidoDate}
-                onChange={handleEntradaTecidoDateChange}
+                selected={entradaPedidoCompraDate}
+                onChange={handleEntradaPedidoCompraDateChange}
                 locale={pt}
                 dateFormat="dd/MM/yyyy"
               />

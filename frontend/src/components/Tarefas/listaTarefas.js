@@ -11,7 +11,7 @@ import {
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 import HeaderPage from "../Header/header";
-import { Container, Col, Row, Tabs, Tab, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 function TarefasList({ tarefas }) {
   const submit = () => {};

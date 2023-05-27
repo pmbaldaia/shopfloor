@@ -86,7 +86,7 @@ function OrdemItem({ ordem }) {
             <h5>Data De Emissão</h5>
             <p>{ordem.primeiro_consumo}</p>
           </div>
-          {/*  <hr className={classes.timelineLine}></hr> */}
+          <hr className={classes.timelineLine}></hr>
           <div className={classes.timelineCircle}></div>
         </li>
         <li className={classes.timelineItem}>
