@@ -7,7 +7,6 @@ import HeaderPage from "../../components/Header/header";
 import DashboardCalendar from "../../components/Dashboard/calendar";
 import { useNavigate } from "react-router-dom";
 import NewOrdem from "../../components/Ordens/formOrdem";
-import Chart from "../../components/Dashboard/chart";
 
 function Dashboard() {
   function CorEstado({ ordem }) {

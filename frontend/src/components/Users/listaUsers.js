@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import AdicionarUtilizador from "../Botoes/AdicionarUtilizador";
+import AdicionarOperario from "../Botoes/AdicionarOperario";
 import classes from "./listaUsers.module.css";
 import {
   ArrowClockwise,
@@ -61,7 +61,7 @@ function UsersList({ users }) {
     <div>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Operários</h1>
-      <AdicionarUtilizador />
+      <AdicionarOperario />
       <ArrowClockwise
         size={28}
         weight="light"
