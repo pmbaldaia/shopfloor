@@ -87,7 +87,7 @@ function TarefasList({ tarefas }) {
           <tr>
             <th>ORDEM ASSOCIADA</th>
             <th>PRODUTO</th>
-            <th>OPERÁRIO ASSOCIADO</th>
+            <th>OPERÁRIO(s) ASSOCIADO(s)</th>
             <th>AÇÕES</th>
           </tr>
         </thead>
@@ -96,7 +96,11 @@ function TarefasList({ tarefas }) {
             <tr key={tarefa.id}>
               <td>{tarefa.ordem_associada}</td>
               <td>{tarefa.produto}</td>
-              <td>{tarefa.operario_associado}</td>
+              <td>
+                {tarefa.operario_associado
+                  ? tarefa.operario_associado.join(", ")
+                  : ""}
+              </td>
               <td>
                 <span>
                   <Link style={{ color: "black" }} to={`/tarefas/${tarefa.id}`}>

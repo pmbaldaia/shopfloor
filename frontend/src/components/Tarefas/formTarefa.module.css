@@ -47,3 +47,8 @@ select {
   width: 100%;
   height: 2em;
 }
+
+.alinhamentoTarefa {
+  display: flex;
+  align-items: center;
+}

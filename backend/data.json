@@ -384,7 +384,7 @@
       "id": "1",
       "ordem_associada": "51345",
       "produto": "Calções",
-      "operario_associado": "",
+      "operario_associado": ["Pedro Sousa", "Leonor Rodrigues"],
       "subtarefas": [
         {
           "id": "1.1",
@@ -674,6 +674,7 @@
       "id": "2",
       "ordem_associada": 67891,
       "produto": "Calças",
+      "operario_associado": ["Gonçalo Gama"],
       "subtarefas": [
         {
           "id": "2.1",
@@ -963,6 +964,7 @@
       "id": "3",
       "ordem_associada": 67892,
       "produto": "Vestido",
+      "operario_associado": ["João Ferreira"],
       "subtarefas": [
         {
           "id": "2.1",
