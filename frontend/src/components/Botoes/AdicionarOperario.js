@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { useNavigate, Link } from "react-router-dom";
-import NewUser from "../Users/formUser";
+import NewOperario from "../Users/formUser";
 
 const AdicionarOperario = () => {
   const ButtonStyle = {
@@ -43,7 +43,7 @@ const AdicionarOperario = () => {
           Adicionar Operário
         </Button>
         {isModalOpen && (
-          <NewUser
+          <NewOperario
             isModalOpen={isModalOpen}
             handleOpenModal={handleCloseModal}
           />
