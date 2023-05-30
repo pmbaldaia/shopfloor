@@ -247,7 +247,6 @@ function OrdensList({ ordens }) {
         >
           <option
             value=""
-            selected
             disabled
             hidden
             style={{ color: "rgba(255, 0, 0, 0.5)" }}
@@ -260,6 +259,7 @@ function OrdensList({ ordens }) {
           <option value="Concluído">Concluído</option>
           <option value="Em Progresso">Em progresso</option>
         </select>
+
         <select
           id="filterEstado"
           className={`${classes.filterBarOrdemItem} ${classes.filterPrioridade}`}
@@ -268,7 +268,6 @@ function OrdensList({ ordens }) {
         >
           <option
             value=""
-            selected
             disabled
             hidden
             style={{ color: "rgba(255, 0, 0, 0.5)" }}
@@ -284,7 +283,7 @@ function OrdensList({ ordens }) {
 
       <Table
         bordered
-        className={classes.tableSpacing}
+        className={`${classes["table-bordered"]} ${classes.tableSpacing}`}
         style={{ color: "#120309" }}
       >
         <thead>

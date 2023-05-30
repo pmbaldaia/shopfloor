@@ -35,6 +35,8 @@ import TarefasPage from "./pages/Tarefas/tarefas";
 import TarefaDetailPage from "./pages/Tarefas/detalheTarefa";
 
 /* import ErrorPage from "./pages/Errors/Error"; */
+//Página Dos Operários
+import LayoutOperarios from "./pages/LayoutOperario/operario";
 
 import Login from "./pages/Login/login";
 
@@ -111,6 +113,22 @@ function App() {
               </Route>
 
               <Route path="*" element={<Navigate to="/dashboard" />} />
+              {/*  <Route
+                path="/operarios"
+                element={
+                  <React.Fragment>
+                    <LayoutOperarios />
+                  </React.Fragment>
+                }
+              /> */}
+              <Route
+                path="/operarios"
+                element={
+                  <React.Fragment>
+                    <LayoutOperarios />
+                  </React.Fragment>
+                }
+              />
             </Route>
           )}
         </Routes>

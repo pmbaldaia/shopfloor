@@ -5,6 +5,7 @@
 }
 .table-bordered {
   border-radius: 10px;
+  font-size: 13px;
 }
 
 .table-bordered th,

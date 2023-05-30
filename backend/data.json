@@ -1249,6 +1249,12 @@
           "tarefa": "Etiquetar, dobrar e embalar"
         }
       ]
+    },
+    {
+      "id": "3",
+      "ordem_associada": "51345",
+      "produto": "Saia",
+      "operario_associado": ["Pedro Sousa", "Leonor Rodrigues"]
     }
   ],
   "maquinas": [

@@ -6,19 +6,17 @@ import logoverde from "../../assets/images/logoverde.png";
 import { Eye, EyeSlash } from "@phosphor-icons/react";
 import "./login.css";
 import { login } from "../../axios/autenticacao";
-import { useDispatch } from "react-redux";
-import { userActions } from "../../store/user";
+/* import { useDispatch } from "react-redux";
+import { userActions } from "../../store/user"; */
+import jwt_decode from "jwt-decode";
 
 export default function Login() {
-  const dispatch = useDispatch();
-
+  /* const dispatch = useDispatch(); */
   const navigation = useNavigate();
   const isSubmitting = navigation.state === "submitting";
-
   const today = new Date();
 
   const [passwordType, setPasswordType] = useState("password");
-
   const [userInput, setUserInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
 
@@ -40,7 +38,7 @@ export default function Login() {
     };
   }, []);
 
-  function submitLogin() {
+  /* function submitLogin() {
     login({
       num_func: userInput,
       pass_func: passwordInput,
@@ -52,6 +50,61 @@ export default function Login() {
       .catch((err) => {
         console.log(err);
       });
+  } */
+
+  function decodeToken(token) {
+    try {
+      const decodedToken = jwt_decode(token);
+      return decodedToken;
+    } catch (error) {
+      console.log("Erro ao decodificar o token:", error);
+      return null;
+    }
+  }
+  function submitLogin() {
+    login({
+      num_func: userInput,
+      pass_func: passwordInput,
+    })
+      .then((res) => {
+        const token = res.data.token;
+        localStorage.setItem("token", token);
+
+        const decodedToken = decodeToken(token);
+        const userType = decodedToken.user.tipo;
+
+        //para teste o primeiro login
+        const isFirstLogin = res.data.isFirstLogin;
+        if (isFirstLogin) {
+          // Exibir formulário de alteração de senha para o usuário
+          showChangePasswordForm();
+        } else {
+          if (userType === "gestor") {
+            // Redirecionar para a página de gestor
+            window.location.href = "/dashborad";
+          } else if (userType === "operario") {
+            // Redirecionar para a página de operário
+            window.location.href = "/operarios";
+          } else if (userType === "teste") {
+            window.location.href = "/teste";
+          } else {
+          }
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  //para teste de primeiro login
+  function showChangePasswordForm() {
+    // Exibir formulário de alteração de senha
+    // ...
+  }
+
+  function submitChangePasswordForm(newPassword) {
+    // Enviar nova senha ao backend e atualizar no banco de dados
+    // ...
   }
 
   return (
@@ -143,7 +196,9 @@ export default function Login() {
                       </div>
 
                       <div className="text-center d-flex justify-content-center mt-2">
-                        <a href="/">Esqueceu-se da palavra-passe?</a>
+                        <a href="/" disabled>
+                          Esqueceu-se da palavra-passe?
+                        </a>
                       </div>
                     </form>
                   </div>

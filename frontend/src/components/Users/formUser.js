@@ -4,8 +4,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { X } from "@phosphor-icons/react";
 import classes from "./formUser.module.css";
 import { useSelector } from "react-redux";
-import { getUsers } from "../../axios/users";
-import { getOrdens } from "../../axios/ordens";
+import { getTarefas } from "../../axios/tarefas";
 
 const NewTarefa = (props) => {
   const ButtonStyle = {
@@ -23,36 +22,35 @@ const NewTarefa = (props) => {
   };
 
   const user = useSelector((state) => state.user);
-  const [users, setUsers] = useState([]);
-  const [ordens, setOrdens] = useState([]);
+  const [tarefas, setTarefas] = useState([]);
 
   useEffect(() => {
-    fetchUsers();
-    fetchOrdens();
+    fetchTarefas();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.access_token]);
 
-  async function fetchUsers() {
+  async function fetchTarefas() {
     try {
-      const res = await getUsers(user.access_token);
-      const users = res.data.users;
-      console.log(users);
-      setUsers(users);
+      const res = await getTarefas(user.access_token);
+      const tarefas = res.data.tarefas;
+      console.log(tarefas);
+      setTarefas(tarefas);
     } catch (error) {
-      console.error("Erro ao buscar os users:", error);
+      console.error("Erro ao buscar as tarefas:", error);
     }
   }
 
-  async function fetchOrdens() {
-    try {
-      const res = await getOrdens(user.access_token);
-      const ordens = res.data.ordens;
-      console.log(ordens);
-      setOrdens(ordens);
-    } catch (error) {
-      console.error("Erro ao buscar as ordens:", error);
+  const [selectedValues, setSelectedValues] = useState([]);
+  const handleCheckboxClick = (event) => {
+    const value = event.target.value;
+
+    if (selectedValues.includes(value)) {
+      setSelectedValues(selectedValues.filter((val) => val !== value));
+    } else {
+      setSelectedValues([...selectedValues, value]);
     }
-  }
+  };
+
   return (
     <Modal
       isOpen={props.isModalOpen}
@@ -78,40 +76,48 @@ const NewTarefa = (props) => {
             <input placeholder="Nome"></input>
           </Col>
           <Col lg={5} style={{ display: "flex", alignItems: "center" }}>
-            <label style={{ width: "12em" }}>Associar Operário:</label>
-            <select style={{ color: "#3D393999" }}>
-              <option disabled selected value="">
-                Operários
-              </option>
-              {users.map((user) => (
-                <option key={user.nome}>{user.nome}</option>
-              ))}
-            </select>
+            <label style={{ paddingRight: "10px" }}>ID: </label>
+            <input placeholder="Código funcionário" disabled></input>
           </Col>
           <p></p>
           <Col lg={2}>
             <span></span>{" "}
           </Col>
-          <Col lg={5} style={{ display: "flex", alignItems: "center" }}>
-            <label style={{ paddingRight: "10px" }}>Produto:</label>
-            <select style={{ color: "#3D393999" }}>
-              <option disabled selected value="">
-                Produto
-              </option>
-              {ordens.map((ordem) => (
-                <option key={ordem.id}>{ordem.produto}</option>
+          <Col lg={8} style={{ display: "flex", alignItems: "center" }}>
+            <label style={{ paddingRight: "10px" }}>Categorias: </label>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "list",
+              }}
+            >
+              {tarefas.map((tarefa) => (
+                <label
+                  key={tarefa.id}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    paddingRight: "25px",
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    value={tarefa.produto}
+                    checked={selectedValues.includes(tarefa.produto)}
+                    onClick={handleCheckboxClick}
+                  />{" "}
+                  {tarefa.produto}
+                </label>
               ))}
-            </select>
+            </div>
           </Col>
-          <Col lg={5} style={{ display: "flex", alignItems: "center" }}>
-            <label style={{ width: "12em" }}>Ordem Associada:</label>
+          <Col lg={2}>
             <select style={{ color: "#3D393999" }}>
               <option disabled selected value="">
-                Ordens
+                Tipo
               </option>
-              {ordens.map((ordem) => (
-                <option key={ordem.id}>{ordem.sap}</option>
-              ))}
+              <option value="operario">Operário</option>
+              <option value="gestor">Gestor</option>
             </select>
           </Col>
         </Row>

@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+.title {
+  font-size: 50px;
+}
+
+.logout {
+  cursor: pointer;
+  justify-content: flex-end;
+  margin-left: auto;
+  padding-right: 1em;
+}

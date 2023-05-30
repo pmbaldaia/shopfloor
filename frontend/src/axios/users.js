@@ -3,7 +3,7 @@ import axios from "./configs";
 export const getUsers = (access_token) => {
   return axios.get("/users", {
     headers: {
-      Authorization: `Brearer ${access_token}`,
+      Authorization: `Bearer ${access_token}`,
     },
   });
 };

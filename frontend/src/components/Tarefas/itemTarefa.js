@@ -24,11 +24,11 @@ function TarefaItem({ tarefa }) {
           </Link>
         </h2>
       </div>
-      <select
+      {/* <select
         id="filterTarefa"
         className={`${classes.filterBarTarefaItem} ${classes.filterTarefa}`}
-        /*   value={selectedFilterEstado}
-        onChange={handleFilterEstadoChange} */
+        value={selectedFilterEstado}
+        onChange={handleFilterEstadoChange}
       >
         <option
           value=""
@@ -38,14 +38,19 @@ function TarefaItem({ tarefa }) {
           style={{ color: "rgba(255, 0, 0, 0.5)" }}
         >
           Estado
-        </option>
+        </option> 
         <option value="">Todas</option>
         <option value="Em Atraso">Em atraso</option>
         <option value="Pendente">Pendente</option>
         <option value="Concluído">Concluído</option>
         <option value="Em Progresso">Em progresso</option>
-      </select>
-      <Table striped bordered hover>
+      </select>*/}
+      <Table
+        striped
+        bordered
+        hover
+        className={`${classes["table-bordered"]} ${classes.tableSpacing}`}
+      >
         <thead>
           <tr>
             <th>OPERAÇÃO</th>

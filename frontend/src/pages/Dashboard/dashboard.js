@@ -7,6 +7,7 @@ import HeaderPage from "../../components/Header/header";
 import DashboardCalendar from "../../components/Dashboard/calendar";
 import { useNavigate } from "react-router-dom";
 import NewOrdem from "../../components/Ordens/formOrdem";
+import classes from "./dashboard.module.css";
 
 function Dashboard() {
   function CorEstado({ ordem }) {
@@ -50,8 +51,9 @@ function Dashboard() {
     try {
       const res = await getTarefas(user.access_token);
       const tarefas = res.data.tarefas;
+
       const tarefasFiltradas = tarefas.filter(
-        (tarefa) => tarefa.estado === "A aguardar"
+        (tarefa) => tarefa.produto === "Calções"
       );
 
       setTarefasAaguardar(tarefasFiltradas);
@@ -72,26 +74,26 @@ function Dashboard() {
 
   const navigate = useNavigate();
   return (
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-lg-12">
           <HeaderPage showCaretLeft={false} showSearchBar={true} />
           <h1 style={{ paddingBottom: "0.5em" }}>Dashboard</h1>
         </div>
       </div>
-      <div class="row">
-        <div class="row" style={{ paddingBottom: "3em" }}>
-          <div class="col-lg-6">{/* <Chart /> */}</div>
-          <div class="col-lg-6">
+      <div className="row">
+        <div className="row" style={{ paddingBottom: "3em" }}>
+          <div className="col-lg-6">{/* <Chart /> */}</div>
+          <div className="col-lg-6">
             <DashboardCalendar />
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="d-flex align-items-center justify-content-between">
+      <div className="row">
+        <div className="row">
+          <div className="col-lg-6">
+            <div className="d-flex align-items-center justify-content-between">
               <h1 style={{ fontSize: "30px" }}>Ordens em atraso</h1>
               <Plus
                 size={32}
@@ -108,7 +110,11 @@ function Dashboard() {
                 />
               )}
             </div>
-            <table class="table table-bordered table-spacing justify">
+
+            <table
+              bordered
+              className={`${classes["table-bordered"]} ${classes.tableSpacing} justify`}
+            >
               <thead>
                 <tr>
                   <th>Cliente</th>
@@ -122,22 +128,22 @@ function Dashboard() {
               <tbody>
                 {ordensEmAtraso.map((ordem) => (
                   <tr key={ordem.id} style={CorEstado({ ordem })}>
-                    <td class="highlight-text">
+                    <td className="highlight-text">
                       <span>{ordem.nome_cliente}</span>
                     </td>
-                    <td class="highlight-text-2">
+                    <td className="highlight-text-2">
                       <span>{ordem.id}</span>
                     </td>
-                    <td class="highlight-text-2">
+                    <td className="highlight-text-2">
                       <span>{ordem.ordem_venda}</span>
                     </td>
-                    <td class="highlight-text-2">
+                    <td className="highlight-text-2">
                       <span>{ordem.sap}</span>
                     </td>
-                    <td class="highlight-text-2">
+                    <td className="highlight-text-2">
                       <span>{ordem.data_entrega}</span>
                     </td>
-                    <td class="highlight-text-2">
+                    <td className="highlight-text-2">
                       <span>{ordem.prioridade}</span>
                     </td>
                   </tr>
@@ -145,38 +151,42 @@ function Dashboard() {
               </tbody>
             </table>
           </div>
-          <div class="col-lg-6">
-            <div class="d-flex align-items-center justify-content-between">
+          <div className="col-lg-6">
+            <div className="d-flex align-items-center justify-content-between">
               <h1 style={{ fontSize: "30px" }}>Tarefas</h1>
               <Plus
                 size={32}
                 style={{ marginRight: "1.2em", cursor: "pointer" }}
-                o
               />
             </div>
-            <table class="table table-bordered table-spacing justify">
+            <table
+              bordered
+              className={`${classes["table-bordered"]} ${classes.tableSpacing} justify`}
+            >
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>OPERÁRIO</th>
-                  <th>OPERAÇÃO</th>
-                  <th>ESTADO</th>
+                  <th>ORDEM ASSOCIADA</th>
+                  <th>PRODUTO</th>
+                  <th>OPERÁRIOS ASSOCIADOS</th>
                 </tr>
               </thead>
               <tbody>
                 {tarefasAaguardar.map((tarefa) => (
                   <tr key={tarefa.id}>
-                    <td class="highlight-text">
+                    <td className="highlight-text">
                       <span>{tarefa.id}</span>
                     </td>
-                    <td class="highlight-text">
-                      <span>{tarefa.operario}</span>
+                    <td className="highlight-text">
+                      <span>{tarefa.ordem_associada}</span>
                     </td>
-                    <td class="highlight-text">
-                      <span>{tarefa.operacao}</span>
+                    <td className="highlight-text">
+                      <span>{tarefa.produto}</span>
                     </td>
-                    <td class="highlight-text">
-                      <span>{tarefa.estado}</span>
+                    <td className="highlight-text">
+                      {tarefa.operario_associado
+                        ? tarefa.operario_associado.join(", ")
+                        : ""}
                     </td>
                   </tr>
                 ))}

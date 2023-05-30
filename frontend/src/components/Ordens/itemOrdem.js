@@ -13,21 +13,22 @@ function OrdemItem({ ordem }) {
       ? "#F58283"
       : ordem.estado === "Concluído"
       ? "#70CC7A"
-      : "#FFF";
+      : "#5FA4D9";
 
-  const borderStyle =
+  /* const borderStyle =
     ordem.estado === "Em Atraso" || ordem.estado === "Concluído"
       ? ""
-      : "2px solid #a3b18a";
+      : "2px solid #a3b18a"; */
 
-  const color = ordem.estado === "Em Atraso" ? "white" : "black";
+  const color =
+    ordem.estado === "Em Atraso" || "Em Progresso" ? "white" : "black";
 
   useEffect(() => {
     const elemento = document.getElementById("styleOrdemEstado");
     elemento.style.backgroundColor = backgroundColor;
-    elemento.style.border = borderStyle;
+    /* elemento.style.border = borderStyle; */
     elemento.style.color = color;
-  }, [backgroundColor, borderStyle, color]);
+  }, [backgroundColor /* borderStyle */, , color]);
 
   function startDeleteHandler() {
     swal({

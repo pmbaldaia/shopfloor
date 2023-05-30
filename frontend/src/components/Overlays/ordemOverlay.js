@@ -3,7 +3,7 @@ import { OverlayTrigger } from "react-bootstrap";
 function OrdensComponent({ descricao, children }) {
   return (
     <OverlayTrigger
-      trigger="hover"
+      trigger={["hover", "focus"]}
       placement="bottom"
       overlay={
         <div

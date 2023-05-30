@@ -70,7 +70,7 @@ function OrdensPage() {
         } finally {
           setLoading(false);
         }
-      }, 1000);
+      }, 200);
     };
 
     fetchData();

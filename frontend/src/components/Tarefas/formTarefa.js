@@ -94,14 +94,15 @@ const NewTarefa = (props) => {
           </Col>
           <Col lg={5} style={{ display: "flex", alignItems: "center" }}>
             <label style={{ paddingRight: "10px" }}>Produto:</label>
-            <select style={{ color: "#3D393999" }}>
+            <input placeholder="Produto"></input>
+            {/* <select style={{ color: "#3D393999" }}>
               <option disabled selected value="">
                 Produto
               </option>
               {ordens.map((ordem) => (
                 <option key={ordem.id}>{ordem.produto}</option>
               ))}
-            </select>
+            </select> */}
           </Col>
           <Col lg={5} style={{ display: "flex", alignItems: "center" }}>
             <label style={{ width: "12em" }}>Ordem Associada:</label>

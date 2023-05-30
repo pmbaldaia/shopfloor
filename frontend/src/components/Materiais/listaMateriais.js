@@ -84,7 +84,7 @@ function MateriaisList({ materiais }) {
 
       <Table
         bordered
-        className={classes.tableSpacing}
+        className={`${classes["table-bordered"]} ${classes.tableSpacing}`}
         style={{ color: "#120309" }}
       >
         <thead>
