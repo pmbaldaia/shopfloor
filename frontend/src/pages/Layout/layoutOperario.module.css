@@ -5,3 +5,8 @@
   left: 0;
   position: fixed;
 }
+
+.cardList {
+  margin: 0;
+  padding: 0;
+}

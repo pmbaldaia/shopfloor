@@ -1,39 +1,41 @@
+.contentOperario {
+  padding: 0em 2em;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
 .header {
-  background-color: rgb(220, 220, 220);
-  padding: 2em;
+  background-color: #dde5df;
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
   border-radius: 1em;
-}
-.headerContent {
-  justify-content: center;
-  text-align: center;
-  align-items: center;
+  padding: 1.5em;
+  margin-bottom: 1em;
 }
 
 .card-title {
   font-size: 25px;
 }
+
 .cardList {
   display: flex;
   cursor: pointer;
   justify-content: center;
   text-align: center;
-  margin-left: auto;
+  margin: 0;
+  padding: 0;
 }
 
 .cardContent {
-  height: 12em;
+  height: 15em;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
   color: #3a5a40;
-  top: 0;
-  left: 0;
   border: 1px solid #3a5a40;
   border-radius: 1em;
 }
@@ -50,17 +52,39 @@
   margin-left: auto;
 }
 
+.formattedDate {
+  font-family: "Montserrat";
+  font-size: 15px;
+  color: #3a5a40;
+}
+
+.formattedTime {
+  font-family: "Montserrat";
+  font-size: 50px;
+  color: #3a5a40;
+}
+
+.iconsPosition {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 /* Estilos para telas menores que 768px */
 @media (max-width: 768px) {
+  .contentOperario {
+    overflow-y: scroll;
+  }
   .header {
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
   }
 
-  .title {
-    font-size: 20px;
-    margin-bottom: 10px;
+  .cardList {
+    flex-direction: column;
+  }
+
+  .cardContent {
+    height: 10em;
+    color: red;
   }
 }

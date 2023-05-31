@@ -29,7 +29,7 @@ import TarefasPage from "./pages/Tarefas/tarefas";
 import TarefaDetailPage from "./pages/Tarefas/detalheTarefa";
 
 //Página Dos Operários
-import LayoutOperarios from "./pages/LayoutOperario/operario";
+import LayoutOperarios from "./pages/EcraOperario/operario";
 import LayoutOperario from "./pages/Layout/layoutOperario";
 
 import Login from "./pages/Login/login";
