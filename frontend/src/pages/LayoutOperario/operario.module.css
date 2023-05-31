@@ -1,14 +1,66 @@
 .header {
+  background-color: rgb(220, 220, 220);
+  padding: 2em;
   display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 1em;
+}
+.headerContent {
+  justify-content: center;
+  text-align: center;
   align-items: center;
 }
-.title {
-  font-size: 50px;
+
+.card-title {
+  font-size: 25px;
+}
+.cardList {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+}
+
+.cardContent {
+  height: 12em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  color: #3a5a40;
+  top: 0;
+  left: 0;
+  border: 1px solid #3a5a40;
+  border-radius: 1em;
+}
+
+.spacingCard {
+  margin-bottom: 1em;
 }
 
 .logout {
+  display: flex;
   cursor: pointer;
-  justify-content: flex-end;
+  justify-content: center;
+  text-align: center;
   margin-left: auto;
-  padding-right: 1em;
+}
+
+/* Estilos para telas menores que 768px */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
 }

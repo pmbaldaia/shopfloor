@@ -112,7 +112,6 @@ function Dashboard() {
             </div>
 
             <table
-              bordered
               className={`${classes["table-bordered"]} ${classes.tableSpacing} justify`}
             >
               <thead>
@@ -160,7 +159,6 @@ function Dashboard() {
               />
             </div>
             <table
-              bordered
               className={`${classes["table-bordered"]} ${classes.tableSpacing} justify`}
             >
               <thead>

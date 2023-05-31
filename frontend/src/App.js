@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Navigate, Route, Routes } from "react-router-dom";
-/* import AppLayout from "./pages/Layout/layout"; */
 import Dashboard from "./pages/Dashboard/dashboard";
+import jwt_decode from "jwt-decode";
 
 //ordens
 import OrdensRootLayout from "./pages/Ordens/rootOrdem";
 import EditOrdemPage from "./pages/Ordens/editarOrdem.js";
 import OrdemDetailPage from "./pages/Ordens/detalheOrdem";
 import NewOrdemPage from "./pages/Ordens/novaOrdem";
-/* import { action as manipulateOrdemAction } from "./components/Ordens/formOrdem"; */
 
 //utilizadores
 import UsersRootLayout from "./pages/Users/rootUser";
-import UserDetailPage from "./pages/Users/detalheUser"; /* 
-import NewOperarioPage from "./pages/Operarios/novoOperario"; */
-/* import EditOperarioPage from "./pages/Operarios/editarOperario"; */
+import UserDetailPage from "./pages/Users/detalheUser";
 
-/* import NewOperarioPage from "./pages/Ordens/novaOrdem";
-import { action as manipulateOperarioAction } from "./components/Operarios/formOperario";
- */
 //Maquinas
 import MaquinasRootLayout from "./pages/Maquinas/rootMaquina";
 import MaquinasPage from "./pages/Maquinas/maquinas";
@@ -34,9 +28,9 @@ import TarefasRootLayout from "./pages/Tarefas/rootTarefa";
 import TarefasPage from "./pages/Tarefas/tarefas";
 import TarefaDetailPage from "./pages/Tarefas/detalheTarefa";
 
-/* import ErrorPage from "./pages/Errors/Error"; */
 //Página Dos Operários
 import LayoutOperarios from "./pages/LayoutOperario/operario";
+import LayoutOperario from "./pages/Layout/layoutOperario";
 
 import Login from "./pages/Login/login";
 
@@ -44,7 +38,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "./store/user";
 import RootLayout from "./pages/Layout/layout";
 
-//Loading
 import Loading from "./components/Loading/loading";
 
 const OrdensPage = React.lazy(() => import("./pages/Ordens/ordens"));
@@ -55,20 +48,41 @@ function App() {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
 
+  function decodeToken(token) {
+    try {
+      const decodedToken = jwt_decode(token);
+      return decodedToken;
+    } catch (error) {
+      console.log("Erro ao decodificar o token:", error);
+      return null;
+    }
+  }
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      dispatch(userActions.login({ access_token: token }));
+      const decodedToken = decodeToken(token);
+      if (decodedToken) {
+        dispatch(userActions.login({ access_token: token }));
+      } else {
+        // Caso o token seja inválido ou expirado, faça o logout do usuário
+        dispatch(userActions.logout());
+      }
     } else {
-      setIsLoading(false);
+      // Caso não haja token no localStorage, faça o logout do usuário
+      dispatch(userActions.logout());
     }
+    setIsLoading(false);
   }, [dispatch]);
 
-  useEffect(() => {
-    if (user.access_token) {
-      setIsLoading(false);
-    }
-  }, [user.access_token]);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    dispatch(userActions.logout());
+  };
+
+  const decodedToken = decodeToken(localStorage.getItem("token"));
+  const userType = decodedToken?.user?.tipo;
+
   return (
     <>
       {!isLoading ? (
@@ -79,58 +93,63 @@ function App() {
               <Route path="*" element={<Navigate to="/auth" />} />
             </>
           ) : (
-            <Route element={<RootLayout />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route element={<OrdensRootLayout />}>
-                <Route path="/ordens" element={<OrdensPage />} />
-                <Route path="/ordens/:ordemId" element={<OrdemDetailPage />} />
-                <Route
-                  path="/ordens/:ordemId/editar"
-                  element={<EditOrdemPage />}
-                />
-                <Route path="/ordens/nova" element={<NewOrdemPage />} />
+            <Route element={<RootLayout onLogout={handleLogout} />}>
+              {userType === "gestor" && (
+                <>
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route element={<OrdensRootLayout />}>
+                    <Route path="/ordens" element={<OrdensPage />} />
+                    <Route
+                      path="/ordens/:ordemId"
+                      element={<OrdemDetailPage />}
+                    />
+                    <Route
+                      path="/ordens/:ordemId/editar"
+                      element={<EditOrdemPage />}
+                    />
+                    <Route path="/ordens/nova" element={<NewOrdemPage />} />
+                  </Route>
+                  <Route element={<TarefasRootLayout />}>
+                    <Route path="/tarefas" element={<TarefasPage />} />
+                    <Route
+                      path="/tarefas/:tarefaId"
+                      element={<TarefaDetailPage />}
+                    />
+                  </Route>
+                  <Route element={<UsersRootLayout />}>
+                    <Route path="/users" element={<UsersPage />} />
+                    <Route path="/users/:userId" element={<UserDetailPage />} />
+                  </Route>
+                  <Route element={<MaquinasRootLayout />}>
+                    <Route path="/maquinas" element={<MaquinasPage />} />
+                    <Route
+                      path="/maquinas/:maquinaId"
+                      element={<MaquinaDetailPage />}
+                    />
+                  </Route>
+                  <Route element={<MateriaisRootLayout />}>
+                    <Route path="/materiais" element={<MateriaisPage />} />
+                  </Route>
+                </>
+              )}
+              <Route element={<LayoutOperario onLogout={handleLogout} />}>
+                {userType === "operario" && (
+                  <>
+                    <Route
+                      path="/operarios"
+                      element={
+                        <React.Fragment>
+                          <LayoutOperarios />
+                        </React.Fragment>
+                      }
+                    />
+                    <Route path="*" element={<Navigate to="/operarios" />} />
+                  </>
+                )}
               </Route>
-              <Route element={<TarefasRootLayout />}>
-                <Route path="/tarefas" element={<TarefasPage />} />
-                <Route
-                  path="/tarefas/:tarefaId"
-                  element={<TarefaDetailPage />}
-                />
-              </Route>
-              <Route element={<UsersRootLayout />}>
-                <Route path="/users" element={<UsersPage />} />
-                <Route path="/users/:userId" element={<UserDetailPage />} />
-              </Route>
-              <Route element={<MaquinasRootLayout />}>
-                <Route path="/maquinas" element={<MaquinasPage />} />
-                <Route
-                  path="/maquinas/:maquinaId"
-                  element={<MaquinaDetailPage />}
-                />
-              </Route>
-              <Route element={<MateriaisRootLayout />}>
-                <Route path="/materiais" element={<MateriaisPage />} />
-              </Route>
-
-              <Route path="*" element={<Navigate to="/dashboard" />} />
-              {/*  <Route
-                path="/operarios"
-                element={
-                  <React.Fragment>
-                    <LayoutOperarios />
-                  </React.Fragment>
-                }
-              /> */}
-              <Route
-                path="/operarios"
-                element={
-                  <React.Fragment>
-                    <LayoutOperarios />
-                  </React.Fragment>
-                }
-              />
             </Route>
           )}
+          <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
       ) : (
         <Loading />

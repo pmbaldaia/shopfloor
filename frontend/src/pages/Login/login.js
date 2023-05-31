@@ -6,12 +6,12 @@ import logoverde from "../../assets/images/logoverde.png";
 import { Eye, EyeSlash } from "@phosphor-icons/react";
 import "./login.css";
 import { login } from "../../axios/autenticacao";
-/* import { useDispatch } from "react-redux";
-import { userActions } from "../../store/user"; */
-import jwt_decode from "jwt-decode";
+import { useDispatch } from "react-redux";
+import { userActions } from "../../store/user";
+/* import jwt_decode from "jwt-decode"; */
 
 export default function Login() {
-  /* const dispatch = useDispatch(); */
+  const dispatch = useDispatch();
   const navigation = useNavigate();
   const isSubmitting = navigation.state === "submitting";
   const today = new Date();
@@ -38,7 +38,7 @@ export default function Login() {
     };
   }, []);
 
-  /* function submitLogin() {
+  function submitLogin() {
     login({
       num_func: userInput,
       pass_func: passwordInput,
@@ -50,9 +50,9 @@ export default function Login() {
       .catch((err) => {
         console.log(err);
       });
-  } */
+  }
 
-  function decodeToken(token) {
+  /*  function decodeToken(token) {
     try {
       const decodedToken = jwt_decode(token);
       return decodedToken;
@@ -60,7 +60,7 @@ export default function Login() {
       console.log("Erro ao decodificar o token:", error);
       return null;
     }
-  }
+  } 
   function submitLogin() {
     login({
       num_func: userInput,
@@ -105,7 +105,7 @@ export default function Login() {
   function submitChangePasswordForm(newPassword) {
     // Enviar nova senha ao backend e atualizar no banco de dados
     // ...
-  }
+  } */
 
   return (
     <div className="maincontainer">

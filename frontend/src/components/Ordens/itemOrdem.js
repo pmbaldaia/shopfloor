@@ -28,7 +28,7 @@ function OrdemItem({ ordem }) {
     elemento.style.backgroundColor = backgroundColor;
     /* elemento.style.border = borderStyle; */
     elemento.style.color = color;
-  }, [backgroundColor /* borderStyle */, , color]);
+  }, [backgroundColor, color]);
 
   function startDeleteHandler() {
     swal({
