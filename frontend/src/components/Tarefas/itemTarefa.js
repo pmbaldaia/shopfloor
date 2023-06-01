@@ -1,10 +1,22 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import { Pencil, Trash, DownloadSimple } from "@phosphor-icons/react";
 import HeaderPage from "../Header/header";
 import classes from "./itemTarefa.module.css";
+import ModalApagar from "../Modal/modalApagar";
 
 function TarefaItem({ tarefa }) {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   return (
     <>
       <HeaderPage showCaretLeft={true} showSearchBar={false} />
@@ -15,8 +27,9 @@ function TarefaItem({ tarefa }) {
             <Pencil size={25} weight="light" />
           </Link>
           &nbsp;
-          <Link /* onClick={startDeleteHandler} */>
-            <Trash size={25} weight="light" />
+          <Link style={{ color: "black" }} onClick={openModal}>
+            <Trash size={28} weight="light" />
+            <ModalApagar isOpen={modalIsOpen} closeModal={closeModal} />
           </Link>
           &nbsp;
           <Link>

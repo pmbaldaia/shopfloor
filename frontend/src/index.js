@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <Suspense fallback={<div>Loading...</div>}>
+  <Suspense>
     <Provider store={Store}>
       <ThemeProvider>
         <BrowserRouter>

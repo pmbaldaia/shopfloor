@@ -52,61 +52,6 @@ export default function Login() {
       });
   }
 
-  /*  function decodeToken(token) {
-    try {
-      const decodedToken = jwt_decode(token);
-      return decodedToken;
-    } catch (error) {
-      console.log("Erro ao decodificar o token:", error);
-      return null;
-    }
-  } 
-  function submitLogin() {
-    login({
-      num_func: userInput,
-      pass_func: passwordInput,
-    })
-      .then((res) => {
-        const token = res.data.token;
-        localStorage.setItem("token", token);
-
-        const decodedToken = decodeToken(token);
-        const userType = decodedToken.user.tipo;
-
-        //para teste o primeiro login
-        const isFirstLogin = res.data.isFirstLogin;
-        if (isFirstLogin) {
-          // Exibir formulário de alteração de senha para o usuário
-          showChangePasswordForm();
-        } else {
-          if (userType === "gestor") {
-            // Redirecionar para a página de gestor
-            window.location.href = "/dashborad";
-          } else if (userType === "operario") {
-            // Redirecionar para a página de operário
-            window.location.href = "/operarios";
-          } else if (userType === "teste") {
-            window.location.href = "/teste";
-          } else {
-          }
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  //para teste de primeiro login
-  function showChangePasswordForm() {
-    // Exibir formulário de alteração de senha
-    // ...
-  }
-
-  function submitChangePasswordForm(newPassword) {
-    // Enviar nova senha ao backend e atualizar no banco de dados
-    // ...
-  } */
-
   return (
     <div className="maincontainer">
       <div className="container-fluid">

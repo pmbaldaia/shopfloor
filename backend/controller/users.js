@@ -1,12 +1,11 @@
 const { v4: generateId } = require("uuid");
-
 const { NotFoundError } = require("../util/errors");
 const { readData, writeData } = require("./util");
 
 async function getAll() {
   const storedData = await readData();
-  if (!storedData.users) {
-    throw new NotFoundError("Não foi encontrado nenhum user.");
+  if (!storedData.users || storedData.users.length === 0) {
+    throw new NotFoundError("Não foi encontrado nenhum usuário.");
   }
   return storedData.users;
 }
@@ -14,12 +13,14 @@ async function getAll() {
 async function get(id) {
   const storedData = await readData();
   if (!storedData.users || storedData.users.length === 0) {
-    throw new NotFoundError("Não foi encontrado nenhum user.");
+    throw new NotFoundError("Não foi encontrado nenhum usuário.");
   }
 
-  const user = storedData.users.find((ev) => ev.id === id);
+  const user = storedData.users.find((user) => user.id === id);
   if (!user) {
-    throw new NotFoundError("Não foi encontrado nenhum user com esse id " + id);
+    throw new NotFoundError(
+      "Não foi encontrado nenhum usuário com o ID: " + id
+    );
   }
 
   return user;
@@ -27,34 +28,38 @@ async function get(id) {
 
 async function add(data) {
   const storedData = await readData();
-  storedData.users.unshift({ ...data, id: generateId() });
+  const newUser = { ...data, id: generateId() };
+  storedData.users.unshift(newUser);
   await writeData(storedData);
 }
 
 async function replace(id, data) {
   const storedData = await readData();
   if (!storedData.users || storedData.users.length === 0) {
-    throw new NotFoundError("Não foi encontrado nenhum user.");
+    throw new NotFoundError("Não foi encontrado nenhum usuário.");
   }
 
-  const index = storedData.users.findIndex((ev) => ev.id == id);
-  if (index < 0) {
-    throw new NotFoundError("Não foi encontrado nenhum user com esse id " + id);
+  const userIndex = storedData.users.findIndex((user) => user.id === id);
+  if (userIndex < 0) {
+    throw new NotFoundError(
+      "Não foi encontrado nenhum usuário com o ID: " + id
+    );
   }
 
-  storedData.users[index] = { ...data, id };
-
+  storedData.users[userIndex] = { ...data, id };
   await writeData(storedData);
 }
 
 async function remove(id) {
   const storedData = await readData();
-  const updatedData = storedData.users.filter((ev) => ev.id !== id);
-  await writeData({ ...storedData, users: updatedData });
+  const updatedUsers = storedData.users.filter((user) => user.id !== id);
+  await writeData({ ...storedData, users: updatedUsers });
 }
 
-exports.getAll = getAll;
-exports.get = get;
-exports.add = add;
-exports.replace = replace;
-exports.remove = remove;
+module.exports = {
+  getAll,
+  get,
+  add,
+  replace,
+  remove,
+};

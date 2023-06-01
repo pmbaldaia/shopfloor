@@ -1,42 +1,71 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
+import {
+  Chart,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js/auto";
+import faker from "faker";
+import classes from "./chart.module.css";
 
-const Chart = () => {
-  // Dados de entrega (exemplo)
-  const dadosEntrega = [
-    { data_entrega: "2023-05-20", quantidade: 10 },
-    { data_entrega: "2023-05-21", quantidade: 15 },
-    { data_entrega: "2023-05-22", quantidade: 8 },
-    { data_entrega: "2023-05-23", quantidade: 12 },
-    { data_entrega: "2023-05-24", quantidade: 5 },
-  ];
+Chart.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-  // Ordena os dados pela data de entrega
-  dadosEntrega.sort((a, b) => {
-    const dataA = new Date(a.data_entrega);
-    const dataB = new Date(b.data_entrega);
-    return dataA - dataB;
-  });
-
-  // Extrai as datas e quantidades dos dados de entrega
-  const labels = dadosEntrega.map((dado) => dado.data_entrega);
-  const quantidades = dadosEntrega.map((dado) => dado.quantidade);
-
-  // Configuração do gráfico
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        label: "Quantidade de Entregas",
-        data: quantidades,
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
-        borderColor: "rgba(75, 192, 192, 1)",
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  return <Bar data={data} />;
+const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top",
+    },
+    title: {
+      display: true,
+      text: "Acompanhamento de Dados",
+    },
+  },
 };
 
-export default Chart;
+const labels = [
+  "Janeiro",
+  "Fevereiro",
+  "Março",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho",
+];
+
+const data = {
+  labels,
+  datasets: [
+    {
+      label: "Entrega",
+      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      borderColor: "rgb(58, 90, 64)",
+      backgroundColor: "rgb(58, 90, 64, 0.5)",
+    },
+    {
+      label: "Quantidade",
+      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      borderColor: "rgb(249, 133, 80)",
+      backgroundColor: "rgb(249, 133, 80, 0.5)",
+    },
+  ],
+};
+
+export function ChartDashboard() {
+  return (
+    <Line className={classes.chartContainer} options={options} data={data} />
+  );
+}

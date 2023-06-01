@@ -261,7 +261,6 @@
       "prioridade": "Alta",
       "estado": "Pendente"
     },
-
     {
       "id": "67895",
       "tipo": "JP02",
@@ -1709,7 +1708,6 @@
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
       "tipo": "gestor"
     },
-
     {
       "id": "523421",
       "nome": "Leonor Rodrigues",

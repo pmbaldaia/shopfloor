@@ -7,3 +7,11 @@ export const getMateriais = (access_token) => {
     },
   });
 };
+
+export const getMaterialById = (access_token, materialId) => {
+  return axios.get(`/materiais/${materialId}`, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+};

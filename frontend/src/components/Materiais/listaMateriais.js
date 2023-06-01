@@ -17,26 +17,6 @@ import HeaderPage from "../Header/header";
 function MateriaisList({ materiais }) {
   const submit = () => {};
 
-  function startDeleteHandler() {
-    swal({
-      title: "Tem a certeza que quer apagar?",
-      text: "Uma vez apagado, não poderá recuperá-lo.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        submit({ method: "delete" });
-        swal("Material não apagado", {
-          message: "Precisa de estar autenticado",
-          icon: "error",
-        });
-      } else {
-        swal("Material não apagado");
-      }
-    });
-  }
-
   const [sortMateriais, setSortMateriais] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -148,14 +128,14 @@ function MateriaisList({ materiais }) {
                   >
                     <ReadCvLogo size={28} weight="light" />
                   </Link>
-                  &nbsp; &nbsp;
+                  {/* &nbsp; &nbsp;
                   <Link style={{ color: "black" }} to={`/materiais/editar`}>
                     <Pencil size={28} weight="light" />
                   </Link>
                   &nbsp; &nbsp;
                   <Link style={{ color: "black" }} onClick={startDeleteHandler}>
                     <Trash size={28} weight="light" />
-                  </Link>
+                  </Link> */}
                 </span>
               </td>
             </tr>

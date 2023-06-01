@@ -1,33 +1,24 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Pencil, Trash, DownloadSimple } from "@phosphor-icons/react";
 import HeaderPage from "../Header/header";
 import { Container, Row, Col } from "react-bootstrap";
 import classes from "./itemMaquina.module.css";
-import swal from "sweetalert";
 import { Tabs, Tab } from "react-bootstrap";
+import ModalApagar from "../Modal/modalApagar";
 
 function MaquinaItem({ maquina }) {
   const submit = () => {};
 
-  function startDeleteHandler() {
-    swal({
-      title: "Tem a certeza que quer apagar?",
-      text: "Uma vez apagado, não poderá recuperá-lo.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        submit({ method: "delete" });
-        swal("Maquina não apagada", {
-          message: "Precisa de estar autenticado",
-          icon: "error",
-        });
-      } else {
-        swal("Maquina não apagada");
-      }
-    });
-  }
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
   return (
     <>
       <HeaderPage showCaretLeft={true} showSearchBar={false} />
@@ -38,8 +29,9 @@ function MaquinaItem({ maquina }) {
             <Pencil size={25} weight="light" />
           </Link>
           &nbsp;
-          <Link onClick={startDeleteHandler}>
-            <Trash size={25} weight="light" />
+          <Link style={{ color: "black" }} onClick={openModal}>
+            <Trash size={28} weight="light" />
+            <ModalApagar isOpen={modalIsOpen} closeModal={closeModal} />
           </Link>
           &nbsp;
           <Link>

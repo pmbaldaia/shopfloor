@@ -9,32 +9,11 @@ import {
   Trash,
   MagnifyingGlass,
 } from "@phosphor-icons/react";
-import swal from "sweetalert";
 import HeaderPage from "../Header/header";
 import { Table } from "react-bootstrap";
 
 function TarefasList({ tarefas }) {
   const submit = () => {};
-
-  function startDeleteHandler() {
-    swal({
-      title: "Tem a certeza que quer apagar?",
-      text: "Uma vez apagado, não poderá recuperá-lo.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        submit({ method: "delete" });
-        swal("Tarefa não apagado", {
-          message: "Precisa de estar autenticado",
-          icon: "error",
-        });
-      } else {
-        swal("Tarefa não apagado");
-      }
-    });
-  }
 
   const [sortTarefas, setSortTarefas] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -106,14 +85,14 @@ function TarefasList({ tarefas }) {
                   <Link style={{ color: "black" }} to={`/tarefas/${tarefa.id}`}>
                     <ReadCvLogo size={25} weight="light" />
                   </Link>
-                  &nbsp; &nbsp;
+                  {/* &nbsp; &nbsp;
                   <Link style={{ color: "black" }} to={`/tarefas/editar`}>
                     <Pencil size={25} weight="light" />
                   </Link>
                   &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} onClick={startDeleteHandler}>
+                  <Link style={{ color: "black" }} >
                     <Trash size={25} weight="light" />
-                  </Link>
+                  </Link> */}
                 </span>
               </td>
             </tr>

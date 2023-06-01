@@ -18,7 +18,9 @@ import {
 
 function Content({ cardsData }) {
   const user = useSelector((state) => state.user);
+  // eslint-disable-next-line
   const [tarefas, setTarefas] = useState([]);
+  // eslint-disable-next-line
   const [mostrarTarefas, setMostrarTarefas] = useState(false);
   const token = localStorage.getItem("token");
   const decoded = jwt_decode(token);
@@ -40,6 +42,7 @@ function Content({ cardsData }) {
 
   useEffect(() => {
     fetchTarefas();
+    // eslint-disable-next-line
   }, []);
 
   const dispatch = useDispatch();
@@ -131,7 +134,7 @@ function OperarioLayout() {
     <div className={classes.contentOperario}>
       <Row className={classes.header}>
         <span>
-          <User size={22} /> <HiUser />
+          <User size={40} /> <HiUser />
         </span>
         <p className={classes.formattedDate}>{formattedDate}</p>
         <p className={classes.formattedTime}>{formattedTime}</p>

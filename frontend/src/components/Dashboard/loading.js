@@ -1,5 +1,5 @@
 import React from "react";
-import "./loading.css";
+import classes from "./loading.module.css";
 
 const Loading = () => {
   return (
@@ -11,7 +11,7 @@ const Loading = () => {
         height: "100%",
       }}
     >
-      <div className="loading-spinner"></div>
+      <div className={`${classes["loading-spinner"]}`}></div>
     </div>
   );
 };

@@ -16,7 +16,7 @@ import {
   CaretUp,
   CaretDown,
 } from "@phosphor-icons/react";
-import swal from "sweetalert";
+import ModalApagar from "../Modal/modalApagar";
 
 function OrdensList({ ordens }) {
   function CorEstado({ ordem }) {
@@ -34,25 +34,15 @@ function OrdensList({ ordens }) {
   }
 
   const submit = () => {};
-  function startDeleteHandler() {
-    swal({
-      title: "Tem a certeza que quer apagar?",
-      text: "Uma vez apagado, não poderá recuperá-lo.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        submit({ method: "delete" });
-        swal("Ordem não apagada", {
-          message: "Precisa de estar autenticado",
-          icon: "error",
-        });
-      } else {
-        swal("Ordem não apagada");
-      }
-    });
-  }
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
   const [sortOrdens, setSortOrdens] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -439,16 +429,17 @@ function OrdensList({ ordens }) {
               <td>
                 <span>
                   <Link style={{ color: "black" }} to={`/ordens/${ordem.id}`}>
-                    <ReadCvLogo size={28} weight="light" />
+                    <ReadCvLogo size={28} weight="light" alt="CONSULTAR" />
                   </Link>
-                  &nbsp; &nbsp;
+                  {/* &nbsp; &nbsp;
                   <Link style={{ color: "black" }} to={`/ordens/editar`}>
                     <Pencil size={28} weight="light" />
-                  </Link>
-                  &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} onClick={startDeleteHandler}>
+                  </Link>*/}
+                  {/*  &nbsp; &nbsp; */}
+                  {/* <Link style={{ color: "black" }} onClick={openModal}>
                     <Trash size={28} weight="light" />
-                  </Link>
+                    <ModalApagar isOpen={modalIsOpen} closeModal={closeModal} />
+                  </Link> */}
                 </span>
               </td>
             </tr>

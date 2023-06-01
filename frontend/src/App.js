@@ -22,6 +22,7 @@ import MaquinaDetailPage from "./pages/Maquinas/detalheMaquina";
 //Materiais
 import MateriaisRootLayout from "./pages/Materiais/rootMaterial";
 import MateriaisPage from "./pages/Materiais/materiais";
+import MaterialDetailPage from "./pages/Materiais/detalheMaterial";
 
 //Tarefas
 import TarefasRootLayout from "./pages/Tarefas/rootTarefa";
@@ -128,7 +129,11 @@ function App() {
                     />
                   </Route>
                   <Route element={<MateriaisRootLayout />}>
-                    <Route path="/materiais" element={<MateriaisPage />} />
+                    <Route path="/materiais" element={<MateriaisPage />} />{" "}
+                    <Route
+                      path="/materiais/:materialId"
+                      element={<MaterialDetailPage />}
+                    />
                   </Route>
                 </>
               )}

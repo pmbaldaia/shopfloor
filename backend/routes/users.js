@@ -1,6 +1,13 @@
 const express = require("express");
-
-const { getAll, get, add, replace, remove } = require("../controller/users");
+const {
+  getAll,
+  get,
+  add,
+  replace,
+  remove,
+  getUserById,
+  updateUser,
+} = require("../controller/users");
 const { checkAuth } = require("../util/auth");
 
 const router = express.Router();
@@ -70,6 +77,26 @@ router.delete("/:id", async (req, res, next) => {
   try {
     await remove(req.params.id);
     res.json({ message: "User apagada." });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Update user's type
+router.put("/:id", async (req, res, next) => {
+  const userId = req.params.id;
+  const novoTipo = req.body.tipo;
+
+  try {
+    const user = await getUserById(userId);
+    if (!user) {
+      throw new Error("Operário não encontrado.");
+    }
+
+    user.tipo = novoTipo;
+
+    await updateUser(userId, user);
+    res.json({ message: "Tipo de operário atualizado." });
   } catch (error) {
     next(error);
   }

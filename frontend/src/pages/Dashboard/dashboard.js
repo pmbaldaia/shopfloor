@@ -8,6 +8,7 @@ import DashboardCalendar from "../../components/Dashboard/calendar";
 import { useNavigate } from "react-router-dom";
 import NewOrdem from "../../components/Ordens/formOrdem";
 import classes from "./dashboard.module.css";
+import { ChartDashboard } from "../../components/Dashboard/chart";
 
 function Dashboard() {
   function CorEstado({ ordem }) {
@@ -83,7 +84,9 @@ function Dashboard() {
       </div>
       <div className="row">
         <div className="row" style={{ paddingBottom: "3em" }}>
-          <div className="col-lg-6">{/* <Chart /> */}</div>
+          <div className="col-lg-6">
+            <ChartDashboard />
+          </div>
           <div className="col-lg-6">
             <DashboardCalendar />
           </div>

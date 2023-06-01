@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import swal from "sweetalert";
 import { Pencil, Trash, DownloadSimple } from "@phosphor-icons/react";
 import classes from "./itemOrdem.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import HeaderPage from "../Header/header";
 import { Tabs, Tab } from "react-bootstrap";
+import ModalApagar from "../Modal/modalApagar";
 
 function OrdemItem({ ordem }) {
   const backgroundColor =
@@ -30,26 +30,16 @@ function OrdemItem({ ordem }) {
     elemento.style.color = color;
   }, [backgroundColor, color]);
 
-  function startDeleteHandler() {
-    swal({
-      title: "Tem a certeza que quer apagar?",
-      text: "Uma vez apagado, não poderá recuperá-lo.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((Delete) => {
-      if (Delete) {
-        submit({ method: "delete" });
-        swal("Ordem eliminada com sucesso", {
-          icon: "success",
-        });
-      } else {
-        swal("Ordem não apagada");
-      }
-    });
-  }
-
   const submit = () => {};
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
   return (
     <>
@@ -62,8 +52,9 @@ function OrdemItem({ ordem }) {
             <Pencil size={25} weight="light" />
           </Link>
           &nbsp;
-          <Link onClick={startDeleteHandler}>
-            <Trash size={25} weight="light" />
+          <Link style={{ color: "black" }} onClick={openModal}>
+            <Trash size={28} weight="light" />
+            <ModalApagar isOpen={modalIsOpen} closeModal={closeModal} />
           </Link>
           &nbsp;
           <Link>

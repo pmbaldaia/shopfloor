@@ -106,7 +106,7 @@
   top: 14.4em;
   position: absolute;
   border: 1px solid #3a5a40;
-  z-index: 1;
+  z-index: 0;
 }
 .timelineItem {
   display: flex;
@@ -124,7 +124,7 @@
   background-color: #a3b18a;
   border-radius: 50%;
   margin-right: 10px;
-  z-index: 2;
+  z-index: 0;
 }
 
 .timelineCircleDisabled {
@@ -132,7 +132,7 @@
   height: 20px;
   background-color: #dde5df;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 0;
 }
 
 .tabMargin {

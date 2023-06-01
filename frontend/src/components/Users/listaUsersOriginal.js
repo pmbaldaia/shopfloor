@@ -10,14 +10,37 @@ import {
   Trash,
   CaretUpDown,
   MagnifyingGlass,
-  UserSwitch,
 } from "@phosphor-icons/react";
 import swal from "sweetalert";
 import HeaderPage from "../Header/header";
+import { Button } from "react-bootstrap";
 
-function UsersList({ users, access_token }) {
+function UsersList({ users }) {
+  const submit = () => {};
+
+  function startDeleteHandler() {
+    swal({
+      title: "Tem a certeza que quer apagar?",
+      text: "Uma vez apagado, não poderá recuperá-lo.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        submit({ method: "delete" });
+        swal("User não apagada", {
+          message: "Precisa de estar autenticado",
+          icon: "error",
+        });
+      } else {
+        swal("Utilizador não apagado");
+      }
+    });
+  }
+
   const [sortUsers, setSortUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  console.log(sortUsers);
 
   useEffect(() => {
     const filteredUsers = users.filter(
@@ -31,28 +54,10 @@ function UsersList({ users, access_token }) {
   function __refresh() {
     window.location.reload(false);
   }
-
-  const startDeleteHandler = () => {
-    swal({
-      title: "Tem a certeza que quer apagar?",
-      text: "Uma vez apagado, não poderá recuperá-lo.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        // Lógica para apagar o usuário
-      } else {
-        swal("Utilizador não apagado");
-      }
-    });
-  };
-
   const arrowSort = {
     color: "#120309",
     opacity: "40%",
   };
-
   return (
     <div>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
@@ -110,6 +115,12 @@ function UsersList({ users, access_token }) {
               </td>
               <td className={classes.highlightHext}>
                 <span>{user.tipo}</span>
+                &nbsp;&nbsp;
+                <Button
+                  style={{ width: "8em", fontSize: "10px", color: "white" }}
+                >
+                  Alterar
+                </Button>
               </td>
               <td>
                 <span>
@@ -117,17 +128,13 @@ function UsersList({ users, access_token }) {
                     <ReadCvLogo size={28} weight="light" />
                   </Link>
                   &nbsp; &nbsp;
-                  <Link style={{ color: "black" }}>
-                    <UserSwitch size={28} weight="light" />
-                  </Link>
-                  {/* &nbsp; &nbsp;
                   <Link style={{ color: "black" }} to={`/users/editar`}>
                     <Pencil size={28} weight="light" />
                   </Link>
                   &nbsp; &nbsp;
                   <Link style={{ color: "black" }} onClick={startDeleteHandler}>
                     <Trash size={28} weight="light" />
-                  </Link> */}
+                  </Link>
                 </span>
               </td>
             </tr>
@@ -137,5 +144,4 @@ function UsersList({ users, access_token }) {
     </div>
   );
 }
-
 export default UsersList;

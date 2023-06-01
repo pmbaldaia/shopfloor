@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import "./calendar.css";
+import classes from "./calendar.module.css";
 
 function DashboardCalendar() {
   const [date, setDate] = useState(new Date());
@@ -11,8 +11,14 @@ function DashboardCalendar() {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <Calendar locale="pt" onChange={onChange} value={date} />
+    <div className={classes.calendarContainer}>
+      <Calendar
+        locale="pt"
+        onChange={onChange}
+        value={date}
+        className={classes.calendarClass}
+        calendarType="US"
+      />
     </div>
   );
 }

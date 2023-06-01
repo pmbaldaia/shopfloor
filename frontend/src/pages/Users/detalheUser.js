@@ -8,10 +8,11 @@ function UserDetailPage() {
   const user = useSelector((state) => state.user);
   const [User, setUser] = useState(null);
   const { userId } = useParams();
+
   useEffect(() => {
     const getUserByIdFunc = async () => {
       let userById = await getUserById(user.access_token, userId);
-      setUser(userById.data.User);
+      setUser(userById.data.user);
     };
     getUserByIdFunc();
   }, [user.access_token, userId]);
