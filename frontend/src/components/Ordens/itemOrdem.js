@@ -30,7 +30,7 @@ function OrdemItem({ ordem }) {
     elemento.style.color = color;
   }, [backgroundColor, color]);
 
-  const submit = () => {};
+  /* const submit = () => {}; */
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {

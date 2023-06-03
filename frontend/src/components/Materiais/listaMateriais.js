@@ -6,16 +6,15 @@ import classes from "./listaMateriais.module.css";
 import {
   ArrowClockwise,
   ReadCvLogo,
-  Pencil,
-  Trash,
+  /*   Pencil,
+  Trash, */
   MagnifyingGlass,
   CaretUpDown,
 } from "@phosphor-icons/react";
-import swal from "sweetalert";
 import HeaderPage from "../Header/header";
 
 function MateriaisList({ materiais }) {
-  const submit = () => {};
+  /* const submit = () => {}; */
 
   const [sortMateriais, setSortMateriais] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");

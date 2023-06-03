@@ -5,14 +5,13 @@ import AdicionarOperario from "../Botoes/AdicionarOperario";
 import classes from "./listaUsers.module.css";
 import {
   ArrowClockwise,
-  ReadCvLogo,
+  ReadCvLogo /* 
   Pencil,
-  Trash,
+  Trash, */,
   CaretUpDown,
   MagnifyingGlass,
   UserSwitch,
 } from "@phosphor-icons/react";
-import swal from "sweetalert";
 import HeaderPage from "../Header/header";
 
 function UsersList({ users, access_token }) {
@@ -31,22 +30,6 @@ function UsersList({ users, access_token }) {
   function __refresh() {
     window.location.reload(false);
   }
-
-  const startDeleteHandler = () => {
-    swal({
-      title: "Tem a certeza que quer apagar?",
-      text: "Uma vez apagado, não poderá recuperá-lo.",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        // Lógica para apagar o usuário
-      } else {
-        swal("Utilizador não apagado");
-      }
-    });
-  };
 
   const arrowSort = {
     color: "#120309",

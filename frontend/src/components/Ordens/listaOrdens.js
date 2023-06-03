@@ -10,7 +10,7 @@ import classes from "./listaOrdens.module.css";
 import {
   ArrowClockwise,
   ReadCvLogo,
-  CaretUpDown,
+  /* CaretUpDown, */
   CaretUp,
   CaretDown,
 } from "@phosphor-icons/react";
@@ -39,9 +39,9 @@ function OrdensList({ ordens }) {
   const [sortSAP, setSortSAP] = useState("desc");
   const [sortORDEM_VENDA, setSortORDEM_VENDA] = useState("desc");
   const [sortPRODUTO, setSortPRODUTO] = useState("desc");
-  const [sortQUANTIDADE, setSortQUANTIDADE] = useState("desc");
+  const [sortQUANTIDADE, setSortQUANTIDADE] = useState("desc"); /* 
   const [sortLIBERADO, setSortLIBERADO] = useState("desc");
-  const [sortDATA_ENTREGA, setSortDATA_ENTREGA] = useState("desc");
+  const [sortDATA_ENTREGA, setSortDATA_ENTREGA] = useState("desc"); */
   const [selectedFilterEstado, setSelectedFilterEstado] = useState("");
   const [selectedFilterPrioridade, setSelectedFilterPrioridade] = useState("");
 
@@ -125,10 +125,10 @@ function OrdensList({ ordens }) {
     window.location.reload(false);
   }
 
-  const arrowSort = {
+  /*   const arrowSort = {
     color: "#120309",
     opacity: "40%",
-  };
+  }; */
 
   // Código do ordenar por ID da ordem ASC:DESC
   const __handleSortID = () => {
@@ -189,7 +189,7 @@ function OrdensList({ ordens }) {
     setSortQUANTIDADE(nextQUANTIDADE);
   };
 
-  // Código de ordenar pela data Liberado ASC:DESC
+  /*  // Código de ordenar pela data Liberado ASC:DESC
   const __handleSortLIBERADO = () => {
     const nextLIBERADO = sortLIBERADO === "asc" ? "desc" : "asc";
     const sortedLIBERADO = [...sortOrdens].sort(
@@ -213,7 +213,7 @@ function OrdensList({ ordens }) {
         : sortedDATA_ENTREGA.reverse();
     setSortOrdens(orderedDATA_ENTREGA);
     setSortDATA_ENTREGA(nextDATA_ENTREGA);
-  };
+  }; */
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);

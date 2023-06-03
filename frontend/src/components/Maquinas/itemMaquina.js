@@ -8,7 +8,7 @@ import { Tabs, Tab } from "react-bootstrap";
 import ModalApagar from "../Modal/modalApagar";
 
 function MaquinaItem({ maquina }) {
-  const submit = () => {};
+  /* const submit = () => {}; */
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
