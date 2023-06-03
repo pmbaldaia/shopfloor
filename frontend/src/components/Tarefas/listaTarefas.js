@@ -5,15 +5,13 @@ import classes from "./listaTarefas.module.css";
 import {
   ArrowClockwise,
   ReadCvLogo,
-  Pencil,
-  Trash,
   MagnifyingGlass,
 } from "@phosphor-icons/react";
 import HeaderPage from "../Header/header";
 import { Table } from "react-bootstrap";
 
 function TarefasList({ tarefas }) {
-  const submit = () => {};
+  /* const submit = () => {}; */
 
   const [sortTarefas, setSortTarefas] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");

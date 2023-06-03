@@ -48,7 +48,7 @@ function OrdemItem({ ordem }) {
       <div className={classes.headerItemOrdem}>
         <h2>
           Ordem de Produção: {ordem.id}{" "}
-          <Link /* to="editar" */>
+          <Link>
             <Pencil size={25} weight="light" />
           </Link>
           &nbsp;

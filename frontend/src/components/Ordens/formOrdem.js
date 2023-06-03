@@ -79,7 +79,7 @@ const NewOrdem = (props) => {
             />
           </Col>
           <Row className={classes.primeiraLinha}>
-            <Col>
+            <Col lg={2}>
               <span className={classes.subtitulosForm}>Produto</span>
             </Col>
             <Col>
@@ -101,7 +101,7 @@ const NewOrdem = (props) => {
               <input placeholder="Txt Breve Material"></input>
             </Col>
             <p></p>
-            <Col>
+            <Col lg={2}>
               <span></span>
             </Col>
             <Col>
@@ -117,7 +117,7 @@ const NewOrdem = (props) => {
               <input placeholder="Qtd Ordem"></input>
             </Col>
             <p></p>
-            <Col>
+            <Col lg={2}>
               <span></span>
             </Col>
             <Col>
@@ -143,7 +143,7 @@ const NewOrdem = (props) => {
           />
 
           <Row className={classes.segundaLinha}>
-            <Col>
+            <Col lg={2}>
               <span className={classes.subtitulosForm}>Prazos</span>
             </Col>
             <Col>
@@ -183,7 +183,7 @@ const NewOrdem = (props) => {
               />
             </Col>
             <p></p>
-            <Col>
+            <Col lg={2}>
               <span></span>
             </Col>
             <Col>
@@ -223,7 +223,7 @@ const NewOrdem = (props) => {
               />
             </Col>
             <p></p>
-            <Col>
+            <Col lg={2}>
               <span></span>
             </Col>
             <Col>

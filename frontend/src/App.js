@@ -18,6 +18,7 @@ import UserDetailPage from "./pages/Users/detalheUser";
 import MaquinasRootLayout from "./pages/Maquinas/rootMaquina";
 import MaquinasPage from "./pages/Maquinas/maquinas";
 import MaquinaDetailPage from "./pages/Maquinas/detalheMaquina";
+import NewMaquinaPage from "./pages/Maquinas/novaMaquina";
 
 //Materiais
 import MateriaisRootLayout from "./pages/Materiais/rootMaterial";
@@ -127,6 +128,7 @@ function App() {
                       path="/maquinas/:maquinaId"
                       element={<MaquinaDetailPage />}
                     />
+                    <Route path="/maquinas/nova" element={<NewMaquinaPage />} />
                   </Route>
                   <Route element={<MateriaisRootLayout />}>
                     <Route path="/materiais" element={<MateriaisPage />} />{" "}

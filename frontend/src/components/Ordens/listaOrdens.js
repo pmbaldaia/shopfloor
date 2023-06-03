@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AdicionarOrdem from "../Botoes/AdicionarOrdem";
 import { MagnifyingGlass, Info } from "@phosphor-icons/react";
@@ -10,13 +10,10 @@ import classes from "./listaOrdens.module.css";
 import {
   ArrowClockwise,
   ReadCvLogo,
-  Pencil,
-  Trash,
   CaretUpDown,
   CaretUp,
   CaretDown,
 } from "@phosphor-icons/react";
-import ModalApagar from "../Modal/modalApagar";
 
 function OrdensList({ ordens }) {
   function CorEstado({ ordem }) {
@@ -33,16 +30,7 @@ function OrdensList({ ordens }) {
     return { backgroundColor, color };
   }
 
-  const submit = () => {};
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
+  /* const submit = () => {}; */
 
   const [sortOrdens, setSortOrdens] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -68,6 +56,13 @@ function OrdensList({ ordens }) {
   useEffect(() => {
     setSortOrdens([...ordens]);
   }, [ordens]);
+
+  //para teste de contar ordens
+  const [totalOrdens, setTotalOrdens] = useState(0);
+  const [totalPendente, setTotalPendente] = useState(0);
+  const [totalEmProgresso, setTotalEmProgresso] = useState(0);
+  const [totalEmAtraso, setTotalEmAtraso] = useState(0);
+  const [totalConcluido, setTotalConcluido] = useState(0);
 
   useEffect(() => {
     const filteredOrdens = ordens.filter((ordem) => {
@@ -99,6 +94,26 @@ function OrdensList({ ordens }) {
     });
 
     setSortOrdens(filteredOrdens);
+
+    //para teste de contar ordens
+    const total = filteredOrdens.length;
+    const pendente = filteredOrdens.filter(
+      (ordem) => ordem.estado === "Pendente"
+    ).length;
+    const emProgresso = filteredOrdens.filter(
+      (ordem) => ordem.estado === "Em Progresso"
+    ).length;
+    const emAtraso = filteredOrdens.filter(
+      (ordem) => ordem.estado === "Em Atraso"
+    ).length;
+    const concluido = filteredOrdens.filter(
+      (ordem) => ordem.estado === "Concluído"
+    ).length;
+    setTotalOrdens(total);
+    setTotalPendente(pendente);
+    setTotalEmProgresso(emProgresso);
+    setTotalEmAtraso(emAtraso);
+    setTotalConcluido(concluido);
   }, [
     searchQuery,
     ordens,
@@ -205,7 +220,7 @@ function OrdensList({ ordens }) {
   };
 
   return (
-    <>
+    <div className={classes.listaOrdens}>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <div className={classes.head}>
         <h1>Ordens</h1>
@@ -218,6 +233,45 @@ function OrdensList({ ordens }) {
         />
         <AdicionarOrdem />
       </div>
+      <Container fluid>
+        <Row className={classes.containerOrdensBorder}>
+          <Col
+            lg={2}
+            className={`${classes.boxOrdensBorder} ${classes.colMargin} ${classes.boxOrdens3rd} ${classes.textoOrdensBox}`}
+          >
+            <span>Total</span>
+            <span>{totalOrdens}</span>
+          </Col>
+          <Col
+            lg={2}
+            className={`${classes.boxOrdensBorder} ${classes.colMargin} ${classes.boxOrdens3rd} ${classes.textoOrdensBox}`}
+          >
+            <span>Pendente</span>
+            <span>{totalPendente}</span>
+          </Col>
+          <Col
+            lg={2}
+            className={`${classes.boxOrdensBorder} ${classes.colMargin} ${classes.boxOrdens3rd} ${classes.textoOrdensBox}`}
+          >
+            <span> Progresso</span>
+            <span>{totalEmProgresso}</span>
+          </Col>
+          <Col
+            lg={2}
+            className={`${classes.boxOrdensBorder} ${classes.colMargin} ${classes.boxOrdens4th} ${classes.textoOrdensBox}`}
+          >
+            <span>Concluído</span>
+            <span>{totalConcluido}</span>
+          </Col>
+          <Col
+            lg={2}
+            className={`${classes.boxOrdensBorder} ${classes.colMargin} ${classes.boxOrdens5th} ${classes.textoOrdensBox}`}
+          >
+            <span>Em atraso</span>
+            <span>{totalEmAtraso}</span>
+          </Col>
+        </Row>
+      </Container>
       <div className={classes.filterBarOrdem}>
         <input
           type="text"
@@ -310,58 +364,142 @@ function OrdensList({ ordens }) {
               </div>
             </th>
             <th key="sap">
-              SAP
-              <CaretUpDown
-                size={16}
-                weight="fill"
-                style={arrowSort}
-                onClick={__handleSortSAP}
-                className={`${classes.arrowUp} ${
-                  sortSAP === "asc" ? classes.arrowUp : classes.arrowDown
-                }`}
-              />
+              <div onClick={__handleSortSAP} style={{ position: "relative" }}>
+                <span> SAP</span>
+                {sortSAP === "desc" ? (
+                  <CaretUp
+                    size={16}
+                    weight=""
+                    style={{ position: "absolute" }}
+                  />
+                ) : (
+                  <CaretUp
+                    size={16}
+                    weight="fill"
+                    style={{ position: "absolute" }}
+                  />
+                )}
+                {sortSAP === "asc" ? (
+                  <CaretDown
+                    size={16}
+                    weight=""
+                    style={{ position: "absolute" }}
+                  />
+                ) : (
+                  <CaretDown
+                    size={16}
+                    weight="fill"
+                    style={{ position: "absolute" }}
+                  />
+                )}
+              </div>
             </th>
             <th key="ordem_venda">
-              ORDEM VENDA
-              <CaretUpDown
-                size={16}
-                weight="fill"
-                style={arrowSort}
+              <div
                 onClick={__handleSortORDEM_VENDA}
-                className={`${classes.arrowUp} ${
-                  sortORDEM_VENDA === "asc"
-                    ? classes.arrowUp
-                    : classes.arrowDown
-                }`}
-              />
-            </th>
-            <th key="produto">
-              PRODUTO{" "}
-              <CaretUpDown
-                size={16}
-                weight="fill"
-                style={arrowSort}
-                onClick={__handleSortPRODUTO}
-                className={`${classes.arrowUp} ${
-                  sortPRODUTO === "asc" ? classes.arrowUp : classes.arrowDown
-                }`}
-              />
+                style={{ position: "relative" }}
+              >
+                <span> ORDEM DE VENDA</span>
+                {sortORDEM_VENDA === "desc" ? (
+                  <CaretUp
+                    size={16}
+                    weight=""
+                    style={{ position: "absolute" }}
+                  />
+                ) : (
+                  <CaretUp
+                    size={16}
+                    weight="fill"
+                    style={{ position: "absolute" }}
+                  />
+                )}
+                {sortORDEM_VENDA === "asc" ? (
+                  <CaretDown
+                    size={16}
+                    weight=""
+                    style={{ position: "absolute" }}
+                  />
+                ) : (
+                  <CaretDown
+                    size={16}
+                    weight="fill"
+                    style={{ position: "absolute" }}
+                  />
+                )}
+              </div>
             </th>
             <th key="quantidade">
-              QUANTIDADE
-              <CaretUpDown
-                size={16}
-                weight="fill"
-                style={arrowSort}
+              <div
                 onClick={__handleSortQUANTIDADE}
-                className={`${classes.arrowUp} ${
-                  sortQUANTIDADE === "asc" ? classes.arrowUp : classes.arrowDown
-                }`}
-              />
+                style={{ position: "relative" }}
+              >
+                <span> QUANTIDADE</span>
+                {sortQUANTIDADE === "desc" ? (
+                  <CaretUp
+                    size={16}
+                    weight=""
+                    style={{ position: "absolute" }}
+                  />
+                ) : (
+                  <CaretUp
+                    size={16}
+                    weight="fill"
+                    style={{ position: "absolute" }}
+                  />
+                )}
+                {sortQUANTIDADE === "asc" ? (
+                  <CaretDown
+                    size={16}
+                    weight=""
+                    style={{ position: "absolute" }}
+                  />
+                ) : (
+                  <CaretDown
+                    size={16}
+                    weight="fill"
+                    style={{ position: "absolute" }}
+                  />
+                )}
+              </div>
             </th>
+            <th key="produto">
+              <div
+                onClick={__handleSortPRODUTO}
+                style={{ position: "relative" }}
+              >
+                <span> PRODUTO</span>
+                {sortPRODUTO === "desc" ? (
+                  <CaretUp
+                    size={16}
+                    weight=""
+                    style={{ position: "absolute" }}
+                  />
+                ) : (
+                  <CaretUp
+                    size={16}
+                    weight="fill"
+                    style={{ position: "absolute" }}
+                  />
+                )}
+                {sortPRODUTO === "asc" ? (
+                  <CaretDown
+                    size={16}
+                    weight=""
+                    style={{ position: "absolute" }}
+                  />
+                ) : (
+                  <CaretDown
+                    size={16}
+                    weight="fill"
+                    style={{ position: "absolute" }}
+                  />
+                )}
+              </div>
+            </th>
+
             <th key="liberado">
               LIBERADO{" "}
-              <CaretUpDown
+              {/*  <CaretUpDown
                 size={16}
                 onClick={__handleSortLIBERADO}
                 weight="fill"
@@ -369,11 +507,11 @@ function OrdensList({ ordens }) {
                 className={`${classes.arrowUp} ${
                   sortLIBERADO === "asc" ? classes.arrowUp : classes.arrowDown
                 }`}
-              />
+              /> */}
             </th>
             <th key="data_entrega">
               DATA ENTREGA{" "}
-              <CaretUpDown
+              {/*  <CaretUpDown
                 size={16}
                 weight="fill"
                 style={arrowSort}
@@ -383,7 +521,7 @@ function OrdensList({ ordens }) {
                     ? classes.arrowUp
                     : classes.arrowDown
                 }`}
-              />
+              /> */}
             </th>
             <th key="prioridade">PRIORIDADE </th>
             <th key="estado">ESTADO </th>
@@ -404,6 +542,9 @@ function OrdensList({ ordens }) {
                 <span>{ordem.ordem_venda}</span>
               </td>
               <td className={classes.highlightText2}>
+                <span>{ordem.quantidade}</span>
+              </td>
+              <td className={classes.highlightText2}>
                 <OrdensComponent descricao={ordem.descricao}>
                   <span>
                     {ordem.produto}
@@ -411,9 +552,7 @@ function OrdensList({ ordens }) {
                   </span>
                 </OrdensComponent>
               </td>
-              <td className={classes.highlightText2}>
-                <span>{ordem.quantidade}</span>
-              </td>
+
               <td className={classes.highlightText2}>
                 <span>{ordem.liberado}</span>
               </td>
@@ -446,7 +585,7 @@ function OrdensList({ ordens }) {
           ))}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 }
 export default OrdensList;

@@ -1,9 +1,9 @@
-import { useRouteLoaderData } from 'react-router-dom';
+import { useRouteLoaderData } from "react-router-dom";
 
-import OrdemForm from '../../components/Ordens/formOrdem';
+import OrdemForm from "../../components/Ordens/formOrdem";
 
 function EditOrdemPage() {
-  const data = useRouteLoaderData('ordem-detail');
+  const data = useRouteLoaderData("ordem-detail");
 
   return <OrdemForm method="patch" ordem={data.ordem} />;
 }

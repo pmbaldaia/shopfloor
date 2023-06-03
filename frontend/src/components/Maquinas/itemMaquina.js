@@ -46,11 +46,6 @@ function MaquinaItem({ maquina }) {
           title={<span className={classes.tabColor}>Dados</span>}
         >
           <Container style={{ paddingTop: "1.5em" }}>
-            {/*  <img
-              className="imagemDetalheMaquina"
-              src={maquina.imagem}
-              alt={maquina.nome}
-            /> */}
             <Row>
               <Col md={4}>
                 <Row className={classes.spacing}>
@@ -135,6 +130,28 @@ function MaquinaItem({ maquina }) {
                   </Col>
                 </Row>
               </Col>
+            </Row>
+          </Container>
+        </Tab>
+        <Tab
+          eventKey="imagem"
+          title={<span className={classes.tabColor}>Imagem</span>}
+        >
+          <Container style={{ paddingTop: "1.5em" }}>
+            <Row>
+              {" "}
+              <img
+                className={classes.columnInfo}
+                src={maquina.imagem}
+                alt={maquina.nome}
+                style={{
+                  width: "30em",
+                  height: "auto",
+                  padding: "2em",
+                  justifyContent: "center",
+                  display: "flex",
+                }}
+              />
             </Row>
           </Container>
         </Tab>
