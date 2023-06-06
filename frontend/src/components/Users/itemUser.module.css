@@ -1,13 +1,12 @@
 .card {
   border-radius: 10px;
   box-shadow: 0px 4px 8px #a3b18a50;
-  padding: 20px;
 }
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
 }
 
 .table-bordered {
@@ -59,4 +58,17 @@
 .table-bordered th {
   border: none;
   text-align: center;
+}
+
+.tabColor {
+  color: #3a5a40;
+  font-size: 14px;
+}
+.tabColor:hover {
+  color: #3a5a40;
+  font-weight: 500;
+}
+
+.TabContent {
+  padding: 3em;
 }

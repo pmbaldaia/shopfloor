@@ -67,7 +67,7 @@ router.patch("/:id", async (req, res, next) => {
 
   try {
     await replace(req.params.id, data);
-    res.json({ message: "User atualizada.", users: data });
+    res.json({ message: "Operario atualizado.", users: data });
   } catch (error) {
     next(error);
   }
@@ -76,7 +76,7 @@ router.patch("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   try {
     await remove(req.params.id);
-    res.json({ message: "User apagada." });
+    res.json({ message: "Operário apagado." });
   } catch (error) {
     next(error);
   }
@@ -88,14 +88,15 @@ router.put("/:id", async (req, res, next) => {
   const novoTipo = req.body.tipo;
 
   try {
-    const user = await getUserById(userId);
+    const user = await replace(userId);
     if (!user) {
       throw new Error("Operário não encontrado.");
     }
+    console.log(user);
 
     user.tipo = novoTipo;
 
-    await updateUser(userId, user);
+    await replace(userId, user);
     res.json({ message: "Tipo de operário atualizado." });
   } catch (error) {
     next(error);

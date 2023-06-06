@@ -68,8 +68,8 @@ function TarefasList({ tarefas }) {
             <th>AÇÕES</th>
           </tr>
         </thead>
-        {sortTarefas.map((tarefa) => (
-          <tbody>
+        <tbody>
+          {sortTarefas.map((tarefa) => (
             <tr key={tarefa.id}>
               <td>{tarefa.ordem_associada}</td>
               <td>{tarefa.produto}</td>
@@ -78,24 +78,16 @@ function TarefasList({ tarefas }) {
                   ? tarefa.operario_associado.join(", ")
                   : ""}
               </td>
-              <td>
+              <td key="acoes">
                 <span>
                   <Link style={{ color: "black" }} to={`/tarefas/${tarefa.id}`}>
                     <ReadCvLogo size={25} weight="light" />
                   </Link>
-                  {/* &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} to={`/tarefas/editar`}>
-                    <Pencil size={25} weight="light" />
-                  </Link>
-                  &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} >
-                    <Trash size={25} weight="light" />
-                  </Link> */}
                 </span>
               </td>
             </tr>
-          </tbody>
-        ))}
+          ))}
+        </tbody>
       </Table>
     </div>
   );

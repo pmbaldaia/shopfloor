@@ -237,14 +237,14 @@ function OrdensList({ ordens }) {
         <Row className={classes.containerOrdensBorder}>
           <Col
             lg={2}
-            className={`${classes.boxOrdensBorder} ${classes.colMargin} ${classes.boxOrdens3rd} ${classes.textoOrdensBox}`}
+            className={`${classes.boxOrdensBorder} ${classes.colMargin} ${classes.boxOrdens2rd} ${classes.textoOrdensBox}`}
           >
             <span>Total</span>
             <span>{totalOrdens}</span>
           </Col>
           <Col
             lg={2}
-            className={`${classes.boxOrdensBorder} ${classes.colMargin} ${classes.boxOrdens3rd} ${classes.textoOrdensBox}`}
+            className={`${classes.boxOrdensBorder} ${classes.colMargin} ${classes.boxOrdens2rd} ${classes.textoOrdensBox}`}
           >
             <span>Pendente</span>
             <span>{totalPendente}</span>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import classes from "./breadcrumbs.css";
+import classes from "./breadcrumbs.module.css";
 
 const Breadcrumbs = () => {
   const location = useLocation();
@@ -10,9 +10,9 @@ const Breadcrumbs = () => {
 
   return (
     <nav aria-label="breadcrumb">
-      <ol className="breadcrumb">
+      <ol className="breadcrumb" style={{ fontSize: "12px", margin: "auto" }}>
         <li className="breadcrumb-item">
-          <Link to="/dasboard" className={classes.customLink}>
+          <Link to="/dashboard" className={classes.customLink}>
             Dashboard
           </Link>
         </li>

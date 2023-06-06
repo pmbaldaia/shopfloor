@@ -9,8 +9,8 @@ import {
   Pencil,
   Trash, */,
   CaretUpDown,
+  User,
   MagnifyingGlass,
-  UserSwitch,
 } from "@phosphor-icons/react";
 import HeaderPage from "../Header/header";
 
@@ -67,14 +67,15 @@ function UsersList({ users, access_token }) {
       >
         <thead>
           <tr>
-            <th key="id">
-              Utilizador ID
-              <CaretUpDown size={16} weight="fill" style={arrowSort} />
-            </th>
+            <th></th>
             <th key="nome">
-              NOME
+              Dados
               <CaretUpDown size={16} weight="fill" style={arrowSort} />
             </th>
+            <th key="especialidade">
+              ESPECIALIDADE
+              <CaretUpDown size={16} weight="fill" style={arrowSort} />
+            </th>{" "}
             <th key="tipo">
               TIPO
               <CaretUpDown size={16} weight="fill" style={arrowSort} />
@@ -85,11 +86,14 @@ function UsersList({ users, access_token }) {
         <tbody>
           {sortUsers.map((user) => (
             <tr key={user.id}>
-              <td className={classes.highlightHext}>
-                <span>{user.id}</span>
+              <td className={classes.highlightHext} style={{ width: "100px" }}>
+                <User size={25} />
               </td>
               <td className={classes.highlightHext}>
                 <span>{user.nome}</span>
+              </td>
+              <td className={classes.highlightHext}>
+                <span>{user.especialidade}</span>
               </td>
               <td className={classes.highlightHext}>
                 <span>{user.tipo}</span>
@@ -99,18 +103,6 @@ function UsersList({ users, access_token }) {
                   <Link style={{ color: "black" }} to={`/users/${user.id}`}>
                     <ReadCvLogo size={28} weight="light" />
                   </Link>
-                  &nbsp; &nbsp;
-                  <Link style={{ color: "black" }}>
-                    <UserSwitch size={28} weight="light" />
-                  </Link>
-                  {/* &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} to={`/users/editar`}>
-                    <Pencil size={28} weight="light" />
-                  </Link>
-                  &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} onClick={startDeleteHandler}>
-                    <Trash size={28} weight="light" />
-                  </Link> */}
                 </span>
               </td>
             </tr>

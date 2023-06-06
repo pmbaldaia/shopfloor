@@ -1701,36 +1701,54 @@
   ],
   "users": [
     {
+      "id": "b92420be-fa42-470a-9e6d-fe4924b10b79",
+      "nome": "Teste User",
+      "tarefas": ["Romper sapatos", "Cozer sandálias", "Comer e mais nada"],
+      "especialidade": "Casacos",
+      "num_func": "1",
+      "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
+      "tipo": "operario",
+      "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
+    },
+    {
       "id": "412343",
       "nome": "Pedro Sousa",
       "tarefas": [],
+      "especialidade": "Camisas",
       "num_func": "123",
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
-      "tipo": "gestor"
+      "tipo": "gestor",
+      "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
     },
     {
       "id": "523421",
       "nome": "Leonor Rodrigues",
       "tarefas": [],
+      "especialidade": "Calças",
       "num_func": "1234",
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
-      "tipo": "gestor"
+      "tipo": "gestor",
+      "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
     },
     {
       "id": "123422",
       "nome": "João Ferreira",
       "tarefas": [],
+      "especialidade": "Casacos",
       "num_func": "12345",
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
-      "tipo": "operario"
+      "tipo": "operario",
+      "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
     },
     {
       "id": "418934",
       "nome": "Gonçalo Gama",
       "tarefas": [],
+      "especialidade": " Calções ",
       "num_func": "123456",
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
-      "tipo": "operario"
+      "tipo": "operario",
+      "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
     }
   ]
 }

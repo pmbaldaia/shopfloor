@@ -12,6 +12,7 @@ import {
   CaretUpDown,
 } from "@phosphor-icons/react";
 import HeaderPage from "../Header/header";
+import NovaPassword from "../Botoes/NovaPassword";
 
 function MateriaisList({ materiais }) {
   /* const submit = () => {}; */
@@ -60,6 +61,7 @@ function MateriaisList({ materiais }) {
           <MagnifyingGlass size={24} color="#2e5a53" />
         </button>
       </div>
+      <NovaPassword />
 
       <Table
         bordered
@@ -127,14 +129,6 @@ function MateriaisList({ materiais }) {
                   >
                     <ReadCvLogo size={28} weight="light" />
                   </Link>
-                  {/* &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} to={`/materiais/editar`}>
-                    <Pencil size={28} weight="light" />
-                  </Link>
-                  &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} onClick={startDeleteHandler}>
-                    <Trash size={28} weight="light" />
-                  </Link> */}
                 </span>
               </td>
             </tr>

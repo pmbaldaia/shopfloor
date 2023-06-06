@@ -84,7 +84,7 @@ const NewTarefa = (props) => {
             <span></span>{" "}
           </Col>
           <Col lg={8} style={{ display: "flex", alignItems: "center" }}>
-            <label style={{ paddingRight: "10px" }}>Categorias: </label>
+            <label style={{ paddingRight: "10px" }}>Especialidade: </label>
             <div
               style={{
                 display: "flex",

@@ -177,10 +177,16 @@ h1 {
   background-color: (221, 229, 223);
 }
 
-.boxOrdens3rd {
+.boxOrdens2rd {
   box-shadow: 2px 2px 15px 0px #dde5df;
   border: 2px solid #dde5df;
   background-color: rgb(221, 229, 223, 0.5);
+}
+
+.boxOrdens3rd {
+  box-shadow: 2px 2px 15px 0px rgba(112, 204, 122, 0.25);
+  border: 2px solid #5fa4d9;
+  background-color: rgb(95, 164, 217, 0.25);
 }
 
 .boxOrdens4th {

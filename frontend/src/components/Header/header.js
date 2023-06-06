@@ -34,9 +34,23 @@ function HeaderPage({ showCaretLeft, showSearchBar }) {
             display: "flex",
           }}
         >
-          <CaretLeft style={{ cursor: "pointer" }} size={25} onClick={GoBack} />
-          &nbsp;&nbsp;
-          <Breadcrumbs />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              textAlign: "center",
+              alignContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CaretLeft
+              style={{ cursor: "pointer" }}
+              size={25}
+              onClick={GoBack}
+            />
+            &nbsp;&nbsp;
+            <Breadcrumbs />
+          </div>
         </span>
       )}
       <p>{}</p>
