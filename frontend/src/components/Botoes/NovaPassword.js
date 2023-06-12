@@ -14,7 +14,7 @@ const BotaoModal = () => {
 
   return (
     <div>
-      <button onClick={handleOpenModal}>Modal</button>
+      <button onClick={handleOpenModal}>NovaPassword</button>
       {modalOpen && (
         <ModalNovaPassword isOpen={modalOpen} closeModal={handleCloseModal} />
       )}

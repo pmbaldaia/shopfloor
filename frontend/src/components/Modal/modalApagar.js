@@ -2,10 +2,23 @@ import React from "react";
 import Modal from "react-modal";
 import { FileX } from "@phosphor-icons/react";
 import { Row, Col } from "react-bootstrap";
-import Voltar from "../Botoes/Voltar";
 import Eliminar from "../Botoes/Eliminar";
+import Button from "react-bootstrap/Button";
 
 Modal.setAppElement("#root");
+
+const ButtonStyle = {
+  backgroundColor: "#dad7cd",
+  color: "#3a5a40",
+  fontSize: "14px",
+  fontWeight: "600",
+  width: "13em",
+  height: "3em",
+  border: "none",
+  outline: "none",
+  justifyContent: "center",
+  marginRight: "4em",
+};
 
 const modalApagarStyle = {
   overlay: {
@@ -34,12 +47,16 @@ const modalApagarStyle = {
 };
 
 const ModalApagar = ({ isOpen, closeModal }) => {
+  const handleVoltar = () => {
+    closeModal();
+  };
+
   return (
     <Modal isOpen={isOpen} onRequestClose={closeModal} style={modalApagarStyle}>
       <Row>
         <Col>
           <span style={{ fontSize: "1.2rem" }}>
-            De certeza que deseja eliminar esta ordem?
+            Tem certeza que deseja eliminar esta ordem?
           </span>
         </Col>
       </Row>
@@ -50,7 +67,9 @@ const ModalApagar = ({ isOpen, closeModal }) => {
       </Row>
       <Row>
         <Col style={{ paddingTop: "2em" }}>
-          <Voltar onClick={closeModal} />
+          <Button onClick={handleVoltar} style={ButtonStyle}>
+            Voltar
+          </Button>
           <Eliminar />
         </Col>
       </Row>
