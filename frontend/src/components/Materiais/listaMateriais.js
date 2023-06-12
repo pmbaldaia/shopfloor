@@ -38,7 +38,7 @@ function MateriaisList({ materiais }) {
   };
 
   return (
-    <div>
+    <div className={classes.listaMateriais}>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Materiais</h1>
       <AdicionarMaterial />

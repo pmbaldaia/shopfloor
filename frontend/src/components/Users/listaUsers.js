@@ -37,7 +37,7 @@ function UsersList({ users, access_token }) {
   };
 
   return (
-    <div>
+    <div className={classes.listaOperarios}>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Operários</h1>
       <AdicionarOperario />

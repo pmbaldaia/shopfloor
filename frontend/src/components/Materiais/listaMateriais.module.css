@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
+.listaMateriais {
+  padding: 0.75em;
+}
+
 .iconRefresh {
   margin-top: 0.8em;
   margin-left: 1em;

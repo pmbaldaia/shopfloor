@@ -6,7 +6,7 @@ import HeaderPage from "../Header/header";
 import { getUserById } from "../../axios/users";
 import classes from "./itemUser.module.css";
 import ModalApagar from "../Modal/modalApagar";
-import { Tabs, Tab, Container, Row, Col } from "react-bootstrap";
+import { Tabs, Tab } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function UserItem({ User, access_token }) {

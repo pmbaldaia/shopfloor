@@ -26,7 +26,7 @@ function MaquinasList({ maquinas }) {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className={classes.listaMaquinas}>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Máquinas</h1>
       <AdicionarMaquina />

@@ -55,40 +55,41 @@ const NewMaquina = (props) => {
             <Col lg={2}>
               <span className={classes.subtitulosForm}>Dados</span>
             </Col>
-            <Col>
+            {/* <Col>
               <input placeholder="ID" disabled></input>
+            </Col> */}
+            <Col lg={5}>
+              <input placeholder="Nome" required></input>
             </Col>
-            <Col>
-              <input placeholder="Nome"></input>
-            </Col>
-            <Col>
-              <input placeholder="Fabricante"></input>
+            <Col lg={5}>
+              <input placeholder="Fabricante" required></input>
             </Col>
             <p></p>
             <Col lg={2}>
               <span></span>
             </Col>
-            <Col>
+            <Col lg={5}>
               <DatePicker
                 placeholderText="DataAquisição"
                 selected={dataAquisicao}
                 onChange={handleDataAquisicao}
                 locale={pt}
                 dateFormat="dd/MM/yyyy"
+                required
               />
             </Col>
-            <Col>
-              <input placeholder="Tipo"></input>
-            </Col>
-            <Col>
-              <input placeholder="Modelo"></input>
+            <Col lg={5}>
+              <input placeholder="Tipo" required></input>
             </Col>
             <p></p>
             <Col lg={2}>
               <span></span>
             </Col>
-            <Col lg={3}>
-              <input placeholder="Estado"></input>
+            <Col lg={5}>
+              <input placeholder="Modelo" required></input>
+            </Col>
+            <Col lg={5}>
+              <input placeholder="Estado" required></input>
             </Col>
             <p></p>
           </Row>
@@ -126,7 +127,7 @@ const NewMaquina = (props) => {
             <Col lg={2}>
               <span></span>
             </Col>
-            <Col lg={4}>
+            <Col lg={5}>
               <input placeholder="Problemas a registar"></input>
             </Col>
           </Row>

@@ -6,6 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import HeaderPage from "../Header/header";
 import { Tabs, Tab } from "react-bootstrap";
 import ModalApagar from "../Modal/modalApagar";
+import * as XLSX from "xlsx";
 
 function OrdemItem({ ordem }) {
   const backgroundColor =
@@ -41,6 +42,25 @@ function OrdemItem({ ordem }) {
     setModalIsOpen(false);
   };
 
+  const __handleDownload = () => {
+    const worksheet = XLSX.utils.json_to_sheet([ordem]);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, `Ordem_${ordem.id}`);
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+    const blob = new Blob([excelBuffer], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `ordem_${ordem.id}.xlsx`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <>
       <HeaderPage showCaretLeft={true} showSearchBar={false} />
@@ -57,7 +77,7 @@ function OrdemItem({ ordem }) {
             <ModalApagar isOpen={modalIsOpen} closeModal={closeModal} />
           </Link>
           &nbsp;
-          <Link>
+          <Link onClick={__handleDownload}>
             <DownloadSimple size={25} weight="light" />
           </Link>
         </h2>

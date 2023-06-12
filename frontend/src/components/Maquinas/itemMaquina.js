@@ -104,7 +104,7 @@ function MaquinaItem({ maquina }) {
         >
           <Container style={{ paddingTop: "1.5em" }}>
             <Row>
-              <Col md={4}>
+              <Col md={6}>
                 <Row className={classes.spacing}>
                   <Col className={classes.columnName}>ÚLTIMA MANUTENÇÃO</Col>
                   <Col className={classes.columnInfo}>
@@ -112,7 +112,7 @@ function MaquinaItem({ maquina }) {
                   </Col>
                 </Row>
               </Col>
-              <Col md={4}>
+              <Col md={6}>
                 <Row className={classes.spacing}>
                   <Col className={classes.columnName}>PRÓXIMA MANUTENÇÃO </Col>
                   <Col className={classes.columnInfo}>
@@ -120,9 +120,11 @@ function MaquinaItem({ maquina }) {
                   </Col>
                 </Row>
               </Col>
-              <Col md={4}>
+            </Row>
+            <Row>
+              <Col md={12}>
                 <Row className={classes.spacing}>
-                  <Col className={classes.columnName}>
+                  <Col className={classes.columnName} md={3}>
                     PROBLEMAS REGISTADOS{" "}
                   </Col>
                   <Col className={classes.columnInfo}>
@@ -150,6 +152,7 @@ function MaquinaItem({ maquina }) {
                   padding: "2em",
                   justifyContent: "center",
                   display: "flex",
+                  zIndex: "0",
                 }}
               />
             </Row>

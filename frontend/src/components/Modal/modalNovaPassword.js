@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
-import { X } from "@phosphor-icons/react";
+import { X, Eye, EyeSlash } from "@phosphor-icons/react";
 import { Row, Col } from "react-bootstrap";
 import Prosseguir from "../Botoes/Prosseguir";
 import Alterar from "../Botoes/Alterar";
@@ -33,8 +33,20 @@ const modalNovaPasswordStyle = {
   },
 };
 
-const notify = () => toast("Wow so easy !");
-const ModalNovaPassoword = ({ isOpen, closeModal }) => {
+const ModalNovaPassword = ({ isOpen, closeModal }) => {
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const togglePassword = (field) => {
+    if (field === "newPassword") {
+      setShowNewPassword(!showNewPassword);
+    } else if (field === "confirmPassword") {
+      setShowConfirmPassword(!showConfirmPassword);
+    }
+  };
+
+  const notify = () => toast("Wow so easy!");
+
   return (
     <Modal
       isOpen={isOpen}
@@ -72,21 +84,51 @@ const ModalNovaPassoword = ({ isOpen, closeModal }) => {
       <Row>
         <Col lg={12}>
           <label htmlFor="newPassword">Nova Password:</label>
-          <input
-            id="newPassword"
-            placeholder="***********"
-            style={{ width: "100%", marginBottom: "1em" }}
-          ></input>
+          <div style={{ position: "relative" }}>
+            <input
+              id="newPassword"
+              type={showNewPassword ? "text" : "password"}
+              placeholder="***********"
+              style={{ width: "100%", marginBottom: "1em" }}
+            />
+            <span
+              type="button"
+              onClick={() => togglePassword("newPassword")}
+              style={{
+                position: "absolute",
+                right: 10,
+                top: 15,
+                transform: "translateY(-50%)",
+              }}
+            >
+              {showNewPassword ? <EyeSlash /> : <Eye />}
+            </span>
+          </div>
         </Col>
       </Row>
       <Row>
         <Col lg={12}>
           <label htmlFor="confirmPassword">Confirme a nova password:</label>
-          <input
-            id="confirmPassword"
-            placeholder="***********"
-            style={{ width: "100%", marginBottom: "1em" }}
-          ></input>
+          <div style={{ position: "relative" }}>
+            <input
+              id="confirmPassword"
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder="***********"
+              style={{ width: "100%", marginBottom: "1em" }}
+            />
+            <span
+              type="button"
+              onClick={() => togglePassword("confirmPassword")}
+              style={{
+                position: "absolute",
+                right: 10,
+                top: 15,
+                transform: "translateY(-50%)",
+              }}
+            >
+              {showConfirmPassword ? <EyeSlash /> : <Eye />}
+            </span>
+          </div>
         </Col>
       </Row>
       <Row>
@@ -106,4 +148,4 @@ const ModalNovaPassoword = ({ isOpen, closeModal }) => {
   );
 };
 
-export default ModalNovaPassoword;
+export default ModalNovaPassword;

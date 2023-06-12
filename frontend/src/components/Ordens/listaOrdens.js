@@ -11,9 +11,11 @@ import {
   ArrowClockwise,
   ReadCvLogo,
   /* CaretUpDown, */
+  DownloadSimple,
   CaretUp,
   CaretDown,
 } from "@phosphor-icons/react";
+import * as XLSX from "xlsx";
 
 function OrdensList({ ordens }) {
   function CorEstado({ ordem }) {
@@ -219,6 +221,25 @@ function OrdensList({ ordens }) {
     setSearchQuery(event.target.value);
   };
 
+  const __handleDownload = () => {
+    const worksheet = XLSX.utils.json_to_sheet(ordens);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Ordens");
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+    const blob = new Blob([excelBuffer], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "ordens.xlsx";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className={classes.listaOrdens}>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
@@ -230,6 +251,14 @@ function OrdensList({ ordens }) {
           onClick={__refresh}
           cursor="pointer"
           className={classes.iconRefresh}
+        />
+        <DownloadSimple
+          onClick={__handleDownload}
+          size={28}
+          weight="light"
+          cursor="pointer"
+          className={classes.iconDownload}
+          alt="Download Lista"
         />
         <AdicionarOrdem />
       </div>

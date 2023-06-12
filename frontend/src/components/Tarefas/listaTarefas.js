@@ -30,7 +30,7 @@ function TarefasList({ tarefas }) {
   }
 
   return (
-    <div>
+    <div className={classes.listaTarefas}>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Tarefas</h1>
       <AdicionarTarefa />

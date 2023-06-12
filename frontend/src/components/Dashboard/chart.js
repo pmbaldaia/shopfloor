@@ -51,13 +51,13 @@ const data = {
   datasets: [
     {
       label: "Entrega",
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
       borderColor: "rgb(58, 90, 64)",
       backgroundColor: "rgb(58, 90, 64, 0.5)",
     },
     {
       label: "Quantidade",
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
       borderColor: "rgb(249, 133, 80)",
       backgroundColor: "rgb(249, 133, 80, 0.5)",
     },

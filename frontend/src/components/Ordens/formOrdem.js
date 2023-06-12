@@ -83,7 +83,7 @@ const NewOrdem = (props) => {
               <span className={classes.subtitulosForm}>Produto</span>
             </Col>
             <Col>
-              <input placeholder="Ordem de Produção"></input>
+              <input placeholder="Ordem de Produção" required></input>
             </Col>
             <Col>
               <select>
@@ -95,42 +95,42 @@ const NewOrdem = (props) => {
               </select>
             </Col>
             <Col>
-              <input placeholder="SAP"></input>
+              <input placeholder="SAP" required></input>
             </Col>
             <Col>
-              <input placeholder="Txt Breve Material"></input>
+              <input placeholder="Txt Breve Material" required></input>
             </Col>
             <p></p>
             <Col lg={2}>
               <span></span>
             </Col>
             <Col>
-              <input placeholder="Ordem de Venda"></input>
+              <input placeholder="Ordem de Venda" required></input>
             </Col>
             <Col>
-              <input placeholder="Estação"></input>
+              <input placeholder="Estação" required></input>
             </Col>
             <Col>
-              <input placeholder="Nome do Cliente"></input>
+              <input placeholder="Nome do Cliente" required></input>
             </Col>
             <Col>
-              <input placeholder="Qtd Ordem"></input>
+              <input placeholder="Qtd Ordem" required></input>
             </Col>
             <p></p>
             <Col lg={2}>
               <span></span>
             </Col>
             <Col>
-              <input placeholder="Qtd Forn."></input>
+              <input placeholder="Qtd Forn." required></input>
             </Col>
             <Col>
-              <input placeholder="Qtd Exp."></input>
+              <input placeholder="Qtd Exp." required></input>
             </Col>
             <Col>
-              <input placeholder="Nome Confeção"></input>
+              <input placeholder="Nome Confeção" required></input>
             </Col>
             <Col>
-              <input placeholder="Nome Tecido"></input>
+              <input placeholder="Nome Tecido" required></input>
             </Col>
           </Row>
           <hr

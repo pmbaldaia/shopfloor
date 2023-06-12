@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
+.listaTarefas {
+  padding: 0.75em;
+}
+
 .tableSpacing {
   margin-bottom: 20px;
 }
