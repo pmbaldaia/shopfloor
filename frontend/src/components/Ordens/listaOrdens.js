@@ -41,9 +41,7 @@ function OrdensList({ ordens }) {
   const [sortSAP, setSortSAP] = useState("desc");
   const [sortORDEM_VENDA, setSortORDEM_VENDA] = useState("desc");
   const [sortPRODUTO, setSortPRODUTO] = useState("desc");
-  const [sortQUANTIDADE, setSortQUANTIDADE] = useState("desc"); /* 
-  const [sortLIBERADO, setSortLIBERADO] = useState("desc");
-  const [sortDATA_ENTREGA, setSortDATA_ENTREGA] = useState("desc"); */
+  const [sortQUANTIDADE, setSortQUANTIDADE] = useState("desc");
   const [selectedFilterEstado, setSelectedFilterEstado] = useState("");
   const [selectedFilterPrioridade, setSelectedFilterPrioridade] = useState("");
 
@@ -77,12 +75,6 @@ function OrdensList({ ordens }) {
           ordem.ordem_venda.toLowerCase().includes(searchData) ||
           ordem.produto.toLowerCase().includes(searchData) ||
           ordem.produto.includes(searchQuery.toLowerCase()) ||
-          //codigo para pesquisa por prioridade e estado
-
-          /* ordem.prioridade.toLowerCase().includes(searchData) ||
-          ordem.prioridade.includes(searchQuery.toLowerCase()) ||
-          ordem.estado.toLowerCase().includes(searchData) ||
-          ordem.estado.includes(searchQuery.toLowerCase()) || */
           dataEntrega.includes(searchData)) &&
         (selectedFilterEstado ? ordem.estado === selectedFilterEstado : true) &&
         (selectedFilterPrioridade
@@ -190,32 +182,6 @@ function OrdensList({ ordens }) {
     setSortOrdens(orderedQUANTIDADE);
     setSortQUANTIDADE(nextQUANTIDADE);
   };
-
-  /*  // Código de ordenar pela data Liberado ASC:DESC
-  const __handleSortLIBERADO = () => {
-    const nextLIBERADO = sortLIBERADO === "asc" ? "desc" : "asc";
-    const sortedLIBERADO = [...sortOrdens].sort(
-      (a, b) => a.liberado - b.liberado
-    );
-    const orderedLIBERADO =
-      nextLIBERADO === "asc" ? sortedLIBERADO : sortedLIBERADO.reverse();
-    setSortOrdens(orderedLIBERADO);
-    setSortLIBERADO(nextLIBERADO);
-  };
-
-  // Código de ordenar pela data entrega ASC:DESC
-  const __handleSortDATA_ENTREGA = () => {
-    const nextDATA_ENTREGA = sortDATA_ENTREGA === "asc" ? "desc" : "asc";
-    const sortedDATA_ENTREGA = [...sortOrdens].sort(
-      (a, b) => new Date(a.data_entrega) - new Date(b.data_entrega)
-    );
-    const orderedDATA_ENTREGA =
-      nextDATA_ENTREGA === "asc"
-        ? sortedDATA_ENTREGA
-        : sortedDATA_ENTREGA.reverse();
-    setSortOrdens(orderedDATA_ENTREGA);
-    setSortDATA_ENTREGA(nextDATA_ENTREGA);
-  }; */
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);

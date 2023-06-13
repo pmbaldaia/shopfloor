@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import { useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Tabs, Tab } from "react-bootstrap";
 import { X } from "@phosphor-icons/react";
 import classes from "./formOrdem.module.css";
 import DatePicker from "react-datepicker";
@@ -21,6 +21,20 @@ const NewOrdem = (props) => {
     border: "none",
     outlineStyle: "none",
     outlineColor: "none",
+  };
+
+  const ButtonStyleVoltar = {
+    backgroundColor: "transparent",
+    color: "#3a5a40",
+    fontSize: "14px",
+    fontWeight: "600",
+    width: "16em",
+    height: "3em",
+    marginTop: "1em",
+    marginRight: "2em",
+    float: "right",
+    border: "1px solid #dad7cd",
+    textDecoration: "underline",
   };
   const [liberadoDate, setLiberadoDate] = useState(null);
   const [primeiroConsumoDate, setPrimeiroConsumoDate] = useState(null);
@@ -63,207 +77,303 @@ const NewOrdem = (props) => {
     setPrevistaProducaoDate(date);
   };
 
+  const [activeTab, setActiveTab] = useState("home");
+  const handleAvancar = () => {
+    setActiveTab(activeTab === "home" ? "tarefas" : "operarios");
+  };
+  const handleVoltar = () => {
+    setActiveTab(activeTab === "operarios" ? "tarefas" : "home");
+  };
+
   return (
     <Modal
       isOpen={props.isModalOpen}
       onRequestClose={() => props.handleOpenModal(false)}
     >
-      <Container fluid className={classes.Container}>
-        <Row>
-          <Col className="d-flex align-items-center justify-content-between">
-            <h1 className={classes.titulosForm}>Nova Ordem</h1>
-            <X
-              size={32}
-              onClick={() => props.handleOpenModal(false)}
-              style={{ cursor: "pointer" }}
-            />
-          </Col>
-          <Row className={classes.primeiraLinha}>
-            <Col lg={2}>
-              <span className={classes.subtitulosForm}>Produto</span>
-            </Col>
-            <Col>
-              <input placeholder="Ordem de Produção" required></input>
-            </Col>
-            <Col>
-              <select>
-                <option disabled selected value="">
-                  Tipo
-                </option>
-                <option value="JP01">JP01</option>
-                <option value="JP02">JP02</option>
-              </select>
-            </Col>
-            <Col>
-              <input placeholder="SAP" required></input>
-            </Col>
-            <Col>
-              <input placeholder="Txt Breve Material" required></input>
-            </Col>
-            <p></p>
-            <Col lg={2}>
-              <span></span>
-            </Col>
-            <Col>
-              <input placeholder="Ordem de Venda" required></input>
-            </Col>
-            <Col>
-              <input placeholder="Estação" required></input>
-            </Col>
-            <Col>
-              <input placeholder="Nome do Cliente" required></input>
-            </Col>
-            <Col>
-              <input placeholder="Qtd Ordem" required></input>
-            </Col>
-            <p></p>
-            <Col lg={2}>
-              <span></span>
-            </Col>
-            <Col>
-              <input placeholder="Qtd Forn." required></input>
-            </Col>
-            <Col>
-              <input placeholder="Qtd Exp." required></input>
-            </Col>
-            <Col>
-              <input placeholder="Nome Confeção" required></input>
-            </Col>
-            <Col>
-              <input placeholder="Nome Tecido" required></input>
-            </Col>
-          </Row>
-          <hr
-            style={{
-              padding: "10px 0",
-              marginBottom: "20px",
-              border: "none",
-              borderTop: "1px solid #3a5a40",
-            }}
-          />
+      <Col className="d-flex align-items-center justify-content-between">
+        <h1 className={classes.titulosForm}>Nova Ordem</h1>
+        <X
+          size={32}
+          onClick={() => props.handleOpenModal(false)}
+          style={{ cursor: "pointer" }}
+        />
+      </Col>
+      <p></p>
+      <Tabs defaultActiveKey="home" activeKey={activeTab}>
+        <Tab
+          eventKey="home"
+          title={
+            <span
+              className={`${classes.tabColor} ${
+                activeTab === "home" ? classes.activeTab : ""
+              }`}
+            >
+              Dados
+            </span>
+          }
+        >
+          <Container fluid className={classes.Container}>
+            <Row>
+              <Row className={classes.primeiraLinha}>
+                <Col lg={2}>
+                  <span className={classes.subtitulosForm}>Produto</span>
+                </Col>
+                <Col>
+                  <input placeholder="Ordem de Produção" required></input>
+                </Col>
+                <Col>
+                  <select>
+                    <option disabled selected value="">
+                      Tipo
+                    </option>
+                    <option value="JP01">JP01</option>
+                    <option value="JP02">JP02</option>
+                  </select>
+                  <a
+                    href="/tipo"
+                    style={{
+                      float: "right",
+                      paddingRight: "10px",
+                      fontSize: "13px",
+                    }}
+                  >
+                    Criar Tipo
+                  </a>
+                </Col>
+                <Col>
+                  <input placeholder="SAP" required></input>
+                </Col>
+                <Col>
+                  <input placeholder="Txt Breve Material" required></input>
+                </Col>
+                <p></p>
+                <Col lg={2}>
+                  <span></span>
+                </Col>
+                <Col>
+                  <input placeholder="Categorias" required></input>
+                  <a
+                    href="/categoria"
+                    style={{
+                      float: "right",
+                      paddingRight: "10px",
+                      fontSize: "13px",
+                    }}
+                  >
+                    Criar categoria
+                  </a>
+                </Col>
+                <Col>
+                  <input placeholder="Ordem de Venda" required></input>
+                </Col>
+                <Col>
+                  <input placeholder="Estação" required></input>
+                </Col>
+                <Col>
+                  <input placeholder="Nome do Cliente" required></input>
+                </Col>
+                <p></p>
+                <Col lg={2}>
+                  <span></span>
+                </Col>{" "}
+                <Col>
+                  <input placeholder="Qtd Ordem" required></input>
+                </Col>
+                <Col>
+                  <input placeholder="Qtd Forn." required></input>
+                </Col>
+                <Col>
+                  <input placeholder="Qtd Exp." required></input>
+                </Col>
+                <Col>
+                  <input placeholder="Nome Confeção" required></input>
+                </Col>
+                <p></p>
+                <Col lg={2}>
+                  <span></span>
+                </Col>{" "}
+                <Col>
+                  <input placeholder="Nome Tecido" required></input>
+                </Col>
+                <Col></Col>
+                <Col></Col>
+                <Col></Col>
+              </Row>
+              <hr
+                style={{
+                  padding: "10px 0",
+                  marginBottom: "20px",
+                  border: "none",
+                  borderTop: "1px solid #3a5a40",
+                }}
+              />
 
-          <Row className={classes.segundaLinha}>
-            <Col lg={2}>
-              <span className={classes.subtitulosForm}>Prazos</span>
-            </Col>
-            <Col>
-              <DatePicker
-                placeholderText="Liberado"
-                selected={liberadoDate}
-                onChange={handleLiberadoDateChange}
-                locale={pt}
-                dateFormat="dd/MM/yyyy"
+              <Row className={classes.segundaLinha}>
+                <Col lg={2}>
+                  <span className={classes.subtitulosForm}>Prazos</span>
+                </Col>
+                <Col>
+                  <DatePicker
+                    placeholderText="Liberado"
+                    selected={liberadoDate}
+                    onChange={handleLiberadoDateChange}
+                    locale={pt}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </Col>
+                <Col>
+                  <DatePicker
+                    placeholderText="1º Consumo"
+                    selected={primeiroConsumoDate}
+                    onChange={handlePrimeiroConsumoDateChange}
+                    locale={pt}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </Col>
+                <Col>
+                  <DatePicker
+                    placeholderText="Data de Últ. consumo"
+                    selected={ultimoConsumoDate}
+                    onChange={handleUltimoConsumoDateChange}
+                    locale={pt}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </Col>
+                <Col>
+                  <DatePicker
+                    placeholderText="Dt Prevista Entrada Tecido"
+                    selected={entradaTecidoDate}
+                    onChange={handleEntradaTecidoDateChange}
+                    locale={pt}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </Col>
+                <p></p>
+                <Col lg={2}>
+                  <span></span>
+                </Col>
+                <Col>
+                  <DatePicker
+                    placeholderText="Últ. Entrada Pedido Compra"
+                    selected={entradaPedidoCompraDate}
+                    onChange={handleEntradaPedidoCompraDateChange}
+                    locale={pt}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </Col>
+                <Col>
+                  <DatePicker
+                    placeholderText="Data Prevista Acessórios"
+                    selected={previstaAcessoriosDate}
+                    onChange={handlePrevistaAcessoriosDateChange}
+                    locale={pt}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </Col>
+                <Col>
+                  <DatePicker
+                    placeholderText="Data Aprovação Modelo"
+                    selected={aprovacaoModeloDate}
+                    onChange={handleAprovacaoModeloDateChange}
+                    locale={pt}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </Col>
+                <Col>
+                  <DatePicker
+                    placeholderText="Data Desejada Remessa"
+                    selected={desejadaRemessaDate}
+                    onChange={handleDesejadaRemessaDateChange}
+                    locale={pt}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </Col>
+                <p></p>
+                <Col lg={2}>
+                  <span></span>
+                </Col>
+                <Col>
+                  <DatePicker
+                    placeholderText="Data Prevista Produção"
+                    selected={previstaProducaoDate}
+                    onChange={handlePrevistaProducaoDateChange}
+                    locale={pt}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </Col>
+                <Col>
+                  <span></span>
+                </Col>
+                <Col>
+                  <span></span>
+                </Col>
+                <Col>
+                  <span></span>
+                </Col>
+              </Row>
+              <hr
+                style={{
+                  padding: "10px 0",
+                  marginBottom: "20px",
+                  border: "none",
+                  borderTop: "1px solid #3a5a40",
+                }}
               />
-            </Col>
-            <Col>
-              <DatePicker
-                placeholderText="1º Consumo"
-                selected={primeiroConsumoDate}
-                onChange={handlePrimeiroConsumoDateChange}
-                locale={pt}
-                dateFormat="dd/MM/yyyy"
-              />
-            </Col>
-            <Col>
-              <DatePicker
-                placeholderText="Data de Últ. consumo"
-                selected={ultimoConsumoDate}
-                onChange={handleUltimoConsumoDateChange}
-                locale={pt}
-                dateFormat="dd/MM/yyyy"
-              />
-            </Col>
-            <Col>
-              <DatePicker
-                placeholderText="Dt Prevista Entrada Tecido"
-                selected={entradaTecidoDate}
-                onChange={handleEntradaTecidoDateChange}
-                locale={pt}
-                dateFormat="dd/MM/yyyy"
-              />
-            </Col>
-            <p></p>
-            <Col lg={2}>
-              <span></span>
-            </Col>
-            <Col>
-              <DatePicker
-                placeholderText="Últ. Entrada Pedido Compra"
-                selected={entradaPedidoCompraDate}
-                onChange={handleEntradaPedidoCompraDateChange}
-                locale={pt}
-                dateFormat="dd/MM/yyyy"
-              />
-            </Col>
-            <Col>
-              <DatePicker
-                placeholderText="Data Prevista Acessórios"
-                selected={previstaAcessoriosDate}
-                onChange={handlePrevistaAcessoriosDateChange}
-                locale={pt}
-                dateFormat="dd/MM/yyyy"
-              />
-            </Col>
-            <Col>
-              <DatePicker
-                placeholderText="Data Aprovação Modelo"
-                selected={aprovacaoModeloDate}
-                onChange={handleAprovacaoModeloDateChange}
-                locale={pt}
-                dateFormat="dd/MM/yyyy"
-              />
-            </Col>
-            <Col>
-              <DatePicker
-                placeholderText="Data Desejada Remessa"
-                selected={desejadaRemessaDate}
-                onChange={handleDesejadaRemessaDateChange}
-                locale={pt}
-                dateFormat="dd/MM/yyyy"
-              />
-            </Col>
-            <p></p>
-            <Col lg={2}>
-              <span></span>
-            </Col>
-            <Col>
-              <DatePicker
-                placeholderText="Data Prevista Produção"
-                selected={previstaProducaoDate}
-                onChange={handlePrevistaProducaoDateChange}
-                locale={pt}
-                dateFormat="dd/MM/yyyy"
-              />
-            </Col>
-            <Col>
-              <span></span>
-            </Col>
-            <Col>
-              <span></span>
-            </Col>
-            <Col>
-              <span></span>
-            </Col>
-          </Row>
-          <hr
-            style={{
-              padding: "10px 0",
-              marginBottom: "20px",
-              border: "none",
-              borderTop: "1px solid #3a5a40",
-            }}
-          />
-          <Row className={classes.terceiraLinha}>
-            <Col lg={2}>
-              <span className={classes.subtitulosForm}>Observações</span>
-            </Col>
-            <Col lg={10}>
-              <input className={classes.inputObs}></input>
-            </Col>
-          </Row>
-        </Row>
-        <Button style={ButtonStyle}>Adicionar Ordem</Button>
-      </Container>
+              <Row className={classes.terceiraLinha}>
+                <Col lg={2}>
+                  <span className={classes.subtitulosForm}>Observações</span>
+                </Col>
+                <Col lg={10}>
+                  <input className={classes.inputObs}></input>
+                </Col>
+              </Row>
+            </Row>
+            <Button style={ButtonStyle} onClick={handleAvancar}>
+              Avançar
+            </Button>{" "}
+          </Container>
+        </Tab>
+        <Tab
+          eventKey="tarefas"
+          title={
+            <span
+              className={`${classes.tabColor} ${
+                activeTab === "tarefas" ? classes.activeTab : ""
+              }`}
+            >
+              Tarefas
+            </span>
+          }
+        >
+          <Container fluid className={classes.Container}>
+            <Button style={ButtonStyle} onClick={handleAvancar}>
+              Avançar
+            </Button>{" "}
+            <Button style={ButtonStyleVoltar} onClick={handleVoltar}>
+              Voltar
+            </Button>
+          </Container>
+        </Tab>
+        <Tab
+          eventKey="operarios"
+          title={
+            <span
+              className={`${classes.tabColor} ${
+                activeTab === "operarios" ? classes.activeTab : ""
+              }`}
+            >
+              Operários
+            </span>
+          }
+        >
+          <Container fluid className={classes.Container}>
+            <Button style={ButtonStyle}>Adicionar Ordem</Button>{" "}
+            <Button style={ButtonStyleVoltar} onClick={handleVoltar}>
+              Voltar
+            </Button>
+          </Container>
+        </Tab>
+      </Tabs>
     </Modal>
   );
 };

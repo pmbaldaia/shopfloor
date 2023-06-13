@@ -123,7 +123,7 @@ const Sidebar = () => {
       </div>
       <div ref={sidebarRef} className="sidebar__menu">
         <div className="avatar">
-          <Link to="/ordens">
+          <Link to="/dashboard">
             <User size={50} />
           </Link>
           <HiUser />

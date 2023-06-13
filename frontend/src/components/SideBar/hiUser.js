@@ -10,7 +10,11 @@ function HiUser() {
     <>
       <p>
         <span>
-          <span style={{ fontWeight: "600", color: "#3a5a40" }}>{nome}</span>
+          <span
+            style={{ fontWeight: "600", color: "#3a5a40", fontSize: "25px" }}
+          >
+            {nome}
+          </span>
         </span>
       </p>
     </>
