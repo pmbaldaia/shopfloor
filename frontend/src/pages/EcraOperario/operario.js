@@ -3,7 +3,7 @@ import classes from "./operario.module.css";
 import { useDispatch } from "react-redux";
 import { userActions } from "../../store/user";
 import { useSelector } from "react-redux";
-import HiUser from "../../components/SideBar/hiUser";
+import HiUserOperario from "../../components/EcraOperario/hiUserOperario";
 import { getTarefas } from "../../axios/tarefas";
 import jwt_decode from "jwt-decode";
 import { Col, Row } from "react-bootstrap";
@@ -134,7 +134,7 @@ function OperarioLayout() {
     <div className={classes.contentOperario}>
       <Row className={classes.header}>
         <span>
-          <User size={40} /> <HiUser />
+          <User size={40} /> <HiUserOperario />
         </span>
         <p className={classes.formattedDate}>{formattedDate}</p>
         <p className={classes.formattedTime}>{formattedTime}</p>

@@ -1750,5 +1750,1735 @@
       "tipo": "operario",
       "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
     }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "categoria": "Calções",
+      "tarefas": [
+        {
+          "id": "1.1",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar tela e fita de reforço (1frente)"
+        },
+        {
+          "id": "1.2",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço (outra frente)"
+        },
+        {
+          "id": "1.3",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vistas x4"
+        },
+        {
+          "id": "1.4",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 1 x2"
+        },
+        {
+          "id": "1.5",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 2 x2"
+        },
+        {
+          "id": "1.6",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar bolso x2"
+        },
+        {
+          "id": "1.7",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.8",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Fechar bolso x2"
+        },
+        {
+          "id": "1.9",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Coser tira lateral x2"
+        },
+        {
+          "id": "1.10",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear tira e unir ganchos"
+        },
+        {
+          "id": "1.11",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar carcela falsa"
+        },
+        {
+          "id": "1.12",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (1 lado)"
+        },
+        {
+          "id": "1.13",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer pinças x2"
+        },
+        {
+          "id": "1.14",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço x2"
+        },
+        {
+          "id": "1.15",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vivos x4"
+        },
+        {
+          "id": "1.16",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Vincar vivos x2"
+        },
+        {
+          "id": "1.17",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bolso x2"
+        },
+        {
+          "id": "1.18",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.19",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Coser e cravar bolso x2"
+        },
+        {
+          "id": "1.20",
+          "operacao": "Etiquetas",
+          "categoria": "Confeção",
+          "tarefa": "Pregar et. tamanho na composição"
+        },
+        {
+          "id": "1.21",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fechar calções"
+        },
+        {
+          "id": "1.22",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (outro lado)"
+        },
+        {
+          "id": "1.23",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bainhas"
+        },
+        {
+          "id": "1.24",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bainhas"
+        },
+        {
+          "id": "1.25",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta composição"
+        },
+        {
+          "id": "1.26",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes"
+        },
+        {
+          "id": "1.27",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir costas)"
+        },
+        {
+          "id": "1.28",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes+costas"
+        },
+        {
+          "id": "1.29",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir interior"
+        },
+        {
+          "id": "1.30",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Colocar viés no interior"
+        },
+        {
+          "id": "1.31",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar frentes+costas"
+        },
+        {
+          "id": "1.32",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Fechar interior"
+        },
+        {
+          "id": "1.33",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir cinto"
+        },
+        {
+          "id": "1.34",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar cinto"
+        },
+        {
+          "id": "1.35",
+          "operacao": "Cintos",
+          "categoria": "Preparação",
+          "tarefa": "Vincar cinto"
+        },
+        {
+          "id": "1.36",
+          "operacao": "Elástico",
+          "categoria": "Preparação",
+          "tarefa": "Cortar elástico"
+        },
+        {
+          "id": "1.37",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar cinto na peça"
+        },
+        {
+          "id": "1.38",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta de marca"
+        },
+        {
+          "id": "1.39",
+          "operacao": "Junta Cinto",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear peça"
+        },
+        {
+          "id": "1.40",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Fazer cordão"
+        },
+        {
+          "id": "1.41",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Dividir cordão"
+        },
+        {
+          "id": "1.42",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear cordão"
+        },
+        {
+          "id": "1.43",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Enfiar cordão no cinto"
+        },
+        {
+          "id": "1.44",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Limpar linhas"
+        },
+        {
+          "id": "1.45",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Passar a ferro"
+        },
+        {
+          "id": "1.46",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Colar techno ring"
+        },
+        {
+          "id": "1.47",
+          "operacao": "Finalizar",
+          "categoria": "Embalamento",
+          "tarefa": "Etiquetar, dobrar e embalar"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "categoria": "Calças",
+      "tarefas": [
+        {
+          "id": "1.1",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar tela e fita de reforço (1frente)"
+        },
+        {
+          "id": "1.2",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço (outra frente)"
+        },
+        {
+          "id": "1.3",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vistas x4"
+        },
+        {
+          "id": "1.4",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 1 x2"
+        },
+        {
+          "id": "1.5",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 2 x2"
+        },
+        {
+          "id": "1.6",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar bolso x2"
+        },
+        {
+          "id": "1.7",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.8",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Fechar bolso x2"
+        },
+        {
+          "id": "1.9",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Coser tira lateral x2"
+        },
+        {
+          "id": "1.10",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear tira e unir ganchos"
+        },
+        {
+          "id": "1.11",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar carcela falsa"
+        },
+        {
+          "id": "1.12",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (1 lado)"
+        },
+        {
+          "id": "1.13",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer pinças x2"
+        },
+        {
+          "id": "1.14",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço x2"
+        },
+        {
+          "id": "1.15",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vivos x4"
+        },
+        {
+          "id": "1.16",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Vincar vivos x2"
+        },
+        {
+          "id": "1.17",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bolso x2"
+        },
+        {
+          "id": "1.18",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.19",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Coser e cravar bolso x2"
+        },
+        {
+          "id": "1.20",
+          "operacao": "Etiquetas",
+          "categoria": "Confeção",
+          "tarefa": "Pregar et. tamanho na composição"
+        },
+        {
+          "id": "1.21",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fechar calções"
+        },
+        {
+          "id": "1.22",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (outro lado)"
+        },
+        {
+          "id": "1.23",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bainhas"
+        },
+        {
+          "id": "1.24",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bainhas"
+        },
+        {
+          "id": "1.25",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta composição"
+        },
+        {
+          "id": "1.26",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes"
+        },
+        {
+          "id": "1.27",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir costas)"
+        },
+        {
+          "id": "1.28",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes+costas"
+        },
+        {
+          "id": "1.29",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir interior"
+        },
+        {
+          "id": "1.30",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Colocar viés no interior"
+        },
+        {
+          "id": "1.31",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar frentes+costas"
+        },
+        {
+          "id": "1.32",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Fechar interior"
+        },
+        {
+          "id": "1.33",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir cinto"
+        },
+        {
+          "id": "1.34",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar cinto"
+        },
+        {
+          "id": "1.35",
+          "operacao": "Cintos",
+          "categoria": "Preparação",
+          "tarefa": "Vincar cinto"
+        },
+        {
+          "id": "1.36",
+          "operacao": "Elástico",
+          "categoria": "Preparação",
+          "tarefa": "Cortar elástico"
+        },
+        {
+          "id": "1.37",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar cinto na peça"
+        },
+        {
+          "id": "1.38",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta de marca"
+        },
+        {
+          "id": "1.39",
+          "operacao": "Junta Cinto",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear peça"
+        },
+        {
+          "id": "1.40",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Fazer cordão"
+        },
+        {
+          "id": "1.41",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Dividir cordão"
+        },
+        {
+          "id": "1.42",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear cordão"
+        },
+        {
+          "id": "1.43",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Enfiar cordão no cinto"
+        },
+        {
+          "id": "1.44",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Limpar linhas"
+        },
+        {
+          "id": "1.45",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Passar a ferro"
+        },
+        {
+          "id": "1.46",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Colar techno ring"
+        },
+        {
+          "id": "1.47",
+          "operacao": "Finalizar",
+          "categoria": "Embalamento",
+          "tarefa": "Etiquetar, dobrar e embalar"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "categoria": "Casacos",
+      "tarefas": [
+        {
+          "id": "1.1",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar tela e fita de reforço (1frente)"
+        },
+        {
+          "id": "1.2",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço (outra frente)"
+        },
+        {
+          "id": "1.3",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vistas x4"
+        },
+        {
+          "id": "1.4",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 1 x2"
+        },
+        {
+          "id": "1.5",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 2 x2"
+        },
+        {
+          "id": "1.6",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar bolso x2"
+        },
+        {
+          "id": "1.7",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.8",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Fechar bolso x2"
+        },
+        {
+          "id": "1.9",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Coser tira lateral x2"
+        },
+        {
+          "id": "1.10",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear tira e unir ganchos"
+        },
+        {
+          "id": "1.11",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar carcela falsa"
+        },
+        {
+          "id": "1.12",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (1 lado)"
+        },
+        {
+          "id": "1.13",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer pinças x2"
+        },
+        {
+          "id": "1.14",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço x2"
+        },
+        {
+          "id": "1.15",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vivos x4"
+        },
+        {
+          "id": "1.16",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Vincar vivos x2"
+        },
+        {
+          "id": "1.17",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bolso x2"
+        },
+        {
+          "id": "1.18",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.19",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Coser e cravar bolso x2"
+        },
+        {
+          "id": "1.20",
+          "operacao": "Etiquetas",
+          "categoria": "Confeção",
+          "tarefa": "Pregar et. tamanho na composição"
+        },
+        {
+          "id": "1.21",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fechar calções"
+        },
+        {
+          "id": "1.22",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (outro lado)"
+        },
+        {
+          "id": "1.23",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bainhas"
+        },
+        {
+          "id": "1.24",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bainhas"
+        },
+        {
+          "id": "1.25",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta composição"
+        },
+        {
+          "id": "1.26",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes"
+        },
+        {
+          "id": "1.27",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir costas)"
+        },
+        {
+          "id": "1.28",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes+costas"
+        },
+        {
+          "id": "1.29",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir interior"
+        },
+        {
+          "id": "1.30",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Colocar viés no interior"
+        },
+        {
+          "id": "1.31",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar frentes+costas"
+        },
+        {
+          "id": "1.32",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Fechar interior"
+        },
+        {
+          "id": "1.33",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir cinto"
+        },
+        {
+          "id": "1.34",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar cinto"
+        },
+        {
+          "id": "1.35",
+          "operacao": "Cintos",
+          "categoria": "Preparação",
+          "tarefa": "Vincar cinto"
+        },
+        {
+          "id": "1.36",
+          "operacao": "Elástico",
+          "categoria": "Preparação",
+          "tarefa": "Cortar elástico"
+        },
+        {
+          "id": "1.37",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar cinto na peça"
+        },
+        {
+          "id": "1.38",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta de marca"
+        },
+        {
+          "id": "1.39",
+          "operacao": "Junta Cinto",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear peça"
+        },
+        {
+          "id": "1.40",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Fazer cordão"
+        },
+        {
+          "id": "1.41",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Dividir cordão"
+        },
+        {
+          "id": "1.42",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear cordão"
+        },
+        {
+          "id": "1.43",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Enfiar cordão no cinto"
+        },
+        {
+          "id": "1.44",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Limpar linhas"
+        },
+        {
+          "id": "1.45",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Passar a ferro"
+        },
+        {
+          "id": "1.46",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Colar techno ring"
+        },
+        {
+          "id": "1.47",
+          "operacao": "Finalizar",
+          "categoria": "Embalamento",
+          "tarefa": "Etiquetar, dobrar e embalar"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "categoria": "Chapéus",
+      "tarefas": [
+        {
+          "id": "1.1",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar tela e fita de reforço (1frente)"
+        },
+        {
+          "id": "1.2",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço (outra frente)"
+        },
+        {
+          "id": "1.3",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vistas x4"
+        },
+        {
+          "id": "1.4",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 1 x2"
+        },
+        {
+          "id": "1.5",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 2 x2"
+        },
+        {
+          "id": "1.6",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar bolso x2"
+        },
+        {
+          "id": "1.7",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.8",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Fechar bolso x2"
+        },
+        {
+          "id": "1.9",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Coser tira lateral x2"
+        },
+        {
+          "id": "1.10",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear tira e unir ganchos"
+        },
+        {
+          "id": "1.11",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar carcela falsa"
+        },
+        {
+          "id": "1.12",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (1 lado)"
+        },
+        {
+          "id": "1.13",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer pinças x2"
+        },
+        {
+          "id": "1.14",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço x2"
+        },
+        {
+          "id": "1.15",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vivos x4"
+        },
+        {
+          "id": "1.16",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Vincar vivos x2"
+        },
+        {
+          "id": "1.17",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bolso x2"
+        },
+        {
+          "id": "1.18",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.19",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Coser e cravar bolso x2"
+        },
+        {
+          "id": "1.20",
+          "operacao": "Etiquetas",
+          "categoria": "Confeção",
+          "tarefa": "Pregar et. tamanho na composição"
+        },
+        {
+          "id": "1.21",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fechar calções"
+        },
+        {
+          "id": "1.22",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (outro lado)"
+        },
+        {
+          "id": "1.23",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bainhas"
+        },
+        {
+          "id": "1.24",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bainhas"
+        },
+        {
+          "id": "1.25",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta composição"
+        },
+        {
+          "id": "1.26",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes"
+        },
+        {
+          "id": "1.27",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir costas)"
+        },
+        {
+          "id": "1.28",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes+costas"
+        },
+        {
+          "id": "1.29",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir interior"
+        },
+        {
+          "id": "1.30",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Colocar viés no interior"
+        },
+        {
+          "id": "1.31",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar frentes+costas"
+        },
+        {
+          "id": "1.32",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Fechar interior"
+        },
+        {
+          "id": "1.33",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir cinto"
+        },
+        {
+          "id": "1.34",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar cinto"
+        },
+        {
+          "id": "1.35",
+          "operacao": "Cintos",
+          "categoria": "Preparação",
+          "tarefa": "Vincar cinto"
+        },
+        {
+          "id": "1.36",
+          "operacao": "Elástico",
+          "categoria": "Preparação",
+          "tarefa": "Cortar elástico"
+        },
+        {
+          "id": "1.37",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar cinto na peça"
+        },
+        {
+          "id": "1.38",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta de marca"
+        },
+        {
+          "id": "1.39",
+          "operacao": "Junta Cinto",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear peça"
+        },
+        {
+          "id": "1.40",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Fazer cordão"
+        },
+        {
+          "id": "1.41",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Dividir cordão"
+        },
+        {
+          "id": "1.42",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear cordão"
+        },
+        {
+          "id": "1.43",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Enfiar cordão no cinto"
+        },
+        {
+          "id": "1.44",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Limpar linhas"
+        },
+        {
+          "id": "1.45",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Passar a ferro"
+        },
+        {
+          "id": "1.46",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Colar techno ring"
+        },
+        {
+          "id": "1.47",
+          "operacao": "Finalizar",
+          "categoria": "Embalamento",
+          "tarefa": "Etiquetar, dobrar e embalar"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "categoria": "Saias",
+      "tarefas": [
+        {
+          "id": "1.1",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar tela e fita de reforço (1frente)"
+        },
+        {
+          "id": "1.2",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço (outra frente)"
+        },
+        {
+          "id": "1.3",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vistas x4"
+        },
+        {
+          "id": "1.4",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 1 x2"
+        },
+        {
+          "id": "1.5",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 2 x2"
+        },
+        {
+          "id": "1.6",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar bolso x2"
+        },
+        {
+          "id": "1.7",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.8",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Fechar bolso x2"
+        },
+        {
+          "id": "1.9",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Coser tira lateral x2"
+        },
+        {
+          "id": "1.10",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear tira e unir ganchos"
+        },
+        {
+          "id": "1.11",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar carcela falsa"
+        },
+        {
+          "id": "1.12",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (1 lado)"
+        },
+        {
+          "id": "1.13",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer pinças x2"
+        },
+        {
+          "id": "1.14",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço x2"
+        },
+        {
+          "id": "1.15",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vivos x4"
+        },
+        {
+          "id": "1.16",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Vincar vivos x2"
+        },
+        {
+          "id": "1.17",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bolso x2"
+        },
+        {
+          "id": "1.18",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.19",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Coser e cravar bolso x2"
+        },
+        {
+          "id": "1.20",
+          "operacao": "Etiquetas",
+          "categoria": "Confeção",
+          "tarefa": "Pregar et. tamanho na composição"
+        },
+        {
+          "id": "1.21",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fechar calções"
+        },
+        {
+          "id": "1.22",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (outro lado)"
+        },
+        {
+          "id": "1.23",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bainhas"
+        },
+        {
+          "id": "1.24",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bainhas"
+        },
+        {
+          "id": "1.25",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta composição"
+        },
+        {
+          "id": "1.26",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes"
+        },
+        {
+          "id": "1.27",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir costas)"
+        },
+        {
+          "id": "1.28",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes+costas"
+        },
+        {
+          "id": "1.29",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir interior"
+        },
+        {
+          "id": "1.30",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Colocar viés no interior"
+        },
+        {
+          "id": "1.31",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar frentes+costas"
+        },
+        {
+          "id": "1.32",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Fechar interior"
+        },
+        {
+          "id": "1.33",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir cinto"
+        },
+        {
+          "id": "1.34",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar cinto"
+        },
+        {
+          "id": "1.35",
+          "operacao": "Cintos",
+          "categoria": "Preparação",
+          "tarefa": "Vincar cinto"
+        },
+        {
+          "id": "1.36",
+          "operacao": "Elástico",
+          "categoria": "Preparação",
+          "tarefa": "Cortar elástico"
+        },
+        {
+          "id": "1.37",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar cinto na peça"
+        },
+        {
+          "id": "1.38",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta de marca"
+        },
+        {
+          "id": "1.39",
+          "operacao": "Junta Cinto",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear peça"
+        },
+        {
+          "id": "1.40",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Fazer cordão"
+        },
+        {
+          "id": "1.41",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Dividir cordão"
+        },
+        {
+          "id": "1.42",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear cordão"
+        },
+        {
+          "id": "1.43",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Enfiar cordão no cinto"
+        },
+        {
+          "id": "1.44",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Limpar linhas"
+        },
+        {
+          "id": "1.45",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Passar a ferro"
+        },
+        {
+          "id": "1.46",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Colar techno ring"
+        },
+        {
+          "id": "1.47",
+          "operacao": "Finalizar",
+          "categoria": "Embalamento",
+          "tarefa": "Etiquetar, dobrar e embalar"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "categoria": "Vestidos",
+      "tarefas": [
+        {
+          "id": "1.1",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar tela e fita de reforço (1frente)"
+        },
+        {
+          "id": "1.2",
+          "operacao": "Frente",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço (outra frente)"
+        },
+        {
+          "id": "1.3",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vistas x4"
+        },
+        {
+          "id": "1.4",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 1 x2"
+        },
+        {
+          "id": "1.5",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar vista no forro 2 x2"
+        },
+        {
+          "id": "1.6",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Pregar bolso x2"
+        },
+        {
+          "id": "1.7",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.8",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Fechar bolso x2"
+        },
+        {
+          "id": "1.9",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Coser tira lateral x2"
+        },
+        {
+          "id": "1.10",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Chulear tira e unir ganchos"
+        },
+        {
+          "id": "1.11",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar carcela falsa"
+        },
+        {
+          "id": "1.12",
+          "operacao": "Frente",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (1 lado)"
+        },
+        {
+          "id": "1.13",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer pinças x2"
+        },
+        {
+          "id": "1.14",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Colar fita de reforço x2"
+        },
+        {
+          "id": "1.15",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear vivos x4"
+        },
+        {
+          "id": "1.16",
+          "operacao": "Traseiros",
+          "categoria": "Preparação",
+          "tarefa": "Vincar vivos x2"
+        },
+        {
+          "id": "1.17",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bolso x2"
+        },
+        {
+          "id": "1.18",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bolso x2"
+        },
+        {
+          "id": "1.19",
+          "operacao": "Traseiros",
+          "categoria": "Confeção",
+          "tarefa": "Coser e cravar bolso x2"
+        },
+        {
+          "id": "1.20",
+          "operacao": "Etiquetas",
+          "categoria": "Confeção",
+          "tarefa": "Pregar et. tamanho na composição"
+        },
+        {
+          "id": "1.21",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fechar calções"
+        },
+        {
+          "id": "1.22",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar tira lateral (outro lado)"
+        },
+        {
+          "id": "1.23",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Chulear bainhas"
+        },
+        {
+          "id": "1.24",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Fazer bainhas"
+        },
+        {
+          "id": "1.25",
+          "operacao": "Unir Calções",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta composição"
+        },
+        {
+          "id": "1.26",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes"
+        },
+        {
+          "id": "1.27",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir costas)"
+        },
+        {
+          "id": "1.28",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir frentes+costas"
+        },
+        {
+          "id": "1.29",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir interior"
+        },
+        {
+          "id": "1.30",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Colocar viés no interior"
+        },
+        {
+          "id": "1.31",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar frentes+costas"
+        },
+        {
+          "id": "1.32",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Fechar interior"
+        },
+        {
+          "id": "1.33",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Unir cinto"
+        },
+        {
+          "id": "1.34",
+          "operacao": "Cintos",
+          "categoria": "Confeção",
+          "tarefa": "Prespontar cinto"
+        },
+        {
+          "id": "1.35",
+          "operacao": "Cintos",
+          "categoria": "Preparação",
+          "tarefa": "Vincar cinto"
+        },
+        {
+          "id": "1.36",
+          "operacao": "Elástico",
+          "categoria": "Preparação",
+          "tarefa": "Cortar elástico"
+        },
+        {
+          "id": "1.37",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar cinto na peça"
+        },
+        {
+          "id": "1.38",
+          "operacao": "Junta Cinto",
+          "categoria": "Confeção",
+          "tarefa": "Pregar etiqueta de marca"
+        },
+        {
+          "id": "1.39",
+          "operacao": "Junta Cinto",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear peça"
+        },
+        {
+          "id": "1.40",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Fazer cordão"
+        },
+        {
+          "id": "1.41",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Dividir cordão"
+        },
+        {
+          "id": "1.42",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Mosquear cordão"
+        },
+        {
+          "id": "1.43",
+          "operacao": "Cordão",
+          "categoria": "Acabamento",
+          "tarefa": "Enfiar cordão no cinto"
+        },
+        {
+          "id": "1.44",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Limpar linhas"
+        },
+        {
+          "id": "1.45",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Passar a ferro"
+        },
+        {
+          "id": "1.46",
+          "operacao": "Finalizar",
+          "categoria": "Acabamento",
+          "tarefa": "Colar techno ring"
+        },
+        {
+          "id": "1.47",
+          "operacao": "Finalizar",
+          "categoria": "Embalamento",
+          "tarefa": "Etiquetar, dobrar e embalar"
+        }
+      ]
+    }
   ]
 }

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
-import { useState } from "react";
-import { Container, Row, Col, Button, Tabs, Tab } from "react-bootstrap";
+import { Container, Row, Col, Button, Tabs, Tab, Table } from "react-bootstrap";
 import { X } from "@phosphor-icons/react";
 import classes from "./formOrdem.module.css";
 import DatePicker from "react-datepicker";
 import pt from "date-fns/locale/pt";
+import { getCategorias } from "../../axios/categorias";
+import { useSelector } from "react-redux";
+/* import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"; */
 
 const NewOrdem = (props) => {
   const ButtonStyle = {
@@ -84,7 +86,26 @@ const NewOrdem = (props) => {
   const handleVoltar = () => {
     setActiveTab(activeTab === "operarios" ? "tarefas" : "home");
   };
+  const [tipo, setTipo] = useState("");
 
+  const user = useSelector((state) => state.user);
+  const [categorias, setCategorias] = useState([]);
+  useEffect(() => {
+    fetchCategorias();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user.access_token]);
+
+  async function fetchCategorias() {
+    try {
+      const res = await getCategorias(user.access_token);
+      const categorias = res.data.categorias;
+      console.log(categorias);
+      setCategorias(categorias);
+    } catch (error) {
+      console.error("Erro ao buscar as categorias:", error);
+    }
+  }
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
   return (
     <Modal
       isOpen={props.isModalOpen}
@@ -111,6 +132,10 @@ const NewOrdem = (props) => {
               Dados
             </span>
           }
+          style={{
+            borderBottom: "0px solid transparent",
+            border: "0px solid transparent",
+          }}
         >
           <Container fluid className={classes.Container}>
             <Row>
@@ -122,8 +147,11 @@ const NewOrdem = (props) => {
                   <input placeholder="Ordem de Produção" required></input>
                 </Col>
                 <Col>
-                  <select>
-                    <option disabled selected value="">
+                  <select
+                    value={tipo}
+                    onChange={(e) => setTipo(e.target.value)}
+                  >
+                    <option value="" disabled>
                       Tipo
                     </option>
                     <option value="JP01">JP01</option>
@@ -151,16 +179,30 @@ const NewOrdem = (props) => {
                   <span></span>
                 </Col>
                 <Col>
-                  <input placeholder="Categorias" required></input>
+                  <select
+                    value={categoriaSelecionada}
+                    onChange={(e) => {
+                      setCategoriaSelecionada(e.target.value);
+                    }}
+                  >
+                    <option value="" disabled selected>
+                      Categoria
+                    </option>
+                    {categorias.map((categoria) => (
+                      <option key={categoria.id} value={categoria.id}>
+                        {categoria.categoria}
+                      </option>
+                    ))}
+                  </select>
                   <a
-                    href="/categoria"
+                    href="/categorias"
                     style={{
                       float: "right",
                       paddingRight: "10px",
                       fontSize: "13px",
                     }}
                   >
-                    Criar categoria
+                    Criar Categoria
                   </a>
                 </Col>
                 <Col>
@@ -345,13 +387,98 @@ const NewOrdem = (props) => {
             </span>
           }
         >
-          <Container fluid className={classes.Container}>
-            <Button style={ButtonStyle} onClick={handleAvancar}>
-              Avançar
-            </Button>{" "}
-            <Button style={ButtonStyleVoltar} onClick={handleVoltar}>
-              Voltar
-            </Button>
+          <Container fluid>
+            <Row className={classes.headerContent}>
+              <Col lg={5} style={{ textAlign: "start" }}>
+                <label style={{ marginRight: "0.5em" }}>Categoria:</label>
+                <select
+                  value={categoriaSelecionada}
+                  onChange={(e) => {
+                    setCategoriaSelecionada(e.target.value);
+                  }}
+                  style={{ width: "15em" }}
+                >
+                  <option value="" disabled selected>
+                    -
+                  </option>
+                  {categorias.map((categoria) => (
+                    <option key={categoria.id} value={categoria.id}>
+                      {categoria.categoria}
+                    </option>
+                  ))}
+                </select>
+              </Col>
+              <Col lg={2}></Col>
+              <Col lg={5}>
+                {categorias.map((categoria) => (
+                  <button
+                    key={categoria.id}
+                    value={categoria.id}
+                    className={classes.buttonTarefasSelecionadas}
+                  >
+                    {categoria.categoria}
+                  </button>
+                ))}
+              </Col>
+            </Row>
+            <Row lg={12} style={{ padding: "1em" }}>
+              <Col xs={5}>
+                <span className={classes.titulosNovaOrdem}>
+                  Tarefas a selecionar
+                </span>
+
+                <div
+                  className={`${classes.firstContainer} ${classes.scrollContainer}`}
+                >
+                  <Table
+                    bordered
+                    className={`${classes["table-bordered"]} ${classes.tableSpacing}`}
+                    style={{ color: "#120309" }}
+                  >
+                    <tbody>
+                      {categoriaSelecionada &&
+                        categorias
+                          .find(
+                            (categoria) => categoria.id === categoriaSelecionada
+                          )
+                          .tarefas.map((tarefa) => (
+                            <tr key={tarefa.id}>
+                              <td className={classes.CategoriasBorda}>
+                                {tarefa.operacao}
+                              </td>
+                              <td className={classes.CategoriasBorda}>
+                                {tarefa.tarefa}
+                              </td>
+                            </tr>
+                          ))}
+                    </tbody>
+                  </Table>
+                </div>
+              </Col>
+              <Col xs={2} className={classes.middleContainer}>
+                <div className={classes.secondContainer}>
+                  <button className={classes.buttonContainer}>{">"}</button>
+                  <button className={classes.buttonContainer}>{">>"}</button>
+                  <button className={classes.buttonContainer}>{"<"}</button>
+                  <button className={classes.buttonContainer}>{"<<"}</button>
+                </div>
+              </Col>
+              <Col xs={5}>
+                <span className={classes.titulosNovaOrdem}>
+                  Tarefas selecionadas
+                </span>
+                <div className={classes.thirdContainer}>3</div>
+              </Col>
+            </Row>
+
+            <div className={classes.Container}>
+              <Button style={ButtonStyle} onClick={handleAvancar}>
+                Avançar
+              </Button>{" "}
+              <Button style={ButtonStyleVoltar} onClick={handleVoltar}>
+                Voltar
+              </Button>
+            </div>
           </Container>
         </Tab>
         <Tab

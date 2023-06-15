@@ -20,15 +20,14 @@ import MaquinasPage from "./pages/Maquinas/maquinas";
 import MaquinaDetailPage from "./pages/Maquinas/detalheMaquina";
 import NewMaquinaPage from "./pages/Maquinas/novaMaquina";
 
-//Materiais
-import MateriaisRootLayout from "./pages/Materiais/rootMaterial";
-import MateriaisPage from "./pages/Materiais/materiais";
-import MaterialDetailPage from "./pages/Materiais/detalheMaterial";
-
 //Tarefas
 import TarefasRootLayout from "./pages/Tarefas/rootTarefa";
 import TarefasPage from "./pages/Tarefas/tarefas";
 import TarefaDetailPage from "./pages/Tarefas/detalheTarefa";
+
+//Manutencao
+import ManutencaoCategorias from "./pages/Manutencao/categorias";
+import ManutencaoTipo from "./pages/Manutencao/tipos";
 
 //Página Dos Operários
 import LayoutOperarios from "./pages/EcraOperario/operario";
@@ -130,13 +129,15 @@ function App() {
                     />
                     <Route path="/maquinas/nova" element={<NewMaquinaPage />} />
                   </Route>
-                  <Route element={<MateriaisRootLayout />}>
-                    <Route path="/materiais" element={<MateriaisPage />} />{" "}
-                    <Route
-                      path="/materiais/:materialId"
-                      element={<MaterialDetailPage />}
-                    />
-                  </Route>
+
+                  <Route
+                    path="/manutencao/categorias"
+                    element={<ManutencaoCategorias />}
+                  />
+                  <Route
+                    path="/manutencao/tipos"
+                    element={<ManutencaoTipo />}
+                  />
                 </>
               )}
               <Route element={<LayoutOperario onLogout={handleLogout} />}>

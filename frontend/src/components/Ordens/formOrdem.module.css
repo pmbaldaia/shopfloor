@@ -51,11 +51,125 @@ select {
   padding: 10px 80px;
   background-color: #dde5df;
   color: #3a5a40;
+  font-weight: 500;
   border-radius: 5px;
+  border: 0;
+}
+.activeTab:active {
+  border: 0;
+}
+.activeTab:hover {
+  border: 0;
 }
 
 .activeTab {
   background-color: #3a5a40;
   color: #fff;
+  font-weight: 600;
   border-radius: 5px;
+  border: 0;
+  border-top: 0;
+  border-left: 0;
+}
+
+.titulosNovaOrdem {
+  justify-content: center;
+  display: flex;
+  padding-bottom: 0.5em;
+}
+.headerContent {
+  text-align: center;
+  padding-top: 2em;
+}
+
+.firstContainer {
+  border: 1px solid #3a5a40;
+  margin-right: 0.5em;
+  height: 48vh;
+}
+
+.secondContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4em;
+  width: 5em;
+  margin-right: 0.5em;
+}
+
+.thirdContainer {
+  border: 1px solid #3a5a40;
+  margin-right: 0.5em;
+  height: 48vh;
+  margin-bottom: 2em;
+}
+.buttonContainer {
+  padding: 5px 20px;
+  width: 5em;
+  font-size: 16px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #3a5a40;
+  font-weight: 800;
+  background-color: #dad7cd;
+}
+.middleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonTarefasSelecionadas {
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  width: 5em;
+  text-align: center;
+  font-size: 13px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+}
+
+.scrollContainer {
+  overflow-y: auto;
+  max-height: auto;
+}
+
+.table-bordered {
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.table-bordered th,
+.table-bordered td {
+  text-align: center;
+}
+
+.table-bordered {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  border-radius: 10px;
+}
+
+.table-bordered th,
+.table-bordered td {
+  padding: 1em;
+}
+
+.table-bordered th:first-child,
+.table-bordered td:first-child {
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+  height: 2vh;
+  border: 1px solid #3a5a40;
+}
+
+.table-bordered th:last-child,
+.table-bordered td:last-child {
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+  height: 2vh;
+  border: 1px solid #3a5a40;
 }

@@ -49,6 +49,41 @@
   }
 }
 
+.sidebar__submenu {
+  margin-top: 0.5em;
+  margin-left: 3em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  color: #3a5a40;
+  font-family: "Dosis", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+    color: red;
+
+    &.active {
+      font-weight: 700;
+      color: red;
+    }
+    &__icon {
+      margin-right: 0.5em;
+      color: #3a5a40;
+    }
+
+    &__text {
+      font-size: 16px;
+      font-weight: 500;
+      color: #3a5a40;
+    }
+  }
+}
+
 .avatar {
   margin-top: -2em;
   margin-bottom: -1em;

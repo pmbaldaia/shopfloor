@@ -16,6 +16,9 @@ import {
   CaretDown,
 } from "@phosphor-icons/react";
 import * as XLSX from "xlsx";
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
+import pt from "date-fns/locale/pt";
 
 function OrdensList({ ordens }) {
   function CorEstado({ ordem }) {
@@ -44,6 +47,7 @@ function OrdensList({ ordens }) {
   const [sortQUANTIDADE, setSortQUANTIDADE] = useState("desc");
   const [selectedFilterEstado, setSelectedFilterEstado] = useState("");
   const [selectedFilterPrioridade, setSelectedFilterPrioridade] = useState("");
+  const [filteredDates, setFilteredDates] = useState([]);
 
   const handleFilterEstadoChange = (event) => {
     setSelectedFilterEstado(event.target.value);
@@ -87,7 +91,7 @@ function OrdensList({ ordens }) {
       );
     });
 
-    setSortOrdens(filteredOrdens);
+    setFilteredDates(filteredOrdens);
 
     //para teste de contar ordens
     const total = filteredOrdens.length;
@@ -118,11 +122,6 @@ function OrdensList({ ordens }) {
   function __refresh() {
     window.location.reload(false);
   }
-
-  /*   const arrowSort = {
-    color: "#120309",
-    opacity: "40%",
-  }; */
 
   // Código do ordenar por ID da ordem ASC:DESC
   const __handleSortID = () => {
@@ -191,6 +190,16 @@ function OrdensList({ ordens }) {
     const worksheet = XLSX.utils.json_to_sheet(ordens);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Ordens");
+
+    // Definir tamanho das colunas
+    const columnWidths = [];
+    const totalColumns = XLSX.utils.sheet_to_json(worksheet, { header: 1 })[0]
+      .length;
+    for (let i = 0; i < totalColumns; i++) {
+      columnWidths.push({ width: 30 });
+    }
+    worksheet["!cols"] = columnWidths;
+
     const excelBuffer = XLSX.write(workbook, {
       bookType: "xlsx",
       type: "array",
@@ -204,6 +213,29 @@ function OrdensList({ ordens }) {
     link.download = "ordens.xlsx";
     link.click();
     URL.revokeObjectURL(url);
+  };
+
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const placeholder = new Date().toLocaleDateString("pt-PT");
+
+  const handlePresetClick = (preset) => {
+    const today = new Date();
+    const dateOptions = {
+      Hoje: [new Date(today), new Date(today)],
+      "Últimos 30 dias": [
+        new Date(today.setDate(today.getDate() - 31)),
+        new Date(),
+      ],
+      "Últimos 2 meses": [
+        new Date(today.setMonth(today.getMonth() - 1)),
+        new Date(),
+      ],
+    };
+
+    const selectedDates = dateOptions[preset];
+    setStartDate(selectedDates[0]);
+    setEndDate(selectedDates[1]);
   };
 
   return (
@@ -226,7 +258,88 @@ function OrdensList({ ordens }) {
           className={classes.iconDownload}
           alt="Download Lista"
         />
+
         <AdicionarOrdem />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            width: "30em",
+            float: "right",
+            marginTop: "1.2em",
+            alignItems: "center",
+            marginRight: "1em",
+          }}
+        >
+          <label
+            style={{
+              width: "5em",
+              marginRight: "0.5em",
+              textAlign: "right",
+              fontWeight: "bold",
+            }}
+          >
+            Início:
+          </label>
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            placeholderText={placeholder}
+            locale={pt}
+            dateFormat="dd/MM/yyyy"
+            style={{
+              width: "8em",
+              borderRadius: "4px",
+              padding: "0.5em",
+              border: "1px solid #ccc",
+            }}
+          />
+
+          <label
+            style={{
+              marginLeft: "1em",
+              marginRight: "0.5em",
+              textAlign: "right",
+              fontWeight: "bold",
+            }}
+          >
+            Fim:
+          </label>
+          <DatePicker
+            selected={endDate}
+            onChange={(date) => {
+              setEndDate(date);
+              console.log(date);
+            }}
+            placeholderText={placeholder}
+            locale={pt}
+            dateFormat="dd/MM/yyyy"
+            style={{
+              width: "8em",
+              borderRadius: "4px",
+              padding: "0.5em",
+              border: "1px solid #ccc",
+            }}
+          />
+
+          <div style={{ marginLeft: "1em" }}>
+            <select
+              onChange={(e) => handlePresetClick(e.target.value)}
+              style={{
+                width: "9em",
+                borderRadius: "4px",
+                border: "1px solid #ccc",
+                background: "#f2f2f2",
+              }}
+            >
+              <option value="Hoje">Hoje</option>
+              <option value="Últimos 30 dias">Últimos 30 dias</option>
+              <option value="Últimos 2 meses">Últimos 2 meses</option>
+              {/* Adicione mais opções de data aqui, se necessário */}
+            </select>
+          </div>
+        </div>
       </div>
       <Container fluid>
         <Row className={classes.containerOrdensBorder}>
@@ -524,8 +637,9 @@ function OrdensList({ ordens }) {
           </tr>
         </thead>
         <tbody>
-          {/* {filteredOrdens.map((ordem) => ( */}
-          {sortOrdens.map((ordem) => (
+          {" "}
+          {/*   {sortOrdens.map((ordem) => ( */}
+          {filteredDates.map((ordem) => (
             <tr key={ordem.id} style={CorEstado({ ordem })}>
               <td className={classes.highlightText}>
                 <span>{ordem.id}</span>
@@ -565,15 +679,6 @@ function OrdensList({ ordens }) {
                   <Link style={{ color: "black" }} to={`/ordens/${ordem.id}`}>
                     <ReadCvLogo size={28} weight="light" alt="CONSULTAR" />
                   </Link>
-                  {/* &nbsp; &nbsp;
-                  <Link style={{ color: "black" }} to={`/ordens/editar`}>
-                    <Pencil size={28} weight="light" />
-                  </Link>*/}
-                  {/*  &nbsp; &nbsp; */}
-                  {/* <Link style={{ color: "black" }} onClick={openModal}>
-                    <Trash size={28} weight="light" />
-                    <ModalApagar isOpen={modalIsOpen} closeModal={closeModal} />
-                  </Link> */}
                 </span>
               </td>
             </tr>

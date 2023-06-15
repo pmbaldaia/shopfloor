@@ -8,6 +8,7 @@ import "./login.css";
 import { login } from "../../axios/autenticacao";
 import { useDispatch } from "react-redux";
 import { userActions } from "../../store/user";
+/* import jwt_decode from "jwt-decode"; */
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -18,9 +19,6 @@ export default function Login() {
   const [passwordType, setPasswordType] = useState("password");
   const [userInput, setUserInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
-  // eslint-disable-next-line
-  const [showPassword, setShowPassword] = useState(false);
-  const [isGestor, setIsGestor] = useState(false);
 
   const togglePassword = () => {
     setPasswordType((prevType) =>
@@ -41,15 +39,10 @@ export default function Login() {
   }, []);
 
   function submitLogin() {
-    const loginData = {
+    login({
       num_func: userInput,
-    };
-
-    if (isGestor) {
-      loginData.pass_func = passwordInput;
-    }
-
-    login(loginData)
+      pass_func: passwordInput,
+    })
       .then((res) => {
         dispatch(userActions.login({ access_token: res.data.token }));
         localStorage.setItem("token", res.data.token);
@@ -94,7 +87,7 @@ export default function Login() {
                           id="num_func"
                           name="num_func"
                           type="text"
-                          placeholder="Número Funcionário"
+                          placeholder="ID Funcionário"
                           className="form-control rounded-pill border-0 shadow-sm px-4"
                           required
                           value={userInput}
@@ -103,43 +96,40 @@ export default function Login() {
                           }}
                         />
                       </div>
-                      {isGestor && (
-                        <div className="mb-3">
-                          <div className="input-group">
-                            <input
-                              id="pass_func"
-                              placeholder="Palavra-Passe"
-                              type={passwordType}
-                              onChange={(e) => {
-                                setPasswordInput(e.target.value);
-                              }}
-                              value={passwordInput}
-                              name="pass_func"
-                              className="form-control rounded-pill border-0 shadow-sm px-4"
-                              required={isGestor}
-                              title="Este campo é obrigatório para gestores"
-                            />
-                            <span
-                              className="rounded-pill border-0 shadow-sm eyeIcon"
-                              type="button"
-                              style={{
-                                width: "3rem",
-                                paddingTop: "0.3rem",
-                                textAlign: "center",
-                                color: "#3a5a40",
-                                backgroundColor: "white",
-                              }}
-                              onClick={togglePassword}
-                            >
-                              {passwordType === "password" ? (
-                                <Eye />
-                              ) : (
-                                <EyeSlash />
-                              )}
-                            </span>
-                          </div>
+                      <div className="mb-3">
+                        <div className="input-group">
+                          <input
+                            id="pass_func"
+                            placeholder="Palavra-Passe"
+                            type={passwordType}
+                            onChange={(e) => {
+                              setPasswordInput(e.target.value);
+                            }}
+                            value={passwordInput}
+                            name="pass_func"
+                            className="form-control rounded-pill border-0 shadow-sm px-4"
+                            required
+                          />
+                          <span
+                            className="rounded-pill border-0 shadow-sm eyeIcon"
+                            type="button"
+                            style={{
+                              width: "3rem",
+                              paddingTop: "0.3rem",
+                              textAlign: "center",
+                              color: "#3a5a40",
+                              backgroundColor: "white",
+                            }}
+                            onClick={togglePassword}
+                          >
+                            {passwordType === "password" ? (
+                              <Eye />
+                            ) : (
+                              <EyeSlash />
+                            )}
+                          </span>
                         </div>
-                      )}
+                      </div>
                       <div className="d-grid gap-2 mt-4">
                         <button
                           type="submit"
@@ -151,19 +141,8 @@ export default function Login() {
                       </div>
 
                       <div className="text-center d-flex justify-content-center mt-2">
-                        <a
-                          href="/"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setShowPassword(
-                              (prevShowPassword) => !prevShowPassword
-                            );
-                            setIsGestor((prevIsGestor) => !prevIsGestor);
-                          }}
-                        >
-                          {isGestor
-                            ? "Se é operário, clique aqui"
-                            : "Se é gestor, clique aqui"}
+                        <a href="/" disabled>
+                          Esqueceu-se da palavra-passe?
                         </a>
                       </div>
                     </form>
