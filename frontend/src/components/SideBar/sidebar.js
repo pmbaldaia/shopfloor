@@ -116,6 +116,7 @@ const Sidebar = () => {
   };
   const today = new Date();
   /* const [isSubmenuOpen, setIsSubmenuOpen] = useState(false); */
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const closeModal = {
     backgroundColor: "#dad7cd",
@@ -130,6 +131,9 @@ const Sidebar = () => {
     outlineStyle: "none",
     outlineColor: "none",
   };
+  if (shouldRedirect) {
+    return window.location.replace("/login");
+  }
 
   return (
     <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
@@ -250,6 +254,7 @@ const Sidebar = () => {
         onClick={() => {
           localStorage.removeItem("token");
           dispatch(userActions.logout());
+          setShouldRedirect(true);
         }}
         className="sidebar__menu__item"
         style={{ cursor: "pointer" }}

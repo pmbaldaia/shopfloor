@@ -1,20 +1,20 @@
-import React, { Suspense } from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
+import React from "react";
+import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import Store from "./store/index";
+import { DragDropContext } from "react-beautiful-dnd";
+import store from "./store/index";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <Suspense>
-    <Provider store={Store}>
-      <BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <DragDropContext>
         <App />
-      </BrowserRouter>
-    </Provider>
-  </Suspense>
+      </DragDropContext>
+    </BrowserRouter>
+  </Provider>
 );
