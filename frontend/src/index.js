@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { DragDropContext } from "react-beautiful-dnd";
@@ -10,11 +10,13 @@ import App from "./App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <DragDropContext>
-        <App />
-      </DragDropContext>
-    </BrowserRouter>
-  </Provider>
+  <Suspense>
+    <Provider store={store}>
+      <BrowserRouter>
+        <DragDropContext>
+          <App />
+        </DragDropContext>
+      </BrowserRouter>
+    </Provider>
+  </Suspense>
 );
