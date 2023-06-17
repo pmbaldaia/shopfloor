@@ -99,13 +99,93 @@ const NewOrdem = (props) => {
     try {
       const res = await getCategorias(user.access_token);
       const categorias = res.data.categorias;
-      console.log(categorias);
       setCategorias(categorias);
     } catch (error) {
       console.error("Erro ao buscar as categorias:", error);
     }
   }
-  const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
+  /* const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
+  const [tarefasSelecionadas, setTarefasSelecionadas] = useState([]);
+  const handleDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
+
+    const { source, destination } = result;
+
+    if (source.droppableId === destination.droppableId) {
+      // Arrastar e soltar dentro do mesmo contêiner
+      const updatedCategorias = categorias.map((categoria) => {
+        if (categoria.id === source.droppableId) {
+          const tarefas = Array.from(categoria.tarefas);
+          const [tarefaMovida] = tarefas.splice(source.index, 1);
+          tarefas.splice(destination.index, 0, tarefaMovida);
+
+          return {
+            ...categoria,
+            tarefas: tarefas,
+          };
+        }
+        return categoria;
+      });
+
+      setCategorias(updatedCategorias);
+    } else {
+      // Arrastar e soltar em contêineres diferentes
+      const sourceCategoria = categorias.find(
+        (categoria) => categoria.id === source.droppableId
+      );
+      const destinationCategoria = categorias.find(
+        (categoria) => categoria.id === destination.droppableId
+      );
+
+      if (!sourceCategoria || !destinationCategoria) {
+        return; // Categorias não encontradas, aborta o processamento
+      }
+
+      const sourceTarefas = Array.from(sourceCategoria.tarefas);
+      const destinationTarefas = Array.from(destinationCategoria.tarefas);
+
+      const [tarefaMovida] = sourceTarefas.splice(source.index, 1);
+      destinationTarefas.splice(destination.index, 0, tarefaMovida);
+
+      const updatedCategorias = categorias.map((categoria) => {
+        if (categoria.id === source.droppableId) {
+          return {
+            ...categoria,
+            tarefas: sourceTarefas,
+          };
+        }
+        if (categoria.id === destination.droppableId) {
+          return {
+            ...categoria,
+            tarefas: destinationTarefas,
+          };
+        }
+        return categoria;
+      });
+
+      setCategorias(updatedCategorias);
+
+      // Atualizar as tarefas selecionadas
+      const updatedTarefasSelecionadas = tarefasSelecionadas.map((tarefa) => {
+        if (
+          tarefa.categoriaId === sourceCategoria.id &&
+          tarefa.index === source.index
+        ) {
+          return {
+            ...tarefa,
+            categoriaId: destinationCategoria.id,
+            index: destination.index,
+          };
+        }
+        return tarefa;
+      });
+
+      setTarefasSelecionadas(updatedTarefasSelecionadas);
+    }
+  };
+ */
   return (
     <Modal
       isOpen={props.isModalOpen}
@@ -421,55 +501,106 @@ const NewOrdem = (props) => {
                 ))}
               </Col>
             </Row>
-            <Row lg={12} style={{ padding: "1em" }}>
-              <Col xs={5}>
-                <span className={classes.titulosNovaOrdem}>
-                  Tarefas a selecionar
-                </span>
 
-                <div
-                  className={`${classes.firstContainer} ${classes.scrollContainer}`}
-                >
-                  <Table
-                    bordered
-                    className={`${classes["table-bordered"]} ${classes.tableSpacing}`}
-                    style={{ color: "#120309" }}
-                  >
-                    <tbody>
-                      {categoriaSelecionada &&
-                        categorias
-                          .find(
-                            (categoria) => categoria.id === categoriaSelecionada
-                          )
-                          .tarefas.map((tarefa) => (
-                            <tr key={tarefa.id}>
-                              <td className={classes.CategoriasBorda}>
-                                {tarefa.operacao}
-                              </td>
-                              <td className={classes.CategoriasBorda}>
+            <DragDropContext onDragEnd={handleDragEnd}>
+              <Row lg={12} style={{ padding: "1em" }}>
+                <Col xs={5}>
+                  <span className={classes.titulosNovaOrdem}>
+                    Tarefas a selecionar
+                  </span>
+
+                  <Droppable droppableId="first-container" type="tarefas">
+                    {(provided) => (
+                      <div
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
+                        className={`${classes.firstContainer} ${classes.scrollContainer}`}
+                      >
+                        <Table
+                          bordered
+                          className={`${classes["table-bordered"]} ${classes.tableSpacing}`}
+                          style={{ color: "#120309" }}
+                        >
+                          <tbody>
+                            {categoriaSelecionada &&
+                              categorias
+                                .find(
+                                  (categoria) =>
+                                    categoria.id === categoriaSelecionada
+                                )
+                                .tarefas.map((tarefa, index) => (
+                                  <Draggable
+                                    key={tarefa.id}
+                                    draggableId={tarefa.id.toString()}
+                                    index={index}
+                                  >
+                                    {(provided) => (
+                                      <tr
+                                        ref={provided.innerRef}
+                                        {...provided.draggableProps}
+                                        {...provided.dragHandleProps}
+                                      >
+                                        <td className={classes.CategoriasBorda}>
+                                          {tarefa.operacao}
+                                        </td>
+                                        <td className={classes.CategoriasBorda}>
+                                          {tarefa.tarefa}
+                                        </td>
+                                      </tr>
+                                    )}
+                                  </Draggable>
+                                ))}
+                          </tbody>
+                        </Table>
+                        {provided.placeholder}
+                      </div>
+                    )}
+                  </Droppable>
+                </Col>
+                <Col xs={2} className={classes.middleContainer}>
+                  <div className={classes.secondContainer}>
+                    <button className={classes.buttonContainer}>{">"}</button>
+                    <button className={classes.buttonContainer}>{">>"}</button>
+                    <button className={classes.buttonContainer}>{"<"}</button>
+                    <button className={classes.buttonContainer}>{"<<"}</button>
+                  </div>
+                </Col>
+                <Col xs={5}>
+                  <span className={classes.titulosNovaOrdem}>
+                    Tarefas selecionadas
+                  </span>
+                  <Droppable droppableId="third-container" type="tarefas">
+                    {(provided) => (
+                      <div
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
+                        className={classes.thirdContainer}
+                      >
+                        {tarefasSelecionadas.map((tarefa, index) => (
+                          <Draggable
+                            key={tarefa.id}
+                            draggableId={tarefa.id.toString()}
+                            index={index}
+                          >
+                            {(provided) => (
+                              <div
+                                ref={provided.innerRef}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                className={classes.selectedTask}
+                              >
                                 {tarefa.tarefa}
-                              </td>
-                            </tr>
-                          ))}
-                    </tbody>
-                  </Table>
-                </div>
-              </Col>
-              <Col xs={2} className={classes.middleContainer}>
-                <div className={classes.secondContainer}>
-                  <button className={classes.buttonContainer}>{">"}</button>
-                  <button className={classes.buttonContainer}>{">>"}</button>
-                  <button className={classes.buttonContainer}>{"<"}</button>
-                  <button className={classes.buttonContainer}>{"<<"}</button>
-                </div>
-              </Col>
-              <Col xs={5}>
-                <span className={classes.titulosNovaOrdem}>
-                  Tarefas selecionadas
-                </span>
-                <div className={classes.thirdContainer}>3</div>
-              </Col>
-            </Row>
+                              </div>
+                            )}
+                          </Draggable>
+                        ))}
+                        {provided.placeholder}
+                      </div>
+                    )}
+                  </Droppable>
+                </Col>
+              </Row>
+            </DragDropContext>
 
             <div className={classes.Container}>
               <Button style={ButtonStyle} onClick={handleAvancar}>
