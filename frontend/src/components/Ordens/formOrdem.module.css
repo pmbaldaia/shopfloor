@@ -137,6 +137,10 @@ select {
   max-height: auto;
 }
 
+.CategoriasBorda {
+  width: 20em;
+}
+
 .table-bordered {
   border-radius: 10px;
   font-size: 14px;

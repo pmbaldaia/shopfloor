@@ -8,6 +8,7 @@ const tarefaRoutes = require("./routes/tarefas.js");
 const maquinaRoutes = require("./routes/maquinas.js");
 const materialRoutes = require("./routes/materiais.js");
 const categoriaRoutes = require("./routes/categorias.js");
+const tipoRoutes = require("./routes/tipos.js");
 const userRoutes = require("./routes/users.js");
 const authRoutes = require("./routes/auth");
 
@@ -30,6 +31,7 @@ app.use("/tarefas", tarefaRoutes);
 app.use("/maquinas", maquinaRoutes);
 app.use("/materiais", materialRoutes);
 app.use("/categorias", categoriaRoutes);
+app.use("/tipos", tipoRoutes);
 app.use("/users", userRoutes);
 
 app.use((error, req, res, next) => {

@@ -6,6 +6,7 @@ import classes from "./formOrdem.module.css";
 import DatePicker from "react-datepicker";
 import pt from "date-fns/locale/pt";
 import { getCategorias } from "../../axios/categorias";
+import { getUsers } from "../../axios/users";
 import { useSelector } from "react-redux";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
@@ -90,8 +91,10 @@ const NewOrdem = (props) => {
 
   const user = useSelector((state) => state.user);
   const [categorias, setCategorias] = useState([]);
+  const [users, setUsers] = useState([]);
   useEffect(() => {
     fetchCategorias();
+    fetchUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.access_token]);
 
@@ -104,8 +107,20 @@ const NewOrdem = (props) => {
       console.error("Erro ao buscar as categorias:", error);
     }
   }
-  /* const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
+  async function fetchUsers() {
+    try {
+      const res = await getUsers(user.access_token);
+      const users = res.data.users;
+      setUsers(users);
+      console.log(setUsers);
+    } catch (error) {
+      console.error("Erro ao buscar as categorias:", error);
+    }
+  }
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
+  const [userSelecionado, setUserSelecionado] = useState("");
   const [tarefasSelecionadas, setTarefasSelecionadas] = useState([]);
+
   const handleDragEnd = (result) => {
     if (!result.destination) {
       return;
@@ -114,78 +129,86 @@ const NewOrdem = (props) => {
     const { source, destination } = result;
 
     if (source.droppableId === destination.droppableId) {
-      // Arrastar e soltar dentro do mesmo contêiner
-      const updatedCategorias = categorias.map((categoria) => {
-        if (categoria.id === source.droppableId) {
-          const tarefas = Array.from(categoria.tarefas);
-          const [tarefaMovida] = tarefas.splice(source.index, 1);
-          tarefas.splice(destination.index, 0, tarefaMovida);
-
-          return {
-            ...categoria,
-            tarefas: tarefas,
-          };
-        }
-        return categoria;
-      });
-
-      setCategorias(updatedCategorias);
-    } else {
-      // Arrastar e soltar em contêineres diferentes
-      const sourceCategoria = categorias.find(
-        (categoria) => categoria.id === source.droppableId
-      );
-      const destinationCategoria = categorias.find(
-        (categoria) => categoria.id === destination.droppableId
-      );
-
-      if (!sourceCategoria || !destinationCategoria) {
-        return; // Categorias não encontradas, aborta o processamento
+      // Arrastar e soltar dentro do mesmo container
+      if (source.droppableId === categoriaSelecionada) {
+        const updatedTarefasSelecionadas = Array.from(tarefasSelecionadas);
+        const [tarefaMovida] = updatedTarefasSelecionadas.splice(
+          source.index,
+          1
+        );
+        updatedTarefasSelecionadas.splice(destination.index, 0, tarefaMovida);
+        setTarefasSelecionadas(updatedTarefasSelecionadas);
       }
+    } else {
+      // Arrastar e soltar em container diferentes
+      if (source.droppableId === categoriaSelecionada) {
+        const sourceCategoria = categorias.find(
+          (categoria) => categoria.id === source.droppableId
+        );
+        const destinationCategoria = categorias.find(
+          (categoria) => categoria.id === destination.droppableId
+        );
 
-      const sourceTarefas = Array.from(sourceCategoria.tarefas);
-      const destinationTarefas = Array.from(destinationCategoria.tarefas);
-
-      const [tarefaMovida] = sourceTarefas.splice(source.index, 1);
-      destinationTarefas.splice(destination.index, 0, tarefaMovida);
-
-      const updatedCategorias = categorias.map((categoria) => {
-        if (categoria.id === source.droppableId) {
-          return {
-            ...categoria,
-            tarefas: sourceTarefas,
-          };
+        if (!sourceCategoria || !destinationCategoria) {
+          return; // Categorias não encontradas, cancela
         }
-        if (categoria.id === destination.droppableId) {
-          return {
-            ...categoria,
-            tarefas: destinationTarefas,
-          };
-        }
-        return categoria;
-      });
 
-      setCategorias(updatedCategorias);
+        const sourceTarefas = Array.from(sourceCategoria.tarefas);
+        const destinationTarefas = Array.from(destinationCategoria.tarefas);
 
-      // Atualizar as tarefas selecionadas
-      const updatedTarefasSelecionadas = tarefasSelecionadas.map((tarefa) => {
-        if (
-          tarefa.categoriaId === sourceCategoria.id &&
-          tarefa.index === source.index
-        ) {
-          return {
-            ...tarefa,
-            categoriaId: destinationCategoria.id,
-            index: destination.index,
-          };
-        }
-        return tarefa;
-      });
+        const [tarefaMovida] = sourceTarefas.splice(source.index, 1);
+        destinationTarefas.splice(destination.index, 0, tarefaMovida);
 
-      setTarefasSelecionadas(updatedTarefasSelecionadas);
+        const updatedCategorias = categorias.map((categoria) => {
+          if (categoria.id === source.droppableId) {
+            return {
+              ...categoria,
+              tarefas: sourceTarefas,
+            };
+          }
+          if (categoria.id === destination.droppableId) {
+            return {
+              ...categoria,
+              tarefas: destinationTarefas,
+            };
+          }
+          return categoria;
+        });
+
+        setCategorias(updatedCategorias);
+
+        const updatedTarefasSelecionadas = tarefasSelecionadas.filter(
+          (tarefa) => tarefa.categoriaId === sourceCategoria.id
+        );
+
+        setTarefasSelecionadas(updatedTarefasSelecionadas);
+      }
     }
   };
- */
+
+  const handleCategoryClick = (categoryId) => {
+    // Find the selected category
+    const selectedCategory = categorias.find(
+      (categoria) => categoria.id === categoryId
+    );
+
+    if (selectedCategory) {
+      // Clear the previous selected tasks
+      setTarefasSelecionadas([]);
+
+      // Add tasks from the selected category
+      selectedCategory.tarefas.forEach((tarefa) => {
+        setTarefasSelecionadas((prevTarefasSelecionadas) => [
+          ...prevTarefasSelecionadas,
+          tarefa,
+        ]);
+      });
+
+      // Update the selected category
+      setCategoriaSelecionada(categoryId);
+    }
+  };
+
   return (
     <Modal
       isOpen={props.isModalOpen}
@@ -495,6 +518,7 @@ const NewOrdem = (props) => {
                     key={categoria.id}
                     value={categoria.id}
                     className={classes.buttonTarefasSelecionadas}
+                    onClick={() => handleCategoryClick(categoria.id)}
                   >
                     {categoria.categoria}
                   </button>
@@ -574,6 +598,165 @@ const NewOrdem = (props) => {
                       <div
                         {...provided.droppableProps}
                         ref={provided.innerRef}
+                        className={`${classes.thirdContainer} ${classes.scrollContainer}`}
+                      >
+                        <Table
+                          bordered
+                          className={`${classes["table-bordered"]} ${classes.tableSpacing}`}
+                          style={{ color: "#120309" }}
+                        >
+                          <tbody>
+                            {tarefasSelecionadas.map((tarefa, index) => (
+                              <Draggable
+                                key={tarefa.id}
+                                draggableId={tarefa.id.toString()}
+                                index={index}
+                              >
+                                {(provided) => (
+                                  <div
+                                    ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+                                  >
+                                    <tr
+                                      ref={provided.innerRef}
+                                      {...provided.draggableProps}
+                                      {...provided.dragHandleProps}
+                                    >
+                                      <td className={classes.CategoriasBorda}>
+                                        {tarefa.operacao}
+                                      </td>
+                                      <td className={classes.CategoriasBorda}>
+                                        {tarefa.tarefa}
+                                      </td>
+                                    </tr>
+                                  </div>
+                                )}
+                              </Draggable>
+                            ))}
+                          </tbody>
+                        </Table>
+                        {provided.placeholder}
+                      </div>
+                    )}
+                  </Droppable>
+                </Col>
+              </Row>
+            </DragDropContext>
+
+            <div className={classes.Container}>
+              <Button style={ButtonStyle} onClick={handleAvancar}>
+                Avançar
+              </Button>{" "}
+              <Button style={ButtonStyleVoltar} onClick={handleVoltar}>
+                Voltar
+              </Button>
+            </div>
+          </Container>
+        </Tab>
+        <Tab
+          eventKey="operarios"
+          title={
+            <span
+              className={`${classes.tabColor} ${
+                activeTab === "operarios" ? classes.activeTab : ""
+              }`}
+            >
+              Operários
+            </span>
+          }
+        >
+          <Container fluid className={classes.Container}>
+            <Row className={classes.headerContent}>
+              <Col lg={5} style={{ textAlign: "start" }}>
+                <label style={{ marginRight: "0.5em" }}>Operários:</label>
+                <select
+                  value={userSelecionado}
+                  onChange={(e) => {
+                    setUserSelecionado(e.target.value);
+                  }}
+                  style={{ width: "15em" }}
+                >
+                  <option value="" disabled selected>
+                    -
+                  </option>
+                  {users.map((user) => (
+                    <option key={user.id} value={user.id}>
+                      {user.nome}
+                    </option>
+                  ))}
+                </select>
+              </Col>
+            </Row>
+            <DragDropContext onDragEnd={handleDragEnd}>
+              <Row lg={12} style={{ padding: "1em" }}>
+                <Col xs={5}>
+                  <span className={classes.titulosNovaOrdem}>
+                    Operários a selecionar
+                  </span>
+
+                  <Droppable droppableId="first-container" type="tarefas">
+                    {(provided) => (
+                      <div
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
+                        className={`${classes.firstContainer} ${classes.scrollContainer}`}
+                      >
+                        <Table
+                          bordered
+                          className={`${classes["table-bordered"]} ${classes.tableSpacing}`}
+                          style={{ color: "#120309" }}
+                        >
+                          <tbody>
+                            {userSelecionado &&
+                              users
+                                .find((user) => user.id === userSelecionado)
+                                .user.map((user, index) => (
+                                  <Draggable
+                                    key={user.id}
+                                    draggableId={user.id.toString()}
+                                    index={index}
+                                  >
+                                    {(provided) => (
+                                      <tr
+                                        ref={provided.innerRef}
+                                        {...provided.draggableProps}
+                                        {...provided.dragHandleProps}
+                                      >
+                                        <td className={classes.CategoriasBorda}>
+                                          {user.nome}
+                                        </td>
+                                        <td className={classes.CategoriasBorda}>
+                                          {user.especialidade}
+                                        </td>
+                                      </tr>
+                                    )}
+                                  </Draggable>
+                                ))}
+                          </tbody>
+                        </Table>
+                        {provided.placeholder}
+                      </div>
+                    )}
+                  </Droppable>
+                </Col>
+                <Col xs={2} className={classes.middleContainer}>
+                  <div className={classes.secondContainer}>
+                    <button className={classes.buttonContainer}>{">"}</button>
+                    <button className={classes.buttonContainer}>{">>"}</button>
+                    <button className={classes.buttonContainer}>{"<"}</button>
+                    <button className={classes.buttonContainer}>{"<<"}</button>
+                  </div>
+                </Col>
+                <Col xs={5}>
+                  <span className={classes.titulosNovaOrdem}>
+                    Operários selecionados
+                  </span>
+                  <Droppable droppableId="third-container" type="tarefas">
+                    {(provided) => (
+                      <div
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
                         className={classes.thirdContainer}
                       >
                         {tarefasSelecionadas.map((tarefa, index) => (
@@ -610,25 +793,6 @@ const NewOrdem = (props) => {
                 Voltar
               </Button>
             </div>
-          </Container>
-        </Tab>
-        <Tab
-          eventKey="operarios"
-          title={
-            <span
-              className={`${classes.tabColor} ${
-                activeTab === "operarios" ? classes.activeTab : ""
-              }`}
-            >
-              Operários
-            </span>
-          }
-        >
-          <Container fluid className={classes.Container}>
-            <Button style={ButtonStyle}>Adicionar Ordem</Button>{" "}
-            <Button style={ButtonStyleVoltar} onClick={handleVoltar}>
-              Voltar
-            </Button>
           </Container>
         </Tab>
       </Tabs>

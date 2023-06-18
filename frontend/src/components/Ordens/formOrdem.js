@@ -129,7 +129,7 @@ const NewOrdem = (props) => {
     const { source, destination } = result;
 
     if (source.droppableId === destination.droppableId) {
-      // Arrastar e soltar dentro do mesmo contêiner
+      // Arrastar e soltar dentro do mesmo container
       if (source.droppableId === categoriaSelecionada) {
         const updatedTarefasSelecionadas = Array.from(tarefasSelecionadas);
         const [tarefaMovida] = updatedTarefasSelecionadas.splice(
@@ -140,7 +140,7 @@ const NewOrdem = (props) => {
         setTarefasSelecionadas(updatedTarefasSelecionadas);
       }
     } else {
-      // Arrastar e soltar em contêineres diferentes
+      // Arrastar e soltar em container diferentes
       if (source.droppableId === categoriaSelecionada) {
         const sourceCategoria = categorias.find(
           (categoria) => categoria.id === source.droppableId
@@ -150,7 +150,7 @@ const NewOrdem = (props) => {
         );
 
         if (!sourceCategoria || !destinationCategoria) {
-          return; // Categorias não encontradas, aborta o processamento
+          return; // Categorias não encontradas, cancela
         }
 
         const sourceTarefas = Array.from(sourceCategoria.tarefas);
@@ -183,6 +183,25 @@ const NewOrdem = (props) => {
 
         setTarefasSelecionadas(updatedTarefasSelecionadas);
       }
+    }
+  };
+
+  const handleCategoryClick = (categoryId) => {
+    const selectedCategory = categorias.find(
+      (categoria) => categoria.id === categoryId
+    );
+
+    if (selectedCategory) {
+      setTarefasSelecionadas([]);
+
+      selectedCategory.tarefas.forEach((tarefa) => {
+        setTarefasSelecionadas((prevTarefasSelecionadas) => [
+          ...prevTarefasSelecionadas,
+          tarefa,
+        ]);
+      });
+
+      setCategoriaSelecionada(categoryId);
     }
   };
 
@@ -495,6 +514,7 @@ const NewOrdem = (props) => {
                     key={categoria.id}
                     value={categoria.id}
                     className={classes.buttonTarefasSelecionadas}
+                    onClick={() => handleCategoryClick(categoria.id)}
                   >
                     {categoria.categoria}
                   </button>
@@ -574,26 +594,44 @@ const NewOrdem = (props) => {
                       <div
                         {...provided.droppableProps}
                         ref={provided.innerRef}
-                        className={classes.thirdContainer}
+                        className={`${classes.thirdContainer} ${classes.scrollContainer}`}
                       >
-                        {tarefasSelecionadas.map((tarefa, index) => (
-                          <Draggable
-                            key={tarefa.id}
-                            draggableId={tarefa.id.toString()}
-                            index={index}
-                          >
-                            {(provided) => (
-                              <div
-                                ref={provided.innerRef}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                className={classes.selectedTask}
+                        <Table
+                          bordered
+                          className={`${classes["table-bordered"]} ${classes.tableSpacing}`}
+                          style={{ color: "#120309" }}
+                        >
+                          <tbody>
+                            {tarefasSelecionadas.map((tarefa, index) => (
+                              <Draggable
+                                key={tarefa.id}
+                                draggableId={tarefa.id.toString()}
+                                index={index}
                               >
-                                {tarefa.tarefa}
-                              </div>
-                            )}
-                          </Draggable>
-                        ))}
+                                {(provided) => (
+                                  <div
+                                    ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+                                  >
+                                    <tr
+                                      ref={provided.innerRef}
+                                      {...provided.draggableProps}
+                                      {...provided.dragHandleProps}
+                                    >
+                                      <td className={classes.CategoriasBorda}>
+                                        {tarefa.operacao}
+                                      </td>
+                                      <td className={classes.CategoriasBorda}>
+                                        {tarefa.tarefa}
+                                      </td>
+                                    </tr>
+                                  </div>
+                                )}
+                              </Draggable>
+                            ))}
+                          </tbody>
+                        </Table>
                         {provided.placeholder}
                       </div>
                     )}
