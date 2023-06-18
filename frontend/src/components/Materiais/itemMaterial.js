@@ -45,8 +45,8 @@ function MaterialItem({ material }) {
               &nbsp; &nbsp;
               <Link style={{ color: "black" }} onClick={openModal}>
                 <Trash size={28} weight="light" />
-                <ModalApagar isOpen={modalIsOpen} closeModal={closeModal} />
               </Link>
+              <ModalApagar isOpen={modalIsOpen} closeModal={closeModal} />
             </td>
           </tr>
         </tbody>

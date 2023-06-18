@@ -71,9 +71,9 @@ function UserItem({ User, access_token }) {
                 </Link>
                 &nbsp; &nbsp;
                 <Link style={{ color: "black" }} onClick={openModal}>
-                  <Trash size={28} weight="light" alt="APAGAR" />
-                  <ModalApagar isOpen={modalIsOpen} closeModal={closeModal} />
+                  <Trash size={28} weight="light" />
                 </Link>
+                <ModalApagar isOpen={modalIsOpen} closeModal={closeModal} />
               </span>
             </Card.Header>
             <Card.Body>

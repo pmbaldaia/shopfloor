@@ -208,7 +208,7 @@ const Sidebar = () => {
         <hr
           style={{
             width: "180px",
-            marginTop: "7em",
+            marginTop: "5em",
             marginLeft: "1.5em",
           }}
         ></hr>
