@@ -1,0 +1,44 @@
+.daterangepicker .ranges li.active {
+  background-color: #3a5a40;
+  color: white;
+}
+
+.daterangepicker td.active {
+  background-color: #3a5a40;
+  color: white;
+}
+.daterangepicker td.active:hover {
+  background-color: #a3b18a;
+  color: black;
+}
+.daterangepicker .today.active {
+  background-color: #3a5a40;
+  color: white;
+}
+
+.cancelBtn {
+  background-color: transparent;
+  border: 1px solid #3a5a40;
+  color: #3a5a40;
+  width: 100px;
+}
+
+.cancelBtn:hover {
+  background-color: #3a5a40;
+  color: white;
+  width: 100px;
+}
+
+.applyBtn {
+  background-color: #dad7cd;
+  color: #3a5a40;
+  width: 100px;
+  border: none;
+}
+
+.applyBtn:hover {
+  background-color: #3a5a40;
+  color: white;
+  width: 100px;
+  border: none;
+}

@@ -1,0 +1,30 @@
+.calendarContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.react-calendar {
+  background-color: #dde5df;
+}
+
+.react-calendar__tile--active {
+  background-color: #3a5a40;
+  color: white;
+  border-radius: 10em;
+}
+.react-calendar__tile--now {
+  background-color: #3a5a40;
+  color: white;
+  border-radius: 10em;
+}
+
+.react-calendar__tile--active:hover {
+  background-color: red;
+  color: white;
+  border-radius: 10em;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #3a5a40;
+}

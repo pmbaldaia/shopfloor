@@ -17,8 +17,9 @@ import {
 } from "@phosphor-icons/react";
 import * as XLSX from "xlsx";
 import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-datepicker";
-import pt from "date-fns/locale/pt";
+/* import DatePicker from "react-datepicker";
+import pt from "date-fns/locale/pt"; */
+import DateRangePickerOrdens from "./calendarListaOrdens.js";
 
 function OrdensList({ ordens }) {
   function CorEstado({ ordem }) {
@@ -215,29 +216,6 @@ function OrdensList({ ordens }) {
     URL.revokeObjectURL(url);
   };
 
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const placeholder = new Date().toLocaleDateString("pt-PT");
-
-  const handlePresetClick = (preset) => {
-    const today = new Date();
-    const dateOptions = {
-      Hoje: [new Date(today), new Date(today)],
-      "Últimos 30 dias": [
-        new Date(today.setDate(today.getDate() - 31)),
-        new Date(),
-      ],
-      "Últimos 2 meses": [
-        new Date(today.setMonth(today.getMonth() - 1)),
-        new Date(),
-      ],
-    };
-
-    const selectedDates = dateOptions[preset];
-    setStartDate(selectedDates[0]);
-    setEndDate(selectedDates[1]);
-  };
-
   return (
     <div className={classes.listaOrdens}>
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
@@ -265,80 +243,14 @@ function OrdensList({ ordens }) {
             display: "flex",
             flexDirection: "row",
             justifyContent: "flex-end",
-            width: "30em",
             float: "right",
             marginTop: "1.2em",
             alignItems: "center",
             marginRight: "1em",
           }}
         >
-          <label
-            style={{
-              width: "5em",
-              marginRight: "0.5em",
-              textAlign: "right",
-              fontWeight: "bold",
-            }}
-          >
-            Início:
-          </label>
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            placeholderText={placeholder}
-            locale={pt}
-            dateFormat="dd/MM/yyyy"
-            style={{
-              width: "8em",
-              borderRadius: "4px",
-              padding: "0.5em",
-              border: "1px solid #ccc",
-            }}
-          />
-
-          <label
-            style={{
-              marginLeft: "1em",
-              marginRight: "0.5em",
-              textAlign: "right",
-              fontWeight: "bold",
-            }}
-          >
-            Fim:
-          </label>
-          <DatePicker
-            selected={endDate}
-            onChange={(date) => {
-              setEndDate(date);
-              console.log(date);
-            }}
-            placeholderText={placeholder}
-            locale={pt}
-            dateFormat="dd/MM/yyyy"
-            style={{
-              width: "8em",
-              borderRadius: "4px",
-              padding: "0.5em",
-              border: "1px solid #ccc",
-            }}
-          />
-
-          <div style={{ marginLeft: "1em" }}>
-            <select
-              onChange={(e) => handlePresetClick(e.target.value)}
-              style={{
-                width: "9em",
-                borderRadius: "4px",
-                border: "1px solid #ccc",
-                background: "#f2f2f2",
-              }}
-            >
-              <option value="Hoje">Hoje</option>
-              <option value="Últimos 30 dias">Últimos 30 dias</option>
-              <option value="Últimos 2 meses">Últimos 2 meses</option>
-              {/* Adicione mais opções de data aqui, se necessário */}
-            </select>
-          </div>
+          {" "}
+          <DateRangePickerOrdens />
         </div>
       </div>
       <Container fluid>

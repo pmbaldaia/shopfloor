@@ -151,7 +151,7 @@ const Sidebar = () => {
       <div ref={sidebarRef} className="sidebar__menu">
         <div className="avatar">
           <Link to="/dashboard">
-            <User size={50} />
+            <User size={50} color="#3a5a40" />
           </Link>
           <HiUser />
         </div>
