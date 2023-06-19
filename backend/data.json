@@ -3490,5 +3490,23 @@
       "id": "2",
       "tipo": "JP02"
     }
+  ],
+  "estacoes": [
+    {
+      "id": "1",
+      "estacao": "A23"
+    },
+    {
+      "id": "2",
+      "estacao": "A24"
+    },
+    {
+      "id": "3",
+      "estacao": "S23"
+    },
+    {
+      "id": "4",
+      "estacao": "S24"
+    }
   ]
 }

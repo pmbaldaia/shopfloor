@@ -79,11 +79,11 @@ function Dashboard() {
       <div className="row">
         <div className="col-lg-12">
           <HeaderPage showCaretLeft={false} showSearchBar={true} />
-          <h1 style={{ paddingBottom: "0.5em" }}>Dashboard</h1>
+          <h1>Dashboard</h1>
         </div>
       </div>
       <div className="row">
-        <div className="row" style={{ paddingBottom: "3em" }}>
+        <div className="row" style={{ paddingBottom: "1em" }}>
           <div className="col-lg-6">
             <ChartDashboard />
           </div>
@@ -105,7 +105,7 @@ function Dashboard() {
                   handleOpenModal();
                   navigate(`/ordens/nova`);
                 }}
-              />{" "}
+              />
               {isModalOpen && (
                 <NewOrdem
                   isModalOpen={isModalOpen}

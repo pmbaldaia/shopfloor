@@ -14,9 +14,10 @@ import {
   Sliders,
   ListDashes,
   Stack,
-  SunHorizon,
+  TextT,
   CaretDown,
   CaretUp,
+  CloudSun,
 } from "@phosphor-icons/react";
 import { useDispatch } from "react-redux";
 import { userActions } from "../../store/user";
@@ -66,8 +67,13 @@ const sidebarNavItems = [
       },
       {
         display: "Tipos",
-        icon: <SunHorizon size={25} />,
+        icon: <TextT size={25} />,
         to: "/manutencao/tipos",
+      },
+      {
+        display: "Estações",
+        icon: <CloudSun size={25} />,
+        to: "/manutencao/estacoes",
       },
     ],
   },

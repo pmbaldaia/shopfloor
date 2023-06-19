@@ -28,6 +28,7 @@ import TarefaDetailPage from "./pages/Tarefas/detalheTarefa";
 //Manutencao
 import ManutencaoCategorias from "./pages/Manutencao/categorias";
 import ManutencaoTipo from "./pages/Manutencao/tipos";
+import ManutencaoEstacoes from "./pages/Manutencao/estacoes";
 
 //Página Dos Operários
 import LayoutOperarios from "./pages/EcraOperario/operario";
@@ -137,6 +138,10 @@ function App() {
                   <Route
                     path="/manutencao/tipos"
                     element={<ManutencaoTipo />}
+                  />
+                  <Route
+                    path="/manutencao/estacoes"
+                    element={<ManutencaoEstacoes />}
                   />
                 </>
               )}

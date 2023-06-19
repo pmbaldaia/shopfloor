@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import pt from "date-fns/locale/pt";
 import { getCategorias } from "../../axios/categorias";
 import { getUsers } from "../../axios/users";
+import { getEstacoes } from "../../axios/estacao";
 import { useSelector } from "react-redux";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
@@ -92,9 +93,11 @@ const NewOrdem = (props) => {
   const user = useSelector((state) => state.user);
   const [categorias, setCategorias] = useState([]);
   const [users, setUsers] = useState([]);
+  const [estacoes, setEstacoes] = useState([]);
   useEffect(() => {
     fetchCategorias();
     fetchUsers();
+    fetchEstacoes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.access_token]);
 
@@ -117,9 +120,20 @@ const NewOrdem = (props) => {
       console.error("Erro ao buscar as categorias:", error);
     }
   }
+  async function fetchEstacoes() {
+    try {
+      const res = await getEstacoes(user.access_token);
+      const estacoes = res.data.estacoes;
+      setEstacoes(estacoes);
+      console.log(setEstacoes);
+    } catch (error) {
+      console.error("Erro ao buscar as estações:", error);
+    }
+  }
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
   const [userSelecionado, setUserSelecionado] = useState("");
   const [tarefasSelecionadas, setTarefasSelecionadas] = useState([]);
+  const [estacaoSelecionada, setEstacaoSelecionada] = useState([]);
 
   const handleDragEnd = (result) => {
     if (!result.destination) {
@@ -308,7 +322,31 @@ const NewOrdem = (props) => {
                   <input placeholder="Ordem de Venda" required></input>
                 </Col>
                 <Col>
-                  <input placeholder="Estação" required></input>
+                  <select
+                    value={estacaoSelecionada}
+                    onChange={(e) => {
+                      setEstacaoSelecionada(e.target.value);
+                    }}
+                  >
+                    <option value="" disabled selected>
+                      Estação
+                    </option>
+                    {estacoes.map((estacao) => (
+                      <option key={estacao.id} value={estacao.id}>
+                        {estacao.estacao}
+                      </option>
+                    ))}
+                  </select>
+                  <a
+                    href="/estaaco"
+                    style={{
+                      float: "right",
+                      paddingRight: "10px",
+                      fontSize: "13px",
+                    }}
+                  >
+                    Criar Estação
+                  </a>
                 </Col>
                 <Col>
                   <input placeholder="Nome do Cliente" required></input>
@@ -469,9 +507,11 @@ const NewOrdem = (props) => {
                 </Col>
               </Row>
             </Row>
-            <Button style={ButtonStyle} onClick={handleAvancar}>
-              Avançar
-            </Button>{" "}
+            <Row style={{ padding: "auto" }}>
+              <Button style={ButtonStyle} onClick={handleAvancar}>
+                Avançar
+              </Button>
+            </Row>
           </Container>
         </Tab>
         <Tab
@@ -639,15 +679,16 @@ const NewOrdem = (props) => {
                 </Col>
               </Row>
             </DragDropContext>
-
-            <div className={classes.Container}>
-              <Button style={ButtonStyle} onClick={handleAvancar}>
-                Avançar
-              </Button>{" "}
-              <Button style={ButtonStyleVoltar} onClick={handleVoltar}>
-                Voltar
-              </Button>
-            </div>
+            <Row style={{ padding: "auto" }}>
+              <div className={classes.Container}>
+                <Button style={ButtonStyle} onClick={handleAvancar}>
+                  Avançar
+                </Button>{" "}
+                <Button style={ButtonStyleVoltar} onClick={handleVoltar}>
+                  Voltar
+                </Button>
+              </div>
+            </Row>
           </Container>
         </Tab>
         <Tab
@@ -780,15 +821,16 @@ const NewOrdem = (props) => {
                 </Col>
               </Row>
             </DragDropContext>
-
-            <div className={classes.Container}>
-              <Button style={ButtonStyle} onClick={handleAvancar}>
-                Avançar
-              </Button>{" "}
-              <Button style={ButtonStyleVoltar} onClick={handleVoltar}>
-                Voltar
-              </Button>
-            </div>
+            <Row style={{ padding: "auto" }}>
+              <div className={classes.Container}>
+                <Button style={ButtonStyle} onClick={handleAvancar}>
+                  Avançar
+                </Button>{" "}
+                <Button style={ButtonStyleVoltar} onClick={handleVoltar}>
+                  Voltar
+                </Button>
+              </div>
+            </Row>
           </Container>
         </Tab>
       </Tabs>
