@@ -12,7 +12,7 @@ import {
   Info,
 } from "@phosphor-icons/react";
 import "react-datepicker/dist/react-datepicker.css";
-import OrdensComponent from "../Overlays/ordemOverlay";
+import OrdensOverLayDescricao from "../Overlays/ordemOverlay";
 import HeaderPage from "../Header/header";
 import classes from "./listaOrdens.module.css";
 import * as XLSX from "xlsx";
@@ -546,8 +546,6 @@ function OrdensList({ ordens }) {
           </tr>
         </thead>
         <tbody>
-          {" "}
-          {/*   {sortOrdens.map((ordem) => ( */}
           {filteredDates.map((ordem) => (
             <tr key={ordem.id} style={CorEstado({ ordem })}>
               <td className={classes.highlightText}>
@@ -563,14 +561,13 @@ function OrdensList({ ordens }) {
                 <span>{ordem.quantidade}</span>
               </td>
               <td className={classes.highlightText2}>
-                <OrdensComponent descricao={ordem.descricao}>
+                <OrdensOverLayDescricao descricao={ordem.descricao}>
                   <span>
                     {ordem.produto}
                     <Info size={20} className="mx-1" />
                   </span>
-                </OrdensComponent>
+                </OrdensOverLayDescricao>
               </td>
-
               <td className={classes.highlightText2}>
                 <span>{ordem.liberado}</span>
               </td>

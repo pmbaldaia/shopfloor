@@ -1,6 +1,6 @@
 import { OverlayTrigger } from "react-bootstrap";
 
-function OrdensComponent({ descricao, children }) {
+function OrdensOverLayDescricao({ descricao, children }) {
   return (
     <OverlayTrigger
       trigger={["hover", "focus"]}
@@ -24,4 +24,4 @@ function OrdensComponent({ descricao, children }) {
   );
 }
 
-export default OrdensComponent;
+export default OrdensOverLayDescricao;
