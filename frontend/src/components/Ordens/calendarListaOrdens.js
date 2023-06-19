@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import moment from "moment";
 import DateRangePicker from "react-bootstrap-daterangepicker";
-/* import "bootstrap/dist/css/bootstrap.css"; */
 import "bootstrap-daterangepicker/daterangepicker.css";
 import "./calendarListaOrdens.css";
+import { CalendarPlus } from "@phosphor-icons/react";
+import moment from "moment";
 
 function DateRangePickerOrdens() {
   const [selectedDateRange, setSelectedDateRange] = useState({
@@ -30,7 +30,7 @@ function DateRangePickerOrdens() {
   };
 
   const predefinedRanges = {
-    Today: [moment().subtract(0, "days"), moment().endOf("day")],
+    Hoje: [moment().subtract(0, "days"), moment().endOf("day")],
     "Últimos 7 Dias": [moment().subtract(7, "days"), moment().endOf("day")],
     "Últimos 30 Dias": [moment().subtract(30, "days"), moment().endOf("day")],
     "Este Mês": [moment().startOf("month"), moment().endOf("day")],
@@ -77,12 +77,21 @@ function DateRangePickerOrdens() {
         }}
         onCallback={handleDateRangeChange}
       >
-        <input
-          id="dateRangePicker"
-          type="text"
-          className="form-control"
-          readOnly
-        />
+        <div className="input-group">
+          <span
+            className="input-group-text"
+            style={{ backgroundColor: "#dad7cd" }}
+          >
+            <CalendarPlus />
+          </span>
+          <input
+            id="dateRangePicker"
+            type="text"
+            className="form-control"
+            style={{ width: "13.1em" }}
+            readOnly
+          />
+        </div>
       </DateRangePicker>
     </div>
   );

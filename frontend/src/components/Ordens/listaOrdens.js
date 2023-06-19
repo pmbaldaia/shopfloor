@@ -2,23 +2,21 @@ import React, { useState, useEffect } from "react";
 import { Table, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AdicionarOrdem from "../Botoes/AdicionarOrdem";
-import { MagnifyingGlass, Info } from "@phosphor-icons/react";
+import {
+  ArrowClockwise,
+  ReadCvLogo,
+  DownloadSimple,
+  CaretUp,
+  CaretDown,
+  MagnifyingGlass,
+  Info,
+} from "@phosphor-icons/react";
 import "react-datepicker/dist/react-datepicker.css";
 import OrdensComponent from "../Overlays/ordemOverlay";
 import HeaderPage from "../Header/header";
 import classes from "./listaOrdens.module.css";
-import {
-  ArrowClockwise,
-  ReadCvLogo,
-  /* CaretUpDown, */
-  DownloadSimple,
-  CaretUp,
-  CaretDown,
-} from "@phosphor-icons/react";
 import * as XLSX from "xlsx";
 import "react-datepicker/dist/react-datepicker.css";
-/* import DatePicker from "react-datepicker";
-import pt from "date-fns/locale/pt"; */
 import DateRangePickerOrdens from "./calendarListaOrdens.js";
 
 function OrdensList({ ordens }) {
@@ -249,7 +247,6 @@ function OrdensList({ ordens }) {
             marginRight: "1em",
           }}
         >
-          {" "}
           <DateRangePickerOrdens />
         </div>
       </div>
