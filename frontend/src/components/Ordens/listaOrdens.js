@@ -11,7 +11,6 @@ import {
   MagnifyingGlass,
   Info,
 } from "@phosphor-icons/react";
-import "react-datepicker/dist/react-datepicker.css";
 import OrdensOverLayDescricao from "../Overlays/ordemOverlay";
 import HeaderPage from "../Header/header";
 import classes from "./listaOrdens.module.css";

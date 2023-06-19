@@ -24,6 +24,7 @@ function Dashboard() {
 
     return { backgroundColor, color };
   }
+
   const user = useSelector((state) => state.user);
   const [ordensEmAtraso, setOrdensEmAtraso] = useState([]);
   const [tarefasAaguardar, setTarefasAaguardar] = useState([]);
