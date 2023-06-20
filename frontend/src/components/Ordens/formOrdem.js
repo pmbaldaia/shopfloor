@@ -40,6 +40,7 @@ const NewOrdem = (props) => {
     border: "1px solid #dad7cd",
     textDecoration: "underline",
   };
+
   const [liberadoDate, setLiberadoDate] = useState(null);
   const [primeiroConsumoDate, setPrimeiroConsumoDate] = useState(null);
   const [ultimoConsumoDate, setUltimoConsumoDate] = useState(null);
@@ -392,13 +393,15 @@ const NewOrdem = (props) => {
                   <span className={classes.subtitulosForm}>Prazos</span>
                 </Col>
                 <Col>
-                  <DatePicker
-                    placeholderText="Liberado"
-                    selected={liberadoDate}
-                    onChange={handleLiberadoDateChange}
-                    locale={pt}
-                    dateFormat="dd/MM/yyyy"
-                  />
+                  <div>
+                    <DatePicker
+                      placeholderText="Liberado"
+                      selected={liberadoDate}
+                      onChange={handleLiberadoDateChange}
+                      locale={pt}
+                      dateFormat="dd/MM/yyyy"
+                    />
+                  </div>
                 </Col>
                 <Col>
                   <DatePicker
