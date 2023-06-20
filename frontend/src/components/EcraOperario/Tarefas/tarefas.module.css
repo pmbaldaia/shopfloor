@@ -38,3 +38,22 @@
   right: 20px;
   z-index: 9999;
 }
+
+.footer {
+  background-color: #dde5df;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: auto;
+  border-radius: 1em;
+  border-radius: 5em 5em 0em 0em;
+  padding-top: 2em;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer .textFooter {
+  padding: 1.5em;
+}

@@ -4,6 +4,7 @@ import HiUserOperario from "../hiUserOperario";
 import { Row, Col } from "react-bootstrap";
 import { User, HouseLine } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
+import image from "../../../assets/images/riopele-digital/logo-rd.png";
 
 function TarefasOperarios() {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
@@ -33,7 +34,7 @@ function TarefasOperarios() {
     "pt-pt",
     optionsTime
   );
-
+  const today = new Date();
   return (
     <div className={classes.contentOperario}>
       <Row className={classes.header}>
@@ -51,6 +52,22 @@ function TarefasOperarios() {
         </Col>
       </Row>{" "}
       <h4>Definições</h4>
+      <Row className={classes.footer}>
+        <img
+          src={image}
+          style={{ width: "auto", height: "1.5em" }}
+          alt="logoFooter"
+        />
+        <div className={classes.textFooter}>
+          <p>
+            Powered by <span>Riopele Digital</span>
+          </p>
+          <span>
+            © 2015-{today.getFullYear()} <span>Riopele Group</span>. All rights
+            reserved.
+          </span>
+        </div>
+      </Row>
     </div>
   );
 }

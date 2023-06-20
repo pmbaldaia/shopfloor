@@ -130,7 +130,7 @@ function OperarioLayout() {
       onClick: handleLogout,
     },
   ];
-
+  const today = new Date();
   return (
     <div className={classes.contentMenuOperario}>
       <Row className={classes.header}>
@@ -144,7 +144,20 @@ function OperarioLayout() {
         <Content cardsData={cardsData} />
       </Row>
       <Row className={classes.footer}>
-        <img src={image} style={{ width: "12em" }} alt="logoFooter" />
+        <img
+          src={image}
+          style={{ width: "auto", height: "1.5em" }}
+          alt="logoFooter"
+        />
+        <div className={classes.textFooter}>
+          <p>
+            Powered by <span>Riopele Digital</span>
+          </p>
+          <span>
+            © 2015-{today.getFullYear()} <span>Riopele Group</span>. All rights
+            reserved.
+          </span>
+        </div>
       </Row>
     </div>
   );
