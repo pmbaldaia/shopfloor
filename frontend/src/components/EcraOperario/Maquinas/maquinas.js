@@ -49,7 +49,8 @@ function TarefasOperarios() {
             <HouseLine size={32} />
           </Link>
         </Col>
-      </Row>
+      </Row>{" "}
+      <h4>Máquinas</h4>
     </div>
   );
 }

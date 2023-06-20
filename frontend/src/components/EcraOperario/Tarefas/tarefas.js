@@ -50,6 +50,7 @@ function TarefasOperarios() {
           </Link>
         </Col>
       </Row>
+      <h4>Tarefas</h4>
     </div>
   );
 }
