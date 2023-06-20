@@ -78,7 +78,7 @@ export default function Login() {
                       <h3 className="display-4">LOGIN</h3>
                     ) : (
                       <img
-                        style={{ alignSelf: "center" }}
+                        style={{ alignSelf: "center", height: "auto" }}
                         src={logoverde}
                         alt="logo"
                       />

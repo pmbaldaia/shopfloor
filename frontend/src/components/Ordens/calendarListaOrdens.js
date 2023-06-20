@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DateRangePicker from "react-bootstrap-daterangepicker";
-/* import "bootstrap-daterangepicker/daterangepicker.css"; */
+import "bootstrap-daterangepicker/daterangepicker.css";
 import "./calendarListaOrdens.css";
 import { CalendarPlus } from "@phosphor-icons/react";
 import moment from "moment";
