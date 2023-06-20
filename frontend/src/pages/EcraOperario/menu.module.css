@@ -1,5 +1,4 @@
-.contentOperario {
-  padding: 0em 2em;
+.contentMenuOperario {
   overflow-y: auto;
   max-height: 100vh;
 }
@@ -13,6 +12,20 @@
   border-radius: 1em;
   padding: 1.5em;
   margin-bottom: 1em;
+}
+
+.contentMenu {
+  padding: 0em 2em;
+}
+
+.footer {
+  background-color: #dde5df;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 1.5em;
+  border-radius: 1em;
 }
 
 .card-title {
@@ -38,6 +51,9 @@
   color: #3a5a40;
   border: 1px solid #3a5a40;
   border-radius: 1em;
+}
+.cardLink {
+  text-decoration: none;
 }
 
 .spacingCard {
@@ -86,10 +102,4 @@
   .cardContent {
     height: 10em;
   }
-}
-
-.cardLink {
-  display: block;
-  text-decoration: none;
-  color: inherit;
 }
