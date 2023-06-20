@@ -31,7 +31,7 @@ import ManutencaoTipo from "./pages/Manutencao/tipos";
 import ManutencaoEstacoes from "./pages/Manutencao/estacoes";
 
 //Página Dos Operários
-import MenuOperarios from "./pages/EcraOperario/operario";
+import MenuOperarios from "./pages/EcraOperario/menuOperario";
 import LayoutOperario from "./pages/Layout/layoutOperario";
 import OperariosTarefas from "./components/EcraOperario/Tarefas/tarefas";
 

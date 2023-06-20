@@ -1,6 +1,5 @@
 .contentOperario {
   padding: 0em 2em;
-  overflow-y: auto;
   max-height: 100vh;
 }
 
@@ -25,4 +24,17 @@
   font-family: "Montserrat";
   font-size: 30px;
   color: #3a5a40;
+}
+
+.menuButton {
+  border: 1px solid #3a5a40;
+  border-radius: 9px;
+  padding: 1em;
+}
+
+.menuRow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
 }

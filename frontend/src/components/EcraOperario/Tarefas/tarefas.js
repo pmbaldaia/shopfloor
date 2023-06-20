@@ -1,10 +1,11 @@
 import React from "react";
 import classes from "./tarefas.module.css";
 import HiUserOperario from "../hiUserOperario";
-import { Row } from "react-bootstrap";
-import { User } from "@phosphor-icons/react";
+import { Row, Col } from "react-bootstrap";
+import { User, HouseLine } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
-function tarefasOperarios() {
+function TarefasOperarios() {
   const currentDate = new Date();
   const optionsData = {
     weekday: "long",
@@ -23,10 +24,19 @@ function tarefasOperarios() {
           <User size={40} /> <HiUserOperario />
         </span>
         <p className={classes.formattedDate}>{formattedDate}</p>
+
         <p className={classes.formattedTime}>{formattedTime}</p>
+      </Row>
+
+      <Row className={classes.menuRow}>
+        <Col>
+          <Link to="/operarios" className={classes.menuButton}>
+            <HouseLine size={32} />
+          </Link>
+        </Col>
       </Row>
     </div>
   );
 }
 
-export default tarefasOperarios;
+export default TarefasOperarios;
