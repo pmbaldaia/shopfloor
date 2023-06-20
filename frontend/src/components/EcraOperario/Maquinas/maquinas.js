@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from "./tarefas.module.css";
+import classes from "./maquinas.module.css";
 import HiUserOperario from "../hiUserOperario";
 import { Row, Col } from "react-bootstrap";
 import { User, HouseLine } from "@phosphor-icons/react";

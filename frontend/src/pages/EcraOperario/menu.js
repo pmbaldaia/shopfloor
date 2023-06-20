@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from "./menuOperario.module.css";
+import classes from "./menu.module.css";
 import { useDispatch } from "react-redux";
 import { userActions } from "../../store/user";
 import { useSelector } from "react-redux";
@@ -17,13 +17,18 @@ import {
   Gear,
 } from "@phosphor-icons/react";
 import OperariosTarefas from "../../components/EcraOperario/Tarefas/tarefas";
+import OperariosMaquinas from "../../components/EcraOperario/Maquinas/maquinas";
+import OperariosDefinicoes from "../../components/EcraOperario/Definicoes/definicoes";
 
 function Content({ cardsData }) {
   const user = useSelector((state) => state.user);
+
   // eslint-disable-next-line
   const [tarefas, setTarefas] = useState([]);
+
   // eslint-disable-next-line
   const [mostrarTarefas, setMostrarTarefas] = useState(false);
+
   const token = localStorage.getItem("token");
   const decoded = jwt_decode(token);
   const operario_associado = decoded.user.nome;
@@ -116,16 +121,33 @@ function Content({ cardsData }) {
 }
 
 function OperarioLayout() {
-  const currentDate = new Date();
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 60000); // Update every minute (60000 milliseconds)
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   const optionsData = {
     weekday: "long",
     day: "numeric",
     month: "long",
     year: "numeric",
   };
-  const formattedDate = currentDate.toLocaleDateString("pt-pt", optionsData);
+  const formattedDate = currentDateTime.toLocaleDateString(
+    "pt-pt",
+    optionsData
+  );
   const optionsTime = { hour: "numeric", minute: "numeric", hour12: false };
-  const formattedTime = currentDate.toLocaleTimeString("pt-pt", optionsTime);
+  const formattedTime = currentDateTime.toLocaleTimeString(
+    "pt-pt",
+    optionsTime
+  );
 
   const cardsData = [
     {
@@ -134,9 +156,19 @@ function OperarioLayout() {
       to: "/operarios/tarefas",
       component: <OperariosTarefas />,
     },
-    { icon: <GearFine size={28} />, title: "MÁQUINAS" },
+    {
+      icon: <GearFine size={28} />,
+      title: "MÁQUINAS",
+      to: "/operarios/maquinas",
+      component: <OperariosMaquinas />,
+    },
     { icon: <Files size={28} />, title: "ORDENS" },
-    { icon: <Gear size={28} />, title: "DEFINIÇÕES" },
+    {
+      icon: <Gear size={28} />,
+      title: "DEFINIÇÕES",
+      to: "/operarios/definicoes",
+      component: <OperariosDefinicoes />,
+    },
   ];
 
   return (

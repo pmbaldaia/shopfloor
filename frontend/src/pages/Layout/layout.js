@@ -12,7 +12,9 @@ function RootLayout() {
       {!isDashboard &&
         location.pathname !== "/" &&
         location.pathname !== "/operarios" &&
-        location.pathname !== "/operarios/tarefas" && (
+        location.pathname !== "/operarios/tarefas" &&
+        location.pathname !== "/operarios/maquinas" &&
+        location.pathname !== "/operarios/definicoes" && (
           <div className="sidebar">
             <SideBar />
           </div>

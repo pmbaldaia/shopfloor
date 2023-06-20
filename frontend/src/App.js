@@ -31,9 +31,11 @@ import ManutencaoTipo from "./pages/Manutencao/tipos";
 import ManutencaoEstacoes from "./pages/Manutencao/estacoes";
 
 //Página Dos Operários
-import MenuOperarios from "./pages/EcraOperario/menuOperario";
+import MenuOperarios from "./pages/EcraOperario/menu";
 import LayoutOperario from "./pages/Layout/layoutOperario";
 import OperariosTarefas from "./components/EcraOperario/Tarefas/tarefas";
+import OperariosMaquinas from "./components/EcraOperario/Maquinas/maquinas";
+import OperariosDefinicoes from "./components/EcraOperario/Definicoes/definicoes";
 
 import Login from "./pages/Login/login";
 
@@ -146,29 +148,7 @@ function App() {
                   />
                 </>
               )}
-              {/*  <Route element={<LayoutOperario onLogout={handleLogout} />}>
-                {userType === "operario" && (
-                  <>
-                    <Route
-                      path="/operarios"
-                      element={
-                        <React.Fragment>
-                          <MenuOperarios />
-                        </React.Fragment>
-                      }
-                    />
-                    <Route
-                      path="/operarios/tarefas"
-                      element={
-                        <React.Fragment>
-                          <OperariosTarefas />
-                        </React.Fragment>
-                      }
-                    />
-                    <Route path="*" element={<Navigate to="/operarios" />} />
-                  </>
-                )}
-              </Route> */}
+
               <Route element={<LayoutOperario onLogout={handleLogout} />}>
                 {userType === "operario" && (
                   <>
@@ -176,6 +156,14 @@ function App() {
                     <Route
                       path="/operarios/tarefas"
                       element={<OperariosTarefas />}
+                    />{" "}
+                    <Route
+                      path="/operarios/maquinas"
+                      element={<OperariosMaquinas />}
+                    />{" "}
+                    <Route
+                      path="/operarios/definicoes"
+                      element={<OperariosDefinicoes />}
                     />
                     <Route path="*" element={<Navigate to="/operarios" />} />
                   </>
