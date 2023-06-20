@@ -87,3 +87,9 @@
     height: 10em;
   }
 }
+
+.cardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}

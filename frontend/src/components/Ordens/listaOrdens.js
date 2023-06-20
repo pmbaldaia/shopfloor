@@ -513,32 +513,8 @@ function OrdensList({ ordens }) {
               </div>
             </th>
 
-            <th key="liberado">
-              LIBERADO{" "}
-              {/*  <CaretUpDown
-                size={16}
-                onClick={__handleSortLIBERADO}
-                weight="fill"
-                style={arrowSort}
-                className={`${classes.arrowUp} ${
-                  sortLIBERADO === "asc" ? classes.arrowUp : classes.arrowDown
-                }`}
-              /> */}
-            </th>
-            <th key="data_entrega">
-              DATA ENTREGA{" "}
-              {/*  <CaretUpDown
-                size={16}
-                weight="fill"
-                style={arrowSort}
-                onClick={__handleSortDATA_ENTREGA}
-                className={`${classes.arrowUp} ${
-                  sortDATA_ENTREGA === "asc"
-                    ? classes.arrowUp
-                    : classes.arrowDown
-                }`}
-              /> */}
-            </th>
+            <th key="liberado">LIBERADO</th>
+            <th key="data_entrega">DATA ENTREGA</th>
             <th key="prioridade">PRIORIDADE </th>
             <th key="estado">ESTADO </th>
             <th key="acoes">AÇÕES</th>

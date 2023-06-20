@@ -1,0 +1,28 @@
+.contentOperario {
+  padding: 0em 2em;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.header {
+  background-color: #dde5df;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 1em;
+  padding: 1.5em;
+  margin-bottom: 1em;
+}
+
+.formattedDate {
+  font-family: "Montserrat";
+  font-size: 15px;
+  color: #3a5a40;
+}
+
+.formattedTime {
+  font-family: "Montserrat";
+  font-size: 30px;
+  color: #3a5a40;
+}
