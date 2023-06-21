@@ -5,8 +5,59 @@ import { Row, Col } from "react-bootstrap";
 import { User, HouseLine } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import image from "../../../assets/images/riopele-digital/logo-rd.png";
+import { getUsers } from "../../../axios/users";
+import { useSelector } from "react-redux";
+import jwt_decode from "jwt-decode";
 
 function TarefasOperarios() {
+  const user = useSelector((state) => state.user);
+  const [userTarefas, setuserTarefas] = useState([]);
+
+  useEffect(() => {
+    fetchUserTarefas();
+  }, [user.access_token]);
+
+  function decodeToken(token) {
+    try {
+      const decodedToken = jwt_decode(token);
+      return decodedToken;
+    } catch (error) {
+      console.log("Erro ao decodificar o token:", error);
+      return null;
+    }
+  }
+
+  async function fetchUserTarefas() {
+    try {
+      const decodedToken = decodeToken(user.access_token);
+      console.log(decodedToken);
+
+      if (decodedToken) {
+        const res = await getUsers(decodedToken.access_token);
+        const users = res.data.users;
+        const loggedInUser = users.find(
+          (u) => u.accessToken === user.access_token
+        );
+
+        console.log(loggedInUser);
+
+        if (loggedInUser) {
+          const userTarefas = loggedInUser.user.tarefas_associadas;
+          console.log(userTarefas);
+          setuserTarefas(userTarefas);
+        } else {
+          console.log("Usuário não encontrado.");
+          setuserTarefas([]);
+        }
+      } else {
+        console.log("Token inválido ou expirado.");
+        setuserTarefas([]);
+      }
+    } catch (error) {
+      console.error("Erro ao buscar as tarefas:", error);
+    }
+  }
+
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   useEffect(() => {
@@ -57,17 +108,9 @@ function TarefasOperarios() {
       </Row>
       <div style={mainContentStyle}>
         <p>TESTE</p>
-        <p>TESTE</p>
-        <p>TESTE</p>
-        <p>TESTE</p>
-        <p>TESTE</p>
-        <p>TESTE</p>
-        <p>TESTE</p>
-        <p>TESTE</p>
-        <p>TESTE</p>
-        <p>TESTE</p>
-        <p>TESTE</p>
-        <p>TESTE</p>
+        {userTarefas.map((tarefa) => (
+          <p key={tarefa.id}>{tarefa.nome}</p>
+        ))}
       </div>
       <Row className={classes.footer}>
         <img
