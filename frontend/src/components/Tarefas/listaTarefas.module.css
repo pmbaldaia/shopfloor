@@ -92,6 +92,7 @@
   background-color: #ecf0ed;
   border: 2px solid #a3b18a;
 }
+
 .searchBarTarefas {
   width: 25em;
   height: 2em;
@@ -117,7 +118,86 @@
   color: rgb(98, 98, 98);
 }
 
+.filterEstado {
+  width: 10em;
+  height: 2em;
+  margin-left: 1em;
+  padding-left: 0.6em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 9px;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+  color: rgb(98, 98, 98);
+}
+
+.filterPrioridade {
+  width: 10em;
+  height: 2em;
+  padding-left: 0.6em;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 9px;
+  background-color: #ecf0ed;
+  border: 2px solid #a3b18a;
+  color: rgb(98, 98, 98);
+}
+
 .iconRefresh {
   margin-top: 0.8em;
   margin-left: 1em;
+}
+
+.containerOrdensBorder {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 2em;
+}
+
+.boxOrdensBorder {
+  border: 2px solid #a3b18a;
+  border-radius: 9px;
+  width: 8em;
+  height: 5em;
+  background-color: (221, 229, 223);
+}
+
+.boxOrdens2rd {
+  box-shadow: 2px 2px 15px 0px #dde5df;
+  border: 2px solid #dde5df;
+  background-color: rgb(221, 229, 223, 0.5);
+}
+
+.boxOrdens3rd {
+  box-shadow: 2px 2px 15px 0px rgba(95, 164, 217, 0.25);
+  border: 2px solid #5fa4d9;
+  background-color: rgba(95, 164, 217, 0.25);
+}
+
+.boxOrdens4th {
+  box-shadow: 2px 2px 15px 0px rgba(112, 204, 122, 0.25);
+  border: 2px solid #70cc7a;
+  background-color: rgba(112, 204, 122, 0.25);
+}
+
+.boxOrdens5th {
+  box-shadow: 2px 2px 15px 0px rgba(245, 130, 131, 0.25);
+  border: 2px solid #f58283;
+  background-color: rgba(245, 130, 131, 0.25);
+}
+
+.colMargin {
+  margin: auto auto;
+}
+
+.textoOrdensBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Montserrat";
 }

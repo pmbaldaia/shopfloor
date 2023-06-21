@@ -382,7 +382,9 @@
     {
       "id": "1",
       "ordem_associada": "51345",
+      "ordem_venda": "003601040",
       "produto": "Calções",
+      "quantidade": "360",
       "operario_associado": ["Pedro Sousa", "Leonor Rodrigues"],
       "subtarefas": [
         {
@@ -667,12 +669,16 @@
           "categoria": "Embalamento",
           "tarefa": "Etiquetar, dobrar e embalar"
         }
-      ]
+      ],
+      "prioridade": "Média",
+      "estado": "Em Progresso"
     },
     {
       "id": "2",
       "ordem_associada": 67891,
+      "ordem_venda": "003601041",
       "produto": "Calças",
+      "quantidade": "20",
       "operario_associado": ["Gonçalo Gama"],
       "subtarefas": [
         {
@@ -957,12 +963,16 @@
           "categoria": "Embalamento",
           "tarefa": "Etiquetar, dobrar e embalar"
         }
-      ]
+      ],
+      "prioridade": "Alta",
+      "estado": "Em Atraso"
     },
     {
       "id": "3",
       "ordem_associada": 67892,
+      "ordem_venda": "003601042",
       "produto": "Vestido",
+      "quantidade": "147",
       "operario_associado": ["João Ferreira"],
       "subtarefas": [
         {
@@ -1247,12 +1257,16 @@
           "categoria": "Embalamento",
           "tarefa": "Etiquetar, dobrar e embalar"
         }
-      ]
+      ],
+      "prioridade": "-",
+      "estado": "Concluído"
     },
     {
       "id": "4",
       "ordem_associada": "41234",
+      "ordem_venda": "003601045",
       "produto": "Saias",
+      "quantidade": "45",
       "operario_associado": ["Pedro Sousa", "Leonor Rodrigues"],
       "subtarefas": [
         {
@@ -1537,7 +1551,9 @@
           "categoria": "Embalamento",
           "tarefa": "Etiquetar, dobrar e embalar"
         }
-      ]
+      ],
+      "prioridade": "Média",
+      "estado": "Por fazer"
     }
   ],
   "maquinas": [
