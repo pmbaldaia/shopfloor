@@ -37,6 +37,7 @@ function TarefasOperarios() {
   const mainContentStyle = {
     padding: "1em",
   };
+
   return (
     <div className={classes.contentOperario}>
       <Row className={classes.header}>

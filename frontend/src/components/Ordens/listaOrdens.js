@@ -34,10 +34,33 @@ function OrdensList({ ordens }) {
     return { backgroundColor, color };
   }
 
+  const [showScrollButton, setShowScrollButton] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      const halfWindowHeight = windowHeight / 2;
+
+      setShowScrollButton(scrollPosition > halfWindowHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   function ScrollToTopButton() {
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
+
+    if (!showScrollButton) {
+      return null;
+    }
 
     return (
       <button
