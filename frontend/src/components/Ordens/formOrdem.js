@@ -279,7 +279,7 @@ const NewOrdem = (props) => {
                       fontSize: "13px",
                     }}
                   >
-                    Criar Tipo
+                    Adicionar Tipo
                   </a>
                 </Col>
                 <Col>
@@ -316,7 +316,7 @@ const NewOrdem = (props) => {
                       fontSize: "13px",
                     }}
                   >
-                    Criar Categoria
+                    Adicionar Categoria
                   </a>
                 </Col>
                 <Col>
@@ -346,7 +346,7 @@ const NewOrdem = (props) => {
                       fontSize: "13px",
                     }}
                   >
-                    Criar Estação
+                    Adicionar Estação
                   </a>
                 </Col>
                 <Col>
