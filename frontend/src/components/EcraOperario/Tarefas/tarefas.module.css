@@ -1,6 +1,7 @@
 .contentOperario {
-  max-height: 100vh;
   overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 100vh;
 }
 
 .header {
@@ -63,4 +64,27 @@
 
 .footer .textFooter {
   padding: 1.5em;
+}
+
+/* Estilos para telas menores que 768px */
+@media (max-width: 768px) {
+  .contentOperario {
+    overflow-y: scroll;
+  }
+  .header {
+    flex-direction: column;
+  }
+
+  .cardList {
+    flex-direction: column;
+  }
+
+  .cardContent {
+    height: 10em;
+  }
+
+  /* Ajuste ao tamanho da tela */
+  .contentMenuOperario {
+    max-height: 100vh;
+  }
 }

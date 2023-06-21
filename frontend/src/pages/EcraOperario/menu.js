@@ -35,6 +35,7 @@ function Content({ cardsData }) {
               style={{
                 backgroundColor:
                   colors[Math.floor(Math.random() * colors.length)],
+                borderRadius: "1em",
               }}
               onClick={() => handleCardClick(card.onClick)} // Handle click event
             >
