@@ -10,6 +10,7 @@ import {
   CaretDown,
   MagnifyingGlass,
   Info,
+  ArrowUp,
 } from "@phosphor-icons/react";
 import OrdensOverLayDescricao from "../Overlays/ordemOverlay";
 import HeaderPage from "../Header/header";
@@ -31,6 +32,22 @@ function OrdensList({ ordens }) {
     const color = estadoLowerCase === "em atraso" ? "white" : "black";
 
     return { backgroundColor, color };
+  }
+
+  function ScrollToTopButton() {
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    return (
+      <button
+        className={classes.scrollToTopButton}
+        onClick={scrollToTop}
+        title="Voltar para o início"
+      >
+        <ArrowUp size={32} className={classes.scrollToTopStyle} />
+      </button>
+    );
   }
 
   /* const submit = () => {}; */
@@ -566,6 +583,7 @@ function OrdensList({ ordens }) {
           ))}
         </tbody>
       </Table>
+      <ScrollToTopButton />
     </div>
   );
 }

@@ -12,8 +12,7 @@ function TarefasOperarios() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentDateTime(new Date());
-    }, 60000); // Update every minute (60000 milliseconds)
-
+    }, 60000);
     return () => {
       clearInterval(interval);
     };
@@ -35,6 +34,9 @@ function TarefasOperarios() {
     optionsTime
   );
   const today = new Date();
+  const mainContentStyle = {
+    padding: "1em",
+  };
   return (
     <div className={classes.contentOperario}>
       <Row className={classes.header}>
@@ -43,6 +45,7 @@ function TarefasOperarios() {
         </span>
         <p className={classes.formattedDate}>{formattedDate}</p>
         <p className={classes.formattedTime}>{formattedTime}</p>
+        <h4 className={classes.formattedTitle}>Tarefas</h4>
       </Row>
       <Row className={classes.menuRow}>
         <Col>
@@ -51,7 +54,20 @@ function TarefasOperarios() {
           </Link>
         </Col>
       </Row>
-      <h4>Tarefas</h4>
+      <div style={mainContentStyle}>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+      </div>
       <Row className={classes.footer}>
         <img
           src={image}
@@ -63,8 +79,8 @@ function TarefasOperarios() {
             Powered by <span>Riopele Digital</span>
           </p>
           <span>
-            © 2015-{today.getFullYear()} <span>Riopele Group</span>. All rights
-            reserved.
+            © 2015-{today.getFullYear()} <span>Riopele Group</span>. Todos os
+            direitos reservados.
           </span>
         </div>
       </Row>

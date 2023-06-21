@@ -35,6 +35,9 @@ function TarefasOperarios() {
     optionsTime
   );
   const today = new Date();
+  const mainContentStyle = {
+    padding: "1em",
+  };
   return (
     <div className={classes.contentOperario}>
       <Row className={classes.header}>
@@ -43,6 +46,7 @@ function TarefasOperarios() {
         </span>
         <p className={classes.formattedDate}>{formattedDate}</p>
         <p className={classes.formattedTime}>{formattedTime}</p>
+        <h4 className={classes.formattedTitle}>Definições</h4>
       </Row>
       <Row className={classes.menuRow}>
         <Col>
@@ -51,7 +55,20 @@ function TarefasOperarios() {
           </Link>
         </Col>
       </Row>{" "}
-      <h4>Definições</h4>
+      <div style={mainContentStyle}>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+        <p>TESTE</p>
+      </div>
       <Row className={classes.footer}>
         <img
           src={image}
