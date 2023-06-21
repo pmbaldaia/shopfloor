@@ -16,8 +16,8 @@ import HeaderPage from "../Header/header";
 import classes from "./listaOrdens.module.css";
 import * as XLSX from "xlsx";
 import "react-datepicker/dist/react-datepicker.css";
-import DateRangePickerOrdens from "./calendarListaOrdens.js";
-import ScrollToTopButton from "./scrollUpButton.js";
+import DateRangePickerOrdens from "./CalendarioLista/calendarListaOrdens";
+import ScrollToTopButton from "./BotãoUp/scrollUpButton.js";
 
 function OrdensList({ ordens }) {
   function CorEstado({ ordem }) {
