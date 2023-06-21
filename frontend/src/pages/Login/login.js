@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import logo from "../../assets/images/logobranco.png";
 import logoverde from "../../assets/images/logoverde.png";
 import { Eye, EyeSlash } from "@phosphor-icons/react";
@@ -141,13 +142,13 @@ export default function Login() {
                         </div>
                       )}
                       <div className="d-grid gap-2 mt-4">
-                        <button
+                        <Button
                           type="submit"
                           className="btn btn-block text-uppercase mb-2 mt-4 rounded"
                           disabled={isSubmitting}
                         >
                           {isSubmitting ? "A enviar..." : "LOGIN"}
-                        </button>
+                        </Button>
                       </div>
 
                       <div className="text-center d-flex justify-content-center mt-2">

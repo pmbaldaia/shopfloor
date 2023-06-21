@@ -31,6 +31,7 @@ h1 {
   --bs-table-color: none !important;
   --bs-table-bg: none !important;
 }
+
 @media only screen and (min-width: 480px) {
   /* styles for devices with a minimum screen width of 480px */
 }

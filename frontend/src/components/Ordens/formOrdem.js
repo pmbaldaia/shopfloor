@@ -393,15 +393,14 @@ const NewOrdem = (props) => {
                   <span className={classes.subtitulosForm}>Prazos</span>
                 </Col>
                 <Col>
-                  <div>
-                    <DatePicker
-                      placeholderText="Liberado"
-                      selected={liberadoDate}
-                      onChange={handleLiberadoDateChange}
-                      locale={pt}
-                      dateFormat="dd/MM/yyyy"
-                    />
-                  </div>
+                  <DatePicker
+                    placeholderText="Liberado"
+                    selected={liberadoDate}
+                    onChange={handleLiberadoDateChange}
+                    locale="pt"
+                    dateFormat="dd/MM/yyyy"
+                    wrapperClassName="input-group"
+                  />
                 </Col>
                 <Col>
                   <DatePicker
@@ -410,6 +409,7 @@ const NewOrdem = (props) => {
                     onChange={handlePrimeiroConsumoDateChange}
                     locale={pt}
                     dateFormat="dd/MM/yyyy"
+                    wrapperClassName="input-group"
                   />
                 </Col>
                 <Col>
@@ -419,6 +419,7 @@ const NewOrdem = (props) => {
                     onChange={handleUltimoConsumoDateChange}
                     locale={pt}
                     dateFormat="dd/MM/yyyy"
+                    wrapperClassName="input-group"
                   />
                 </Col>
                 <Col>
@@ -428,6 +429,7 @@ const NewOrdem = (props) => {
                     onChange={handleEntradaTecidoDateChange}
                     locale={pt}
                     dateFormat="dd/MM/yyyy"
+                    wrapperClassName="input-group"
                   />
                 </Col>
                 <p></p>
@@ -441,6 +443,7 @@ const NewOrdem = (props) => {
                     onChange={handleEntradaPedidoCompraDateChange}
                     locale={pt}
                     dateFormat="dd/MM/yyyy"
+                    wrapperClassName="input-group"
                   />
                 </Col>
                 <Col>
@@ -450,6 +453,7 @@ const NewOrdem = (props) => {
                     onChange={handlePrevistaAcessoriosDateChange}
                     locale={pt}
                     dateFormat="dd/MM/yyyy"
+                    wrapperClassName="input-group"
                   />
                 </Col>
                 <Col>
@@ -459,6 +463,7 @@ const NewOrdem = (props) => {
                     onChange={handleAprovacaoModeloDateChange}
                     locale={pt}
                     dateFormat="dd/MM/yyyy"
+                    wrapperClassName="input-group"
                   />
                 </Col>
                 <Col>
@@ -468,6 +473,7 @@ const NewOrdem = (props) => {
                     onChange={handleDesejadaRemessaDateChange}
                     locale={pt}
                     dateFormat="dd/MM/yyyy"
+                    wrapperClassName="input-group"
                   />
                 </Col>
                 <p></p>
@@ -481,6 +487,7 @@ const NewOrdem = (props) => {
                     onChange={handlePrevistaProducaoDateChange}
                     locale={pt}
                     dateFormat="dd/MM/yyyy"
+                    wrapperClassName="input-group"
                   />
                 </Col>
                 <Col>
@@ -493,6 +500,7 @@ const NewOrdem = (props) => {
                   <span></span>
                 </Col>
               </Row>
+
               <hr
                 style={{
                   padding: "10px 0",
