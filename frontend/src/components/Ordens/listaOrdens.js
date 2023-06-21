@@ -10,7 +10,6 @@ import {
   CaretDown,
   MagnifyingGlass,
   Info,
-  ArrowUp,
 } from "@phosphor-icons/react";
 import OrdensOverLayDescricao from "../Overlays/ordemOverlay";
 import HeaderPage from "../Header/header";
@@ -18,6 +17,7 @@ import classes from "./listaOrdens.module.css";
 import * as XLSX from "xlsx";
 import "react-datepicker/dist/react-datepicker.css";
 import DateRangePickerOrdens from "./calendarListaOrdens.js";
+import ScrollToTopButton from "./scrollUpButton.js";
 
 function OrdensList({ ordens }) {
   function CorEstado({ ordem }) {
@@ -32,45 +32,6 @@ function OrdensList({ ordens }) {
     const color = estadoLowerCase === "em atraso" ? "white" : "black";
 
     return { backgroundColor, color };
-  }
-
-  const [showScrollButton, setShowScrollButton] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop;
-      const windowHeight =
-        window.innerHeight || document.documentElement.clientHeight;
-      const halfWindowHeight = windowHeight / 2;
-
-      setShowScrollButton(scrollPosition > halfWindowHeight);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  function ScrollToTopButton() {
-    const scrollToTop = () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
-    if (!showScrollButton) {
-      return null;
-    }
-
-    return (
-      <button
-        className={classes.scrollToTopButton}
-        onClick={scrollToTop}
-        title="Voltar para o início"
-      >
-        <ArrowUp size={32} className={classes.scrollToTopStyle} />
-      </button>
-    );
   }
 
   /* const submit = () => {}; */
