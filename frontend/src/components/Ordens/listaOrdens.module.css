@@ -217,17 +217,3 @@ h1 {
   font-family: "Montserrat";
 }
 
-.scrollToTopButton {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  border: none;
-}
-.scrollToTopStyle {
-  background-color: none;
-  color: #3a5a40;
-  font-size: 14px;
-  border-radius: 9px;
-  padding: 0.1em;
-}
