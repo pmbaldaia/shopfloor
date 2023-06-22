@@ -21,10 +21,11 @@ function decodeToken(token) {
 function TarefasOperarios() {
   const user = useSelector((state) => state.user);
   const [userTarefas, setUserTarefas] = useState([]);
+  const [userOrdens, setUserOrdens] = useState([]);
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   useEffect(() => {
-    const fetchUserTarefas = async () => {
+    const fetchUserData = async () => {
       if (user && user.access_token) {
         try {
           const decodedToken = decodeToken(user.access_token);
@@ -33,22 +34,27 @@ function TarefasOperarios() {
           const loggedInUser = decodedToken.user;
           console.log(loggedInUser);
 
-          if (loggedInUser && loggedInUser.tarefas_associadas) {
-            setUserTarefas(loggedInUser.tarefas_associadas);
+          if (loggedInUser) {
+            setUserTarefas(loggedInUser.tarefas_associadas || []);
+            setUserOrdens(loggedInUser.ordens_atribuidas || []);
             console.log(loggedInUser.tarefas_associadas);
+            console.log(loggedInUser.ordens_atribuidas);
           } else {
             setUserTarefas([]);
+            setUserOrdens([]);
           }
         } catch (error) {
           console.log("Erro ao buscar informações do utilizador:", error);
           setUserTarefas([]);
+          setUserOrdens([]);
         }
       } else {
         setUserTarefas([]);
+        setUserOrdens([]);
       }
     };
 
-    fetchUserTarefas();
+    fetchUserData();
   }, [user]);
 
   useEffect(() => {
@@ -95,12 +101,19 @@ function TarefasOperarios() {
         </Col>
       </Row>
       <div className={classes.mainContentStyle}>
-        {userTarefas.length > 0 ? (
+        {userTarefas.length > 0 || userOrdens.length > 0 ? (
           <Col xs={12} md={6} lg={4}>
             {userTarefas.map((tarefa, index) => (
               <Card key={index} className={classes.cardStyle}>
                 <Card.Body>
-                  <Card.Text>{tarefa}</Card.Text>
+                  <Row>
+                    <Col xs={6}>
+                      <Card.Text>{userOrdens}</Card.Text>
+                    </Col>
+                    <Col xs={6}>
+                      <Card.Text>{tarefa}</Card.Text>
+                    </Col>
+                  </Row>
                 </Card.Body>
               </Card>
             ))}
@@ -113,10 +126,11 @@ function TarefasOperarios() {
               weight="bold"
               style={{ paddingRight: "5px" }}
             />
-            <label>Nenhuma tarefa encontrada</label>
+            <label>Nenhuma tarefa ou ordem encontrada</label>
           </div>
         )}
       </div>
+
       <Row className={classes.footer}>
         <img
           src={image}
