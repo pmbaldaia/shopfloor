@@ -3,27 +3,26 @@ import classes from "./maquinas.module.css";
 import HiUserOperario from "../hiUserOperario";
 import { getMaquinas } from "../../../axios/maquinas";
 import { useSelector } from "react-redux";
-import { Row, Col, Card, Button } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import { User, HouseLine, Warning } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import image from "../../../assets/images/riopele-digital/logo-rd.png";
 import AdicionarProblema from "../../Botoes/EcraOperario/AdicionarProblema";
 function TarefasOperarios() {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-
   const user = useSelector((state) => state.user);
   const [maquinas, setMaquinas] = useState([]);
 
   useEffect(() => {
-    fetchMaquinas();
+    fetchMaquinas(); // eslint-disable-next-line
   }, [user.access_token]);
 
-  async function fetchMaquinas(){
-    try{
+  async function fetchMaquinas() {
+    try {
       const res = await getMaquinas(user.access_token);
       const machine = res.data.maquinas;
       setMaquinas(machine);
-    }catch(error){
+    } catch (error) {
       console.error("Erro ao buscar as maquinas:", error);
     }
   }
@@ -85,7 +84,7 @@ function TarefasOperarios() {
                       <Card.Text>{maquina.problemas_manutencao}</Card.Text>
                     </Col>
                     <Col xs={4}>
-                      <AdicionarProblema/>
+                      <AdicionarProblema />
                     </Col>
                   </Row>
                 </Card.Body>
@@ -94,7 +93,12 @@ function TarefasOperarios() {
           </Col>
         ) : (
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Warning size={25} color="#F58283" weight="bold" style={{ paddingRight: "5px" }}/>
+            <Warning
+              size={25}
+              color="#F58283"
+              weight="bold"
+              style={{ paddingRight: "5px" }}
+            />
             <label>Nenhuma tarefa ou ordem encontrada</label>
           </div>
         )}
