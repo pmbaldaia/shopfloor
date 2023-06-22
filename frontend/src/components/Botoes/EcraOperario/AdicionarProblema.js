@@ -8,7 +8,7 @@ const AdicionarMaquina = () => {
         color: "#3a5a40",
         fontSize: "14px",
         fontWeight: "600",
-        width: "16em",
+        width: "8em",
         height: "3em",
         marginRight: "2em",
         float: "right",
@@ -19,7 +19,7 @@ const AdicionarMaquina = () => {
   return (
     <>
       <Link>
-        <Button style={ButtonStyle}>Adicionar Problema</Button>
+        <Button style={ButtonStyle}>Adicionar</Button>
       </Link>
     </>
   );

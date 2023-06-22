@@ -70,6 +70,9 @@ function TarefasOperarios() {
           </Link>
         </Col>
       </Row>{" "}
+      <div className={classes.textoInicial}>
+        <label>Adicione o problema que a máquina tenha</label>
+      </div>
       <div className={classes.mainContentStyle}>
         {maquinas.length > 0 ? (
           <Col>
@@ -80,9 +83,6 @@ function TarefasOperarios() {
                     <Col xs={6} className={classes.cardTextMaquinaNome}>
                       <Card.Text>{maquina.nome}</Card.Text>
                     </Col>
-                    {/* <Col xs={4} className={classes.cardTextMaquinaProblemas}>
-                      <Card.Text>{maquina.problemas_manutencao}</Card.Text>
-                    </Col> */}
                     <Col xs={6}>
                       <AdicionarProblema/>
                     </Col>
