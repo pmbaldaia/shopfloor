@@ -8,7 +8,7 @@ const AdicionarMaquina = () => {
         color: "#3a5a40",
         fontSize: "14px",
         fontWeight: "600",
-        width: "12em",
+        width: "16em",
         height: "3em",
         marginRight: "2em",
         float: "right",
