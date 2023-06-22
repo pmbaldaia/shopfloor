@@ -89,13 +89,7 @@ function TarefasList({ tarefas }) {
     setTotalEmProgresso(emProgresso);
     setTotalEmAtraso(emAtraso);
     setTotalConcluido(concluido);
-  }, [
-    tarefas,
-    searchQuery,
-    tarefas,
-    selectedFilterEstado,
-    selectedFilterPrioridade,
-  ]);
+  }, [tarefas, searchQuery, selectedFilterEstado, selectedFilterPrioridade]);
 
   // Código do ordenar por ID da ordem ASC:DESC
   const __handleSortID = () => {
