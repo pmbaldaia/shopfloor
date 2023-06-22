@@ -1565,7 +1565,7 @@
       "data_aquisicao": "05/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "problemas_manutencao": [],
+      "problemas_manutencao": ["Agulha partida"],
       "tipo": "Costura",
       "modelo": "PFAFF 1246",
       "estado": "Ocupada"
@@ -1578,7 +1578,7 @@
       "data_aquisicao": "05/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "problemas_manutencao": [],
+      "problemas_manutencao": ["Deixou de funcionar"],
       "tipo": "Acabamentos",
       "modelo": "PFAFF 1246",
       "estado": "Ocupada"
@@ -1591,7 +1591,7 @@
       "data_aquisicao": "05/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "problemas_manutencao": [],
+      "problemas_manutencao": ["Sem linha"],
       "tipo": "Costura",
       "modelo": "PFAFF 1246",
       "estado": "Ocupada"
@@ -1604,7 +1604,7 @@
       "data_aquisicao": "05/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "problemas_manutencao": [],
+      "problemas_manutencao": ["Agulha partida"],
       "tipo": "Costura",
       "modelo": "PFAFF 1246",
       "estado": "Ocupada"
@@ -1617,7 +1617,7 @@
       "data_aquisicao": "10/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "problemas_manutencao": [],
+      "problemas_manutencao": ["Deixou de funcionar"],
       "tipo": "Bordado",
       "modelo": "PFAFF 1246",
       "estado": "Ocupada"
@@ -1630,7 +1630,7 @@
       "data_aquisicao": "22/02/2016",
       "ultima_manutencao": "07/05/2022",
       "proxima_manutencao": "07/05/2023",
-      "problemas_manutencao": [],
+      "problemas_manutencao": ["Sem linha"],
       "tipo": "Costura",
       "modelo": "PFAFF 1246",
       "estado": "Ocupada"

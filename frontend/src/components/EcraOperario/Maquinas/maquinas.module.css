@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
 .contentOperario {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -34,6 +35,46 @@
   border: 1px solid #3a5a40;
   border-radius: 9px;
   width: auto;
+}
+
+.mainContentStyle {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+.cardStyle {
+  background-color: #ecf0ed;
+  margin-bottom: 0.5em;
+}
+
+.cardTextMaquinaID {
+  font-family: "Dosis";
+  font-weight: bold;
+  font-size: 20px;
+}
+.cardTextMaquinaID {
+  font-family: "Dosis";
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.cardTextMaquinaNome {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.cardTextMaquinaProblemas {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.cardTextMaquinaData {
+  font-family: "Dosis";
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .menuButton {
