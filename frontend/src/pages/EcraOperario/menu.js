@@ -18,7 +18,7 @@ import OperariosDefinicoes from "../../components/EcraOperario/Definicoes/defini
 import image from "../../assets/images/riopele-digital/logo-rd.png";
 
 function Content({ cardsData }) {
-  const colors = ["#3A5A4025", "#DAD7CD75"];
+  const colors = [/* "#3A5A4025", */ "#DAD7CD75"];
   const handleCardClick = (onClick) => {
     if (onClick) {
       onClick();

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import classes from "./tarefas.module.css";
-import HiUserOperario from "../hiUserOperario";
 import { Row, Col } from "react-bootstrap";
-import { User, HouseLine } from "@phosphor-icons/react";
+import { User, HouseLine, Warning } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
+import HiUserOperario from "../hiUserOperario";
 import image from "../../../assets/images/riopele-digital/logo-rd.png";
 import { getUsers } from "../../../axios/users";
 import { useSelector } from "react-redux";
@@ -11,11 +11,13 @@ import jwt_decode from "jwt-decode";
 
 function TarefasOperarios() {
   const user = useSelector((state) => state.user);
-  const [userTarefas, setuserTarefas] = useState([]);
+  const [userTarefas, setUserTarefas] = useState([]);
 
   useEffect(() => {
-    fetchUserTarefas();
-  }, [user.access_token]);
+    if (user && user.access_token) {
+      fetchUserTarefas();
+    }
+  }, [user]);
 
   function decodeToken(token) {
     try {
@@ -33,7 +35,7 @@ function TarefasOperarios() {
       console.log(decodedToken);
 
       if (decodedToken) {
-        const res = await getUsers(decodedToken.access_token);
+        const res = await getUsers(decodedToken); // Pass the decoded token instead of the access_token
         const users = res.data.users;
         const loggedInUser = users.find(
           (u) => u.accessToken === user.access_token
@@ -44,14 +46,14 @@ function TarefasOperarios() {
         if (loggedInUser) {
           const userTarefas = loggedInUser.user.tarefas_associadas;
           console.log(userTarefas);
-          setuserTarefas(userTarefas);
+          setUserTarefas(userTarefas);
         } else {
           console.log("Usuário não encontrado.");
-          setuserTarefas([]);
+          setUserTarefas([]);
         }
       } else {
         console.log("Token inválido ou expirado.");
-        setuserTarefas([]);
+        setUserTarefas([]);
       }
     } catch (error) {
       console.error("Erro ao buscar as tarefas:", error);
@@ -107,10 +109,18 @@ function TarefasOperarios() {
         </Col>
       </Row>
       <div style={mainContentStyle}>
-        <p>TESTE</p>
-        {userTarefas.map((tarefa) => (
-          <p key={tarefa.id}>{tarefa.nome}</p>
-        ))}
+        <p>VAI À MERDA</p>
+        {userTarefas.length > 0 ? (
+          userTarefas.map((tarefa) => (
+            <div key={tarefa.id}>
+              <p>{tarefa.nome}</p>
+              <p>{tarefa.descricao}</p>
+            </div>
+          ))
+        ) : (
+          <p>Nenhuma tarefa encontrada.</p>
+        )}
+        <Warning size={32} color="#F58283" weight="bold" />
       </div>
       <Row className={classes.footer}>
         <img
