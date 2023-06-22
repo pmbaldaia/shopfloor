@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
 .contentOperario {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -40,6 +41,24 @@
   display: flex;
   justify-content: center;
   padding: 1em;
+}
+
+.cardStyle {
+  background-color: #ecf0ed;
+  margin-bottom: 0.5em;
+}
+.cardTextOrdem {
+  font-family: "Dosis";
+  font-weight: bold;
+  font-size: 20px;
+}
+.cardTextTarefa {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 16px;
+}
+.cardTextQuantidade {
+  text-align: center;
 }
 
 .menuButton {

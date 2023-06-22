@@ -102,16 +102,19 @@ function TarefasOperarios() {
       </Row>
       <div className={classes.mainContentStyle}>
         {userTarefas.length > 0 || userOrdens.length > 0 ? (
-          <Col xs={12} md={6} lg={4}>
+          <Col>
             {userTarefas.map((tarefa, index) => (
               <Card key={index} className={classes.cardStyle}>
                 <Card.Body>
                   <Row>
-                    <Col xs={6}>
+                    <Col xs={4} className={classes.cardTextOrdem}>
                       <Card.Text>{userOrdens}</Card.Text>
                     </Col>
-                    <Col xs={6}>
+                    <Col xs={4} className={classes.cardTextTarefa}>
                       <Card.Text>{tarefa}</Card.Text>
+                    </Col>
+                    <Col xs={4} className={classes.cardTextQuantidade}>
+                      <Card.Text>1/20</Card.Text>
                     </Col>
                   </Row>
                 </Card.Body>
