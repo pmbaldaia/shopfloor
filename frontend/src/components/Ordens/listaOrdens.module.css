@@ -169,6 +169,7 @@ h1 {
   text-align: center;
   align-items: center;
   padding: 2em;
+  width: 100%;
 }
 
 .boxOrdensBorder {
@@ -216,4 +217,3 @@ h1 {
   font-weight: 500;
   font-family: "Montserrat";
 }
-

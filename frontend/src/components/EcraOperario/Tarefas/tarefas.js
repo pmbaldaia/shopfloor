@@ -109,7 +109,6 @@ function TarefasOperarios() {
         </Col>
       </Row>
       <div style={mainContentStyle}>
-        <p>VAI À MERDA</p>
         {userTarefas.length > 0 ? (
           userTarefas.map((tarefa) => (
             <div key={tarefa.id}>

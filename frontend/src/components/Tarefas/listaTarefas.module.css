@@ -148,15 +148,16 @@
   margin-left: 1em;
 }
 
-.containerOrdensBorder {
+.containerTarefasBorder {
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
   padding: 2em;
+  width: 100%;
 }
 
-.boxOrdensBorder {
+.boxTarefasBorder {
   border: 2px solid #a3b18a;
   border-radius: 9px;
   width: 8em;
@@ -164,25 +165,25 @@
   background-color: (221, 229, 223);
 }
 
-.boxOrdens2rd {
+.boxTarefas2rd {
   box-shadow: 2px 2px 15px 0px #dde5df;
   border: 2px solid #dde5df;
   background-color: rgb(221, 229, 223, 0.5);
 }
 
-.boxOrdens3rd {
+.boxTarefas3rd {
   box-shadow: 2px 2px 15px 0px rgba(95, 164, 217, 0.25);
   border: 2px solid #5fa4d9;
   background-color: rgba(95, 164, 217, 0.25);
 }
 
-.boxOrdens4th {
+.boxTarefas4th {
   box-shadow: 2px 2px 15px 0px rgba(112, 204, 122, 0.25);
   border: 2px solid #70cc7a;
   background-color: rgba(112, 204, 122, 0.25);
 }
 
-.boxOrdens5th {
+.boxTarefas5th {
   box-shadow: 2px 2px 15px 0px rgba(245, 130, 131, 0.25);
   border: 2px solid #f58283;
   background-color: rgba(245, 130, 131, 0.25);
@@ -192,7 +193,7 @@
   margin: auto auto;
 }
 
-.textoOrdensBox {
+.textoTarefasBox {
   display: flex;
   justify-content: center;
   align-items: center;
