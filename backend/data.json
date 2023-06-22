@@ -1724,6 +1724,7 @@
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
       "tipo": "gestor",
       "tarefas_associadas": [],
+      "ordens_atribuidas": ["51345"],
       "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
     },
     {
@@ -1734,9 +1735,9 @@
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
       "tipo": "operario",
       "tarefas_associadas": [
-        "Colar tela e fita de reforço (1frente)",
-        "Colar tela e fita de reforço (1trás)"
+        "Colar tela e fita de reforço (1frente)"
       ],
+      "ordens_atribuidas": [],
       "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
     },
     {
@@ -1746,7 +1747,8 @@
       "num_func": "1234",
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
       "tipo": "gestor",
-      "tarefas_associadas": [],
+      "tarefas_associadas": ["Colar tela e fita de reforço (1frente)"],
+      "ordens_atribuidas": ["51345"],
       "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
     },
     {
@@ -1757,6 +1759,7 @@
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
       "tipo": "operario",
       "tarefas_associadas": [],
+      "ordens_atribuidas": [],
       "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
     },
     {
@@ -1767,6 +1770,7 @@
       "pass_func": "$2a$12$fB.X3rsFc3jCp./9ePbsVOX3m8D.I/IwUrXe2iwmP8wJ42CihDIV6",
       "tipo": "operario",
       "tarefas_associadas": [],
+      "ordens_atribuidas": [],
       "observacoes": "Problemas com máquina de corte, não vê bem. Não pode fazer esforços"
     }
   ],

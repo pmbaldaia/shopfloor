@@ -3,14 +3,7 @@ import { Table, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AdicionarTarefa from "../Botoes/AdicionarTarefas";
 import classes from "./listaTarefas.module.css";
-import {
-  ArrowClockwise,
-  ReadCvLogo,
-  CaretUp,
-  CaretDown,
-  MagnifyingGlass,
-  Info,
-} from "@phosphor-icons/react";
+import { ArrowClockwise, ReadCvLogo, CaretUp, CaretDown, MagnifyingGlass, Info,} from "@phosphor-icons/react";
 import HeaderPage from "../Header/header";
 
 function TarefasList({ tarefas }) {
@@ -18,24 +11,15 @@ function TarefasList({ tarefas }) {
 
   function CorEstado({ tarefa }) {
     const estadoLowerCase = tarefa.estado.toLowerCase();
-    const backgroundColor =
-      estadoLowerCase === "em atraso"
-        ? "#F58283"
-        : estadoLowerCase === "concluído"
-        ? "#70CC7A"
-        : "#FFF";
+    const backgroundColor = estadoLowerCase === "em atraso" ? "#F58283" : estadoLowerCase === "concluído" ? "#70CC7A" : "#FFF";
 
-    const color =
-      estadoLowerCase === "em atraso"
-        ? "white"
-        : estadoLowerCase === "concluído"
-        ? "white"
-        : "black";
+    const color = estadoLowerCase === "em atraso" ? "white" : estadoLowerCase === "concluído" ? "white" : "black";
 
     return { backgroundColor, color };
   }
 
   const [sortTarefas, setSortTarefas] = useState([]);
+  const [tarefasAssociadas, setTarefasAssociadas] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilterEstado, setSelectedFilterEstado] = useState("");
   const [selectedFilterPrioridade, setSelectedFilterPrioridade] = useState("");
@@ -51,7 +35,7 @@ function TarefasList({ tarefas }) {
   const handleFilterPrioridadeChange = (event) => {
     setSelectedFilterPrioridade(event.target.value);
   };
-
+  
   useEffect(() => {
     setSortTarefas([...tarefas]);
   }, [tarefas]);
@@ -109,9 +93,7 @@ function TarefasList({ tarefas }) {
       a.ordem_venda.localeCompare(b.ordem_venda)
     );
     const orderedORDEM_VENDA =
-      nextORDEM_VENDA === "asc"
-        ? sortedORDEM_VENDA
-        : sortedORDEM_VENDA.reverse();
+      nextORDEM_VENDA === "asc" ? sortedORDEM_VENDA : sortedORDEM_VENDA.reverse();
     setSortTarefas(orderedORDEM_VENDA);
     setSortORDEM_VENDA(nextORDEM_VENDA);
   };
@@ -140,6 +122,16 @@ function TarefasList({ tarefas }) {
     setSortQUANTIDADE(nextQUANTIDADE);
   };
 
+  //Código para atribuir tarefas
+  function tarefaAtribuida({ user, tarefa }) {
+    const tarefaAtr = user.tarefas_associadas;
+    const ordemAtr = user.ordem_atribuidas;
+    const ordemAss = tarefa.ordem_associada;
+    if (ordemAss === ordemAtr) {
+      setTarefasAssociadas(tarefaAtr);
+    }
+  }
+
   function __refresh() {
     window.location.reload(false);
   }
@@ -149,47 +141,26 @@ function TarefasList({ tarefas }) {
       <HeaderPage showCaretLeft={false} showSearchBar={true} />
       <h1>Tarefas</h1>
       <AdicionarTarefa />
-      <ArrowClockwise
-        size={28}
-        weight="light"
-        onClick={__refresh}
-        cursor="pointer"
-        className={classes.iconRefresh}
-      />
+      <ArrowClockwise size={28} weight="light" onClick={__refresh} cursor="pointer" className={classes.iconRefresh}/>
       <Container fluid>
         <Row className={classes.containerTarefasBorder}>
-          <Col
-            lg={2}
-            className={`${classes.boxTarefasBorder} ${classes.colMargin} ${classes.boxTarefas2rd} ${classes.textoTarefasBox}`}
-          >
+          <Col lg={2} className={`${classes.boxTarefasBorder} ${classes.colMargin} ${classes.boxTarefas2rd} ${classes.textoTarefasBox}`}>
             <span>Total</span>
             <span>{totalTarefas}</span>
           </Col>
-          <Col
-            lg={2}
-            className={`${classes.boxTarefasBorder} ${classes.colMargin} ${classes.boxTarefas2rd} ${classes.textoTarefasBox}`}
-          >
+          <Col lg={2} className={`${classes.boxTarefasBorder} ${classes.colMargin} ${classes.boxTarefas2rd} ${classes.textoTarefasBox}`}>
             <span>Pendente</span>
             <span>{totalPendente}</span>
           </Col>
-          <Col
-            lg={2}
-            className={`${classes.boxTarefasBorder} ${classes.colMargin} ${classes.boxTarefas3rd} ${classes.textoTarefasBox}`}
-          >
+          <Col lg={2} className={`${classes.boxTarefasBorder} ${classes.colMargin} ${classes.boxTarefas3rd} ${classes.textoTarefasBox}`}>
             <span> Progresso</span>
             <span>{totalEmProgresso}</span>
           </Col>
-          <Col
-            lg={2}
-            className={`${classes.boxTarefasBorder} ${classes.colMargin} ${classes.boxTarefas4th} ${classes.textoTarefasBox}`}
-          >
+          <Col lg={2} className={`${classes.boxTarefasBorder} ${classes.colMargin} ${classes.boxTarefas4th} ${classes.textoTarefasBox}`}>
             <span>Concluído</span>
             <span>{totalConcluido}</span>
           </Col>
-          <Col
-            lg={2}
-            className={`${classes.boxTarefasBorder} ${classes.colMargin} ${classes.boxTarefas5th} ${classes.textoTarefasBox}`}
-          >
+          <Col lg={2} className={`${classes.boxTarefasBorder} ${classes.colMargin} ${classes.boxTarefas5th} ${classes.textoTarefasBox}`}>
             <span>Em atraso</span>
             <span>{totalEmAtraso}</span>
           </Col>
@@ -197,28 +168,12 @@ function TarefasList({ tarefas }) {
       </Container>
       <div className={classes.filterBarTarefas}>
         &nbsp;
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className={`${classes.filterBarTarefaItem} ${classes.searchBarTarefas}`}
-          placeholder="Procurar"
-        />
+        <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className={`${classes.filterBarTarefaItem} ${classes.searchBarTarefas}`} placeholder="Procurar"/>
         <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
           <MagnifyingGlass size={24} color="#2e5a53" />
         </button>
-        <select
-          id="filterEstado"
-          className={`${classes.filterBarTarefasItem} ${classes.filterEstado}`}
-          value={selectedFilterEstado}
-          onChange={handleFilterEstadoChange}
-        >
-          <option
-            value=""
-            disabled
-            hidden
-            style={{ color: "rgba(255, 0, 0, 0.5)" }}
-          >
+        <select id="filterEstado" className={`${classes.filterBarTarefasItem} ${classes.filterEstado}`} value={selectedFilterEstado} onChange={handleFilterEstadoChange}>
+          <option value="" disabled hidden style={{ color: "rgba(255, 0, 0, 0.5)" }}>
             Estado
           </option>
           <option value="">Todas</option>
@@ -227,18 +182,8 @@ function TarefasList({ tarefas }) {
           <option value="Concluído">Concluído</option>
           <option value="Em Progresso">Em progresso</option>
         </select>
-        <select
-          id="filterEstado"
-          className={`${classes.filterBarTarefasItem} ${classes.filterPrioridade}`}
-          value={selectedFilterPrioridade}
-          onChange={handleFilterPrioridadeChange}
-        >
-          <option
-            value=""
-            disabled
-            hidden
-            style={{ color: "rgba(255, 0, 0, 0.5)" }}
-          >
+        <select id="filterEstado" className={`${classes.filterBarTarefasItem} ${classes.filterPrioridade}`} value={selectedFilterPrioridade} onChange={handleFilterPrioridadeChange}>
+          <option value="" disabled hidden style={{ color: "rgba(255, 0, 0, 0.5)" }}>
             Prioridade
           </option>
           <option value="">Todas</option>
@@ -248,143 +193,66 @@ function TarefasList({ tarefas }) {
         </select>
       </div>
 
-      <Table
-        bordered
-        className={`${classes["table-bordered"]} ${classes.tableSpacing}`}
-        style={{ color: "#120309" }}
-      >
+      <Table bordered className={`${classes["table-bordered"]} ${classes.tableSpacing}`} style={{ color: "#120309" }}>
         <thead>
           <tr>
             <th key="id">
               <div onClick={__handleSortID} style={{ position: "relative" }}>
                 <span> ORDEM ID</span>
                 {sortTask === "asc" ? (
-                  <CaretUp
-                    size={16}
-                    weight=""
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretUp size={16} weight="" style={{ position: "absolute" }}/>
                 ) : (
-                  <CaretUp
-                    size={16}
-                    weight="fill"
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretUp size={16} weight="fill" style={{ position: "absolute" }}/>
                 )}
                 {sortTask === "desc" ? (
-                  <CaretDown
-                    size={16}
-                    weight=""
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretDown size={16} weight="" style={{ position: "absolute" }}/>
                 ) : (
-                  <CaretDown
-                    size={16}
-                    weight="fill"
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretDown size={16} weight="fill" style={{ position: "absolute" }}/>
                 )}
               </div>
             </th>
             <th key="ordem_venda">
-              <div
-                onClick={__handleSortORDEM_VENDA}
-                style={{ position: "relative" }}
-              >
+              <div onClick={__handleSortORDEM_VENDA} style={{ position: "relative" }}>
                 <span>ORDEM DE VENDA</span>
                 {sortORDEM_VENDA === "desc" ? (
-                  <CaretUp
-                    size={16}
-                    weight=""
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretUp size={16} weight="" style={{ position: "absolute" }}/>
                 ) : (
-                  <CaretUp
-                    size={16}
-                    weight="fill"
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretUp size={16} weight="fill" style={{ position: "absolute" }}/>
                 )}
                 {sortORDEM_VENDA === "asc" ? (
-                  <CaretDown
-                    size={16}
-                    weight=""
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretDown size={16} weight="" style={{ position: "absolute" }}/>
                 ) : (
-                  <CaretDown
-                    size={16}
-                    weight="fill"
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretDown size={16} weight="fill" style={{ position: "absolute" }}/>
                 )}
               </div>
             </th>
             <th key="produto">
-              <div
-                onClick={__handleSortPRODUTO}
-                style={{ position: "relative" }}
-              >
+              <div onClick={__handleSortPRODUTO} style={{ position: "relative" }}>
                 <span>PRODUTO</span>
                 {sortPRODUTO === "desc" ? (
-                  <CaretUp
-                    size={16}
-                    weight=""
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretUp size={16} weight="" style={{ position: "absolute" }}/>
                 ) : (
-                  <CaretUp
-                    size={16}
-                    weight="fill"
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretUp size={16} weight="fill" style={{ position: "absolute" }}/>
                 )}
                 {sortPRODUTO === "asc" ? (
-                  <CaretDown
-                    size={16}
-                    weight=""
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretDown size={16} weight="" style={{ position: "absolute" }} />
                 ) : (
-                  <CaretDown
-                    size={16}
-                    weight="fill"
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretDown size={16} weight="fill" style={{ position: "absolute" }}/>
                 )}
               </div>
             </th>
             <th key="quantidade">
-              <div
-                onClick={__handleSortQUANTIDADE}
-                style={{ position: "relative" }}
-              >
+              <div onClick={__handleSortQUANTIDADE} style={{ position: "relative" }}>
                 <span>QUANTIDADE</span>
                 {sortQUANTIDADE === "desc" ? (
-                  <CaretUp
-                    size={16}
-                    weight=""
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretUp size={16} weight="" style={{ position: "absolute" }}/>
                 ) : (
-                  <CaretUp
-                    size={16}
-                    weight="fill"
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretUp size={16} weight="fill" style={{ position: "absolute" }}/>
                 )}
                 {sortQUANTIDADE === "asc" ? (
-                  <CaretDown
-                    size={16}
-                    weight=""
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretDown size={16} weight="" style={{ position: "absolute" }}/>
                 ) : (
-                  <CaretDown
-                    size={16}
-                    weight="fill"
-                    style={{ position: "absolute" }}
-                  />
+                  <CaretDown size={16} weight="fill" style={{ position: "absolute" }}/>
                 )}
               </div>
             </th>
@@ -409,23 +277,18 @@ function TarefasList({ tarefas }) {
               <td>{tarefa.quantidade}</td>
               <td>
                 <span>
-                  {tarefa.subtarefas[0].tarefa}
+                  {tarefasAssociadas}
                   <Info size={20} className="mx-1" />
                 </span>
               </td>
               <td>
-                {tarefa.operario_associado
-                  ? tarefa.operario_associado.join(", ")
-                  : ""}
+                {tarefa.operario_associado ? tarefa.operario_associado.join(", ") : ""}
               </td>
               <td>{tarefa.prioridade}</td>
               <td>{tarefa.estado}</td>
               <td key="acoes">
                 <span>
-                  <Link
-                    style={CorEstado({ tarefa })}
-                    to={`/tarefas/${tarefa.id}`}
-                  >
+                  <Link style={CorEstado({ tarefa })} to={`/tarefas/${tarefa.id}`}>
                     <ReadCvLogo size={25} weight="light" alt="CONSULTAR" />
                   </Link>
                 </span>
