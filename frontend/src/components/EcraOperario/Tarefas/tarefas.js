@@ -35,7 +35,7 @@ function TarefasOperarios() {
       console.log(decodedToken);
 
       if (decodedToken) {
-        const res = await getUsers(decodedToken); // Pass the decoded token instead of the access_token
+        const res = await getUsers(decodedToken);
         const users = res.data.users;
         const loggedInUser = users.find(
           (u) => u.accessToken === user.access_token
