@@ -3,7 +3,7 @@ import classes from "./maquinas.module.css";
 import HiUserOperario from "../hiUserOperario";
 import { getMaquinas } from "../../../axios/maquinas";
 import { useSelector } from "react-redux";
-import { Row, Col, Card} from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import { User, HouseLine, Warning } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import image from "../../../assets/images/riopele-digital/logo-rd.png";
@@ -81,10 +81,14 @@ function TarefasOperarios() {
                 <Card.Body>
                   <Row>
                     <Col xs={6} className={classes.cardTextMaquinaNome}>
+                      <Card.Img
+                        src={maquina.imagem}
+                        className={classes.cardImages}
+                      />
                       <Card.Text>{maquina.nome}</Card.Text>
                     </Col>
                     <Col xs={6}>
-                      <AdicionarProblema/>
+                      <AdicionarProblema />
                     </Col>
                   </Row>
                 </Card.Body>
