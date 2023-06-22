@@ -1,66 +1,55 @@
 import React, { useState, useEffect } from "react";
 import classes from "./tarefas.module.css";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import { User, HouseLine, Warning } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import HiUserOperario from "../hiUserOperario";
 import image from "../../../assets/images/riopele-digital/logo-rd.png";
-import { getUsers } from "../../../axios/users";
 import { useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
+
+function decodeToken(token) {
+  try {
+    const decodedToken = jwt_decode(token);
+    return decodedToken;
+  } catch (error) {
+    console.log("Erro ao decodificar o token:", error);
+    return null;
+  }
+}
 
 function TarefasOperarios() {
   const user = useSelector((state) => state.user);
   const [userTarefas, setUserTarefas] = useState([]);
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   useEffect(() => {
-    if (user && user.access_token) {
-      fetchUserTarefas();
-    }
-  }, [user]);
+    const fetchUserTarefas = async () => {
+      if (user && user.access_token) {
+        try {
+          const decodedToken = decodeToken(user.access_token);
+          console.log(decodedToken);
 
-  function decodeToken(token) {
-    try {
-      const decodedToken = jwt_decode(token);
-      return decodedToken;
-    } catch (error) {
-      console.log("Erro ao decodificar o token:", error);
-      return null;
-    }
-  }
+          const loggedInUser = decodedToken.user;
+          console.log(loggedInUser);
 
-  async function fetchUserTarefas() {
-    try {
-      const decodedToken = decodeToken(user.access_token);
-      console.log(decodedToken);
-
-      if (decodedToken) {
-        const res = await getUsers(decodedToken); // Pass the decoded token instead of the access_token
-        const users = res.data.users;
-        const loggedInUser = users.find(
-          (u) => u.accessToken === user.access_token
-        );
-
-        console.log(loggedInUser);
-
-        if (loggedInUser) {
-          const userTarefas = loggedInUser.user.tarefas_associadas;
-          console.log(userTarefas);
-          setUserTarefas(userTarefas);
-        } else {
-          console.log("Usuário não encontrado.");
+          if (loggedInUser && loggedInUser.tarefas_associadas) {
+            setUserTarefas(loggedInUser.tarefas_associadas);
+            console.log(loggedInUser.tarefas_associadas);
+          } else {
+            setUserTarefas([]);
+          }
+        } catch (error) {
+          console.log("Erro ao buscar informações do utilizador:", error);
           setUserTarefas([]);
         }
       } else {
-        console.log("Token inválido ou expirado.");
         setUserTarefas([]);
       }
-    } catch (error) {
-      console.error("Erro ao buscar as tarefas:", error);
-    }
-  }
+    };
 
-  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+    fetchUserTarefas();
+  }, [user]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -87,9 +76,6 @@ function TarefasOperarios() {
     optionsTime
   );
   const today = new Date();
-  const mainContentStyle = {
-    padding: "1em",
-  };
 
   return (
     <div className={classes.contentOperario}>
@@ -108,18 +94,28 @@ function TarefasOperarios() {
           </Link>
         </Col>
       </Row>
-      <div style={mainContentStyle}>
+      <div className={classes.mainContentStyle}>
         {userTarefas.length > 0 ? (
-          userTarefas.map((tarefa) => (
-            <div key={tarefa.id}>
-              <p>{tarefa.nome}</p>
-              <p>{tarefa.descricao}</p>
-            </div>
-          ))
+          <Col xs={12} md={6} lg={4}>
+            {userTarefas.map((tarefa, index) => (
+              <Card key={index} className={classes.cardStyle}>
+                <Card.Body>
+                  <Card.Text>{tarefa}</Card.Text>
+                </Card.Body>
+              </Card>
+            ))}
+          </Col>
         ) : (
-          <p>Nenhuma tarefa encontrada.</p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Warning
+              size={25}
+              color="#F58283"
+              weight="bold"
+              style={{ paddingRight: "5px" }}
+            />
+            <label>Nenhuma tarefa encontrada</label>
+          </div>
         )}
-        <Warning size={32} color="#F58283" weight="bold" />
       </div>
       <Row className={classes.footer}>
         <img
