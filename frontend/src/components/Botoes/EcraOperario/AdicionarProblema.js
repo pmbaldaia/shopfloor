@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
@@ -19,9 +19,7 @@ const AdicionarMaquina = () => {
   return (
     <>
       <Link>
-        <Button style={ButtonStyle}>
-          Adicionar Problema
-        </Button>
+        <Button style={ButtonStyle}>Adicionar Problema</Button>
       </Link>
     </>
   );
