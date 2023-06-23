@@ -116,8 +116,9 @@ function UserItem({ User, access_token }) {
               >
                 <div className="row">
                   <div className="col-4">Tarefas</div>
-                </div>
-                <div className="col-4">
+                </div>{" "}
+                <span>Não tem tarefas atribuídas.</span>
+                {/*  <div className="col-4">
                   {User.tarefas.length > 0 ? (
                     <ul>
                       {User.tarefas.map((tarefa, index) => (
@@ -125,9 +126,9 @@ function UserItem({ User, access_token }) {
                       ))}
                     </ul>
                   ) : (
-                    <span>Não há tarefas disponíveis.</span>
+                    <span>Não tem tarefas atribuídas.</span>
                   )}
-                </div>
+                </div> */}
               </div>
             </Card.Body>
           </Card>
